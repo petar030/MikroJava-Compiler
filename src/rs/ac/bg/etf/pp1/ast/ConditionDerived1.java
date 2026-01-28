@@ -1,23 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 18:34:1
+// 28/0/2026 19:50:52
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class TernaryOperatorDerived1 extends TernaryOperator {
+public class ConditionDerived1 extends Condition {
 
     private Condition Condition;
-    private Expr Expr;
-    private Expr Expr1;
+    private CondTerm CondTerm;
 
-    public TernaryOperatorDerived1 (Condition Condition, Expr Expr, Expr Expr1) {
+    public ConditionDerived1 (Condition Condition, CondTerm CondTerm) {
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
-        this.Expr1=Expr1;
-        if(Expr1!=null) Expr1.setParent(this);
+        this.CondTerm=CondTerm;
+        if(CondTerm!=null) CondTerm.setParent(this);
     }
 
     public Condition getCondition() {
@@ -28,20 +25,12 @@ public class TernaryOperatorDerived1 extends TernaryOperator {
         this.Condition=Condition;
     }
 
-    public Expr getExpr() {
-        return Expr;
+    public CondTerm getCondTerm() {
+        return CondTerm;
     }
 
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
-    }
-
-    public Expr getExpr1() {
-        return Expr1;
-    }
-
-    public void setExpr1(Expr Expr1) {
-        this.Expr1=Expr1;
+    public void setCondTerm(CondTerm CondTerm) {
+        this.CondTerm=CondTerm;
     }
 
     public void accept(Visitor visitor) {
@@ -50,28 +39,25 @@ public class TernaryOperatorDerived1 extends TernaryOperator {
 
     public void childrenAccept(Visitor visitor) {
         if(Condition!=null) Condition.accept(visitor);
-        if(Expr!=null) Expr.accept(visitor);
-        if(Expr1!=null) Expr1.accept(visitor);
+        if(CondTerm!=null) CondTerm.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Condition!=null) Condition.traverseTopDown(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
-        if(Expr1!=null) Expr1.traverseTopDown(visitor);
+        if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Condition!=null) Condition.traverseBottomUp(visitor);
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
-        if(Expr1!=null) Expr1.traverseBottomUp(visitor);
+        if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("TernaryOperatorDerived1(\n");
+        buffer.append("ConditionDerived1(\n");
 
         if(Condition!=null)
             buffer.append(Condition.toString("  "+tab));
@@ -79,20 +65,14 @@ public class TernaryOperatorDerived1 extends TernaryOperator {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(Expr1!=null)
-            buffer.append(Expr1.toString("  "+tab));
+        if(CondTerm!=null)
+            buffer.append(CondTerm.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [TernaryOperatorDerived1]");
+        buffer.append(") [ConditionDerived1]");
         return buffer.toString();
     }
 }

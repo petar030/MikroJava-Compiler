@@ -1,20 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 18:34:1
+// 28/0/2026 19:50:52
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class ExprNeg extends Expr {
+public class ExprRestDerived1 extends ExprRest {
 
+    private Addop Addop;
     private Term Term;
     private ExprRest ExprRest;
 
-    public ExprNeg (Term Term, ExprRest ExprRest) {
+    public ExprRestDerived1 (Addop Addop, Term Term, ExprRest ExprRest) {
+        this.Addop=Addop;
+        if(Addop!=null) Addop.setParent(this);
         this.Term=Term;
         if(Term!=null) Term.setParent(this);
         this.ExprRest=ExprRest;
         if(ExprRest!=null) ExprRest.setParent(this);
+    }
+
+    public Addop getAddop() {
+        return Addop;
+    }
+
+    public void setAddop(Addop Addop) {
+        this.Addop=Addop;
     }
 
     public Term getTerm() {
@@ -38,17 +49,20 @@ public class ExprNeg extends Expr {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Addop!=null) Addop.accept(visitor);
         if(Term!=null) Term.accept(visitor);
         if(ExprRest!=null) ExprRest.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Addop!=null) Addop.traverseTopDown(visitor);
         if(Term!=null) Term.traverseTopDown(visitor);
         if(ExprRest!=null) ExprRest.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Addop!=null) Addop.traverseBottomUp(visitor);
         if(Term!=null) Term.traverseBottomUp(visitor);
         if(ExprRest!=null) ExprRest.traverseBottomUp(visitor);
         accept(visitor);
@@ -57,7 +71,13 @@ public class ExprNeg extends Expr {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ExprNeg(\n");
+        buffer.append("ExprRestDerived1(\n");
+
+        if(Addop!=null)
+            buffer.append(Addop.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(Term!=null)
             buffer.append(Term.toString("  "+tab));
@@ -72,7 +92,7 @@ public class ExprNeg extends Expr {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [ExprNeg]");
+        buffer.append(") [ExprRestDerived1]");
         return buffer.toString();
     }
 }

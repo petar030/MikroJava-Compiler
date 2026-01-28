@@ -1,20 +1,17 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 18:34:1
+// 28/0/2026 19:50:52
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class CondTermRestAnd extends CondTermRest {
+public class CondTermDerived2 extends CondTerm {
 
     private CondFact CondFact;
-    private CondTermRest CondTermRest;
 
-    public CondTermRestAnd (CondFact CondFact, CondTermRest CondTermRest) {
+    public CondTermDerived2 (CondFact CondFact) {
         this.CondFact=CondFact;
         if(CondFact!=null) CondFact.setParent(this);
-        this.CondTermRest=CondTermRest;
-        if(CondTermRest!=null) CondTermRest.setParent(this);
     }
 
     public CondFact getCondFact() {
@@ -25,39 +22,28 @@ public class CondTermRestAnd extends CondTermRest {
         this.CondFact=CondFact;
     }
 
-    public CondTermRest getCondTermRest() {
-        return CondTermRest;
-    }
-
-    public void setCondTermRest(CondTermRest CondTermRest) {
-        this.CondTermRest=CondTermRest;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(CondFact!=null) CondFact.accept(visitor);
-        if(CondTermRest!=null) CondTermRest.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(CondFact!=null) CondFact.traverseTopDown(visitor);
-        if(CondTermRest!=null) CondTermRest.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(CondFact!=null) CondFact.traverseBottomUp(visitor);
-        if(CondTermRest!=null) CondTermRest.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("CondTermRestAnd(\n");
+        buffer.append("CondTermDerived2(\n");
 
         if(CondFact!=null)
             buffer.append(CondFact.toString("  "+tab));
@@ -65,14 +51,8 @@ public class CondTermRestAnd extends CondTermRest {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(CondTermRest!=null)
-            buffer.append(CondTermRest.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
         buffer.append(tab);
-        buffer.append(") [CondTermRestAnd]");
+        buffer.append(") [CondTermDerived2]");
         return buffer.toString();
     }
 }

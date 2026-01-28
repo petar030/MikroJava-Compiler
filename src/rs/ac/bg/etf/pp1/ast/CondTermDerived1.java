@@ -1,20 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 18:34:1
+// 28/0/2026 19:50:52
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class CondRestOr extends ConditionRest {
+public class CondTermDerived1 extends CondTerm {
 
     private CondTerm CondTerm;
-    private ConditionRest ConditionRest;
+    private CondFact CondFact;
 
-    public CondRestOr (CondTerm CondTerm, ConditionRest ConditionRest) {
+    public CondTermDerived1 (CondTerm CondTerm, CondFact CondFact) {
         this.CondTerm=CondTerm;
         if(CondTerm!=null) CondTerm.setParent(this);
-        this.ConditionRest=ConditionRest;
-        if(ConditionRest!=null) ConditionRest.setParent(this);
+        this.CondFact=CondFact;
+        if(CondFact!=null) CondFact.setParent(this);
     }
 
     public CondTerm getCondTerm() {
@@ -25,12 +25,12 @@ public class CondRestOr extends ConditionRest {
         this.CondTerm=CondTerm;
     }
 
-    public ConditionRest getConditionRest() {
-        return ConditionRest;
+    public CondFact getCondFact() {
+        return CondFact;
     }
 
-    public void setConditionRest(ConditionRest ConditionRest) {
-        this.ConditionRest=ConditionRest;
+    public void setCondFact(CondFact CondFact) {
+        this.CondFact=CondFact;
     }
 
     public void accept(Visitor visitor) {
@@ -39,25 +39,25 @@ public class CondRestOr extends ConditionRest {
 
     public void childrenAccept(Visitor visitor) {
         if(CondTerm!=null) CondTerm.accept(visitor);
-        if(ConditionRest!=null) ConditionRest.accept(visitor);
+        if(CondFact!=null) CondFact.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
-        if(ConditionRest!=null) ConditionRest.traverseTopDown(visitor);
+        if(CondFact!=null) CondFact.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
-        if(ConditionRest!=null) ConditionRest.traverseBottomUp(visitor);
+        if(CondFact!=null) CondFact.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("CondRestOr(\n");
+        buffer.append("CondTermDerived1(\n");
 
         if(CondTerm!=null)
             buffer.append(CondTerm.toString("  "+tab));
@@ -65,14 +65,14 @@ public class CondRestOr extends ConditionRest {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ConditionRest!=null)
-            buffer.append(ConditionRest.toString("  "+tab));
+        if(CondFact!=null)
+            buffer.append(CondFact.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [CondRestOr]");
+        buffer.append(") [CondTermDerived1]");
         return buffer.toString();
     }
 }

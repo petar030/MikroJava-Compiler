@@ -2,61 +2,48 @@ package rs.ac.bg.etf.pp1;
 
 import java_cup.runtime.*;
 import org.apache.log4j.*;
-
-// import java.io.*;
 import rs.ac.bg.etf.pp1.ast.*;
 
-
 parser code {:
-	
-	boolean errorDetected;
-	
-	Logger log = Logger.getLogger(getClass());
-   
-   
-    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
-     
+    boolean errorDetected;
+    Logger log = Logger.getLogger(getClass());
+
     public void report_fatal_error(String message, Object info) throws java.lang.Exception {
       done_parsing();
       report_error(message, info);
     }
-  
     public void syntax_error(Symbol cur_token) {
-        report_error("\nSintaksna greska", cur_token);
+        report_error("
+Sintaksna greska", cur_token);
     }
-  
     public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
         report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
     }
-
     public void report_error(String message, Object info) {
-    	errorDetected = true;
-    	StringBuilder msg = new StringBuilder(message); 
-    	if (info instanceof Symbol)
+        errorDetected = true;
+        StringBuilder msg = new StringBuilder(message);
+        if (info instanceof Symbol)
             msg.append (" na liniji ").append(((Symbol)info).left);
         log.error(msg.toString());
     }
-    
     public void report_info(String message, Object info) {
-    	StringBuilder msg = new StringBuilder(message); 
-    	if (info instanceof Symbol)
+        StringBuilder msg = new StringBuilder(message);
+        if (info instanceof Symbol)
             msg.append (" na liniji ").append(((Symbol)info).left);
         log.info(msg.toString());
     }
-    
 :}
 
 init with {:
-	errorDetected = false;
+    errorDetected = false;
 :}
 
 scan with {:
-	Symbol s = this.getScanner().next_token();
-	if (s != null && s.value != null) 
-		log.info(s.toString() + " " + s.value.toString());
-	return s;
+    Symbol s = this.getScanner().next_token();
+    if (s != null && s.value != null)
+        log.info(s.toString() + " " + s.value.toString());
+    return s;
 :}
-
 
 terminal PROG, BREAK, ENUM, ELSE, CONST, IF, NEW, PRINT, READ, RETURN, VOID;
 terminal CONTINUE, FOR, LENGTH, SWITCH, CASE;
@@ -80,73 +67,77 @@ nonterminal Assignop, Relop, Addop, Mulop;
 nonterminal ElseOpt, ExprOpt, ConditionOpt, DesignatorStmtOpt, PrintOpt;
 nonterminal CaseList, Case;
 nonterminal ConstRest, ConstValue, ArrayOpt, VarRest, EnumRest, EnumAssignOpt;
-nonterminal TernaryOperator;
+nonterminal TernaryOperator, SimpleExpr, RelExpr;
 
-
-
+precedence left ELSE;
 
 Program ::= (Program) PROG IDENT DeclList LBRACE MethodDeclList RBRACE ;
 
 DeclList ::= (DeclListConst) DeclList ConstDecl
            | (DeclListVar) DeclList VarDecl
            | (DeclListEnum) DeclList EnumDecl
-           | (DeclList_e) /* epsilon */
+           | (DeclList_e)
            ;
-           
+
+MethodDeclList ::= (MethodDeclListRec) MethodDeclList MethodDecl
+                 | (MethodDeclList_e)
+                 ;
+
+MethodDecl ::= (MethodDeclType) Type IDENT LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE
+             | (MethodDeclVoid) VOID IDENT LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE
+             ;
+
+VarDeclList ::= (VarDeclListRec) VarDeclList VarDecl
+              | (VarDeclList_e)
+              ;
+
+FormParsOpt ::= (FormParsOptYes) FormPars
+              | (FormParsOptNo)
+              ;
+
+FormPars ::= (FormPars) Type IDENT ArrayOpt FormParsRest ;
+
+FormParsRest ::= (FormParsRestComma) COMMA Type IDENT ArrayOpt FormParsRest
+               | (FormParsRest_e)
+               ;
+
 ConstDecl ::= (ConstDecl) CONST Type IDENT EQUAL ConstValue ConstRest SEMI ;
 
 ConstRest ::= (ConstRestComma) COMMA IDENT EQUAL ConstValue ConstRest
-            | (ConstRest_e) /* epsilon */
+            | (ConstRest_e)
             ;
 
 ConstValue ::= (ConstNum) NUMBER
              | (ConstChar) CHARACTER
              | (ConstBool) BOOL
              ;
-             
+
 VarDecl ::= (VarDecl) Type IDENT ArrayOpt VarRest SEMI ;
 
 VarRest ::= (VarRestComma) COMMA IDENT ArrayOpt VarRest
-          | (VarRest_e) /* epsilon */
+          | (VarRest_e)
           ;
-          
+
+ArrayOpt ::= (ArrayYes) LBRACK RBRACK
+           | (ArrayNo)
+           ;
+
 EnumDecl ::= (EnumDecl) ENUM IDENT LBRACE IDENT EnumAssignOpt EnumRest RBRACE ;
 
 EnumRest ::= (EnumRestComma) COMMA IDENT EnumAssignOpt EnumRest
-           | (EnumRest_e) /* epsilon */
+           | (EnumRest_e)
            ;
+
 EnumAssignOpt ::= (EnumAssign_yes) EQUAL NUMBER
-		   		|(EnumAssign_no) /*epsilon*/
-		   		 ;
-          
-MethodDeclList ::= (MethodDeclListRec) MethodDeclList MethodDecl
-                 | (MethodDeclList_e) /* epsilon */
-                 ;
-MethodDecl ::= (MethodDeclType) Type IDENT LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE
-             | (MethodDeclVoid) VOID IDENT LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE
-             ;          
-VarDeclList ::= (VarDeclListRec) VarDeclList VarDecl
-              | (VarDeclList_e) /* epsilon */
-              ;
-              
+                | (EnumAssign_no)
+                ;
+
+Type ::= (Type) IDENT ;
+
 StatementList ::= (StatementListRec) StatementList Statement
-				| (StatementList_e) /*epsilon*/
-				;
+                | (StatementList_e)
+                ;
 
-FormParsOpt ::= (FormParsOptYes) FormPars
-              | (FormParsOptNo) /* epsilon */
-              ;
-
-FormPars ::= (FormPars) Type IDENT ArrayOpt FormParsRest ;
-
-FormParsRest ::= (FormParsRestComma) COMMA Type IDENT ArrayOpt FormParsRest
-               | (FormParsRest_e) /* epsilon */
-               ;
-ArrayOpt ::= (ArrayYes) LBRACK RBRACK
-           | (ArrayNo) /* epsilon */
-           ;
-Type ::= (Type) IDENT;
-           
 
 Statement ::= (StmtDesignator) DesignatorStatement SEMI
             | (StmtIf) IF LPAREN Condition RPAREN Statement ElseOpt
@@ -165,52 +156,80 @@ DesignatorStatement ::= (DstAssign) Designator Assignop Expr
                       | (DstInc) Designator INC
                       | (DstDec) Designator DEC
                       ;
+
+ElseOpt ::= (ElseYes) ELSE Statement
+          | (ElseNo) /* epsilon */
+          ;
+
+ExprOpt ::= (ExprOptYes) Expr
+          | (ExprOptNo)
+          ;
+
+ConditionOpt ::= (CondOptYes) Condition
+               | (CondOptNo)
+               ;
+
+DesignatorStmtOpt ::= (DstOptYes) DesignatorStatement
+                    | (DstOptNo)
+                    ;
+
+PrintOpt ::= (PrintOptYes) COMMA NUMBER
+           | (PrintOptNo)
+           ;
+
+CaseList ::= (CaseListRec) CaseList Case
+           | (CaseList_e)
+           ;
+
+Case ::= (Case) CASE NUMBER COLON StatementList ;
+
 ActParsOpt ::= (ActParsOptYes) ActPars
-             | (ActParsOptNo) /* epsilon */
+             | (ActParsOptNo)
              ;
 
 ActPars ::= (ActPars) Expr ActParsRest ;
 
 ActParsRest ::= (ActParsRestComma) COMMA Expr ActParsRest
-              | (ActParsRest_e) /* epsilon */
+              | (ActParsRest_e)
               ;
-              
-              
 
-Condition ::= (Condition) CondTerm ConditionRest ;
 
-ConditionRest ::= (CondRestOr) OR CondTerm ConditionRest
-                | (CondRest_e) /* epsilon */
-                ;
 
-CondTerm ::= (CondTerm) CondFact CondTermRest ;
+Condition ::= Condition OR CondTerm
+            | CondTerm
+            ;
 
-CondTermRest ::= (CondTermRestAnd) AND CondFact CondTermRest
-               | (CondTermRest_e) /* epsilon */
-               ;
-
-CondFact ::= (CondFactRel) Expr Relop Expr
-           | (CondFactExpr) Expr
+CondTerm ::= CondTerm AND CondFact
+           | CondFact
            ;
 
-Expr ::= (ExprNeg) MINUS Term ExprRest
-       | (ExprPos) Term ExprRest
-       | (ExprTer) TernaryOperator
+
+
+CondFact ::= RelExpr ;
+
+RelExpr ::= SimpleExpr Relop SimpleExpr
+          | SimpleExpr
+          ;
+
+SimpleExpr ::= MINUS Term ExprRest
+             | Term  ExprRest
+             ;
+
+ExprRest ::= Addop Term ExprRest
+           | /* epsilon */
+           ;
+
+Expr ::= MINUS Term ExprRest
+       | Term  ExprRest
+       | Condition QMARK Expr COLON Expr
        ;
-       
-TernaryOperator ::= Condition QMARK Expr COLON Expr
-				| Condition		
-				;	
-	
 
-ExprRest ::= (ExprRestAdd) Addop Term ExprRest
-           | (ExprRest_e) /* epsilon */
-           ;
-           
+
+
 Term ::= (Term) Factor TermRest ;
 
 TermRest ::= (TermRestMul) Mulop Factor TermRest
-           | (TermRest_e) /* epsilon */
+           | (TermRest_e)
            ;
 
 Factor ::= (FactorDesignator) Designator FactorCallOpt
@@ -222,7 +241,7 @@ Factor ::= (FactorDesignator) Designator FactorCallOpt
          ;
 
 FactorCallOpt ::= (FactorCallYes) LPAREN ActParsOpt RPAREN
-                | (FactorCallNo) /* epsilon */
+                | (FactorCallNo)
                 ;
 
 Designator ::= (Designator) IDENT DesignatorRest ;
@@ -230,12 +249,25 @@ Designator ::= (Designator) IDENT DesignatorRest ;
 DesignatorRest ::= (DesDotIdent) DOT IDENT DesignatorRest
                  | (DesDotLength) DOT LENGTH DesignatorRest
                  | (DesArr) LBRACK Expr RBRACK DesignatorRest
-                 | (DesRest_e) /* epsilon */
+                 | (DesRest_e)
                  ;
 
-
-
 Assignop ::= (Assignop) EQUAL ;
-Relop ::= (RelEQ) EQEQ | (RelNE) NE | (RelGT) GT | (RelGE) GE | (RelLT) LT | (RelLE) LE ;
-Addop ::= (AddPlus) PLUS | (AddMinus) MINUS ;
-Mulop ::= (MulMul) MUL | (MulDiv) DIV | (MulMod) MOD ;
+
+Relop ::= (RelEQ) EQEQ
+        | (RelNE) NE
+        | (RelGT) GT
+        | (RelGE) GE
+        | (RelLT) LT
+        | (RelLE) LE
+        ;
+
+Addop ::= (AddPlus) PLUS
+        | (AddMinus) MINUS
+        ;
+
+Mulop ::= (MulMul) MUL
+        | (MulDiv) DIV
+        | (MulMod) MOD
+        ;
+

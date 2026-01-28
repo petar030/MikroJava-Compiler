@@ -1,15 +1,15 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 18:34:1
+// 28/0/2026 19:50:52
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class TernaryOperatorDerived2 extends TernaryOperator {
+public class CondOptYes extends ConditionOpt {
 
     private Condition Condition;
 
-    public TernaryOperatorDerived2 (Condition Condition) {
+    public CondOptYes (Condition Condition) {
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
     }
@@ -43,7 +43,7 @@ public class TernaryOperatorDerived2 extends TernaryOperator {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("TernaryOperatorDerived2(\n");
+        buffer.append("CondOptYes(\n");
 
         if(Condition!=null)
             buffer.append(Condition.toString("  "+tab));
@@ -52,7 +52,7 @@ public class TernaryOperatorDerived2 extends TernaryOperator {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [TernaryOperatorDerived2]");
+        buffer.append(") [CondOptYes]");
         return buffer.toString();
     }
 }
