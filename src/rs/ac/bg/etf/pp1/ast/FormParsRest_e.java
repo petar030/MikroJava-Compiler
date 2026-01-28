@@ -1,0 +1,37 @@
+// generated with ast extension for cup
+// version 0.8
+// 28/0/2026 18:34:1
+
+
+package src/rs/ac.bg.etf.pp1.ast;
+
+public class FormParsRest_e extends FormParsRest {
+
+    public FormParsRest_e () {
+    }
+
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
+
+    public void childrenAccept(Visitor visitor) {
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("FormParsRest_e(\n");
+
+        buffer.append(tab);
+        buffer.append(") [FormParsRest_e]");
+        return buffer.toString();
+    }
+}
