@@ -1,0 +1,97 @@
+INFO  18:49:23,495 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  18:49:23,509 - #2 program
+INFO  18:49:23,509 - #45 test302
+INFO  18:49:23,509 - #42 {
+INFO  18:49:23,509 - #11 void
+INFO  18:49:23,509 - #45 main
+INFO  18:49:23,509 - #38 (
+INFO  18:49:23,509 - #39 )
+INFO  18:49:23,509 - #42 {
+INFO  18:49:23,510 - #7 if
+INFO  18:49:23,510 - #38 (
+INFO  18:49:23,510 - #45 a
+INFO  18:49:23,510 - #22 ||
+INFO  18:49:23,511 - #45 b
+INFO  18:49:23,511 - #39 )
+INFO  18:49:23,511 - #42 {
+INFO  18:49:23,511 - #43 }
+INFO  18:49:23,511 - #43 }
+INFO  18:49:23,511 - #43 }
+INFO  18:49:23,512 - Program(
+ test302
+  DeclList_e(
+  ) [DeclList_e]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementListRec(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtIf(
+          IfCondBase(
+            ConditionDerived1(
+              ConditionDerived2(
+                CondTermDerived2(
+                  CondFactDerived2(
+                    SimpleExprDerived2(
+                      Term(
+                        FactorDesignator(
+                          Designator(
+                           a
+                            DesRest_e(
+                            ) [DesRest_e]
+                          ) [Designator]
+                          FactorCallNo(
+                          ) [FactorCallNo]
+                        ) [FactorDesignator]
+                        TermRest_e(
+                        ) [TermRest_e]
+                      ) [Term]
+                      ExprRestDerived2(
+                      ) [ExprRestDerived2]
+                    ) [SimpleExprDerived2]
+                  ) [CondFactDerived2]
+                ) [CondTermDerived2]
+              ) [ConditionDerived2]
+              CondTermDerived2(
+                CondFactDerived2(
+                  SimpleExprDerived2(
+                    Term(
+                      FactorDesignator(
+                        Designator(
+                         b
+                          DesRest_e(
+                          ) [DesRest_e]
+                        ) [Designator]
+                        FactorCallNo(
+                        ) [FactorCallNo]
+                      ) [FactorDesignator]
+                      TermRest_e(
+                      ) [TermRest_e]
+                    ) [Term]
+                    ExprRestDerived2(
+                    ) [ExprRestDerived2]
+                  ) [SimpleExprDerived2]
+                ) [CondFactDerived2]
+              ) [CondTermDerived2]
+            ) [ConditionDerived1]
+          ) [IfCondBase]
+          StmtBlock(
+            StatementList_e(
+            ) [StatementList_e]
+          ) [StmtBlock]
+          ElseNo(
+          ) [ElseNo]
+        ) [StmtIf]
+      ) [StatementListRec]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  18:49:23,512 - =================================
+INFO  18:49:23,512 - Parisranje uspesno zavrseno!

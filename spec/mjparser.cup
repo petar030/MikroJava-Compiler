@@ -67,7 +67,7 @@ nonterminal Assignop, Relop, Addop, Mulop;
 nonterminal ElseOpt, ExprOpt, ConditionOpt, DesignatorStmtOpt, PrintOpt;
 nonterminal CaseList, Case;
 nonterminal ConstRest, ConstValue, ArrayOpt, VarRest, EnumRest, EnumAssignOpt;
-nonterminal SimpleExpr;
+nonterminal SimpleExpr, IfCond;
 
 precedence left ELSE;
 
@@ -140,7 +140,7 @@ StatementList ::= (StatementListRec) StatementList Statement
 
 
 Statement ::= (StmtDesignator) DesignatorStatement SEMI
-            | (StmtIf) IF LPAREN Condition RPAREN Statement ElseOpt
+            | (StmtIf) IF LPAREN IfCond RPAREN Statement ElseOpt
             | (StmtBreak) BREAK SEMI
             | (StmtContinue) CONTINUE SEMI
             | (StmtReturn) RETURN ExprOpt SEMI
@@ -164,8 +164,13 @@ ElseOpt ::= (ElseYes) ELSE Statement
 ExprOpt ::= (ExprOptYes) Expr
           | (ExprOptNo)
           ;
+          
+IfCond ::= (IfCondBase) Condition
+		|  (IfCondTernary) Condition QMARK Expr COLON Expr
+		;
 
 ConditionOpt ::= (CondOptYes) Condition
+			   | (CondTernaryOptYes) Condition QMARK Expr COLON Expr
                | (CondOptNo)
                ;
 
@@ -209,6 +214,10 @@ CondTerm ::= CondTerm AND CondFact
 CondFact ::= SimpleExpr Relop SimpleExpr
           | SimpleExpr
           ;
+          
+Expr ::= SimpleExpr
+       | Condition QMARK Expr COLON Expr
+       ;
 
 SimpleExpr ::= MINUS Term ExprRest
              | Term  ExprRest
@@ -217,10 +226,8 @@ SimpleExpr ::= MINUS Term ExprRest
 ExprRest ::= Addop Term ExprRest
            | /* epsilon */
            ;
+	
 
-Expr ::= SimpleExpr
-       | Condition QMARK Expr COLON Expr
-       ;
 
 
 

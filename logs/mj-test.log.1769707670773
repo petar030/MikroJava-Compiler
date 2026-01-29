@@ -1,0 +1,136 @@
+INFO  18:27:04,947 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  18:27:04,960 - #2 program
+INFO  18:27:04,961 - #45 test302
+INFO  18:27:04,961 - #42 {
+INFO  18:27:04,961 - #11 void
+INFO  18:27:04,961 - #45 main
+INFO  18:27:04,961 - #38 (
+INFO  18:27:04,961 - #39 )
+INFO  18:27:04,961 - #42 {
+INFO  18:27:04,962 - #7 if
+INFO  18:27:04,962 - #38 (
+INFO  18:27:04,962 - #46 1
+INFO  18:27:04,962 - #37 ?
+INFO  18:27:04,962 - #46 2
+INFO  18:27:04,962 - #34 :
+INFO  18:27:04,963 - #46 3
+INFO  18:27:04,963 - #39 )
+INFO  18:27:04,963 - #8 print
+INFO  18:27:04,963 - #38 (
+INFO  18:27:04,963 - #28 -
+INFO  18:27:04,963 - #46 6
+INFO  18:27:04,963 - #39 )
+INFO  18:27:04,963 - #33 ;
+INFO  18:27:04,963 - #5 else
+INFO  18:27:04,963 - #8 print
+INFO  18:27:04,963 - #38 (
+INFO  18:27:04,963 - #46 0
+INFO  18:27:04,963 - #39 )
+INFO  18:27:04,963 - #33 ;
+INFO  18:27:04,963 - #43 }
+INFO  18:27:04,964 - #43 }
+INFO  18:27:04,964 - Program(
+ test302
+  DeclList_e(
+  ) [DeclList_e]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementListRec(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtIf(
+          IfCondTernary(
+            ConditionDerived2(
+              CondTermDerived2(
+                CondFactDerived2(
+                  SimpleExprDerived2(
+                    Term(
+                      FactorNum(
+                       1
+                      ) [FactorNum]
+                      TermRest_e(
+                      ) [TermRest_e]
+                    ) [Term]
+                    ExprRestDerived2(
+                    ) [ExprRestDerived2]
+                  ) [SimpleExprDerived2]
+                ) [CondFactDerived2]
+              ) [CondTermDerived2]
+            ) [ConditionDerived2]
+            ExprDerived1(
+              SimpleExprDerived2(
+                Term(
+                  FactorNum(
+                   2
+                  ) [FactorNum]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived2]
+            ) [ExprDerived1]
+            ExprDerived1(
+              SimpleExprDerived2(
+                Term(
+                  FactorNum(
+                   3
+                  ) [FactorNum]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived2]
+            ) [ExprDerived1]
+          ) [IfCondTernary]
+          StmtPrint(
+            ExprDerived1(
+              SimpleExprDerived1(
+                Term(
+                  FactorNum(
+                   6
+                  ) [FactorNum]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived1]
+            ) [ExprDerived1]
+            PrintOptNo(
+            ) [PrintOptNo]
+          ) [StmtPrint]
+          ElseYes(
+            StmtPrint(
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     0
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+              PrintOptNo(
+              ) [PrintOptNo]
+            ) [StmtPrint]
+          ) [ElseYes]
+        ) [StmtIf]
+      ) [StatementListRec]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  18:27:04,964 - =================================
+INFO  18:27:04,964 - Parisranje uspesno zavrseno!

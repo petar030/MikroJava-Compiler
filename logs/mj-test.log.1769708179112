@@ -1,0 +1,160 @@
+INFO  18:29:57,651 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  18:29:57,664 - #2 program
+INFO  18:29:57,664 - #45 test302
+INFO  18:29:57,664 - #45 int
+INFO  18:29:57,665 - #45 a
+INFO  18:29:57,665 - #33 ;
+INFO  18:29:57,665 - #42 {
+INFO  18:29:57,666 - #11 void
+INFO  18:29:57,666 - #45 main
+INFO  18:29:57,666 - #38 (
+INFO  18:29:57,666 - #39 )
+INFO  18:29:57,666 - #42 {
+INFO  18:29:57,666 - #45 a
+INFO  18:29:57,666 - #32 =
+INFO  18:29:57,667 - #45 a
+INFO  18:29:57,667 - #37 ?
+INFO  18:29:57,667 - #45 c
+INFO  18:29:57,667 - #34 :
+INFO  18:29:57,668 - #46 1
+INFO  18:29:57,668 - #37 ?
+INFO  18:29:57,668 - #46 2
+INFO  18:29:57,668 - #34 :
+INFO  18:29:57,668 - #46 5
+INFO  18:29:57,668 - #33 ;
+INFO  18:29:57,668 - #43 }
+INFO  18:29:57,668 - #43 }
+INFO  18:29:57,669 - Program(
+ test302
+  DeclListVar(
+    DeclList_e(
+    ) [DeclList_e]
+    VarDecl(
+      Type(
+       int
+      ) [Type]
+     a
+      ArrayNo(
+      ) [ArrayNo]
+      VarRest_e(
+      ) [VarRest_e]
+    ) [VarDecl]
+  ) [DeclListVar]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementListRec(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtDesignator(
+          DstAssign(
+            Designator(
+             a
+              DesRest_e(
+              ) [DesRest_e]
+            ) [Designator]
+            Assignop(
+            ) [Assignop]
+            ExprDerived2(
+              ConditionDerived2(
+                CondTermDerived2(
+                  CondFactDerived2(
+                    SimpleExprDerived2(
+                      Term(
+                        FactorDesignator(
+                          Designator(
+                           a
+                            DesRest_e(
+                            ) [DesRest_e]
+                          ) [Designator]
+                          FactorCallNo(
+                          ) [FactorCallNo]
+                        ) [FactorDesignator]
+                        TermRest_e(
+                        ) [TermRest_e]
+                      ) [Term]
+                      ExprRestDerived2(
+                      ) [ExprRestDerived2]
+                    ) [SimpleExprDerived2]
+                  ) [CondFactDerived2]
+                ) [CondTermDerived2]
+              ) [ConditionDerived2]
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorDesignator(
+                      Designator(
+                       c
+                        DesRest_e(
+                        ) [DesRest_e]
+                      ) [Designator]
+                      FactorCallNo(
+                      ) [FactorCallNo]
+                    ) [FactorDesignator]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+              ExprDerived2(
+                ConditionDerived2(
+                  CondTermDerived2(
+                    CondFactDerived2(
+                      SimpleExprDerived2(
+                        Term(
+                          FactorNum(
+                           1
+                          ) [FactorNum]
+                          TermRest_e(
+                          ) [TermRest_e]
+                        ) [Term]
+                        ExprRestDerived2(
+                        ) [ExprRestDerived2]
+                      ) [SimpleExprDerived2]
+                    ) [CondFactDerived2]
+                  ) [CondTermDerived2]
+                ) [ConditionDerived2]
+                ExprDerived1(
+                  SimpleExprDerived2(
+                    Term(
+                      FactorNum(
+                       2
+                      ) [FactorNum]
+                      TermRest_e(
+                      ) [TermRest_e]
+                    ) [Term]
+                    ExprRestDerived2(
+                    ) [ExprRestDerived2]
+                  ) [SimpleExprDerived2]
+                ) [ExprDerived1]
+                ExprDerived1(
+                  SimpleExprDerived2(
+                    Term(
+                      FactorNum(
+                       5
+                      ) [FactorNum]
+                      TermRest_e(
+                      ) [TermRest_e]
+                    ) [Term]
+                    ExprRestDerived2(
+                    ) [ExprRestDerived2]
+                  ) [SimpleExprDerived2]
+                ) [ExprDerived1]
+              ) [ExprDerived2]
+            ) [ExprDerived2]
+          ) [DstAssign]
+        ) [StmtDesignator]
+      ) [StatementListRec]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  18:29:57,669 - =================================
+INFO  18:29:57,669 - Parisranje uspesno zavrseno!

@@ -1,0 +1,154 @@
+INFO  18:21:32,994 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  18:21:33,007 - #2 program
+INFO  18:21:33,007 - #45 test302
+INFO  18:21:33,007 - #42 {
+INFO  18:21:33,007 - #11 void
+INFO  18:21:33,007 - #45 main
+INFO  18:21:33,007 - #38 (
+INFO  18:21:33,007 - #39 )
+INFO  18:21:33,007 - #42 {
+INFO  18:21:33,008 - #7 if
+INFO  18:21:33,008 - #38 (
+INFO  18:21:33,008 - #38 (
+INFO  18:21:33,008 - #46 1
+INFO  18:21:33,008 - #37 ?
+INFO  18:21:33,009 - #46 1
+INFO  18:21:33,009 - #34 :
+INFO  18:21:33,009 - #46 0
+INFO  18:21:33,009 - #39 )
+INFO  18:21:33,009 - #39 )
+INFO  18:21:33,009 - #8 print
+INFO  18:21:33,009 - #38 (
+INFO  18:21:33,009 - #28 -
+INFO  18:21:33,009 - #46 6
+INFO  18:21:33,009 - #39 )
+INFO  18:21:33,009 - #33 ;
+INFO  18:21:33,009 - #5 else
+INFO  18:21:33,009 - #8 print
+INFO  18:21:33,010 - #38 (
+INFO  18:21:33,010 - #46 0
+INFO  18:21:33,010 - #39 )
+INFO  18:21:33,010 - #33 ;
+INFO  18:21:33,010 - #43 }
+INFO  18:21:33,010 - #43 }
+INFO  18:21:33,010 - Program(
+ test302
+  DeclList_e(
+  ) [DeclList_e]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementListRec(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtIf(
+          ConditionDerived2(
+            CondTermDerived2(
+              CondFactDerived2(
+                SimpleExprDerived2(
+                  Term(
+                    FactorExpr(
+                      ExprDerived2(
+                        ConditionDerived2(
+                          CondTermDerived2(
+                            CondFactDerived2(
+                              SimpleExprDerived2(
+                                Term(
+                                  FactorNum(
+                                   1
+                                  ) [FactorNum]
+                                  TermRest_e(
+                                  ) [TermRest_e]
+                                ) [Term]
+                                ExprRestDerived2(
+                                ) [ExprRestDerived2]
+                              ) [SimpleExprDerived2]
+                            ) [CondFactDerived2]
+                          ) [CondTermDerived2]
+                        ) [ConditionDerived2]
+                        ExprDerived1(
+                          SimpleExprDerived2(
+                            Term(
+                              FactorNum(
+                               1
+                              ) [FactorNum]
+                              TermRest_e(
+                              ) [TermRest_e]
+                            ) [Term]
+                            ExprRestDerived2(
+                            ) [ExprRestDerived2]
+                          ) [SimpleExprDerived2]
+                        ) [ExprDerived1]
+                        ExprDerived1(
+                          SimpleExprDerived2(
+                            Term(
+                              FactorNum(
+                               0
+                              ) [FactorNum]
+                              TermRest_e(
+                              ) [TermRest_e]
+                            ) [Term]
+                            ExprRestDerived2(
+                            ) [ExprRestDerived2]
+                          ) [SimpleExprDerived2]
+                        ) [ExprDerived1]
+                      ) [ExprDerived2]
+                    ) [FactorExpr]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [CondFactDerived2]
+            ) [CondTermDerived2]
+          ) [ConditionDerived2]
+          StmtPrint(
+            ExprDerived1(
+              SimpleExprDerived1(
+                Term(
+                  FactorNum(
+                   6
+                  ) [FactorNum]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived1]
+            ) [ExprDerived1]
+            PrintOptNo(
+            ) [PrintOptNo]
+          ) [StmtPrint]
+          ElseYes(
+            StmtPrint(
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     0
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+              PrintOptNo(
+              ) [PrintOptNo]
+            ) [StmtPrint]
+          ) [ElseYes]
+        ) [StmtIf]
+      ) [StatementListRec]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  18:21:33,011 - =================================
+INFO  18:21:33,011 - Parisranje uspesno zavrseno!

@@ -11,29 +11,29 @@ lexerGen:
      [java] Writing code to "./src/rs/ac/bg/etf/pp1/Yylex.java"
 
 parserGen:
-     [java] Opening files...
-     [java] Parsing specification from standard input...
-     [java] Checking specification...
-     [java] Building parse tables...------- ast extension v0.8 summary -------
+     [java] ------- ast extension v0.8 summary -------
+     [java]   Generated 37 base classes
+     [java] Opening files...  Generated 99 derived classes
      [java] 
-     [java]   Generated 36 base classes  Computing non-terminal nullability...
+     [java] Parsing specification from standard input...  Generated 11 record classes
      [java] 
-     [java]   Generated 96 derived classes  Computing first sets...
-     [java] 
-     [java]   Building state machine...
-     [java]   Generated 11 record classes
      [java]   Generated interface SyntaxNode
      [java]   Generated interface Visitor
      [java]   Generated adapter class VisitorAdaptor
-     [java] -----------------------------------------------
+     [java] Checking specification...-----------------------------------------------
+     [java] 
+     [java] Building parse tables...
+     [java]   Computing non-terminal nullability...
+     [java]   Computing first sets...
+     [java]   Building state machine...
      [java]   Filling in tables...
      [java]   Checking for non-reduced productions...
      [java] Writing parser...
      [java] Closing files...
      [java] ------- CUP v0.10k Parser Generation Summary -------
      [java]   0 errors and 0 warnings
-     [java]   49 terminals, 48 non-terminals, and 108 productions declared, 
-     [java]   producing 221 unique parse states.
+     [java]   49 terminals, 49 non-terminals, and 111 productions declared, 
+     [java]   producing 230 unique parse states.
      [java]   0 terminals declared but not used.
      [java]   0 non-terminals declared but not used.
      [java]   0 productions never reduced.
@@ -42,10 +42,10 @@ parserGen:
      [java] ---------------------------------------------------- (v0.10k)
 
 repackage:
-  [replace] Replaced 146 occurrences in 146 files.
+  [replace] Replaced 150 occurrences in 150 files.
 
 compile:
-    [javac] Compiling 150 source files
+    [javac] Compiling 154 source files
 
 BUILD SUCCESSFUL
 Total time: 1 second

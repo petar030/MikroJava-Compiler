@@ -104,6 +104,7 @@ nonterminal VarRest VarRest;
 nonterminal EnumRest EnumRest;
 nonterminal EnumAssignOpt EnumAssignOpt;
 nonterminal SimpleExpr SimpleExpr;
+nonterminal IfCond IfCond;
 
 precedence left ELSE;
 
@@ -176,7 +177,7 @@ StatementList ::= (StatementListRec) StatementList:S1 Statement:S2 {: RESULT=new
 
 
 Statement ::= (StmtDesignator) DesignatorStatement:D1 SEMI {: RESULT=new StmtDesignator(D1); RESULT.setLine(D1left); :}
-            | (StmtIf) IF LPAREN Condition:C1 RPAREN Statement:S2 ElseOpt:E3 {: RESULT=new StmtIf(C1, S2, E3); RESULT.setLine(C1left); :}
+            | (StmtIf) IF LPAREN IfCond:I1 RPAREN Statement:S2 ElseOpt:E3 {: RESULT=new StmtIf(I1, S2, E3); RESULT.setLine(I1left); :}
             | (StmtBreak) BREAK SEMI {: RESULT=new StmtBreak(); :}
             | (StmtContinue) CONTINUE SEMI {: RESULT=new StmtContinue(); :}
             | (StmtReturn) RETURN ExprOpt:E1 SEMI {: RESULT=new StmtReturn(E1); RESULT.setLine(E1left); :}
@@ -200,8 +201,13 @@ ElseOpt ::= (ElseYes) ELSE Statement:S1 {: RESULT=new ElseYes(S1); RESULT.setLin
 ExprOpt ::= (ExprOptYes) Expr:E1 {: RESULT=new ExprOptYes(E1); RESULT.setLine(E1left); :}
           | (ExprOptNo) {: RESULT=new ExprOptNo(); :}
           ;
+          
+IfCond ::= (IfCondBase) Condition:C1 {: RESULT=new IfCondBase(C1); RESULT.setLine(C1left); :}
+		|  (IfCondTernary) Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new IfCondTernary(C1, E2, E3); RESULT.setLine(C1left); :}
+		;
 
 ConditionOpt ::= (CondOptYes) Condition:C1 {: RESULT=new CondOptYes(C1); RESULT.setLine(C1left); :}
+			   | (CondTernaryOptYes) Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new CondTernaryOptYes(C1, E2, E3); RESULT.setLine(C1left); :}
                | (CondOptNo) {: RESULT=new CondOptNo(); :}
                ;
 

@@ -1,0 +1,191 @@
+INFO  18:40:02,739 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  18:40:02,752 - #2 program
+INFO  18:40:02,752 - #45 test302
+INFO  18:40:02,752 - #42 {
+INFO  18:40:02,752 - #11 void
+INFO  18:40:02,753 - #45 main
+INFO  18:40:02,753 - #38 (
+INFO  18:40:02,753 - #39 )
+INFO  18:40:02,753 - #42 {
+INFO  18:40:02,753 - #7 if
+INFO  18:40:02,753 - #38 (
+INFO  18:40:02,753 - #46 2
+INFO  18:40:02,753 - #37 ?
+INFO  18:40:02,754 - #46 3
+INFO  18:40:02,754 - #34 :
+INFO  18:40:02,754 - #46 5
+INFO  18:40:02,754 - #22 ||
+INFO  18:40:02,754 - #46 4
+INFO  18:40:02,754 - #37 ?
+INFO  18:40:02,754 - #46 1
+INFO  18:40:02,754 - #34 :
+INFO  18:40:02,754 - #46 5
+INFO  18:40:02,754 - #39 )
+INFO  18:40:02,755 - #8 print
+INFO  18:40:02,755 - #38 (
+INFO  18:40:02,755 - #28 -
+INFO  18:40:02,755 - #46 6
+INFO  18:40:02,755 - #39 )
+INFO  18:40:02,755 - #33 ;
+INFO  18:40:02,755 - #5 else
+INFO  18:40:02,755 - #8 print
+INFO  18:40:02,755 - #38 (
+INFO  18:40:02,755 - #46 0
+INFO  18:40:02,755 - #39 )
+INFO  18:40:02,755 - #33 ;
+INFO  18:40:02,755 - #43 }
+INFO  18:40:02,756 - #43 }
+INFO  18:40:02,756 - Program(
+ test302
+  DeclList_e(
+  ) [DeclList_e]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementListRec(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtIf(
+          IfCondTernary(
+            ConditionDerived2(
+              CondTermDerived2(
+                CondFactDerived2(
+                  SimpleExprDerived2(
+                    Term(
+                      FactorNum(
+                       2
+                      ) [FactorNum]
+                      TermRest_e(
+                      ) [TermRest_e]
+                    ) [Term]
+                    ExprRestDerived2(
+                    ) [ExprRestDerived2]
+                  ) [SimpleExprDerived2]
+                ) [CondFactDerived2]
+              ) [CondTermDerived2]
+            ) [ConditionDerived2]
+            ExprDerived1(
+              SimpleExprDerived2(
+                Term(
+                  FactorNum(
+                   3
+                  ) [FactorNum]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived2]
+            ) [ExprDerived1]
+            ExprDerived2(
+              ConditionDerived1(
+                ConditionDerived2(
+                  CondTermDerived2(
+                    CondFactDerived2(
+                      SimpleExprDerived2(
+                        Term(
+                          FactorNum(
+                           5
+                          ) [FactorNum]
+                          TermRest_e(
+                          ) [TermRest_e]
+                        ) [Term]
+                        ExprRestDerived2(
+                        ) [ExprRestDerived2]
+                      ) [SimpleExprDerived2]
+                    ) [CondFactDerived2]
+                  ) [CondTermDerived2]
+                ) [ConditionDerived2]
+                CondTermDerived2(
+                  CondFactDerived2(
+                    SimpleExprDerived2(
+                      Term(
+                        FactorNum(
+                         4
+                        ) [FactorNum]
+                        TermRest_e(
+                        ) [TermRest_e]
+                      ) [Term]
+                      ExprRestDerived2(
+                      ) [ExprRestDerived2]
+                    ) [SimpleExprDerived2]
+                  ) [CondFactDerived2]
+                ) [CondTermDerived2]
+              ) [ConditionDerived1]
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     1
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     5
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+            ) [ExprDerived2]
+          ) [IfCondTernary]
+          StmtPrint(
+            ExprDerived1(
+              SimpleExprDerived1(
+                Term(
+                  FactorNum(
+                   6
+                  ) [FactorNum]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived1]
+            ) [ExprDerived1]
+            PrintOptNo(
+            ) [PrintOptNo]
+          ) [StmtPrint]
+          ElseYes(
+            StmtPrint(
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     0
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+              PrintOptNo(
+              ) [PrintOptNo]
+            ) [StmtPrint]
+          ) [ElseYes]
+        ) [StmtIf]
+      ) [StatementListRec]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  18:40:02,757 - =================================
+INFO  18:40:02,757 - Parisranje uspesno zavrseno!
