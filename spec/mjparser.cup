@@ -13,8 +13,7 @@ parser code {:
       report_error(message, info);
     }
     public void syntax_error(Symbol cur_token) {
-        report_error("
-Sintaksna greska", cur_token);
+        report_error("Sintaksna greska", cur_token);
     }
     public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
         report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
@@ -45,12 +44,13 @@ scan with {:
     return s;
 :}
 
-terminal PROG, BREAK, ENUM, ELSE, CONST, IF, NEW, PRINT, READ, RETURN, VOID;
+terminal PROG, BREAK, ENUM, ELSE, CONST, IF, PRINT, READ, RETURN, VOID;
 terminal CONTINUE, FOR, LENGTH, SWITCH, CASE;
 terminal EQEQ, NE, GE, LE, AND, OR, INC, DEC;
 terminal GT, LT, PLUS, MINUS, MUL, DIV, MOD, EQUAL;
 terminal SEMI, COLON, COMMA, DOT, QMARK;
 terminal LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE;
+terminal NEW;
 
 terminal String IDENT;
 terminal Integer NUMBER;
@@ -61,14 +61,13 @@ nonterminal Program, DeclList, MethodDeclList, ConstDecl, VarDecl, EnumDecl;
 nonterminal MethodDecl, FormParsOpt, FormPars, FormParsRest, Type, VarDeclList;
 nonterminal Statement, StatementList, DesignatorStatement;
 nonterminal Expr, ExprRest, Term, TermRest, Factor, FactorCallOpt;
-nonterminal Condition, ConditionRest, CondTerm, CondTermRest, CondFact;
+nonterminal Condition, CondTerm,  CondFact;
 nonterminal ActParsOpt, ActPars, ActParsRest, Designator, DesignatorRest;
 nonterminal Assignop, Relop, Addop, Mulop;
 nonterminal ElseOpt, ExprOpt, ConditionOpt, DesignatorStmtOpt, PrintOpt;
 nonterminal CaseList, Case;
 nonterminal ConstRest, ConstValue, ArrayOpt, VarRest, EnumRest, EnumAssignOpt;
-nonterminal SimpleExpr, SimpleExprRest, SimpleCondFact, SimpleCondTerm, SimpleCondition;
-
+nonterminal SimpleExpr;
 
 precedence left ELSE;
 
@@ -196,27 +195,33 @@ ActParsRest ::= (ActParsRestComma) COMMA Expr ActParsRest
 
 
 
-
-Condition ::= (ConditionOr)   Condition OR CondTerm
-            | (ConditionTerm) CondTerm
+Condition ::= Condition OR CondTerm
+            | CondTerm
             ;
 
-CondTerm ::= (CondTermAnd)    CondTerm AND CondFact
-           | (CondTermFact)   CondFact
+CondTerm ::= CondTerm AND CondFact
+           | CondFact
            ;
 
-CondFact ::= (CondFactRel)    Expr Relop Expr
-          | (CondFactExpr)    Expr
+
+
+
+CondFact ::= SimpleExpr Relop SimpleExpr
+          | SimpleExpr
           ;
 
-ExprRest ::= (ExprRestAdd)    Addop Term ExprRest
-           | (ExprRestEps)
+SimpleExpr ::= MINUS Term ExprRest
+             | Term  ExprRest
+             ;
+
+ExprRest ::= Addop Term ExprRest
+           | /* epsilon */
            ;
 
-Expr ::= (ExprMinus)          MINUS Term ExprRest
-       | (ExprTerm)           Term ExprRest
-       | (ExprTernary)        Condition QMARK Expr COLON Expr
+Expr ::= SimpleExpr
+       | Condition QMARK Expr COLON Expr
        ;
+
 
 
 Term ::= (Term) Factor TermRest ;

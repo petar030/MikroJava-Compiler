@@ -1,0 +1,15 @@
+INFO  17:42:09,403 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  17:42:09,416 - #2 program
+INFO  17:42:09,416 - #45 test302
+INFO  17:42:09,416 - #42 {
+INFO  17:42:09,417 - #11 void
+INFO  17:42:09,417 - #45 main
+INFO  17:42:09,417 - #38 (
+INFO  17:42:09,417 - #39 )
+INFO  17:42:09,417 - #42 {
+INFO  17:42:09,417 - #7 if
+INFO  17:42:09,417 - #38 (
+INFO  17:42:09,417 - #46 1
+INFO  17:42:09,417 - #37 ?
+ERROR 17:42:09,418 - Sintaksna greska na liniji 11
+ERROR 17:42:09,418 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 11

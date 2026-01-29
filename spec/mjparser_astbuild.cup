@@ -13,8 +13,7 @@ parser code {:
       report_error(message, info);
     }
     public void syntax_error(Symbol cur_token) {
-        report_error("
-Sintaksna greska", cur_token);
+        report_error("Sintaksna greska", cur_token);
     }
     public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
         report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
@@ -45,12 +44,13 @@ scan with {:
     return s;
 :}
 
-terminal PROG, BREAK, ENUM, ELSE, CONST, IF, NEW, PRINT, READ, RETURN, VOID;
+terminal PROG, BREAK, ENUM, ELSE, CONST, IF, PRINT, READ, RETURN, VOID;
 terminal CONTINUE, FOR, LENGTH, SWITCH, CASE;
 terminal EQEQ, NE, GE, LE, AND, OR, INC, DEC;
 terminal GT, LT, PLUS, MINUS, MUL, DIV, MOD, EQUAL;
 terminal SEMI, COLON, COMMA, DOT, QMARK;
 terminal LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE;
+terminal NEW;
 
 terminal String IDENT;
 terminal Integer NUMBER;
@@ -79,10 +79,8 @@ nonterminal TermRest TermRest;
 nonterminal Factor Factor;
 nonterminal FactorCallOpt FactorCallOpt;
 nonterminal Condition Condition;
-nonterminal ConditionRest ConditionRest;
 nonterminal CondTerm CondTerm;
-nonterminal CondTermRest CondTermRest;
-nonterminal CondFact CondFact;
+nonterminal  CondFact CondFact;
 nonterminal ActParsOpt ActParsOpt;
 nonterminal ActPars ActPars;
 nonterminal ActParsRest ActParsRest;
@@ -106,11 +104,6 @@ nonterminal VarRest VarRest;
 nonterminal EnumRest EnumRest;
 nonterminal EnumAssignOpt EnumAssignOpt;
 nonterminal SimpleExpr SimpleExpr;
-nonterminal SimpleExprRest SimpleExprRest;
-nonterminal SimpleCondFact SimpleCondFact;
-nonterminal SimpleCondTerm SimpleCondTerm;
-nonterminal SimpleCondition SimpleCondition;
-
 
 precedence left ELSE;
 
@@ -238,27 +231,33 @@ ActParsRest ::= (ActParsRestComma) COMMA Expr:E1 ActParsRest:A2 {: RESULT=new Ac
 
 
 
-
-Condition ::= (ConditionOr)   Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionOr(C1, C2); RESULT.setLine(C1left); :}
-            | (ConditionTerm) CondTerm:C1 {: RESULT=new ConditionTerm(C1); RESULT.setLine(C1left); :}
+Condition ::= Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionDerived1(C1, C2); RESULT.setLine(C1left); :}
+            | CondTerm:C1 {: RESULT=new ConditionDerived2(C1); RESULT.setLine(C1left); :}
             ;
 
-CondTerm ::= (CondTermAnd)    CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermAnd(C1, C2); RESULT.setLine(C1left); :}
-           | (CondTermFact)   CondFact:C1 {: RESULT=new CondTermFact(C1); RESULT.setLine(C1left); :}
+CondTerm ::= CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermDerived1(C1, C2); RESULT.setLine(C1left); :}
+           | CondFact:C1 {: RESULT=new CondTermDerived2(C1); RESULT.setLine(C1left); :}
            ;
 
-CondFact ::= (CondFactRel)    Expr:E1 Relop:R2 Expr:E3 {: RESULT=new CondFactRel(E1, R2, E3); RESULT.setLine(E1left); :}
-          | (CondFactExpr)    Expr:E1 {: RESULT=new CondFactExpr(E1); RESULT.setLine(E1left); :}
+
+
+
+CondFact ::= SimpleExpr:S1 Relop:R2 SimpleExpr:S3 {: RESULT=new CondFactDerived1(S1, R2, S3); RESULT.setLine(S1left); :}
+          | SimpleExpr:S1 {: RESULT=new CondFactDerived2(S1); RESULT.setLine(S1left); :}
           ;
 
-ExprRest ::= (ExprRestAdd)    Addop:A1 Term:T2 ExprRest:E3 {: RESULT=new ExprRestAdd(A1, T2, E3); RESULT.setLine(A1left); :}
-           | (ExprRestEps) {: RESULT=new ExprRestEps(); :}
+SimpleExpr ::= MINUS Term:T1 ExprRest:E2 {: RESULT=new SimpleExprDerived1(T1, E2); RESULT.setLine(T1left); :}
+             | Term:T1  ExprRest:E2 {: RESULT=new SimpleExprDerived2(T1, E2); RESULT.setLine(T1left); :}
+             ;
+
+ExprRest ::= Addop:A1 Term:T2 ExprRest:E3 {: RESULT=new ExprRestDerived1(A1, T2, E3); RESULT.setLine(A1left); :}
+           | {: RESULT=new ExprRestDerived2(); :} /* epsilon */
            ;
 
-Expr ::= (ExprMinus)          MINUS Term:T1 ExprRest:E2 {: RESULT=new ExprMinus(T1, E2); RESULT.setLine(T1left); :}
-       | (ExprTerm)           Term:T1 ExprRest:E2 {: RESULT=new ExprTerm(T1, E2); RESULT.setLine(T1left); :}
-       | (ExprTernary)        Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprTernary(C1, E2, E3); RESULT.setLine(C1left); :}
+Expr ::= SimpleExpr:S1 {: RESULT=new ExprDerived1(S1); RESULT.setLine(S1left); :}
+       | Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprDerived2(C1, E2, E3); RESULT.setLine(C1left); :}
        ;
+
 
 
 Term ::= (Term) Factor:F1 TermRest:T2 {: RESULT=new Term(F1, T2); RESULT.setLine(F1left); :} ;

@@ -1,0 +1,119 @@
+INFO  17:41:30,062 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  17:41:30,075 - #2 program
+INFO  17:41:30,075 - #45 test302
+INFO  17:41:30,075 - #42 {
+INFO  17:41:30,076 - #11 void
+INFO  17:41:30,076 - #45 main
+INFO  17:41:30,076 - #38 (
+INFO  17:41:30,076 - #39 )
+INFO  17:41:30,076 - #42 {
+INFO  17:41:30,076 - #7 if
+INFO  17:41:30,076 - #38 (
+INFO  17:41:30,076 - #46 1
+INFO  17:41:30,076 - #18 !=
+INFO  17:41:30,077 - #46 1
+INFO  17:41:30,077 - #39 )
+INFO  17:41:30,077 - #8 print
+INFO  17:41:30,077 - #38 (
+INFO  17:41:30,077 - #28 -
+INFO  17:41:30,077 - #46 6
+INFO  17:41:30,077 - #39 )
+INFO  17:41:30,078 - #33 ;
+INFO  17:41:30,078 - #5 else
+INFO  17:41:30,078 - #8 print
+INFO  17:41:30,078 - #38 (
+INFO  17:41:30,078 - #46 0
+INFO  17:41:30,078 - #39 )
+INFO  17:41:30,078 - #33 ;
+INFO  17:41:30,078 - #43 }
+INFO  17:41:30,078 - #43 }
+INFO  17:41:30,079 - Program(
+ test302
+  DeclList_e(
+  ) [DeclList_e]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementListRec(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtIf(
+          ConditionDerived2(
+            CondTermDerived2(
+              CondFactDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     1
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+                RelNE(
+                ) [RelNE]
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     1
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [CondFactDerived1]
+            ) [CondTermDerived2]
+          ) [ConditionDerived2]
+          StmtPrint(
+            ExprDerived1(
+              SimpleExprDerived1(
+                Term(
+                  FactorNum(
+                   6
+                  ) [FactorNum]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived1]
+            ) [ExprDerived1]
+            PrintOptNo(
+            ) [PrintOptNo]
+          ) [StmtPrint]
+          ElseYes(
+            StmtPrint(
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorNum(
+                     0
+                    ) [FactorNum]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+              PrintOptNo(
+              ) [PrintOptNo]
+            ) [StmtPrint]
+          ) [ElseYes]
+        ) [StmtIf]
+      ) [StatementListRec]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  17:41:30,079 - =================================
+INFO  17:41:30,079 - Parisranje uspesno zavrseno!

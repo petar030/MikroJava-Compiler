@@ -1,9 +1,9 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 2:53:34
+// 29/0/2026 16:34:35
 
 
-package src/rs/ac.bg.etf.pp1.ast;
+package rs.ac.bg.etf.pp1.ast;
 
 public class MethodDeclType extends MethodDecl {
 

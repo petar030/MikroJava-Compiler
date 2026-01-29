@@ -25,11 +25,33 @@
 	        <arg value="src/rs/ac.bg.etf.pp1.ast"/>
 	        <arg value="-parser"/>
 	        <arg value="MJParser"/>
-	    	<!--<arg value="-dump_states"/>-->
+	    	<!-- <arg value="-dump_states"/> -->
 	        <arg value="-buildtree"/>
 	        <arg value="spec/mjparser.cup"/>
 	    </java>
 	</target>
+	
+	<target name="repackage" depends="parserGen">
+	    <!-- Replaces all of the references to the old package name in files in the "src" directory -->
+	    <replace dir="src"
+	             value="package rs.ac.bg.etf.pp1.ast;"
+            	token="package src/rs/ac.bg.etf.pp1.ast;"	             
+	    		summary="true" />
+	</target>
+
+	<target name="compile" depends="repackage">
+	    <javac srcdir="src/rs/ac/bg/etf/pp1"
+	           includeantruntime="false">
+	        <classpath>
+	            <pathelement path="lib/Jflex.jar"/>
+	            <pathelement path="lib/cup_v10k.jar"/>
+	            <pathelement path="lib/log4j-1.2.17.jar"/>
+	           <!-- <pathelement path="lib/symboltable-1.1.jar"/> -->
+	           <!-- <pathelement path="lib/mj-runtime-1.1.jar"/> -->
+	        </classpath>
+	    </javac>
+	</target>
+
 			
 			
 		

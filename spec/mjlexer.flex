@@ -45,7 +45,6 @@ import java_cup.runtime.Symbol;
 "else"      { return new_symbol(sym.ELSE,    yytext()); }
 "const"     { return new_symbol(sym.CONST,   yytext()); }
 "if"        { return new_symbol(sym.IF,      yytext()); }
-"new"       { return new_symbol(sym.NEW,     yytext()); }
 "print"     { return new_symbol(sym.PRINT,   yytext()); }
 "read"      { return new_symbol(sym.READ,    yytext()); }
 "return"    { return new_symbol(sym.RETURN,  yytext()); }
@@ -56,6 +55,7 @@ import java_cup.runtime.Symbol;
 "length"    { return new_symbol(sym.LENGTH,  yytext()); }
 "switch"    { return new_symbol(sym.SWITCH,  yytext()); }
 "case"      { return new_symbol(sym.CASE,    yytext()); }
+"new"      { return new_symbol(sym.NEW,    yytext()); }
 "true"      { return new_symbol(sym.BOOL, 1); }
 "false"     { return new_symbol(sym.BOOL, 0); }
 

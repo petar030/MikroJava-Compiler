@@ -1,0 +1,146 @@
+INFO  17:35:01,824 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  17:35:01,837 - #2 program
+INFO  17:35:01,838 - #45 test302
+INFO  17:35:01,838 - #6 const
+INFO  17:35:01,838 - #45 int
+INFO  17:35:01,838 - #45 jedan
+INFO  17:35:01,838 - #32 =
+INFO  17:35:01,838 - #46 1
+INFO  17:35:01,838 - #33 ;
+INFO  17:35:01,838 - #45 int
+INFO  17:35:01,839 - #45 i
+INFO  17:35:01,839 - #33 ;
+INFO  17:35:01,839 - #45 bool
+INFO  17:35:01,839 - #45 ibool
+INFO  17:35:01,839 - #33 ;
+INFO  17:35:01,839 - #45 int
+INFO  17:35:01,840 - #45 niz
+INFO  17:35:01,840 - #40 [
+INFO  17:35:01,840 - #41 ]
+INFO  17:35:01,840 - #33 ;
+INFO  17:35:01,840 - #42 {
+INFO  17:35:01,840 - #11 void
+INFO  17:35:01,840 - #45 main
+INFO  17:35:01,840 - #38 (
+INFO  17:35:01,840 - #39 )
+INFO  17:35:01,840 - #42 {
+INFO  17:35:01,840 - #45 niz
+INFO  17:35:01,841 - #32 =
+INFO  17:35:01,841 - #44 new
+INFO  17:35:01,841 - #45 int
+INFO  17:35:01,841 - #40 [
+INFO  17:35:01,841 - #46 3
+INFO  17:35:01,841 - #41 ]
+INFO  17:35:01,842 - #33 ;
+INFO  17:35:01,842 - #43 }
+INFO  17:35:01,842 - #43 }
+INFO  17:35:01,843 - Program(
+ test302
+  DeclListVar(
+    DeclListVar(
+      DeclListVar(
+        DeclListConst(
+          DeclList_e(
+          ) [DeclList_e]
+          ConstDecl(
+            Type(
+             int
+            ) [Type]
+           jedan
+            ConstNum(
+             1
+            ) [ConstNum]
+            ConstRest_e(
+            ) [ConstRest_e]
+          ) [ConstDecl]
+        ) [DeclListConst]
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+         i
+          ArrayNo(
+          ) [ArrayNo]
+          VarRest_e(
+          ) [VarRest_e]
+        ) [VarDecl]
+      ) [DeclListVar]
+      VarDecl(
+        Type(
+         bool
+        ) [Type]
+       ibool
+        ArrayNo(
+        ) [ArrayNo]
+        VarRest_e(
+        ) [VarRest_e]
+      ) [VarDecl]
+    ) [DeclListVar]
+    VarDecl(
+      Type(
+       int
+      ) [Type]
+     niz
+      ArrayYes(
+      ) [ArrayYes]
+      VarRest_e(
+      ) [VarRest_e]
+    ) [VarDecl]
+  ) [DeclListVar]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementListRec(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtDesignator(
+          DstAssign(
+            Designator(
+             niz
+              DesRest_e(
+              ) [DesRest_e]
+            ) [Designator]
+            Assignop(
+            ) [Assignop]
+            ExprDerived1(
+              SimpleExprDerived2(
+                Term(
+                  FactorNew(
+                    Type(
+                     int
+                    ) [Type]
+                    ExprDerived1(
+                      SimpleExprDerived2(
+                        Term(
+                          FactorNum(
+                           3
+                          ) [FactorNum]
+                          TermRest_e(
+                          ) [TermRest_e]
+                        ) [Term]
+                        ExprRestDerived2(
+                        ) [ExprRestDerived2]
+                      ) [SimpleExprDerived2]
+                    ) [ExprDerived1]
+                  ) [FactorNew]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived2]
+            ) [ExprDerived1]
+          ) [DstAssign]
+        ) [StmtDesignator]
+      ) [StatementListRec]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  17:35:01,843 - =================================
+INFO  17:35:01,843 - Parisranje uspesno zavrseno!

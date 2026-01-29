@@ -1,0 +1,50 @@
+INFO  16:44:44,575 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  16:44:44,591 - #2 program
+INFO  16:44:44,591 - #44 NekiProgram
+INFO  16:44:44,591 - #6 const
+INFO  16:44:44,591 - #44 int
+INFO  16:44:44,591 - #44 pi
+INFO  16:44:44,591 - #32 =
+INFO  16:44:44,591 - #45 3
+INFO  16:44:44,591 - #33 ;
+INFO  16:44:44,592 - #42 {
+INFO  16:44:44,592 - #11 void
+INFO  16:44:44,592 - #44 main
+INFO  16:44:44,592 - #38 (
+INFO  16:44:44,592 - #39 )
+INFO  16:44:44,592 - #42 {
+INFO  16:44:44,593 - #43 }
+INFO  16:44:44,593 - #43 }
+INFO  16:44:44,593 - Program(
+ NekiProgram
+  DeclListConst(
+    DeclList_e(
+    ) [DeclList_e]
+    ConstDecl(
+      Type(
+       int
+      ) [Type]
+     pi
+      ConstNum(
+       3
+      ) [ConstNum]
+      ConstRest_e(
+      ) [ConstRest_e]
+    ) [ConstDecl]
+  ) [DeclListConst]
+  MethodDeclListRec(
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
+    MethodDeclVoid(
+     main
+      FormParsOptNo(
+      ) [FormParsOptNo]
+      VarDeclList_e(
+      ) [VarDeclList_e]
+      StatementList_e(
+      ) [StatementList_e]
+    ) [MethodDeclVoid]
+  ) [MethodDeclListRec]
+) [Program]
+INFO  16:44:44,593 - =================================
+INFO  16:44:44,593 - Parisranje uspesno zavrseno!
