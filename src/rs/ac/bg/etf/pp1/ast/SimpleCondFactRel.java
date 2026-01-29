@@ -1,17 +1,17 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 19:50:52
+// 29/0/2026 2:53:8
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class RelExprDerived1 extends RelExpr {
+public class SimpleCondFactRel extends SimpleCondFact {
 
     private SimpleExpr SimpleExpr;
     private Relop Relop;
     private SimpleExpr SimpleExpr1;
 
-    public RelExprDerived1 (SimpleExpr SimpleExpr, Relop Relop, SimpleExpr SimpleExpr1) {
+    public SimpleCondFactRel (SimpleExpr SimpleExpr, Relop Relop, SimpleExpr SimpleExpr1) {
         this.SimpleExpr=SimpleExpr;
         if(SimpleExpr!=null) SimpleExpr.setParent(this);
         this.Relop=Relop;
@@ -71,7 +71,7 @@ public class RelExprDerived1 extends RelExpr {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("RelExprDerived1(\n");
+        buffer.append("SimpleCondFactRel(\n");
 
         if(SimpleExpr!=null)
             buffer.append(SimpleExpr.toString("  "+tab));
@@ -92,7 +92,7 @@ public class RelExprDerived1 extends RelExpr {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [RelExprDerived1]");
+        buffer.append(") [SimpleCondFactRel]");
         return buffer.toString();
     }
 }

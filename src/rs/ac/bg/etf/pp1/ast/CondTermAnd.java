@@ -1,17 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 19:50:52
+// 29/0/2026 2:53:34
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class CondTermDerived2 extends CondTerm {
+public class CondTermAnd extends CondTerm {
 
+    private CondTerm CondTerm;
     private CondFact CondFact;
 
-    public CondTermDerived2 (CondFact CondFact) {
+    public CondTermAnd (CondTerm CondTerm, CondFact CondFact) {
+        this.CondTerm=CondTerm;
+        if(CondTerm!=null) CondTerm.setParent(this);
         this.CondFact=CondFact;
         if(CondFact!=null) CondFact.setParent(this);
+    }
+
+    public CondTerm getCondTerm() {
+        return CondTerm;
+    }
+
+    public void setCondTerm(CondTerm CondTerm) {
+        this.CondTerm=CondTerm;
     }
 
     public CondFact getCondFact() {
@@ -27,15 +38,18 @@ public class CondTermDerived2 extends CondTerm {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(CondTerm!=null) CondTerm.accept(visitor);
         if(CondFact!=null) CondFact.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
         if(CondFact!=null) CondFact.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
         if(CondFact!=null) CondFact.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -43,7 +57,13 @@ public class CondTermDerived2 extends CondTerm {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("CondTermDerived2(\n");
+        buffer.append("CondTermAnd(\n");
+
+        if(CondTerm!=null)
+            buffer.append(CondTerm.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(CondFact!=null)
             buffer.append(CondFact.toString("  "+tab));
@@ -52,7 +72,7 @@ public class CondTermDerived2 extends CondTerm {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [CondTermDerived2]");
+        buffer.append(") [CondTermAnd]");
         return buffer.toString();
     }
 }

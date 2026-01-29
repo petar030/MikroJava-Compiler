@@ -1,16 +1,16 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 19:50:52
+// 29/0/2026 2:53:34
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class ExprDerived1 extends Expr {
+public class ExprTerm extends Expr {
 
     private Term Term;
     private ExprRest ExprRest;
 
-    public ExprDerived1 (Term Term, ExprRest ExprRest) {
+    public ExprTerm (Term Term, ExprRest ExprRest) {
         this.Term=Term;
         if(Term!=null) Term.setParent(this);
         this.ExprRest=ExprRest;
@@ -57,7 +57,7 @@ public class ExprDerived1 extends Expr {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ExprDerived1(\n");
+        buffer.append("ExprTerm(\n");
 
         if(Term!=null)
             buffer.append(Term.toString("  "+tab));
@@ -72,7 +72,7 @@ public class ExprDerived1 extends Expr {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [ExprDerived1]");
+        buffer.append(") [ExprTerm]");
         return buffer.toString();
     }
 }

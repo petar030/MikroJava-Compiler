@@ -1,20 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 19:50:52
+// 29/0/2026 2:53:34
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class CondTermDerived1 extends CondTerm {
+public class ConditionOr extends Condition {
 
+    private Condition Condition;
     private CondTerm CondTerm;
-    private CondFact CondFact;
 
-    public CondTermDerived1 (CondTerm CondTerm, CondFact CondFact) {
+    public ConditionOr (Condition Condition, CondTerm CondTerm) {
+        this.Condition=Condition;
+        if(Condition!=null) Condition.setParent(this);
         this.CondTerm=CondTerm;
         if(CondTerm!=null) CondTerm.setParent(this);
-        this.CondFact=CondFact;
-        if(CondFact!=null) CondFact.setParent(this);
+    }
+
+    public Condition getCondition() {
+        return Condition;
+    }
+
+    public void setCondition(Condition Condition) {
+        this.Condition=Condition;
     }
 
     public CondTerm getCondTerm() {
@@ -25,39 +33,37 @@ public class CondTermDerived1 extends CondTerm {
         this.CondTerm=CondTerm;
     }
 
-    public CondFact getCondFact() {
-        return CondFact;
-    }
-
-    public void setCondFact(CondFact CondFact) {
-        this.CondFact=CondFact;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Condition!=null) Condition.accept(visitor);
         if(CondTerm!=null) CondTerm.accept(visitor);
-        if(CondFact!=null) CondFact.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Condition!=null) Condition.traverseTopDown(visitor);
         if(CondTerm!=null) CondTerm.traverseTopDown(visitor);
-        if(CondFact!=null) CondFact.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Condition!=null) Condition.traverseBottomUp(visitor);
         if(CondTerm!=null) CondTerm.traverseBottomUp(visitor);
-        if(CondFact!=null) CondFact.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("CondTermDerived1(\n");
+        buffer.append("ConditionOr(\n");
+
+        if(Condition!=null)
+            buffer.append(Condition.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(CondTerm!=null)
             buffer.append(CondTerm.toString("  "+tab));
@@ -65,14 +71,8 @@ public class CondTermDerived1 extends CondTerm {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(CondFact!=null)
-            buffer.append(CondFact.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
         buffer.append(tab);
-        buffer.append(") [CondTermDerived1]");
+        buffer.append(") [ConditionOr]");
         return buffer.toString();
     }
 }

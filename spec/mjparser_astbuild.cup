@@ -105,9 +105,12 @@ nonterminal ArrayOpt ArrayOpt;
 nonterminal VarRest VarRest;
 nonterminal EnumRest EnumRest;
 nonterminal EnumAssignOpt EnumAssignOpt;
-nonterminal TernaryOperator TernaryOperator;
 nonterminal SimpleExpr SimpleExpr;
-nonterminal RelExpr RelExpr;
+nonterminal SimpleExprRest SimpleExprRest;
+nonterminal SimpleCondFact SimpleCondFact;
+nonterminal SimpleCondTerm SimpleCondTerm;
+nonterminal SimpleCondition SimpleCondition;
+
 
 precedence left ELSE;
 
@@ -235,35 +238,27 @@ ActParsRest ::= (ActParsRestComma) COMMA Expr:E1 ActParsRest:A2 {: RESULT=new Ac
 
 
 
-Condition ::= Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionDerived1(C1, C2); RESULT.setLine(C1left); :}
-            | CondTerm:C1 {: RESULT=new ConditionDerived2(C1); RESULT.setLine(C1left); :}
+
+Condition ::= (ConditionOr)   Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionOr(C1, C2); RESULT.setLine(C1left); :}
+            | (ConditionTerm) CondTerm:C1 {: RESULT=new ConditionTerm(C1); RESULT.setLine(C1left); :}
             ;
 
-CondTerm ::= CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermDerived1(C1, C2); RESULT.setLine(C1left); :}
-           | CondFact:C1 {: RESULT=new CondTermDerived2(C1); RESULT.setLine(C1left); :}
+CondTerm ::= (CondTermAnd)    CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermAnd(C1, C2); RESULT.setLine(C1left); :}
+           | (CondTermFact)   CondFact:C1 {: RESULT=new CondTermFact(C1); RESULT.setLine(C1left); :}
            ;
 
-
-
-CondFact ::= RelExpr:R1 {: RESULT=new CondFactDerived1(R1); RESULT.setLine(R1left); :} ;
-
-RelExpr ::= SimpleExpr:S1 Relop:R2 SimpleExpr:S3 {: RESULT=new RelExprDerived1(S1, R2, S3); RESULT.setLine(S1left); :}
-          | SimpleExpr:S1 {: RESULT=new RelExprDerived2(S1); RESULT.setLine(S1left); :}
+CondFact ::= (CondFactRel)    Expr:E1 Relop:R2 Expr:E3 {: RESULT=new CondFactRel(E1, R2, E3); RESULT.setLine(E1left); :}
+          | (CondFactExpr)    Expr:E1 {: RESULT=new CondFactExpr(E1); RESULT.setLine(E1left); :}
           ;
 
-SimpleExpr ::= MINUS Term:T1 ExprRest:E2 {: RESULT=new SimpleExprDerived1(T1, E2); RESULT.setLine(T1left); :}
-             | Term:T1  ExprRest:E2 {: RESULT=new SimpleExprDerived2(T1, E2); RESULT.setLine(T1left); :}
-             ;
-
-ExprRest ::= Addop:A1 Term:T2 ExprRest:E3 {: RESULT=new ExprRestDerived1(A1, T2, E3); RESULT.setLine(A1left); :}
-           | {: RESULT=new ExprRestDerived2(); :} /* epsilon */
+ExprRest ::= (ExprRestAdd)    Addop:A1 Term:T2 ExprRest:E3 {: RESULT=new ExprRestAdd(A1, T2, E3); RESULT.setLine(A1left); :}
+           | (ExprRestEps) {: RESULT=new ExprRestEps(); :}
            ;
 
-Expr ::= MINUS Term:T1 ExprRest:E2 {: RESULT=new ExprDerived1(T1, E2); RESULT.setLine(T1left); :}
-       | Term:T1  ExprRest:E2 {: RESULT=new ExprDerived2(T1, E2); RESULT.setLine(T1left); :}
-       | Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprDerived3(C1, E2, E3); RESULT.setLine(C1left); :}
+Expr ::= (ExprMinus)          MINUS Term:T1 ExprRest:E2 {: RESULT=new ExprMinus(T1, E2); RESULT.setLine(T1left); :}
+       | (ExprTerm)           Term:T1 ExprRest:E2 {: RESULT=new ExprTerm(T1, E2); RESULT.setLine(T1left); :}
+       | (ExprTernary)        Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprTernary(C1, E2, E3); RESULT.setLine(C1left); :}
        ;
-
 
 
 Term ::= (Term) Factor:F1 TermRest:T2 {: RESULT=new Term(F1, T2); RESULT.setLine(F1left); :} ;

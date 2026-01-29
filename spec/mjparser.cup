@@ -67,7 +67,8 @@ nonterminal Assignop, Relop, Addop, Mulop;
 nonterminal ElseOpt, ExprOpt, ConditionOpt, DesignatorStmtOpt, PrintOpt;
 nonterminal CaseList, Case;
 nonterminal ConstRest, ConstValue, ArrayOpt, VarRest, EnumRest, EnumAssignOpt;
-nonterminal TernaryOperator, SimpleExpr, RelExpr;
+nonterminal SimpleExpr, SimpleExprRest, SimpleCondFact, SimpleCondTerm, SimpleCondition;
+
 
 precedence left ELSE;
 
@@ -195,35 +196,27 @@ ActParsRest ::= (ActParsRestComma) COMMA Expr ActParsRest
 
 
 
-Condition ::= Condition OR CondTerm
-            | CondTerm
+
+Condition ::= (ConditionOr)   Condition OR CondTerm
+            | (ConditionTerm) CondTerm
             ;
 
-CondTerm ::= CondTerm AND CondFact
-           | CondFact
+CondTerm ::= (CondTermAnd)    CondTerm AND CondFact
+           | (CondTermFact)   CondFact
            ;
 
-
-
-CondFact ::= RelExpr ;
-
-RelExpr ::= SimpleExpr Relop SimpleExpr
-          | SimpleExpr
+CondFact ::= (CondFactRel)    Expr Relop Expr
+          | (CondFactExpr)    Expr
           ;
 
-SimpleExpr ::= MINUS Term ExprRest
-             | Term  ExprRest
-             ;
-
-ExprRest ::= Addop Term ExprRest
-           | /* epsilon */
+ExprRest ::= (ExprRestAdd)    Addop Term ExprRest
+           | (ExprRestEps)
            ;
 
-Expr ::= MINUS Term ExprRest
-       | Term  ExprRest
-       | Condition QMARK Expr COLON Expr
+Expr ::= (ExprMinus)          MINUS Term ExprRest
+       | (ExprTerm)           Term ExprRest
+       | (ExprTernary)        Condition QMARK Expr COLON Expr
        ;
-
 
 
 Term ::= (Term) Factor TermRest ;

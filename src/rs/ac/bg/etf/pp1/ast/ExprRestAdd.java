@@ -1,20 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 19:50:52
+// 29/0/2026 2:53:34
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class SimpleExprDerived2 extends SimpleExpr {
+public class ExprRestAdd extends ExprRest {
 
+    private Addop Addop;
     private Term Term;
     private ExprRest ExprRest;
 
-    public SimpleExprDerived2 (Term Term, ExprRest ExprRest) {
+    public ExprRestAdd (Addop Addop, Term Term, ExprRest ExprRest) {
+        this.Addop=Addop;
+        if(Addop!=null) Addop.setParent(this);
         this.Term=Term;
         if(Term!=null) Term.setParent(this);
         this.ExprRest=ExprRest;
         if(ExprRest!=null) ExprRest.setParent(this);
+    }
+
+    public Addop getAddop() {
+        return Addop;
+    }
+
+    public void setAddop(Addop Addop) {
+        this.Addop=Addop;
     }
 
     public Term getTerm() {
@@ -38,17 +49,20 @@ public class SimpleExprDerived2 extends SimpleExpr {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Addop!=null) Addop.accept(visitor);
         if(Term!=null) Term.accept(visitor);
         if(ExprRest!=null) ExprRest.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Addop!=null) Addop.traverseTopDown(visitor);
         if(Term!=null) Term.traverseTopDown(visitor);
         if(ExprRest!=null) ExprRest.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Addop!=null) Addop.traverseBottomUp(visitor);
         if(Term!=null) Term.traverseBottomUp(visitor);
         if(ExprRest!=null) ExprRest.traverseBottomUp(visitor);
         accept(visitor);
@@ -57,7 +71,13 @@ public class SimpleExprDerived2 extends SimpleExpr {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("SimpleExprDerived2(\n");
+        buffer.append("ExprRestAdd(\n");
+
+        if(Addop!=null)
+            buffer.append(Addop.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(Term!=null)
             buffer.append(Term.toString("  "+tab));
@@ -72,7 +92,7 @@ public class SimpleExprDerived2 extends SimpleExpr {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [SimpleExprDerived2]");
+        buffer.append(") [ExprRestAdd]");
         return buffer.toString();
     }
 }

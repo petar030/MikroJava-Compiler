@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 19:50:52
+// 29/0/2026 2:53:34
 
 
 package src/rs/ac.bg.etf.pp1.ast;
@@ -15,7 +15,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormParsOpt FormParsOpt) { }
     public void visit(Relop Relop) { }
     public void visit(ActParsOpt ActParsOpt) { }
-    public void visit(TernaryOperator TernaryOperator) { }
+    public void visit(SimpleCondFact SimpleCondFact) { }
     public void visit(StatementList StatementList) { }
     public void visit(VarRest VarRest) { }
     public void visit(Addop Addop) { }
@@ -28,7 +28,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DeclList DeclList) { }
     public void visit(ArrayOpt ArrayOpt) { }
     public void visit(ActParsRest ActParsRest) { }
-    public void visit(RelExpr RelExpr) { }
     public void visit(EnumRest EnumRest) { }
     public void visit(Condition Condition) { }
     public void visit(ConstValue ConstValue) { }
@@ -37,11 +36,14 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(SimpleExpr SimpleExpr) { }
     public void visit(EnumAssignOpt EnumAssignOpt) { }
     public void visit(ConditionOpt ConditionOpt) { }
+    public void visit(SimpleCondTerm SimpleCondTerm) { }
     public void visit(DesignatorStmtOpt DesignatorStmtOpt) { }
     public void visit(DesignatorRest DesignatorRest) { }
     public void visit(VarDeclList VarDeclList) { }
     public void visit(Expr Expr) { }
+    public void visit(SimpleCondition SimpleCondition) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
+    public void visit(SimpleExprRest SimpleExprRest) { }
     public void visit(Statement Statement) { }
     public void visit(CondFact CondFact) { }
     public void visit(MethodDeclList MethodDeclList) { }
@@ -75,20 +77,17 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(TermRest_e TermRest_e) { visit(); }
     public void visit(TermRestMul TermRestMul) { visit(); }
     public void visit(Term Term) { visit(); }
-    public void visit(ExprDerived3 ExprDerived3) { visit(); }
-    public void visit(ExprDerived2 ExprDerived2) { visit(); }
-    public void visit(ExprDerived1 ExprDerived1) { visit(); }
-    public void visit(ExprRestDerived2 ExprRestDerived2) { visit(); }
-    public void visit(ExprRestDerived1 ExprRestDerived1) { visit(); }
-    public void visit(SimpleExprDerived2 SimpleExprDerived2) { visit(); }
-    public void visit(SimpleExprDerived1 SimpleExprDerived1) { visit(); }
-    public void visit(RelExprDerived2 RelExprDerived2) { visit(); }
-    public void visit(RelExprDerived1 RelExprDerived1) { visit(); }
-    public void visit(CondFactDerived1 CondFactDerived1) { visit(); }
-    public void visit(CondTermDerived2 CondTermDerived2) { visit(); }
-    public void visit(CondTermDerived1 CondTermDerived1) { visit(); }
-    public void visit(ConditionDerived2 ConditionDerived2) { visit(); }
-    public void visit(ConditionDerived1 ConditionDerived1) { visit(); }
+    public void visit(ExprTernary ExprTernary) { visit(); }
+    public void visit(ExprTerm ExprTerm) { visit(); }
+    public void visit(ExprMinus ExprMinus) { visit(); }
+    public void visit(ExprRestEps ExprRestEps) { visit(); }
+    public void visit(ExprRestAdd ExprRestAdd) { visit(); }
+    public void visit(CondFactExpr CondFactExpr) { visit(); }
+    public void visit(CondFactRel CondFactRel) { visit(); }
+    public void visit(CondTermFact CondTermFact) { visit(); }
+    public void visit(CondTermAnd CondTermAnd) { visit(); }
+    public void visit(ConditionTerm ConditionTerm) { visit(); }
+    public void visit(ConditionOr ConditionOr) { visit(); }
     public void visit(ActParsRest_e ActParsRest_e) { visit(); }
     public void visit(ActParsRestComma ActParsRestComma) { visit(); }
     public void visit(ActPars ActPars) { visit(); }

@@ -1,13 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 28/0/2026 19:50:52
+// 29/0/2026 2:53:34
 
 
 package src/rs/ac.bg.etf.pp1.ast;
 
-public class ExprRestDerived2 extends ExprRest {
+public class ExprRestEps extends ExprRest {
 
-    public ExprRestDerived2 () {
+    public ExprRestEps () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class ExprRestDerived2 extends ExprRest {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ExprRestDerived2(\n");
+        buffer.append("ExprRestEps(\n");
 
         buffer.append(tab);
-        buffer.append(") [ExprRestDerived2]");
+        buffer.append(") [ExprRestEps]");
         return buffer.toString();
     }
 }
