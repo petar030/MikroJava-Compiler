@@ -189,6 +189,8 @@ Statement ::= (StmtDesignator) DesignatorStatement:D1 SEMI {: RESULT=new StmtDes
             ;
 
 DesignatorStatement ::= (DstAssign) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new DstAssign(D1, A2, E3); RESULT.setLine(D1left); :}
+					  | (DstError) error:e
+					  {: parser.report_error("Oporavak od greske u DesignatorStatement. Linija: " + eleft, null);:} {: RESULT=new DstError(); :} 	
                       | (DstCall) Designator:D1 LPAREN ActParsOpt:A2 RPAREN {: RESULT=new DstCall(D1, A2); RESULT.setLine(D1left); :}
                       | (DstInc) Designator:D1 INC {: RESULT=new DstInc(D1); RESULT.setLine(D1left); :}
                       | (DstDec) Designator:D1 DEC {: RESULT=new DstDec(D1); RESULT.setLine(D1left); :}
@@ -251,6 +253,10 @@ CondTerm ::= CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermDerived1(C1, C2);
 CondFact ::= SimpleExpr:S1 Relop:R2 SimpleExpr:S3 {: RESULT=new CondFactDerived1(S1, R2, S3); RESULT.setLine(S1left); :}
           | SimpleExpr:S1 {: RESULT=new CondFactDerived2(S1); RESULT.setLine(S1left); :}
           ;
+          
+Expr ::= SimpleExpr:S1 {: RESULT=new ExprDerived1(S1); RESULT.setLine(S1left); :}
+       | Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprDerived2(C1, E2, E3); RESULT.setLine(C1left); :}
+       ;
 
 SimpleExpr ::= MINUS Term:T1 ExprRest:E2 {: RESULT=new SimpleExprDerived1(T1, E2); RESULT.setLine(T1left); :}
              | Term:T1  ExprRest:E2 {: RESULT=new SimpleExprDerived2(T1, E2); RESULT.setLine(T1left); :}
@@ -259,10 +265,8 @@ SimpleExpr ::= MINUS Term:T1 ExprRest:E2 {: RESULT=new SimpleExprDerived1(T1, E2
 ExprRest ::= Addop:A1 Term:T2 ExprRest:E3 {: RESULT=new ExprRestDerived1(A1, T2, E3); RESULT.setLine(A1left); :}
            | {: RESULT=new ExprRestDerived2(); :} /* epsilon */
            ;
+	
 
-Expr ::= SimpleExpr:S1 {: RESULT=new ExprDerived1(S1); RESULT.setLine(S1left); :}
-       | Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprDerived2(C1, E2, E3); RESULT.setLine(C1left); :}
-       ;
 
 
 

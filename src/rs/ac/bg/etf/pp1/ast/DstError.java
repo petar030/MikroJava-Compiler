@@ -5,9 +5,9 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class CaseList_e extends CaseList {
+public class DstError extends DesignatorStatement {
 
-    public CaseList_e () {
+    public DstError () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class CaseList_e extends CaseList {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("CaseList_e(\n");
+        buffer.append("DstError(\n");
 
         buffer.append(tab);
-        buffer.append(") [CaseList_e]");
+        buffer.append(") [DstError]");
         return buffer.toString();
     }
 }

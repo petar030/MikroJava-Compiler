@@ -152,6 +152,8 @@ Statement ::= (StmtDesignator) DesignatorStatement SEMI
             ;
 
 DesignatorStatement ::= (DstAssign) Designator Assignop Expr
+					  | (DstError) error:e
+					  {: parser.report_error("Oporavak od greske u DesignatorStatement. Linija: " + eleft, null);:} 	
                       | (DstCall) Designator LPAREN ActParsOpt RPAREN
                       | (DstInc) Designator INC
                       | (DstDec) Designator DEC

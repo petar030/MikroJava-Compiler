@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 17:49:50
+// 29/0/2026 20:21:54
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -72,12 +72,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(TermRest_e TermRest_e) { visit(); }
     public void visit(TermRestMul TermRestMul) { visit(); }
     public void visit(Term Term) { visit(); }
-    public void visit(ExprDerived2 ExprDerived2) { visit(); }
-    public void visit(ExprDerived1 ExprDerived1) { visit(); }
     public void visit(ExprRestDerived2 ExprRestDerived2) { visit(); }
     public void visit(ExprRestDerived1 ExprRestDerived1) { visit(); }
     public void visit(SimpleExprDerived2 SimpleExprDerived2) { visit(); }
     public void visit(SimpleExprDerived1 SimpleExprDerived1) { visit(); }
+    public void visit(ExprDerived2 ExprDerived2) { visit(); }
+    public void visit(ExprDerived1 ExprDerived1) { visit(); }
     public void visit(CondFactDerived2 CondFactDerived2) { visit(); }
     public void visit(CondFactDerived1 CondFactDerived1) { visit(); }
     public void visit(CondTermDerived2 CondTermDerived2) { visit(); }
@@ -108,6 +108,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DstDec DstDec) { visit(); }
     public void visit(DstInc DstInc) { visit(); }
     public void visit(DstCall DstCall) { visit(); }
+    public void visit(DstError DstError) { visit(); }
     public void visit(DstAssign DstAssign) { visit(); }
     public void visit(StmtFor StmtFor) { visit(); }
     public void visit(StmtSwitch StmtSwitch) { visit(); }

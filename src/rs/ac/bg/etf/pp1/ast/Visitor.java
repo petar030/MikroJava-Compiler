@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 17:49:50
+// 29/0/2026 20:21:54
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -72,12 +72,12 @@ public interface Visitor {
     public void visit(TermRest_e TermRest_e);
     public void visit(TermRestMul TermRestMul);
     public void visit(Term Term);
-    public void visit(ExprDerived2 ExprDerived2);
-    public void visit(ExprDerived1 ExprDerived1);
     public void visit(ExprRestDerived2 ExprRestDerived2);
     public void visit(ExprRestDerived1 ExprRestDerived1);
     public void visit(SimpleExprDerived2 SimpleExprDerived2);
     public void visit(SimpleExprDerived1 SimpleExprDerived1);
+    public void visit(ExprDerived2 ExprDerived2);
+    public void visit(ExprDerived1 ExprDerived1);
     public void visit(CondFactDerived2 CondFactDerived2);
     public void visit(CondFactDerived1 CondFactDerived1);
     public void visit(CondTermDerived2 CondTermDerived2);
@@ -108,6 +108,7 @@ public interface Visitor {
     public void visit(DstDec DstDec);
     public void visit(DstInc DstInc);
     public void visit(DstCall DstCall);
+    public void visit(DstError DstError);
     public void visit(DstAssign DstAssign);
     public void visit(StmtFor StmtFor);
     public void visit(StmtSwitch StmtSwitch);
