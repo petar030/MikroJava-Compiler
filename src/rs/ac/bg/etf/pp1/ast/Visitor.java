@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 20:21:54
+// 31/0/2026 15:52:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -13,6 +13,7 @@ public interface Visitor {
     public void visit(FormParsOpt FormParsOpt);
     public void visit(Relop Relop);
     public void visit(ActParsOpt ActParsOpt);
+    public void visit(MethodNameAndType MethodNameAndType);
     public void visit(StatementList StatementList);
     public void visit(VarRest VarRest);
     public void visit(Addop Addop);
@@ -24,6 +25,7 @@ public interface Visitor {
     public void visit(FormParsRest FormParsRest);
     public void visit(DeclList DeclList);
     public void visit(ArrayOpt ArrayOpt);
+    public void visit(Designator Designator);
     public void visit(ActParsRest ActParsRest);
     public void visit(EnumRest EnumRest);
     public void visit(Condition Condition);
@@ -56,11 +58,18 @@ public interface Visitor {
     public void visit(RelNE RelNE);
     public void visit(RelEQ RelEQ);
     public void visit(Assignop Assignop);
-    public void visit(DesRest_e DesRest_e);
-    public void visit(DesArr DesArr);
-    public void visit(DesDotLength DesDotLength);
-    public void visit(DesDotIdent DesDotIdent);
-    public void visit(Designator Designator);
+    public void visit(DesignatorArrayName DesignatorArrayName);
+    public void visit(FieldName FieldName);
+    public void visit(DesignatorName DesignatorName);
+    public void visit(DesignatorRest_more_index DesignatorRest_more_index);
+    public void visit(DesignatorRest_more_dot_length DesignatorRest_more_dot_length);
+    public void visit(DesignatorRest_more_dot_ident DesignatorRest_more_dot_ident);
+    public void visit(DesignatorRest_dot_length DesignatorRest_dot_length);
+    public void visit(DesignatorRest_dot_ident DesignatorRest_dot_ident);
+    public void visit(Designator_elem_rest Designator_elem_rest);
+    public void visit(Designator_rest Designator_rest);
+    public void visit(Designator_elem Designator_elem);
+    public void visit(Designator_var Designator_var);
     public void visit(FactorCallNo FactorCallNo);
     public void visit(FactorCallYes FactorCallYes);
     public void visit(FactorExpr FactorExpr);
@@ -146,7 +155,8 @@ public interface Visitor {
     public void visit(FormParsOptYes FormParsOptYes);
     public void visit(VarDeclList_e VarDeclList_e);
     public void visit(VarDeclListRec VarDeclListRec);
-    public void visit(MethodDeclVoid MethodDeclVoid);
+    public void visit(MethodNameAndType_Void MethodNameAndType_Void);
+    public void visit(MethodNameAndType_RetVal MethodNameAndType_RetVal);
     public void visit(MethodDeclType MethodDeclType);
     public void visit(MethodDeclList_e MethodDeclList_e);
     public void visit(MethodDeclListRec MethodDeclListRec);
@@ -154,6 +164,7 @@ public interface Visitor {
     public void visit(DeclListEnum DeclListEnum);
     public void visit(DeclListVar DeclListVar);
     public void visit(DeclListConst DeclListConst);
+    public void visit(ProgName ProgName);
     public void visit(Program Program);
 
 }

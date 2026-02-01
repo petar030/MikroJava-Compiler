@@ -1,27 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 20:21:54
+// 31/0/2026 15:52:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class DesDotIdent extends DesignatorRest {
+public class DesignatorRest_more_dot_ident extends DesignatorRest {
 
-    private String I1;
     private DesignatorRest DesignatorRest;
+    private FieldName FieldName;
 
-    public DesDotIdent (String I1, DesignatorRest DesignatorRest) {
-        this.I1=I1;
+    public DesignatorRest_more_dot_ident (DesignatorRest DesignatorRest, FieldName FieldName) {
         this.DesignatorRest=DesignatorRest;
         if(DesignatorRest!=null) DesignatorRest.setParent(this);
-    }
-
-    public String getI1() {
-        return I1;
-    }
-
-    public void setI1(String I1) {
-        this.I1=I1;
+        this.FieldName=FieldName;
+        if(FieldName!=null) FieldName.setParent(this);
     }
 
     public DesignatorRest getDesignatorRest() {
@@ -32,31 +25,39 @@ public class DesDotIdent extends DesignatorRest {
         this.DesignatorRest=DesignatorRest;
     }
 
+    public FieldName getFieldName() {
+        return FieldName;
+    }
+
+    public void setFieldName(FieldName FieldName) {
+        this.FieldName=FieldName;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(DesignatorRest!=null) DesignatorRest.accept(visitor);
+        if(FieldName!=null) FieldName.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(DesignatorRest!=null) DesignatorRest.traverseTopDown(visitor);
+        if(FieldName!=null) FieldName.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(DesignatorRest!=null) DesignatorRest.traverseBottomUp(visitor);
+        if(FieldName!=null) FieldName.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("DesDotIdent(\n");
-
-        buffer.append(" "+tab+I1);
-        buffer.append("\n");
+        buffer.append("DesignatorRest_more_dot_ident(\n");
 
         if(DesignatorRest!=null)
             buffer.append(DesignatorRest.toString("  "+tab));
@@ -64,8 +65,14 @@ public class DesDotIdent extends DesignatorRest {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
+        if(FieldName!=null)
+            buffer.append(FieldName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
         buffer.append(tab);
-        buffer.append(") [DesDotIdent]");
+        buffer.append(") [DesignatorRest_more_dot_ident]");
         return buffer.toString();
     }
 }

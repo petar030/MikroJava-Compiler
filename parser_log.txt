@@ -1,0 +1,51 @@
+Buildfile: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/build.xml
+
+delete:
+
+lexerGen:
+     [java] Reading "spec/mjlexer.flex"
+     [java] Constructing NFA : 212 states in NFA
+     [java] Converting NFA to DFA : 
+     [java] .............................................................................................................................
+     [java] 129 states before minimization, 118 states in minimized DFA
+     [java] Writing code to "./src/rs/ac/bg/etf/pp1/Yylex.java"
+
+parserGen:
+     [java] Opening files...
+     [java] Parsing specification from standard input...
+     [java] Checking specification...
+     [java] ------- ast extension v0.8 summary -------
+     [java]   Generated 39 base classes
+     [java]   Generated 106 derived classes
+     [java]   Generated 14 record classes
+     [java]   Generated interface SyntaxNode
+     [java]   Generated interface Visitor
+     [java]   Generated adapter class VisitorAdaptor
+     [java] -----------------------------------------------
+     [java] Building parse tables...
+     [java]   Computing non-terminal nullability...
+     [java]   Computing first sets...
+     [java]   Building state machine...
+     [java]   Filling in tables...
+     [java]   Checking for non-reduced productions...
+     [java] Writing parser...
+     [java] Closing files...
+     [java] ------- CUP v0.10k Parser Generation Summary -------
+     [java]   0 errors and 0 warnings
+     [java]   49 terminals, 54 non-terminals, and 121 productions declared, 
+     [java]   producing 233 unique parse states.
+     [java]   0 terminals declared but not used.
+     [java]   0 non-terminals declared but not used.
+     [java]   0 productions never reduced.
+     [java]   0 conflicts detected (0 expected).
+     [java]   Code written to "MJParser.java", and "sym.java".
+     [java] ---------------------------------------------------- (v0.10k)
+
+repackage:
+  [replace] Replaced 162 occurrences in 162 files.
+
+compile:
+    [javac] Compiling 166 source files
+
+BUILD SUCCESSFUL
+Total time: 1 second

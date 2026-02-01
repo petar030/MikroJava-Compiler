@@ -69,9 +69,15 @@ nonterminal CaseList, Case;
 nonterminal ConstRest, ConstValue, ArrayOpt, VarRest, EnumRest, EnumAssignOpt;
 nonterminal SimpleExpr, IfCond;
 
+nonterminal DesignatorName, FieldName, DesignatorArrayName;
+
+nonterminal ProgName, MethodNameAndType;
+
 precedence left ELSE;
 
-Program ::= (Program) PROG IDENT DeclList LBRACE MethodDeclList RBRACE ;
+Program ::= (Program) PROG ProgName DeclList LBRACE MethodDeclList RBRACE ;
+
+ProgName ::= (ProgName) IDENT;
 
 DeclList ::= (DeclListConst) DeclList ConstDecl
            | (DeclListVar) DeclList VarDecl
@@ -83,9 +89,11 @@ MethodDeclList ::= (MethodDeclListRec) MethodDeclList MethodDecl
                  | (MethodDeclList_e)
                  ;
 
-MethodDecl ::= (MethodDeclType) Type IDENT LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE
-             | (MethodDeclVoid) VOID IDENT LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE
-             ;
+MethodDecl ::= (MethodDeclType) MethodNameAndType LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE;
+             
+MethodNameAndType ::= (MethodNameAndType_RetVal) Type IDENT
+					| (MethodNameAndType_Void) VOID IDENT
+					;
 
 VarDeclList ::= (VarDeclListRec) VarDeclList VarDecl
               | (VarDeclList_e)
@@ -251,13 +259,29 @@ FactorCallOpt ::= (FactorCallYes) LPAREN ActParsOpt RPAREN
                 | (FactorCallNo)
                 ;
 
-Designator ::= (Designator) IDENT DesignatorRest ;
 
-DesignatorRest ::= (DesDotIdent) DOT IDENT DesignatorRest
-                 | (DesDotLength) DOT LENGTH DesignatorRest
-                 | (DesArr) LBRACK Expr RBRACK DesignatorRest
-                 | (DesRest_e)
-                 ;
+
+Designator ::=
+      (Designator_var)        IDENT
+    | (Designator_elem)       DesignatorArrayName LBRACK Expr RBRACK
+    | (Designator_rest)       DesignatorName DesignatorRest
+    | (Designator_elem_rest)  DesignatorArrayName LBRACK Expr RBRACK DesignatorRest
+    ;
+
+DesignatorRest ::=
+      (DesignatorRest_dot_ident)        DOT FieldName
+    | (DesignatorRest_dot_length)       DOT LENGTH
+    | (DesignatorRest_more_dot_ident)   DesignatorRest DOT FieldName
+    | (DesignatorRest_more_dot_length)  DesignatorRest DOT LENGTH
+    | (DesignatorRest_more_index)       DesignatorRest LBRACK Expr RBRACK
+    ;
+
+DesignatorName       ::= (DesignatorName)       IDENT ;
+FieldName            ::= (FieldName)            IDENT ;
+DesignatorArrayName  ::= (DesignatorArrayName)  IDENT ;
+
+
+
 
 Assignop ::= (Assignop) EQUAL ;
 

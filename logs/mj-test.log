@@ -1,44 +1,141 @@
-INFO  21:53:17,066 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
-INFO  21:53:17,081 - #2 program
-INFO  21:53:17,081 - #45 nekiTest
-INFO  21:53:17,081 - #42 {
-INFO  21:53:17,081 - #11 void
-INFO  21:53:17,081 - #45 main
-INFO  21:53:17,081 - #38 (
-INFO  21:53:17,082 - #39 )
-INFO  21:53:17,082 - #42 {
-INFO  21:53:17,082 - #45 a
-INFO  21:53:17,082 - #38 (
-INFO  21:53:17,082 - #29 *
-ERROR 21:53:17,082 - Sintaksna greska na liniji 7
-INFO  21:53:17,082 - #39 )
-INFO  21:53:17,082 - #33 ;
-INFO  21:53:17,083 - #43 }
-INFO  21:53:17,083 - #43 }
-ERROR 21:53:17,083 - Oporavak od greske u DesignatorStatement. Linija: 12
-INFO  21:53:17,084 - Program(
- nekiTest
+INFO  17:16:04,991 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  17:16:05,006 - #2 program
+INFO  17:16:05,006 - #45 nekiTest
+INFO  17:16:05,006 - #42 {
+INFO  17:16:05,007 - #11 void
+INFO  17:16:05,007 - #45 main
+INFO  17:16:05,007 - #38 (
+INFO  17:16:05,007 - #39 )
+INFO  17:16:05,007 - #42 {
+INFO  17:16:05,007 - #45 x
+INFO  17:16:05,007 - #32 =
+INFO  17:16:05,008 - #45 a
+INFO  17:16:05,008 - #40 [
+INFO  17:16:05,008 - #46 2
+INFO  17:16:05,008 - #41 ]
+INFO  17:16:05,008 - #36 .
+INFO  17:16:05,008 - #14 length
+INFO  17:16:05,009 - #33 ;
+INFO  17:16:05,009 - #45 x
+INFO  17:16:05,009 - #32 =
+INFO  17:16:05,009 - #45 a
+INFO  17:16:05,009 - #36 .
+INFO  17:16:05,009 - #45 b
+INFO  17:16:05,009 - #36 .
+INFO  17:16:05,010 - #45 c
+INFO  17:16:05,010 - #36 .
+INFO  17:16:05,010 - #14 length
+INFO  17:16:05,010 - #33 ;
+INFO  17:16:05,010 - #43 }
+INFO  17:16:05,010 - #43 }
+INFO  17:16:05,010 - Program(
+  ProgName(
+   nekiTest
+  ) [ProgName]
   DeclList_e(
   ) [DeclList_e]
   MethodDeclListRec(
     MethodDeclList_e(
     ) [MethodDeclList_e]
-    MethodDeclVoid(
-     main
+    MethodDeclType(
+      MethodNameAndType_Void(
+       main
+      ) [MethodNameAndType_Void]
       FormParsOptNo(
       ) [FormParsOptNo]
       VarDeclList_e(
       ) [VarDeclList_e]
       StatementListRec(
-        StatementList_e(
-        ) [StatementList_e]
+        StatementListRec(
+          StatementList_e(
+          ) [StatementList_e]
+          StmtDesignator(
+            DstAssign(
+              Designator_var(
+               x
+              ) [Designator_var]
+              Assignop(
+              ) [Assignop]
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorDesignator(
+                      Designator_elem_rest(
+                        DesignatorArrayName(
+                         a
+                        ) [DesignatorArrayName]
+                        ExprDerived1(
+                          SimpleExprDerived2(
+                            Term(
+                              FactorNum(
+                               2
+                              ) [FactorNum]
+                              TermRest_e(
+                              ) [TermRest_e]
+                            ) [Term]
+                            ExprRestDerived2(
+                            ) [ExprRestDerived2]
+                          ) [SimpleExprDerived2]
+                        ) [ExprDerived1]
+                        DesignatorRest_dot_length(
+                        ) [DesignatorRest_dot_length]
+                      ) [Designator_elem_rest]
+                      FactorCallNo(
+                      ) [FactorCallNo]
+                    ) [FactorDesignator]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+            ) [DstAssign]
+          ) [StmtDesignator]
+        ) [StatementListRec]
         StmtDesignator(
-          DstError(
-          ) [DstError]
+          DstAssign(
+            Designator_var(
+             x
+            ) [Designator_var]
+            Assignop(
+            ) [Assignop]
+            ExprDerived1(
+              SimpleExprDerived2(
+                Term(
+                  FactorDesignator(
+                    Designator_rest(
+                      DesignatorName(
+                       a
+                      ) [DesignatorName]
+                      DesignatorRest_more_dot_length(
+                        DesignatorRest_more_dot_ident(
+                          DesignatorRest_dot_ident(
+                            FieldName(
+                             b
+                            ) [FieldName]
+                          ) [DesignatorRest_dot_ident]
+                          FieldName(
+                           c
+                          ) [FieldName]
+                        ) [DesignatorRest_more_dot_ident]
+                      ) [DesignatorRest_more_dot_length]
+                    ) [Designator_rest]
+                    FactorCallNo(
+                    ) [FactorCallNo]
+                  ) [FactorDesignator]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived2]
+            ) [ExprDerived1]
+          ) [DstAssign]
         ) [StmtDesignator]
       ) [StatementListRec]
-    ) [MethodDeclVoid]
+    ) [MethodDeclType]
   ) [MethodDeclListRec]
 ) [Program]
-INFO  21:53:17,084 - =================================
-ERROR 21:53:17,084 - Parsiranje NIJE uspesno zavrseno
+INFO  17:16:05,011 - =================================
+INFO  17:16:05,011 - Parisranje uspesno zavrseno!

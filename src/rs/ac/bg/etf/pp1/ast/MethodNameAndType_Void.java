@@ -1,13 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 20:21:54
+// 31/0/2026 15:52:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class DesRest_e extends DesignatorRest {
+public class MethodNameAndType_Void extends MethodNameAndType {
 
-    public DesRest_e () {
+    private String I1;
+
+    public MethodNameAndType_Void (String I1) {
+        this.I1=I1;
+    }
+
+    public String getI1() {
+        return I1;
+    }
+
+    public void setI1(String I1) {
+        this.I1=I1;
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +39,13 @@ public class DesRest_e extends DesignatorRest {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("DesRest_e(\n");
+        buffer.append("MethodNameAndType_Void(\n");
+
+        buffer.append(" "+tab+I1);
+        buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [DesRest_e]");
+        buffer.append(") [MethodNameAndType_Void]");
         return buffer.toString();
     }
 }

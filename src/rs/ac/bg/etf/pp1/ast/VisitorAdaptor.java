@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 20:21:54
+// 31/0/2026 15:52:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -13,6 +13,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormParsOpt FormParsOpt) { }
     public void visit(Relop Relop) { }
     public void visit(ActParsOpt ActParsOpt) { }
+    public void visit(MethodNameAndType MethodNameAndType) { }
     public void visit(StatementList StatementList) { }
     public void visit(VarRest VarRest) { }
     public void visit(Addop Addop) { }
@@ -24,6 +25,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormParsRest FormParsRest) { }
     public void visit(DeclList DeclList) { }
     public void visit(ArrayOpt ArrayOpt) { }
+    public void visit(Designator Designator) { }
     public void visit(ActParsRest ActParsRest) { }
     public void visit(EnumRest EnumRest) { }
     public void visit(Condition Condition) { }
@@ -56,11 +58,18 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(RelNE RelNE) { visit(); }
     public void visit(RelEQ RelEQ) { visit(); }
     public void visit(Assignop Assignop) { visit(); }
-    public void visit(DesRest_e DesRest_e) { visit(); }
-    public void visit(DesArr DesArr) { visit(); }
-    public void visit(DesDotLength DesDotLength) { visit(); }
-    public void visit(DesDotIdent DesDotIdent) { visit(); }
-    public void visit(Designator Designator) { visit(); }
+    public void visit(DesignatorArrayName DesignatorArrayName) { visit(); }
+    public void visit(FieldName FieldName) { visit(); }
+    public void visit(DesignatorName DesignatorName) { visit(); }
+    public void visit(DesignatorRest_more_index DesignatorRest_more_index) { visit(); }
+    public void visit(DesignatorRest_more_dot_length DesignatorRest_more_dot_length) { visit(); }
+    public void visit(DesignatorRest_more_dot_ident DesignatorRest_more_dot_ident) { visit(); }
+    public void visit(DesignatorRest_dot_length DesignatorRest_dot_length) { visit(); }
+    public void visit(DesignatorRest_dot_ident DesignatorRest_dot_ident) { visit(); }
+    public void visit(Designator_elem_rest Designator_elem_rest) { visit(); }
+    public void visit(Designator_rest Designator_rest) { visit(); }
+    public void visit(Designator_elem Designator_elem) { visit(); }
+    public void visit(Designator_var Designator_var) { visit(); }
     public void visit(FactorCallNo FactorCallNo) { visit(); }
     public void visit(FactorCallYes FactorCallYes) { visit(); }
     public void visit(FactorExpr FactorExpr) { visit(); }
@@ -146,7 +155,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormParsOptYes FormParsOptYes) { visit(); }
     public void visit(VarDeclList_e VarDeclList_e) { visit(); }
     public void visit(VarDeclListRec VarDeclListRec) { visit(); }
-    public void visit(MethodDeclVoid MethodDeclVoid) { visit(); }
+    public void visit(MethodNameAndType_Void MethodNameAndType_Void) { visit(); }
+    public void visit(MethodNameAndType_RetVal MethodNameAndType_RetVal) { visit(); }
     public void visit(MethodDeclType MethodDeclType) { visit(); }
     public void visit(MethodDeclList_e MethodDeclList_e) { visit(); }
     public void visit(MethodDeclListRec MethodDeclListRec) { visit(); }
@@ -154,6 +164,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DeclListEnum DeclListEnum) { visit(); }
     public void visit(DeclListVar DeclListVar) { visit(); }
     public void visit(DeclListConst DeclListConst) { visit(); }
+    public void visit(ProgName ProgName) { visit(); }
     public void visit(Program Program) { visit(); }
 
 

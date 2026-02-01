@@ -1,10 +1,13 @@
 
-program nekiTest
+program nekiTest {
+    void main() {
 
-{
-	void main(){
-	
-		a(*);
-	}
-	
+        x = a[2].length;
+        x = a.b.c.length;
+
+       // a++;          // primer allowed za inkrement dizajnatora
+       // a[i]--;       // allowed dekrement nad elementom niza
+
+       
+    }
 }

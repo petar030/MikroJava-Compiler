@@ -1,20 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 29/0/2026 20:21:54
+// 31/0/2026 15:52:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class DesArr extends DesignatorRest {
+public class Designator_elem_rest extends Designator {
 
+    private DesignatorArrayName DesignatorArrayName;
     private Expr Expr;
     private DesignatorRest DesignatorRest;
 
-    public DesArr (Expr Expr, DesignatorRest DesignatorRest) {
+    public Designator_elem_rest (DesignatorArrayName DesignatorArrayName, Expr Expr, DesignatorRest DesignatorRest) {
+        this.DesignatorArrayName=DesignatorArrayName;
+        if(DesignatorArrayName!=null) DesignatorArrayName.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
         this.DesignatorRest=DesignatorRest;
         if(DesignatorRest!=null) DesignatorRest.setParent(this);
+    }
+
+    public DesignatorArrayName getDesignatorArrayName() {
+        return DesignatorArrayName;
+    }
+
+    public void setDesignatorArrayName(DesignatorArrayName DesignatorArrayName) {
+        this.DesignatorArrayName=DesignatorArrayName;
     }
 
     public Expr getExpr() {
@@ -38,17 +49,20 @@ public class DesArr extends DesignatorRest {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(DesignatorArrayName!=null) DesignatorArrayName.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
         if(DesignatorRest!=null) DesignatorRest.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(DesignatorArrayName!=null) DesignatorArrayName.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
         if(DesignatorRest!=null) DesignatorRest.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(DesignatorArrayName!=null) DesignatorArrayName.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
         if(DesignatorRest!=null) DesignatorRest.traverseBottomUp(visitor);
         accept(visitor);
@@ -57,7 +71,13 @@ public class DesArr extends DesignatorRest {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("DesArr(\n");
+        buffer.append("Designator_elem_rest(\n");
+
+        if(DesignatorArrayName!=null)
+            buffer.append(DesignatorArrayName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(Expr!=null)
             buffer.append(Expr.toString("  "+tab));
@@ -72,7 +92,7 @@ public class DesArr extends DesignatorRest {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [DesArr]");
+        buffer.append(") [Designator_elem_rest]");
         return buffer.toString();
     }
 }
