@@ -1,38 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2026 15:52:35
+// 4/1/2026 15:38:10
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ConstRestComma extends ConstRest {
 
-    private String I1;
-    private ConstValue ConstValue;
+    private ConstDeclItem ConstDeclItem;
     private ConstRest ConstRest;
 
-    public ConstRestComma (String I1, ConstValue ConstValue, ConstRest ConstRest) {
-        this.I1=I1;
-        this.ConstValue=ConstValue;
-        if(ConstValue!=null) ConstValue.setParent(this);
+    public ConstRestComma (ConstDeclItem ConstDeclItem, ConstRest ConstRest) {
+        this.ConstDeclItem=ConstDeclItem;
+        if(ConstDeclItem!=null) ConstDeclItem.setParent(this);
         this.ConstRest=ConstRest;
         if(ConstRest!=null) ConstRest.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public ConstDeclItem getConstDeclItem() {
+        return ConstDeclItem;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
-    }
-
-    public ConstValue getConstValue() {
-        return ConstValue;
-    }
-
-    public void setConstValue(ConstValue ConstValue) {
-        this.ConstValue=ConstValue;
+    public void setConstDeclItem(ConstDeclItem ConstDeclItem) {
+        this.ConstDeclItem=ConstDeclItem;
     }
 
     public ConstRest getConstRest() {
@@ -48,18 +38,18 @@ public class ConstRestComma extends ConstRest {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ConstValue!=null) ConstValue.accept(visitor);
+        if(ConstDeclItem!=null) ConstDeclItem.accept(visitor);
         if(ConstRest!=null) ConstRest.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ConstValue!=null) ConstValue.traverseTopDown(visitor);
+        if(ConstDeclItem!=null) ConstDeclItem.traverseTopDown(visitor);
         if(ConstRest!=null) ConstRest.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ConstValue!=null) ConstValue.traverseBottomUp(visitor);
+        if(ConstDeclItem!=null) ConstDeclItem.traverseBottomUp(visitor);
         if(ConstRest!=null) ConstRest.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -69,11 +59,8 @@ public class ConstRestComma extends ConstRest {
         buffer.append(tab);
         buffer.append("ConstRestComma(\n");
 
-        buffer.append(" "+tab+I1);
-        buffer.append("\n");
-
-        if(ConstValue!=null)
-            buffer.append(ConstValue.toString("  "+tab));
+        if(ConstDeclItem!=null)
+            buffer.append(ConstDeclItem.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

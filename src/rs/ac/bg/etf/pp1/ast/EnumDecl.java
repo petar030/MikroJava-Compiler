@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2026 15:52:35
+// 4/1/2026 15:38:10
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,42 +9,36 @@ public class EnumDecl implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private String I1;
-    private String I2;
-    private EnumAssignOpt EnumAssignOpt;
+    private EnumOpen EnumOpen;
+    private EnumField EnumField;
     private EnumRest EnumRest;
+    private EnumClose EnumClose;
 
-    public EnumDecl (String I1, String I2, EnumAssignOpt EnumAssignOpt, EnumRest EnumRest) {
-        this.I1=I1;
-        this.I2=I2;
-        this.EnumAssignOpt=EnumAssignOpt;
-        if(EnumAssignOpt!=null) EnumAssignOpt.setParent(this);
+    public EnumDecl (EnumOpen EnumOpen, EnumField EnumField, EnumRest EnumRest, EnumClose EnumClose) {
+        this.EnumOpen=EnumOpen;
+        if(EnumOpen!=null) EnumOpen.setParent(this);
+        this.EnumField=EnumField;
+        if(EnumField!=null) EnumField.setParent(this);
         this.EnumRest=EnumRest;
         if(EnumRest!=null) EnumRest.setParent(this);
+        this.EnumClose=EnumClose;
+        if(EnumClose!=null) EnumClose.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public EnumOpen getEnumOpen() {
+        return EnumOpen;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setEnumOpen(EnumOpen EnumOpen) {
+        this.EnumOpen=EnumOpen;
     }
 
-    public String getI2() {
-        return I2;
+    public EnumField getEnumField() {
+        return EnumField;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
-    }
-
-    public EnumAssignOpt getEnumAssignOpt() {
-        return EnumAssignOpt;
-    }
-
-    public void setEnumAssignOpt(EnumAssignOpt EnumAssignOpt) {
-        this.EnumAssignOpt=EnumAssignOpt;
+    public void setEnumField(EnumField EnumField) {
+        this.EnumField=EnumField;
     }
 
     public EnumRest getEnumRest() {
@@ -53,6 +47,14 @@ public class EnumDecl implements SyntaxNode {
 
     public void setEnumRest(EnumRest EnumRest) {
         this.EnumRest=EnumRest;
+    }
+
+    public EnumClose getEnumClose() {
+        return EnumClose;
+    }
+
+    public void setEnumClose(EnumClose EnumClose) {
+        this.EnumClose=EnumClose;
     }
 
     public SyntaxNode getParent() {
@@ -76,19 +78,25 @@ public class EnumDecl implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(EnumAssignOpt!=null) EnumAssignOpt.accept(visitor);
+        if(EnumOpen!=null) EnumOpen.accept(visitor);
+        if(EnumField!=null) EnumField.accept(visitor);
         if(EnumRest!=null) EnumRest.accept(visitor);
+        if(EnumClose!=null) EnumClose.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(EnumAssignOpt!=null) EnumAssignOpt.traverseTopDown(visitor);
+        if(EnumOpen!=null) EnumOpen.traverseTopDown(visitor);
+        if(EnumField!=null) EnumField.traverseTopDown(visitor);
         if(EnumRest!=null) EnumRest.traverseTopDown(visitor);
+        if(EnumClose!=null) EnumClose.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(EnumAssignOpt!=null) EnumAssignOpt.traverseBottomUp(visitor);
+        if(EnumOpen!=null) EnumOpen.traverseBottomUp(visitor);
+        if(EnumField!=null) EnumField.traverseBottomUp(visitor);
         if(EnumRest!=null) EnumRest.traverseBottomUp(visitor);
+        if(EnumClose!=null) EnumClose.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -97,20 +105,26 @@ public class EnumDecl implements SyntaxNode {
         buffer.append(tab);
         buffer.append("EnumDecl(\n");
 
-        buffer.append(" "+tab+I1);
+        if(EnumOpen!=null)
+            buffer.append(EnumOpen.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
-        buffer.append("\n");
-
-        if(EnumAssignOpt!=null)
-            buffer.append(EnumAssignOpt.toString("  "+tab));
+        if(EnumField!=null)
+            buffer.append(EnumField.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(EnumRest!=null)
             buffer.append(EnumRest.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(EnumClose!=null)
+            buffer.append(EnumClose.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

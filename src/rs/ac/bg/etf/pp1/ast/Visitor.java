@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2026 15:52:35
+// 4/1/2026 15:38:10
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,7 +9,6 @@ public interface Visitor {
 
     public void visit(TermRest TermRest);
     public void visit(Mulop Mulop);
-    public void visit(MethodDecl MethodDecl);
     public void visit(FormParsOpt FormParsOpt);
     public void visit(Relop Relop);
     public void visit(ActParsOpt ActParsOpt);
@@ -24,7 +23,6 @@ public interface Visitor {
     public void visit(CondTerm CondTerm);
     public void visit(FormParsRest FormParsRest);
     public void visit(DeclList DeclList);
-    public void visit(ArrayOpt ArrayOpt);
     public void visit(Designator Designator);
     public void visit(ActParsRest ActParsRest);
     public void visit(EnumRest EnumRest);
@@ -32,15 +30,17 @@ public interface Visitor {
     public void visit(IfCond IfCond);
     public void visit(ConstValue ConstValue);
     public void visit(CaseList CaseList);
+    public void visit(EnumField EnumField);
     public void visit(ExprRest ExprRest);
     public void visit(SimpleExpr SimpleExpr);
-    public void visit(EnumAssignOpt EnumAssignOpt);
     public void visit(ConditionOpt ConditionOpt);
+    public void visit(FormParsItem FormParsItem);
     public void visit(DesignatorStmtOpt DesignatorStmtOpt);
     public void visit(DesignatorRest DesignatorRest);
     public void visit(VarDeclList VarDeclList);
     public void visit(Expr Expr);
     public void visit(DesignatorStatement DesignatorStatement);
+    public void visit(VarDeclItem VarDeclItem);
     public void visit(Statement Statement);
     public void visit(CondFact CondFact);
     public void visit(MethodDeclList MethodDeclList);
@@ -131,25 +131,10 @@ public interface Visitor {
     public void visit(StmtDesignator StmtDesignator);
     public void visit(StatementList_e StatementList_e);
     public void visit(StatementListRec StatementListRec);
-    public void visit(Type Type);
-    public void visit(EnumAssign_no EnumAssign_no);
-    public void visit(EnumAssign_yes EnumAssign_yes);
-    public void visit(EnumRest_e EnumRest_e);
-    public void visit(EnumRestComma EnumRestComma);
-    public void visit(EnumDecl EnumDecl);
-    public void visit(ArrayNo ArrayNo);
-    public void visit(ArrayYes ArrayYes);
-    public void visit(VarRest_e VarRest_e);
-    public void visit(VarRestComma VarRestComma);
-    public void visit(VarDecl VarDecl);
-    public void visit(ConstBool ConstBool);
-    public void visit(ConstChar ConstChar);
-    public void visit(ConstNum ConstNum);
-    public void visit(ConstRest_e ConstRest_e);
-    public void visit(ConstRestComma ConstRestComma);
-    public void visit(ConstDecl ConstDecl);
     public void visit(FormParsRest_e FormParsRest_e);
     public void visit(FormParsRestComma FormParsRestComma);
+    public void visit(FormPars_arr FormPars_arr);
+    public void visit(FormPars_var FormPars_var);
     public void visit(FormPars FormPars);
     public void visit(FormParsOptNo FormParsOptNo);
     public void visit(FormParsOptYes FormParsOptYes);
@@ -157,9 +142,29 @@ public interface Visitor {
     public void visit(VarDeclListRec VarDeclListRec);
     public void visit(MethodNameAndType_Void MethodNameAndType_Void);
     public void visit(MethodNameAndType_RetVal MethodNameAndType_RetVal);
-    public void visit(MethodDeclType MethodDeclType);
+    public void visit(MethodDecl MethodDecl);
     public void visit(MethodDeclList_e MethodDeclList_e);
     public void visit(MethodDeclListRec MethodDeclListRec);
+    public void visit(Type Type);
+    public void visit(EnumRest_e EnumRest_e);
+    public void visit(EnumRestComma EnumRestComma);
+    public void visit(EnumField_default EnumField_default);
+    public void visit(EnumField_assign EnumField_assign);
+    public void visit(EnumClose EnumClose);
+    public void visit(EnumOpen EnumOpen);
+    public void visit(EnumDecl EnumDecl);
+    public void visit(VarRest_e VarRest_e);
+    public void visit(VarRestComma VarRestComma);
+    public void visit(VarDeclItem_arr VarDeclItem_arr);
+    public void visit(VarDeclItem_var VarDeclItem_var);
+    public void visit(VarDecl VarDecl);
+    public void visit(ConstBool ConstBool);
+    public void visit(ConstChar ConstChar);
+    public void visit(ConstNum ConstNum);
+    public void visit(ConstRest_e ConstRest_e);
+    public void visit(ConstRestComma ConstRestComma);
+    public void visit(ConstDeclItem ConstDeclItem);
+    public void visit(ConstDecl ConstDecl);
     public void visit(DeclList_e DeclList_e);
     public void visit(DeclListEnum DeclListEnum);
     public void visit(DeclListVar DeclListVar);

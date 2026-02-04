@@ -66,8 +66,11 @@ nonterminal ActParsOpt, ActPars, ActParsRest, Designator, DesignatorRest;
 nonterminal Assignop, Relop, Addop, Mulop;
 nonterminal ElseOpt, ExprOpt, ConditionOpt, DesignatorStmtOpt, PrintOpt;
 nonterminal CaseList, Case;
-nonterminal ConstRest, ConstValue, ArrayOpt, VarRest, EnumRest, EnumAssignOpt;
+nonterminal ConstRest, ConstValue, VarRest, EnumRest;
 nonterminal SimpleExpr, IfCond;
+
+nonterminal ConstDeclItem, VarDeclItem, EnumField, EnumOpen, EnumClose;
+nonterminal FormParsItem;
 
 nonterminal DesignatorName, FieldName, DesignatorArrayName;
 
@@ -85,11 +88,59 @@ DeclList ::= (DeclListConst) DeclList ConstDecl
            | (DeclList_e)
            ;
 
+
+               
+
+ConstDecl ::= (ConstDecl) CONST Type ConstDeclItem ConstRest SEMI ;
+
+ConstDeclItem ::= (ConstDeclItem) IDENT EQUAL ConstValue;
+
+
+ConstRest ::= (ConstRestComma) COMMA ConstDeclItem ConstRest
+            | (ConstRest_e)
+            ;
+
+ConstValue ::= (ConstNum) NUMBER
+             | (ConstChar) CHARACTER
+             | (ConstBool) BOOL
+             ;
+
+
+
+VarDecl ::= (VarDecl) Type VarDeclItem VarRest SEMI ;
+
+VarDeclItem ::= (VarDeclItem_var) IDENT
+			| (VarDeclItem_arr) IDENT LBRACK RBRACK
+			; 
+
+VarRest ::= (VarRestComma) COMMA VarDeclItem VarRest
+          | (VarRest_e)
+          ;
+
+
+
+
+EnumDecl ::= (EnumDecl) EnumOpen EnumField EnumRest EnumClose ;
+EnumOpen ::= (EnumOpen) ENUM IDENT LBRACE;
+EnumClose ::= (EnumClose) RBRACE;
+
+EnumField ::= (EnumField_assign) IDENT EQUAL NUMBER
+			| (EnumField_default) IDENT
+			;
+
+EnumRest ::= (EnumRestComma) COMMA EnumField EnumRest
+           | (EnumRest_e)
+           ;
+
+
+
+Type ::= (Type) IDENT ;
+
 MethodDeclList ::= (MethodDeclListRec) MethodDeclList MethodDecl
                  | (MethodDeclList_e)
                  ;
 
-MethodDecl ::= (MethodDeclType) MethodNameAndType LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE;
+MethodDecl ::= (MethodDecl) MethodNameAndType LPAREN FormParsOpt RPAREN VarDeclList LBRACE StatementList RBRACE;
              
 MethodNameAndType ::= (MethodNameAndType_RetVal) Type IDENT
 					| (MethodNameAndType_Void) VOID IDENT
@@ -103,44 +154,15 @@ FormParsOpt ::= (FormParsOptYes) FormPars
               | (FormParsOptNo)
               ;
 
-FormPars ::= (FormPars) Type IDENT ArrayOpt FormParsRest ;
+FormPars ::= (FormPars) FormParsItem FormParsRest ;
 
-FormParsRest ::= (FormParsRestComma) COMMA Type IDENT ArrayOpt FormParsRest
+FormParsItem ::= (FormPars_var) Type IDENT
+				| (FormPars_arr) Type IDENT LBRACK RBRACK
+				;
+
+FormParsRest ::= (FormParsRestComma) COMMA FormParsItem FormParsRest
                | (FormParsRest_e)
                ;
-
-ConstDecl ::= (ConstDecl) CONST Type IDENT EQUAL ConstValue ConstRest SEMI ;
-
-ConstRest ::= (ConstRestComma) COMMA IDENT EQUAL ConstValue ConstRest
-            | (ConstRest_e)
-            ;
-
-ConstValue ::= (ConstNum) NUMBER
-             | (ConstChar) CHARACTER
-             | (ConstBool) BOOL
-             ;
-
-VarDecl ::= (VarDecl) Type IDENT ArrayOpt VarRest SEMI ;
-
-VarRest ::= (VarRestComma) COMMA IDENT ArrayOpt VarRest
-          | (VarRest_e)
-          ;
-
-ArrayOpt ::= (ArrayYes) LBRACK RBRACK
-           | (ArrayNo)
-           ;
-
-EnumDecl ::= (EnumDecl) ENUM IDENT LBRACE IDENT EnumAssignOpt EnumRest RBRACE ;
-
-EnumRest ::= (EnumRestComma) COMMA IDENT EnumAssignOpt EnumRest
-           | (EnumRest_e)
-           ;
-
-EnumAssignOpt ::= (EnumAssign_yes) EQUAL NUMBER
-                | (EnumAssign_no)
-                ;
-
-Type ::= (Type) IDENT ;
 
 StatementList ::= (StatementListRec) StatementList Statement
                 | (StatementList_e)

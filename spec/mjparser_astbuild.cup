@@ -99,12 +99,17 @@ nonterminal CaseList CaseList;
 nonterminal Case Case;
 nonterminal ConstRest ConstRest;
 nonterminal ConstValue ConstValue;
-nonterminal ArrayOpt ArrayOpt;
 nonterminal VarRest VarRest;
 nonterminal EnumRest EnumRest;
-nonterminal EnumAssignOpt EnumAssignOpt;
 nonterminal SimpleExpr SimpleExpr;
 nonterminal IfCond IfCond;
+
+nonterminal ConstDeclItem ConstDeclItem;
+nonterminal VarDeclItem VarDeclItem;
+nonterminal EnumField EnumField;
+nonterminal EnumOpen EnumOpen;
+nonterminal EnumClose EnumClose;
+nonterminal FormParsItem FormParsItem;
 
 nonterminal DesignatorName DesignatorName;
 nonterminal FieldName FieldName;
@@ -125,11 +130,59 @@ DeclList ::= (DeclListConst) DeclList:D1 ConstDecl:C2 {: RESULT=new DeclListCons
            | (DeclList_e) {: RESULT=new DeclList_e(); :}
            ;
 
+
+               
+
+ConstDecl ::= (ConstDecl) CONST Type:T1 ConstDeclItem:C2 ConstRest:C3 SEMI {: RESULT=new ConstDecl(T1, C2, C3); RESULT.setLine(T1left); :} ;
+
+ConstDeclItem ::= (ConstDeclItem) IDENT:I1 EQUAL ConstValue:C2 {: RESULT=new ConstDeclItem(I1, C2); RESULT.setLine(I1left); :};
+
+
+ConstRest ::= (ConstRestComma) COMMA ConstDeclItem:C1 ConstRest:C2 {: RESULT=new ConstRestComma(C1, C2); RESULT.setLine(C1left); :}
+            | (ConstRest_e) {: RESULT=new ConstRest_e(); :}
+            ;
+
+ConstValue ::= (ConstNum) NUMBER:N1 {: RESULT=new ConstNum(N1); RESULT.setLine(N1left); :}
+             | (ConstChar) CHARACTER:C1 {: RESULT=new ConstChar(C1); RESULT.setLine(C1left); :}
+             | (ConstBool) BOOL:B1 {: RESULT=new ConstBool(B1); RESULT.setLine(B1left); :}
+             ;
+
+
+
+VarDecl ::= (VarDecl) Type:T1 VarDeclItem:V2 VarRest:V3 SEMI {: RESULT=new VarDecl(T1, V2, V3); RESULT.setLine(T1left); :} ;
+
+VarDeclItem ::= (VarDeclItem_var) IDENT:I1 {: RESULT=new VarDeclItem_var(I1); RESULT.setLine(I1left); :}
+			| (VarDeclItem_arr) IDENT:I1 LBRACK RBRACK {: RESULT=new VarDeclItem_arr(I1); RESULT.setLine(I1left); :}
+			; 
+
+VarRest ::= (VarRestComma) COMMA VarDeclItem:V1 VarRest:V2 {: RESULT=new VarRestComma(V1, V2); RESULT.setLine(V1left); :}
+          | (VarRest_e) {: RESULT=new VarRest_e(); :}
+          ;
+
+
+
+
+EnumDecl ::= (EnumDecl) EnumOpen:E1 EnumField:E2 EnumRest:E3 EnumClose:E4 {: RESULT=new EnumDecl(E1, E2, E3, E4); RESULT.setLine(E1left); :} ;
+EnumOpen ::= (EnumOpen) ENUM IDENT:I1 LBRACE {: RESULT=new EnumOpen(I1); RESULT.setLine(I1left); :};
+EnumClose ::= (EnumClose) RBRACE {: RESULT=new EnumClose(); :};
+
+EnumField ::= (EnumField_assign) IDENT:I1 EQUAL NUMBER:N2 {: RESULT=new EnumField_assign(I1, N2); RESULT.setLine(I1left); :}
+			| (EnumField_default) IDENT:I1 {: RESULT=new EnumField_default(I1); RESULT.setLine(I1left); :}
+			;
+
+EnumRest ::= (EnumRestComma) COMMA EnumField:E1 EnumRest:E2 {: RESULT=new EnumRestComma(E1, E2); RESULT.setLine(E1left); :}
+           | (EnumRest_e) {: RESULT=new EnumRest_e(); :}
+           ;
+
+
+
+Type ::= (Type) IDENT:I1 {: RESULT=new Type(I1); RESULT.setLine(I1left); :} ;
+
 MethodDeclList ::= (MethodDeclListRec) MethodDeclList:M1 MethodDecl:M2 {: RESULT=new MethodDeclListRec(M1, M2); RESULT.setLine(M1left); :}
                  | (MethodDeclList_e) {: RESULT=new MethodDeclList_e(); :}
                  ;
 
-MethodDecl ::= (MethodDeclType) MethodNameAndType:M1 LPAREN FormParsOpt:F2 RPAREN VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDeclType(M1, F2, V3, S4); RESULT.setLine(M1left); :};
+MethodDecl ::= (MethodDecl) MethodNameAndType:M1 LPAREN FormParsOpt:F2 RPAREN VarDeclList:V3 LBRACE StatementList:S4 RBRACE {: RESULT=new MethodDecl(M1, F2, V3, S4); RESULT.setLine(M1left); :};
              
 MethodNameAndType ::= (MethodNameAndType_RetVal) Type:T1 IDENT:I2 {: RESULT=new MethodNameAndType_RetVal(T1, I2); RESULT.setLine(T1left); :}
 					| (MethodNameAndType_Void) VOID IDENT:I1 {: RESULT=new MethodNameAndType_Void(I1); RESULT.setLine(I1left); :}
@@ -143,44 +196,15 @@ FormParsOpt ::= (FormParsOptYes) FormPars:F1 {: RESULT=new FormParsOptYes(F1); R
               | (FormParsOptNo) {: RESULT=new FormParsOptNo(); :}
               ;
 
-FormPars ::= (FormPars) Type:T1 IDENT:I2 ArrayOpt:A3 FormParsRest:F4 {: RESULT=new FormPars(T1, I2, A3, F4); RESULT.setLine(T1left); :} ;
+FormPars ::= (FormPars) FormParsItem:F1 FormParsRest:F2 {: RESULT=new FormPars(F1, F2); RESULT.setLine(F1left); :} ;
 
-FormParsRest ::= (FormParsRestComma) COMMA Type:T1 IDENT:I2 ArrayOpt:A3 FormParsRest:F4 {: RESULT=new FormParsRestComma(T1, I2, A3, F4); RESULT.setLine(T1left); :}
+FormParsItem ::= (FormPars_var) Type:T1 IDENT:I2 {: RESULT=new FormPars_var(T1, I2); RESULT.setLine(T1left); :}
+				| (FormPars_arr) Type:T1 IDENT:I2 LBRACK RBRACK {: RESULT=new FormPars_arr(T1, I2); RESULT.setLine(T1left); :}
+				;
+
+FormParsRest ::= (FormParsRestComma) COMMA FormParsItem:F1 FormParsRest:F2 {: RESULT=new FormParsRestComma(F1, F2); RESULT.setLine(F1left); :}
                | (FormParsRest_e) {: RESULT=new FormParsRest_e(); :}
                ;
-
-ConstDecl ::= (ConstDecl) CONST Type:T1 IDENT:I2 EQUAL ConstValue:C3 ConstRest:C4 SEMI {: RESULT=new ConstDecl(T1, I2, C3, C4); RESULT.setLine(T1left); :} ;
-
-ConstRest ::= (ConstRestComma) COMMA IDENT:I1 EQUAL ConstValue:C2 ConstRest:C3 {: RESULT=new ConstRestComma(I1, C2, C3); RESULT.setLine(I1left); :}
-            | (ConstRest_e) {: RESULT=new ConstRest_e(); :}
-            ;
-
-ConstValue ::= (ConstNum) NUMBER:N1 {: RESULT=new ConstNum(N1); RESULT.setLine(N1left); :}
-             | (ConstChar) CHARACTER:C1 {: RESULT=new ConstChar(C1); RESULT.setLine(C1left); :}
-             | (ConstBool) BOOL:B1 {: RESULT=new ConstBool(B1); RESULT.setLine(B1left); :}
-             ;
-
-VarDecl ::= (VarDecl) Type:T1 IDENT:I2 ArrayOpt:A3 VarRest:V4 SEMI {: RESULT=new VarDecl(T1, I2, A3, V4); RESULT.setLine(T1left); :} ;
-
-VarRest ::= (VarRestComma) COMMA IDENT:I1 ArrayOpt:A2 VarRest:V3 {: RESULT=new VarRestComma(I1, A2, V3); RESULT.setLine(I1left); :}
-          | (VarRest_e) {: RESULT=new VarRest_e(); :}
-          ;
-
-ArrayOpt ::= (ArrayYes) LBRACK RBRACK {: RESULT=new ArrayYes(); :}
-           | (ArrayNo) {: RESULT=new ArrayNo(); :}
-           ;
-
-EnumDecl ::= (EnumDecl) ENUM IDENT:I1 LBRACE IDENT:I2 EnumAssignOpt:E3 EnumRest:E4 RBRACE {: RESULT=new EnumDecl(I1, I2, E3, E4); RESULT.setLine(I1left); :} ;
-
-EnumRest ::= (EnumRestComma) COMMA IDENT:I1 EnumAssignOpt:E2 EnumRest:E3 {: RESULT=new EnumRestComma(I1, E2, E3); RESULT.setLine(I1left); :}
-           | (EnumRest_e) {: RESULT=new EnumRest_e(); :}
-           ;
-
-EnumAssignOpt ::= (EnumAssign_yes) EQUAL NUMBER:N1 {: RESULT=new EnumAssign_yes(N1); RESULT.setLine(N1left); :}
-                | (EnumAssign_no) {: RESULT=new EnumAssign_no(); :}
-                ;
-
-Type ::= (Type) IDENT:I1 {: RESULT=new Type(I1); RESULT.setLine(I1left); :} ;
 
 StatementList ::= (StatementListRec) StatementList:S1 Statement:S2 {: RESULT=new StatementListRec(S1, S2); RESULT.setLine(S1left); :}
                 | (StatementList_e) {: RESULT=new StatementList_e(); :}

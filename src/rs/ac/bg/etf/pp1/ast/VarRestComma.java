@@ -1,38 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2026 15:52:35
+// 4/1/2026 15:38:10
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class VarRestComma extends VarRest {
 
-    private String I1;
-    private ArrayOpt ArrayOpt;
+    private VarDeclItem VarDeclItem;
     private VarRest VarRest;
 
-    public VarRestComma (String I1, ArrayOpt ArrayOpt, VarRest VarRest) {
-        this.I1=I1;
-        this.ArrayOpt=ArrayOpt;
-        if(ArrayOpt!=null) ArrayOpt.setParent(this);
+    public VarRestComma (VarDeclItem VarDeclItem, VarRest VarRest) {
+        this.VarDeclItem=VarDeclItem;
+        if(VarDeclItem!=null) VarDeclItem.setParent(this);
         this.VarRest=VarRest;
         if(VarRest!=null) VarRest.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public VarDeclItem getVarDeclItem() {
+        return VarDeclItem;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
-    }
-
-    public ArrayOpt getArrayOpt() {
-        return ArrayOpt;
-    }
-
-    public void setArrayOpt(ArrayOpt ArrayOpt) {
-        this.ArrayOpt=ArrayOpt;
+    public void setVarDeclItem(VarDeclItem VarDeclItem) {
+        this.VarDeclItem=VarDeclItem;
     }
 
     public VarRest getVarRest() {
@@ -48,18 +38,18 @@ public class VarRestComma extends VarRest {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ArrayOpt!=null) ArrayOpt.accept(visitor);
+        if(VarDeclItem!=null) VarDeclItem.accept(visitor);
         if(VarRest!=null) VarRest.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ArrayOpt!=null) ArrayOpt.traverseTopDown(visitor);
+        if(VarDeclItem!=null) VarDeclItem.traverseTopDown(visitor);
         if(VarRest!=null) VarRest.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ArrayOpt!=null) ArrayOpt.traverseBottomUp(visitor);
+        if(VarDeclItem!=null) VarDeclItem.traverseBottomUp(visitor);
         if(VarRest!=null) VarRest.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -69,11 +59,8 @@ public class VarRestComma extends VarRest {
         buffer.append(tab);
         buffer.append("VarRestComma(\n");
 
-        buffer.append(" "+tab+I1);
-        buffer.append("\n");
-
-        if(ArrayOpt!=null)
-            buffer.append(ArrayOpt.toString("  "+tab));
+        if(VarDeclItem!=null)
+            buffer.append(VarDeclItem.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

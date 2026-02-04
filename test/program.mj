@@ -1,13 +1,25 @@
+program SomeTest
 
-program nekiTest {
-    void main() {
+const int pi = 3;
 
-        x = a[2].length;
-        x = a.b.c.length;
+int fd, fp[];
 
-       // a++;          // primer allowed za inkrement dizajnatora
-       // a[i]--;       // allowed dekrement nad elementom niza
+enum broj{
+	
+	DVA=2,
+	JEDAN=1,
+	DVA_DVA
+}
 
-       
-    }
+{
+
+void main()int a;{
+
+x = -a-(-1);
+
+}
+
+void x(int b, int pi[])int a;{
+}
+
 }

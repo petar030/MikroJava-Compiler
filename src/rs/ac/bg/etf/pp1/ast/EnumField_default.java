@@ -1,24 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2026 15:52:35
+// 4/1/2026 15:38:10
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class EnumAssign_yes extends EnumAssignOpt {
+public class EnumField_default extends EnumField {
 
-    private Integer N1;
+    private String I1;
 
-    public EnumAssign_yes (Integer N1) {
-        this.N1=N1;
+    public EnumField_default (String I1) {
+        this.I1=I1;
     }
 
-    public Integer getN1() {
-        return N1;
+    public String getI1() {
+        return I1;
     }
 
-    public void setN1(Integer N1) {
-        this.N1=N1;
+    public void setI1(String I1) {
+        this.I1=I1;
     }
 
     public void accept(Visitor visitor) {
@@ -39,13 +39,13 @@ public class EnumAssign_yes extends EnumAssignOpt {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("EnumAssign_yes(\n");
+        buffer.append("EnumField_default(\n");
 
-        buffer.append(" "+tab+N1);
+        buffer.append(" "+tab+I1);
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [EnumAssign_yes]");
+        buffer.append(") [EnumField_default]");
         return buffer.toString();
     }
 }

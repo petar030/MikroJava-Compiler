@@ -1,13 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2026 15:52:35
+// 4/1/2026 15:38:10
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ArrayNo extends ArrayOpt {
+public class VarDeclItem_arr extends VarDeclItem {
 
-    public ArrayNo () {
+    private String I1;
+
+    public VarDeclItem_arr (String I1) {
+        this.I1=I1;
+    }
+
+    public String getI1() {
+        return I1;
+    }
+
+    public void setI1(String I1) {
+        this.I1=I1;
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +39,13 @@ public class ArrayNo extends ArrayOpt {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ArrayNo(\n");
+        buffer.append("VarDeclItem_arr(\n");
+
+        buffer.append(" "+tab+I1);
+        buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [ArrayNo]");
+        buffer.append(") [VarDeclItem_arr]");
         return buffer.toString();
     }
 }

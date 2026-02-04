@@ -1,38 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 31/0/2026 15:52:35
+// 4/1/2026 15:38:10
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class EnumRestComma extends EnumRest {
 
-    private String I1;
-    private EnumAssignOpt EnumAssignOpt;
+    private EnumField EnumField;
     private EnumRest EnumRest;
 
-    public EnumRestComma (String I1, EnumAssignOpt EnumAssignOpt, EnumRest EnumRest) {
-        this.I1=I1;
-        this.EnumAssignOpt=EnumAssignOpt;
-        if(EnumAssignOpt!=null) EnumAssignOpt.setParent(this);
+    public EnumRestComma (EnumField EnumField, EnumRest EnumRest) {
+        this.EnumField=EnumField;
+        if(EnumField!=null) EnumField.setParent(this);
         this.EnumRest=EnumRest;
         if(EnumRest!=null) EnumRest.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public EnumField getEnumField() {
+        return EnumField;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
-    }
-
-    public EnumAssignOpt getEnumAssignOpt() {
-        return EnumAssignOpt;
-    }
-
-    public void setEnumAssignOpt(EnumAssignOpt EnumAssignOpt) {
-        this.EnumAssignOpt=EnumAssignOpt;
+    public void setEnumField(EnumField EnumField) {
+        this.EnumField=EnumField;
     }
 
     public EnumRest getEnumRest() {
@@ -48,18 +38,18 @@ public class EnumRestComma extends EnumRest {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(EnumAssignOpt!=null) EnumAssignOpt.accept(visitor);
+        if(EnumField!=null) EnumField.accept(visitor);
         if(EnumRest!=null) EnumRest.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(EnumAssignOpt!=null) EnumAssignOpt.traverseTopDown(visitor);
+        if(EnumField!=null) EnumField.traverseTopDown(visitor);
         if(EnumRest!=null) EnumRest.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(EnumAssignOpt!=null) EnumAssignOpt.traverseBottomUp(visitor);
+        if(EnumField!=null) EnumField.traverseBottomUp(visitor);
         if(EnumRest!=null) EnumRest.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -69,11 +59,8 @@ public class EnumRestComma extends EnumRest {
         buffer.append(tab);
         buffer.append("EnumRestComma(\n");
 
-        buffer.append(" "+tab+I1);
-        buffer.append("\n");
-
-        if(EnumAssignOpt!=null)
-            buffer.append(EnumAssignOpt.toString("  "+tab));
+        if(EnumField!=null)
+            buffer.append(EnumField.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

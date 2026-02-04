@@ -14,10 +14,17 @@ import java.io.FileReader;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
-import java_cup.runtime.Symbol;
+import java_cup.runtime.*;
 import rs.ac.bg.etf.pp1.ast.Program;
 import rs.ac.bg.etf.pp1.ast.SyntaxNode;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
+
+import rs.ac.bg.etf.pp1.ast.*;
+import rs.etf.pp1.symboltable.*;
+import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
+
+
 
 public class Compiler {
 	static {
@@ -42,10 +49,38 @@ public class Compiler {
 			
 			Program prog = (Program)(s.value);
 			
+			
+			//AST LOG
 			log.info(prog.toString(""));
 			log.info("=================================");
 			
-			if(!p.errorDetected) {
+			
+			//SYM TABLE
+			Tab.init();
+			Struct boolType = new Struct(Struct.Bool);
+			Obj boolObj = Tab.insert(Obj.Type, "bool", boolType);
+			if(boolObj != null) {
+				boolObj.setAdr(-1);
+				boolObj.setLevel(-1);
+			}
+			else {
+				log.error("Bool object neuspesno kreiran");
+				return;
+			
+			}
+
+			
+			//SEMANTIC ANALYSIS
+			SemanticAnalyzer analyzer = new SemanticAnalyzer();
+			prog.traverseBottomUp(analyzer);
+			
+			//SYM TABLE LOG
+			log.info("=================================");
+			Tab.dump();
+			
+			
+			
+			if(!p.errorDetected && !analyzer.errorDetected()) {
 				log.info("Parisranje uspesno zavrseno!");
 			}
 			else {
