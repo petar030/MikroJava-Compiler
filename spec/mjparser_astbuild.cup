@@ -72,11 +72,6 @@ nonterminal VarDeclList VarDeclList;
 nonterminal Statement Statement;
 nonterminal StatementList StatementList;
 nonterminal DesignatorStatement DesignatorStatement;
-nonterminal Expr Expr;
-nonterminal ExprRest ExprRest;
-nonterminal Term Term;
-nonterminal TermRest TermRest;
-nonterminal Factor Factor;
 nonterminal FactorCallOpt FactorCallOpt;
 nonterminal Condition Condition;
 nonterminal CondTerm CondTerm;
@@ -84,8 +79,6 @@ nonterminal  CondFact CondFact;
 nonterminal ActParsOpt ActParsOpt;
 nonterminal ActPars ActPars;
 nonterminal ActParsRest ActParsRest;
-nonterminal Designator Designator;
-nonterminal DesignatorRest DesignatorRest;
 nonterminal Assignop Assignop;
 nonterminal Relop Relop;
 nonterminal Addop Addop;
@@ -101,7 +94,6 @@ nonterminal ConstRest ConstRest;
 nonterminal ConstValue ConstValue;
 nonterminal VarRest VarRest;
 nonterminal EnumRest EnumRest;
-nonterminal SimpleExpr SimpleExpr;
 nonterminal IfCond IfCond;
 
 nonterminal ConstDeclItem ConstDeclItem;
@@ -117,6 +109,9 @@ nonterminal DesignatorArrayName DesignatorArrayName;
 
 nonterminal ProgName ProgName;
 nonterminal MethodNameAndType MethodNameAndType;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, TermRest, Term, SimpleExpr, ExprRest, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorRest;
 
 precedence left ELSE;
 
@@ -311,7 +306,8 @@ TermRest ::= (TermRestMul) Mulop:M1 Factor:F2 TermRest:T3 {: RESULT=new TermRest
            | (TermRest_e) {: RESULT=new TermRest_e(); :}
            ;
 
-Factor ::= (FactorDesignator) Designator:D1 FactorCallOpt:F2 {: RESULT=new FactorDesignator(D1, F2); RESULT.setLine(D1left); :}
+Factor ::= (FactorDesignator) Designator:D1 {: RESULT=new FactorDesignator(D1); RESULT.setLine(D1left); :}
+		 | (FactorMeth) Designator:D1 LPAREN ActParsOpt:A2 RPAREN {: RESULT=new FactorMeth(D1, A2); RESULT.setLine(D1left); :}
          | (FactorNum) NUMBER:N1 {: RESULT=new FactorNum(N1); RESULT.setLine(N1left); :}
          | (FactorChar) CHARACTER:C1 {: RESULT=new FactorChar(C1); RESULT.setLine(C1left); :}
          | (FactorBool) BOOL:B1 {: RESULT=new FactorBool(B1); RESULT.setLine(B1left); :}
@@ -319,9 +315,6 @@ Factor ::= (FactorDesignator) Designator:D1 FactorCallOpt:F2 {: RESULT=new Facto
          | (FactorExpr) LPAREN Expr:E1 RPAREN {: RESULT=new FactorExpr(E1); RESULT.setLine(E1left); :}
          ;
 
-FactorCallOpt ::= (FactorCallYes) LPAREN ActParsOpt:A1 RPAREN {: RESULT=new FactorCallYes(A1); RESULT.setLine(A1left); :}
-                | (FactorCallNo) {: RESULT=new FactorCallNo(); :}
-                ;
 
 
 

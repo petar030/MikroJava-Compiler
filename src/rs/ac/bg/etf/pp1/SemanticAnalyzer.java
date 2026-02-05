@@ -30,6 +30,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	private Obj currentMethod;
 	private Struct currentReturnType = null;
 
+	private Obj DesignatorBase;
+
 	/* LOG MESSAGES */
 	public void report_error(String message, SyntaxNode info) {
 		errorDetected = true;
@@ -69,7 +71,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		currentProgram = null;
 		if (!this.mainExists) {
 			report_error("Ne postoji main metoda", program);
-			return;
+
 		}
 
 	}
@@ -188,7 +190,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj curr = Tab.insert(Obj.Con, field.getI1(), Tab.intType);
 		curr.setAdr(field.getN2());
 
-	    this.currentEnumValues.add(field.getN2());
+		this.currentEnumValues.add(field.getN2());
 
 		this.lastEnumVal = field.getN2();
 
@@ -311,15 +313,264 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		String parName = arr.getI2();
 		if (this.currentMethod == null) {
 			report_error("Semanticka greska [FormPars_arr] ", arr);
-			return;
 		}
 		if (Tab.currentScope().findSymbol(parName) != null) {
 			report_error("Dvostruka definicija za parametar: " + parName, arr);
-			return;
+
 		}
 		Obj arrObj = Tab.insert(Obj.Var, parName, new Struct(Struct.Array, this.currentType));
 		arrObj.setFpPos(1);
 		this.currentMethod.setLevel(this.currentMethod.getLevel() + 1);
+	}
+
+	/* KONTEKSNI USLOVI */
+
+	/* Designator */
+	@Override
+	public void visit(Designator_var des) {
+		Obj varObj = Tab.find(des.getI1());
+		if (varObj == Tab.noObj) {
+			report_error("Promenljiva " + " " + des.getI1() + " nije definisana ", des);
+			des.obj = Tab.noObj;
+		} else if (varObj.getKind() == Obj.Type || varObj.getKind() == Obj.Prog) {
+			report_error("Neadekvatna promenljiva", des);
+			des.obj = Tab.noObj;
+		} else {
+			des.obj = varObj;
+		}
+	}
+
+	@Override
+	public void visit(Designator_elem des) {
+		Obj arrObj = Tab.find(des.getDesignatorArrayName().getI1());
+		if (arrObj == Tab.noObj) {
+			report_error("Promenljiva " + des.getDesignatorArrayName().getI1() + " nije definisana", des);
+			des.obj = Tab.noObj;
+			return;
+		}
+		if (arrObj.getKind() != Obj.Var || arrObj.getType().getKind() != Struct.Array) {
+			report_error("Ime " + arrObj.getName() + "= ne označava niz", des);
+			des.obj = Tab.noObj;
+			return;
+		}
+		if (des.getExpr().struct != Tab.intType) {
+			report_error("Indeks niza mora biti tipa int", des);
+			des.obj = Tab.noObj;
+			return;
+		}
+		des.obj = new Obj(Obj.Elem, arrObj.getName(), arrObj.getType().getElemType());
+
+	}
+
+	@Override
+	public void visit(Designator_rest des) {
+		des.obj = des.getDesignatorRest().obj;
+	}
+
+	@Override
+	public void visit(DesignatorName desName) {
+		Obj varObj = Tab.find(desName.getI1());
+		if (varObj == Tab.noObj) {
+			report_error("Promenljiva " + " " + desName.getI1() + " nije definisana ", desName);
+			this.DesignatorBase = Tab.noObj;
+			return;
+		}
+		this.DesignatorBase = varObj;
+
+	}
+
+	@Override
+	public void visit(Designator_elem_rest des) {
+		if (des.getExpr().struct != Tab.intType) {
+			report_error("Indeks niza mora biti tipa int", des);
+			des.obj = Tab.noObj;
+			return;
+		}
+		des.obj = des.getDesignatorRest().obj;
+
+	}
+
+	@Override
+	public void visit(DesignatorArrayName desArrayName) {
+		Obj arrObj = Tab.find(desArrayName.getI1());
+		if (arrObj == Tab.noObj) {
+			report_error("Promenljiva " + desArrayName.getI1() + " nije definisana", desArrayName);
+			this.DesignatorBase = Tab.noObj;
+			return;
+		}
+		if (arrObj.getKind() != Obj.Var || arrObj.getType().getKind() != Struct.Array) {
+			report_error("Ime " + arrObj.getName() + "= ne označava niz", desArrayName);
+			this.DesignatorBase = Tab.noObj;
+			return;
+		}
+
+		this.DesignatorBase = new Obj(Obj.Elem, arrObj.getName(), arrObj.getType().getElemType());
+
+	}
+
+	/* DesignatorRest */
+	@Override
+	public void visit(DesignatorRest_dot_ident des) {
+	    Obj base = this.DesignatorBase;
+	    if (base == null || base == Tab.noObj) {
+	        report_error("Neadekvatan operand levo od '.'", des);
+	        des.obj = Tab.noObj;
+	        return;
+	    }
+
+	    String fieldName = des.getFieldName().getI1();
+	    Struct t = base.getType();
+
+	    if (base.getKind() == Obj.Type && t.getKind() == Struct.Enum) {
+	        Obj member = Tab.noObj;
+	        for (Obj o : t.getMembers()) {
+	            if (o.getName().equals(fieldName)) {
+	                member = o;
+	                break;
+	            }
+	        }
+	        if (member == Tab.noObj) {
+	            report_error("Enum '" + base.getName() + "' nema polje '" + fieldName + "'.", des);
+	            des.obj = Tab.noObj;
+	            return;
+	        }
+	        des.obj = member;
+	        this.DesignatorBase = member;
+	        return;
+	    }
+
+
+
+	    report_error("Operator '.' je dozvoljen samo nad enum tipovima.", des);
+	    des.obj = Tab.noObj;
+	}
+	
+	@Override
+	public void visit(DesignatorRest_dot_length des) {
+	    Obj base = this.DesignatorBase;
+	    if (base == null || base == Tab.noObj || base.getType().getKind() != Struct.Array) {
+	        report_error("length je dozvoljen samo nad nizovima ", des);
+	        des.obj = Tab.noObj;
+	        return;
+	    }
+	    Obj len = new Obj(Obj.Con, "length", Tab.intType);
+	    des.obj = len;
+	    this.DesignatorBase = len;
+	}
+	
+	@Override
+	public void visit(DesignatorRest_more_dot_ident des) {
+	    Obj base = this.DesignatorBase;
+	    if (base == null || base == Tab.noObj) {
+	        report_error("Neadekvatan operand levo od '.'", des);
+	        des.obj = Tab.noObj;
+	        return;
+	    }
+
+	    String fieldName = des.getFieldName().getI1();
+	    Struct t = base.getType();
+
+	    if (base.getKind() == Obj.Type && t.getKind() == Struct.Enum) {
+	        Obj member = Tab.noObj;
+	        for (Obj o : t.getMembers()) {
+	            if (o.getName().equals(fieldName)) { member = o; break; }
+	        }
+	        if (member == Tab.noObj) {
+	            report_error("Enum '" + base.getName() + "' nema polje '" + fieldName + "'.", des);
+	            des.obj = Tab.noObj;
+	            return;
+	        }
+	        des.obj = member;
+	        this.DesignatorBase = member;
+	        return;
+	    }
+
+	    report_error("Operator '.' je dozvoljen samo nad enum tipovima.", des);
+	    des.obj = Tab.noObj;
+	}
+
+	@Override
+	public void visit(DesignatorRest_more_dot_length des) {
+	    Obj base = this.DesignatorBase;
+	    if (base == null || base == Tab.noObj || base.getType().getKind() != Struct.Array) {
+	        report_error("length je dozvoljen samo nad nizovima ", des);
+	        des.obj = Tab.noObj;
+	        return;
+	    }
+	    Obj len = new Obj(Obj.Con, "length", Tab.intType);
+	    des.obj = len;
+	    this.DesignatorBase = len;
+	}
+
+	@Override
+	public void visit(DesignatorRest_more_index des) {
+	    Obj base = this.DesignatorBase;
+	    if (base == null || base == Tab.noObj) {
+	        report_error("Neadekvatan operand levo od indeksiranja.", des);
+	        des.obj = Tab.noObj;
+	        return;
+	    }
+	    if (des.getExpr().struct != Tab.intType) {
+	        report_error("Indeks niza mora biti tipa int.", des);
+	        des.obj = Tab.noObj;
+	        return;
+	    }
+	    Struct t = base.getType();
+	    if (t.getKind() != Struct.Array) {
+	        report_error("Indeksiranje je dozvoljeno samo nad nizovima.", des);
+	        des.obj = Tab.noObj;
+	        return;
+	    }
+	    Obj elem = new Obj(Obj.Elem, base.getName(), t.getElemType());
+	    des.obj = elem;
+	    this.DesignatorBase = elem;
+	}
+
+	/* Factor */
+	@Override
+	public void visit(FactorNum factor) {
+		factor.struct = Tab.intType;
+	}
+
+	@Override
+	public void visit(FactorChar factor) {
+		factor.struct = Tab.charType;
+	}
+
+	@Override
+	public void visit(FactorBool factor) {
+		factor.struct = Tab.find("bool").getType();
+	}
+
+	@Override
+	public void visit(FactorDesignator factor) {
+		factor.struct = factor.getDesignator().obj.getType();
+	}
+
+	@Override
+	public void visit(FactorMeth factor) {
+		Obj designator = factor.getDesignator().obj;
+
+		if (designator.getKind() != Obj.Meth) {
+			report_error("Simbol nije metoda ", factor);
+			factor.struct = Tab.noType;
+			return;
+		}
+	}
+
+	@Override
+	public void visit(FactorNew factor) {
+		if (!factor.getExpr().struct.equals(Tab.intType)) {
+			report_error("Velicina niza mora biti tipa int", factor);
+			factor.struct = Tab.noType;
+			return;
+		}
+		factor.struct = new Struct(Struct.Array, this.currentType);
+	}
+
+	@Override
+	public void visit(FactorExpr factor) {
+		factor.struct = factor.getExpr().struct;
 	}
 
 }

@@ -60,14 +60,14 @@ terminal Integer BOOL;
 nonterminal Program, DeclList, MethodDeclList, ConstDecl, VarDecl, EnumDecl;
 nonterminal MethodDecl, FormParsOpt, FormPars, FormParsRest, Type, VarDeclList;
 nonterminal Statement, StatementList, DesignatorStatement;
-nonterminal Expr, ExprRest, Term, TermRest, Factor, FactorCallOpt;
+nonterminal FactorCallOpt;
 nonterminal Condition, CondTerm,  CondFact;
-nonterminal ActParsOpt, ActPars, ActParsRest, Designator, DesignatorRest;
+nonterminal ActParsOpt, ActPars, ActParsRest;
 nonterminal Assignop, Relop, Addop, Mulop;
 nonterminal ElseOpt, ExprOpt, ConditionOpt, DesignatorStmtOpt, PrintOpt;
 nonterminal CaseList, Case;
 nonterminal ConstRest, ConstValue, VarRest, EnumRest;
-nonterminal SimpleExpr, IfCond;
+nonterminal IfCond;
 
 nonterminal ConstDeclItem, VarDeclItem, EnumField, EnumOpen, EnumClose;
 nonterminal FormParsItem;
@@ -75,6 +75,9 @@ nonterminal FormParsItem;
 nonterminal DesignatorName, FieldName, DesignatorArrayName;
 
 nonterminal ProgName, MethodNameAndType;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, TermRest, Term, SimpleExpr, ExprRest, Expr;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorRest;
 
 precedence left ELSE;
 
@@ -269,7 +272,8 @@ TermRest ::= (TermRestMul) Mulop Factor TermRest
            | (TermRest_e)
            ;
 
-Factor ::= (FactorDesignator) Designator FactorCallOpt
+Factor ::= (FactorDesignator) Designator
+		 | (FactorMeth) Designator LPAREN ActParsOpt RPAREN
          | (FactorNum) NUMBER
          | (FactorChar) CHARACTER
          | (FactorBool) BOOL
@@ -277,9 +281,6 @@ Factor ::= (FactorDesignator) Designator FactorCallOpt
          | (FactorExpr) LPAREN Expr RPAREN
          ;
 
-FactorCallOpt ::= (FactorCallYes) LPAREN ActParsOpt RPAREN
-                | (FactorCallNo)
-                ;
 
 
 

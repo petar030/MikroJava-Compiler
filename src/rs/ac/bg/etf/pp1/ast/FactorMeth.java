@@ -1,17 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 15:38:10
+// 4/1/2026 20:0:5
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class FactorCallYes extends FactorCallOpt {
+public class FactorMeth extends Factor {
 
+    private Designator Designator;
     private ActParsOpt ActParsOpt;
 
-    public FactorCallYes (ActParsOpt ActParsOpt) {
+    public FactorMeth (Designator Designator, ActParsOpt ActParsOpt) {
+        this.Designator=Designator;
+        if(Designator!=null) Designator.setParent(this);
         this.ActParsOpt=ActParsOpt;
         if(ActParsOpt!=null) ActParsOpt.setParent(this);
+    }
+
+    public Designator getDesignator() {
+        return Designator;
+    }
+
+    public void setDesignator(Designator Designator) {
+        this.Designator=Designator;
     }
 
     public ActParsOpt getActParsOpt() {
@@ -27,15 +38,18 @@ public class FactorCallYes extends FactorCallOpt {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Designator!=null) Designator.accept(visitor);
         if(ActParsOpt!=null) ActParsOpt.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Designator!=null) Designator.traverseTopDown(visitor);
         if(ActParsOpt!=null) ActParsOpt.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Designator!=null) Designator.traverseBottomUp(visitor);
         if(ActParsOpt!=null) ActParsOpt.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -43,7 +57,13 @@ public class FactorCallYes extends FactorCallOpt {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("FactorCallYes(\n");
+        buffer.append("FactorMeth(\n");
+
+        if(Designator!=null)
+            buffer.append(Designator.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(ActParsOpt!=null)
             buffer.append(ActParsOpt.toString("  "+tab));
@@ -52,7 +72,7 @@ public class FactorCallYes extends FactorCallOpt {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [FactorCallYes]");
+        buffer.append(") [FactorMeth]");
         return buffer.toString();
     }
 }

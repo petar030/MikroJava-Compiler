@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 15:38:10
+// 4/1/2026 20:0:5
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -18,8 +18,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Addop Addop) { }
     public void visit(ConstRest ConstRest) { }
     public void visit(PrintOpt PrintOpt) { }
-    public void visit(ExprOpt ExprOpt) { }
     public void visit(Factor Factor) { }
+    public void visit(ExprOpt ExprOpt) { }
     public void visit(CondTerm CondTerm) { }
     public void visit(FormParsRest FormParsRest) { }
     public void visit(DeclList DeclList) { }
@@ -35,8 +35,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(SimpleExpr SimpleExpr) { }
     public void visit(ConditionOpt ConditionOpt) { }
     public void visit(FormParsItem FormParsItem) { }
-    public void visit(DesignatorStmtOpt DesignatorStmtOpt) { }
     public void visit(DesignatorRest DesignatorRest) { }
+    public void visit(DesignatorStmtOpt DesignatorStmtOpt) { }
     public void visit(VarDeclList VarDeclList) { }
     public void visit(Expr Expr) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
@@ -70,13 +70,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Designator_rest Designator_rest) { visit(); }
     public void visit(Designator_elem Designator_elem) { visit(); }
     public void visit(Designator_var Designator_var) { visit(); }
-    public void visit(FactorCallNo FactorCallNo) { visit(); }
-    public void visit(FactorCallYes FactorCallYes) { visit(); }
     public void visit(FactorExpr FactorExpr) { visit(); }
     public void visit(FactorNew FactorNew) { visit(); }
     public void visit(FactorBool FactorBool) { visit(); }
     public void visit(FactorChar FactorChar) { visit(); }
     public void visit(FactorNum FactorNum) { visit(); }
+    public void visit(FactorMeth FactorMeth) { visit(); }
     public void visit(FactorDesignator FactorDesignator) { visit(); }
     public void visit(TermRest_e TermRest_e) { visit(); }
     public void visit(TermRestMul TermRestMul) { visit(); }

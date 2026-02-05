@@ -1,125 +1,90 @@
-INFO  18:19:47,769 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
-INFO  18:19:47,799 - #2 program
-INFO  18:19:47,799 - #45 SomeTest
-INFO  18:19:47,799 - #6 const
-INFO  18:19:47,800 - #45 int
-INFO  18:19:47,800 - #45 pi
-INFO  18:19:47,800 - #32 =
-INFO  18:19:47,801 - #46 3
-INFO  18:19:47,801 - #33 ;
-INFO  18:19:47,801 - #45 int
-INFO  18:19:47,802 - #45 fd
-INFO  18:19:47,802 - #35 ,
-INFO  18:19:47,802 - #45 fp
-INFO  18:19:47,802 - #40 [
-INFO  18:19:47,802 - #41 ]
-INFO  18:19:47,802 - #33 ;
-INFO  18:19:47,803 - #4 enum
-INFO  18:19:47,803 - #45 broj
-INFO  18:19:47,803 - #42 {
-INFO  18:19:47,804 - #45 DVA
-INFO  18:19:47,804 - #32 =
-INFO  18:19:47,804 - #46 2
-INFO  18:19:47,804 - #35 ,
-INFO  18:19:47,804 - #45 JEDAN
-INFO  18:19:47,804 - #32 =
-INFO  18:19:47,804 - #46 1
-INFO  18:19:47,804 - #35 ,
-INFO  18:19:47,805 - #45 DVA_DVA
-INFO  18:19:47,805 - #43 }
-INFO  18:19:47,805 - #42 {
-INFO  18:19:47,806 - #11 void
-INFO  18:19:47,806 - #45 main
-INFO  18:19:47,806 - #38 (
-INFO  18:19:47,807 - #39 )
-INFO  18:19:47,807 - #45 int
-INFO  18:19:47,808 - #45 a
-INFO  18:19:47,808 - #33 ;
-INFO  18:19:47,808 - #42 {
-INFO  18:19:47,808 - #45 x
-INFO  18:19:47,808 - #32 =
-INFO  18:19:47,808 - #28 -
-INFO  18:19:47,809 - #45 a
-INFO  18:19:47,809 - #28 -
-INFO  18:19:47,810 - #38 (
-INFO  18:19:47,811 - #28 -
-INFO  18:19:47,811 - #46 1
-INFO  18:19:47,811 - #39 )
-INFO  18:19:47,812 - #33 ;
-INFO  18:19:47,812 - #43 }
-INFO  18:19:47,812 - #11 void
-INFO  18:19:47,813 - #45 x
-INFO  18:19:47,813 - #38 (
-INFO  18:19:47,813 - #45 int
-INFO  18:19:47,813 - #45 b
-INFO  18:19:47,814 - #35 ,
-INFO  18:19:47,814 - #45 int
-INFO  18:19:47,814 - #45 pi
-INFO  18:19:47,814 - #40 [
-INFO  18:19:47,814 - #41 ]
-INFO  18:19:47,814 - #39 )
-INFO  18:19:47,815 - #45 int
-INFO  18:19:47,815 - #45 a
-INFO  18:19:47,815 - #33 ;
-INFO  18:19:47,815 - #42 {
-INFO  18:19:47,815 - #43 }
-INFO  18:19:47,815 - #43 }
-INFO  18:19:47,817 - Program(
+INFO  22:01:30,076 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  22:01:30,097 - #2 program
+INFO  22:01:30,097 - #45 SomeTest
+INFO  22:01:30,097 - #4 enum
+INFO  22:01:30,097 - #45 E
+INFO  22:01:30,098 - #42 {
+INFO  22:01:30,098 - #45 A
+INFO  22:01:30,098 - #32 =
+INFO  22:01:30,098 - #46 1
+INFO  22:01:30,098 - #35 ,
+INFO  22:01:30,098 - #45 B
+INFO  22:01:30,098 - #35 ,
+INFO  22:01:30,098 - #45 C
+INFO  22:01:30,098 - #32 =
+INFO  22:01:30,098 - #46 5
+INFO  22:01:30,098 - #43 }
+INFO  22:01:30,098 - #42 {
+INFO  22:01:30,099 - #11 void
+INFO  22:01:30,099 - #45 main
+INFO  22:01:30,099 - #38 (
+INFO  22:01:30,099 - #39 )
+INFO  22:01:30,099 - #45 int
+INFO  22:01:30,100 - #45 a
+INFO  22:01:30,100 - #40 [
+INFO  22:01:30,100 - #41 ]
+INFO  22:01:30,100 - #35 ,
+INFO  22:01:30,100 - #45 m
+INFO  22:01:30,100 - #40 [
+INFO  22:01:30,100 - #41 ]
+INFO  22:01:30,100 - #35 ,
+INFO  22:01:30,100 - #45 x
+INFO  22:01:30,100 - #35 ,
+INFO  22:01:30,100 - #45 y
+INFO  22:01:30,101 - #35 ,
+INFO  22:01:30,101 - #45 z
+INFO  22:01:30,101 - #33 ;
+INFO  22:01:30,101 - #42 {
+INFO  22:01:30,101 - #45 x
+INFO  22:01:30,102 - #32 =
+INFO  22:01:30,102 - #45 a
+INFO  22:01:30,102 - #36 .
+INFO  22:01:30,102 - #14 length
+INFO  22:01:30,102 - #33 ;
+INFO  22:01:30,103 - #45 y
+INFO  22:01:30,103 - #32 =
+INFO  22:01:30,103 - #45 E
+INFO  22:01:30,103 - #36 .
+INFO  22:01:30,103 - #45 A
+INFO  22:01:30,103 - #33 ;
+INFO  22:01:30,104 - #45 z
+INFO  22:01:30,104 - #32 =
+INFO  22:01:30,104 - #45 E
+INFO  22:01:30,104 - #36 .
+INFO  22:01:30,104 - #45 B
+INFO  22:01:30,104 - #33 ;
+INFO  22:01:30,104 - #45 x
+INFO  22:01:30,104 - #32 =
+INFO  22:01:30,104 - #45 m
+INFO  22:01:30,104 - #36 .
+INFO  22:01:30,104 - #14 length
+INFO  22:01:30,104 - #33 ;
+INFO  22:01:30,104 - #43 }
+INFO  22:01:30,104 - #43 }
+INFO  22:01:30,105 - Program(
   ProgName(
    SomeTest
   ) [ProgName]
   DeclListEnum(
-    DeclListVar(
-      DeclListConst(
-        DeclList_e(
-        ) [DeclList_e]
-        ConstDecl(
-          Type(
-           int
-          ) [Type]
-          ConstDeclItem(
-           pi
-            ConstNum(
-             3
-            ) [ConstNum]
-          ) [ConstDeclItem]
-          ConstRest_e(
-          ) [ConstRest_e]
-        ) [ConstDecl]
-      ) [DeclListConst]
-      VarDecl(
-        Type(
-         int
-        ) [Type]
-        VarDeclItem_var(
-         fd
-        ) [VarDeclItem_var]
-        VarRestComma(
-          VarDeclItem_arr(
-           fp
-          ) [VarDeclItem_arr]
-          VarRest_e(
-          ) [VarRest_e]
-        ) [VarRestComma]
-      ) [VarDecl]
-    ) [DeclListVar]
+    DeclList_e(
+    ) [DeclList_e]
     EnumDecl(
       EnumOpen(
-       broj
+       E
       ) [EnumOpen]
       EnumField_assign(
-       DVA
-       2
+       A
+       1
       ) [EnumField_assign]
       EnumRestComma(
-        EnumField_assign(
-         JEDAN
-         1
-        ) [EnumField_assign]
+        EnumField_default(
+         B
+        ) [EnumField_default]
         EnumRestComma(
-          EnumField_default(
-           DVA_DVA
-          ) [EnumField_default]
+          EnumField_assign(
+           C
+           5
+          ) [EnumField_assign]
           EnumRest_e(
           ) [EnumRest_e]
         ) [EnumRestComma]
@@ -129,108 +94,14 @@ INFO  18:19:47,817 - Program(
     ) [EnumDecl]
   ) [DeclListEnum]
   MethodDeclListRec(
-    MethodDeclListRec(
-      MethodDeclList_e(
-      ) [MethodDeclList_e]
-      MethodDecl(
-        MethodNameAndType_Void(
-         main
-        ) [MethodNameAndType_Void]
-        FormParsOptNo(
-        ) [FormParsOptNo]
-        VarDeclListRec(
-          VarDeclList_e(
-          ) [VarDeclList_e]
-          VarDecl(
-            Type(
-             int
-            ) [Type]
-            VarDeclItem_var(
-             a
-            ) [VarDeclItem_var]
-            VarRest_e(
-            ) [VarRest_e]
-          ) [VarDecl]
-        ) [VarDeclListRec]
-        StatementListRec(
-          StatementList_e(
-          ) [StatementList_e]
-          StmtDesignator(
-            DstAssign(
-              Designator_var(
-               x
-              ) [Designator_var]
-              Assignop(
-              ) [Assignop]
-              ExprDerived1(
-                SimpleExprDerived1(
-                  Term(
-                    FactorDesignator(
-                      Designator_var(
-                       a
-                      ) [Designator_var]
-                      FactorCallNo(
-                      ) [FactorCallNo]
-                    ) [FactorDesignator]
-                    TermRest_e(
-                    ) [TermRest_e]
-                  ) [Term]
-                  ExprRestDerived1(
-                    AddMinus(
-                    ) [AddMinus]
-                    Term(
-                      FactorExpr(
-                        ExprDerived1(
-                          SimpleExprDerived1(
-                            Term(
-                              FactorNum(
-                               1
-                              ) [FactorNum]
-                              TermRest_e(
-                              ) [TermRest_e]
-                            ) [Term]
-                            ExprRestDerived2(
-                            ) [ExprRestDerived2]
-                          ) [SimpleExprDerived1]
-                        ) [ExprDerived1]
-                      ) [FactorExpr]
-                      TermRest_e(
-                      ) [TermRest_e]
-                    ) [Term]
-                    ExprRestDerived2(
-                    ) [ExprRestDerived2]
-                  ) [ExprRestDerived1]
-                ) [SimpleExprDerived1]
-              ) [ExprDerived1]
-            ) [DstAssign]
-          ) [StmtDesignator]
-        ) [StatementListRec]
-      ) [MethodDecl]
-    ) [MethodDeclListRec]
+    MethodDeclList_e(
+    ) [MethodDeclList_e]
     MethodDecl(
       MethodNameAndType_Void(
-       x
+       main
       ) [MethodNameAndType_Void]
-      FormParsOptYes(
-        FormPars(
-          FormPars_var(
-            Type(
-             int
-            ) [Type]
-           b
-          ) [FormPars_var]
-          FormParsRestComma(
-            FormPars_arr(
-              Type(
-               int
-              ) [Type]
-             pi
-            ) [FormPars_arr]
-            FormParsRest_e(
-            ) [FormParsRest_e]
-          ) [FormParsRestComma]
-        ) [FormPars]
-      ) [FormParsOptYes]
+      FormParsOptNo(
+      ) [FormParsOptNo]
       VarDeclListRec(
         VarDeclList_e(
         ) [VarDeclList_e]
@@ -238,18 +109,164 @@ INFO  18:19:47,817 - Program(
           Type(
            int
           ) [Type]
-          VarDeclItem_var(
+          VarDeclItem_arr(
            a
-          ) [VarDeclItem_var]
-          VarRest_e(
-          ) [VarRest_e]
+          ) [VarDeclItem_arr]
+          VarRestComma(
+            VarDeclItem_arr(
+             m
+            ) [VarDeclItem_arr]
+            VarRestComma(
+              VarDeclItem_var(
+               x
+              ) [VarDeclItem_var]
+              VarRestComma(
+                VarDeclItem_var(
+                 y
+                ) [VarDeclItem_var]
+                VarRestComma(
+                  VarDeclItem_var(
+                   z
+                  ) [VarDeclItem_var]
+                  VarRest_e(
+                  ) [VarRest_e]
+                ) [VarRestComma]
+              ) [VarRestComma]
+            ) [VarRestComma]
+          ) [VarRestComma]
         ) [VarDecl]
       ) [VarDeclListRec]
-      StatementList_e(
-      ) [StatementList_e]
+      StatementListRec(
+        StatementListRec(
+          StatementListRec(
+            StatementListRec(
+              StatementList_e(
+              ) [StatementList_e]
+              StmtDesignator(
+                DstAssign(
+                  Designator_var(
+                   x
+                  ) [Designator_var]
+                  Assignop(
+                  ) [Assignop]
+                  ExprDerived1(
+                    SimpleExprDerived2(
+                      Term(
+                        FactorDesignator(
+                          Designator_rest(
+                            DesignatorName(
+                             a
+                            ) [DesignatorName]
+                            DesignatorRest_dot_length(
+                            ) [DesignatorRest_dot_length]
+                          ) [Designator_rest]
+                        ) [FactorDesignator]
+                        TermRest_e(
+                        ) [TermRest_e]
+                      ) [Term]
+                      ExprRestDerived2(
+                      ) [ExprRestDerived2]
+                    ) [SimpleExprDerived2]
+                  ) [ExprDerived1]
+                ) [DstAssign]
+              ) [StmtDesignator]
+            ) [StatementListRec]
+            StmtDesignator(
+              DstAssign(
+                Designator_var(
+                 y
+                ) [Designator_var]
+                Assignop(
+                ) [Assignop]
+                ExprDerived1(
+                  SimpleExprDerived2(
+                    Term(
+                      FactorDesignator(
+                        Designator_rest(
+                          DesignatorName(
+                           E
+                          ) [DesignatorName]
+                          DesignatorRest_dot_ident(
+                            FieldName(
+                             A
+                            ) [FieldName]
+                          ) [DesignatorRest_dot_ident]
+                        ) [Designator_rest]
+                      ) [FactorDesignator]
+                      TermRest_e(
+                      ) [TermRest_e]
+                    ) [Term]
+                    ExprRestDerived2(
+                    ) [ExprRestDerived2]
+                  ) [SimpleExprDerived2]
+                ) [ExprDerived1]
+              ) [DstAssign]
+            ) [StmtDesignator]
+          ) [StatementListRec]
+          StmtDesignator(
+            DstAssign(
+              Designator_var(
+               z
+              ) [Designator_var]
+              Assignop(
+              ) [Assignop]
+              ExprDerived1(
+                SimpleExprDerived2(
+                  Term(
+                    FactorDesignator(
+                      Designator_rest(
+                        DesignatorName(
+                         E
+                        ) [DesignatorName]
+                        DesignatorRest_dot_ident(
+                          FieldName(
+                           B
+                          ) [FieldName]
+                        ) [DesignatorRest_dot_ident]
+                      ) [Designator_rest]
+                    ) [FactorDesignator]
+                    TermRest_e(
+                    ) [TermRest_e]
+                  ) [Term]
+                  ExprRestDerived2(
+                  ) [ExprRestDerived2]
+                ) [SimpleExprDerived2]
+              ) [ExprDerived1]
+            ) [DstAssign]
+          ) [StmtDesignator]
+        ) [StatementListRec]
+        StmtDesignator(
+          DstAssign(
+            Designator_var(
+             x
+            ) [Designator_var]
+            Assignop(
+            ) [Assignop]
+            ExprDerived1(
+              SimpleExprDerived2(
+                Term(
+                  FactorDesignator(
+                    Designator_rest(
+                      DesignatorName(
+                       m
+                      ) [DesignatorName]
+                      DesignatorRest_dot_length(
+                      ) [DesignatorRest_dot_length]
+                    ) [Designator_rest]
+                  ) [FactorDesignator]
+                  TermRest_e(
+                  ) [TermRest_e]
+                ) [Term]
+                ExprRestDerived2(
+                ) [ExprRestDerived2]
+              ) [SimpleExprDerived2]
+            ) [ExprDerived1]
+          ) [DstAssign]
+        ) [StmtDesignator]
+      ) [StatementListRec]
     ) [MethodDecl]
   ) [MethodDeclListRec]
 ) [Program]
-INFO  18:19:47,817 - =================================
-INFO  18:19:47,823 - =================================
-INFO  18:19:47,824 - Parisranje uspesno zavrseno!
+INFO  22:01:30,106 - =================================
+INFO  22:01:30,110 - =================================
+INFO  22:01:30,111 - Parisranje uspesno zavrseno!

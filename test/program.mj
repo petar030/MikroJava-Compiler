@@ -1,25 +1,16 @@
 program SomeTest
-
-const int pi = 3;
-
-int fd, fp[];
-
-enum broj{
-	
-	DVA=2,
-	JEDAN=1,
-	DVA_DVA
+enum E {
+    A = 1,
+    B,
+    C = 5
 }
-
 {
+void main() int a[], m[], x, y, z; {
+    x = a.length;          // OK: a je niz -> length: int
 
-void main()int a;{
-
-x = -a-(-1);
-
+    y = E.A;               // OK: vrednost enum konstante (int)
+    z = E.B;               // OK: podrazumevana vrednost (2 ako A=1)
+    x = m.length;          // OK: m je niz nizova -> length: int
+   
 }
-
-void x(int b, int pi[])int a;{
-}
-
 }

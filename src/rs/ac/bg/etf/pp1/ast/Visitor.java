@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 15:38:10
+// 4/1/2026 20:0:5
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -18,8 +18,8 @@ public interface Visitor {
     public void visit(Addop Addop);
     public void visit(ConstRest ConstRest);
     public void visit(PrintOpt PrintOpt);
-    public void visit(ExprOpt ExprOpt);
     public void visit(Factor Factor);
+    public void visit(ExprOpt ExprOpt);
     public void visit(CondTerm CondTerm);
     public void visit(FormParsRest FormParsRest);
     public void visit(DeclList DeclList);
@@ -35,8 +35,8 @@ public interface Visitor {
     public void visit(SimpleExpr SimpleExpr);
     public void visit(ConditionOpt ConditionOpt);
     public void visit(FormParsItem FormParsItem);
-    public void visit(DesignatorStmtOpt DesignatorStmtOpt);
     public void visit(DesignatorRest DesignatorRest);
+    public void visit(DesignatorStmtOpt DesignatorStmtOpt);
     public void visit(VarDeclList VarDeclList);
     public void visit(Expr Expr);
     public void visit(DesignatorStatement DesignatorStatement);
@@ -70,13 +70,12 @@ public interface Visitor {
     public void visit(Designator_rest Designator_rest);
     public void visit(Designator_elem Designator_elem);
     public void visit(Designator_var Designator_var);
-    public void visit(FactorCallNo FactorCallNo);
-    public void visit(FactorCallYes FactorCallYes);
     public void visit(FactorExpr FactorExpr);
     public void visit(FactorNew FactorNew);
     public void visit(FactorBool FactorBool);
     public void visit(FactorChar FactorChar);
     public void visit(FactorNum FactorNum);
+    public void visit(FactorMeth FactorMeth);
     public void visit(FactorDesignator FactorDesignator);
     public void visit(TermRest_e TermRest_e);
     public void visit(TermRestMul TermRestMul);
