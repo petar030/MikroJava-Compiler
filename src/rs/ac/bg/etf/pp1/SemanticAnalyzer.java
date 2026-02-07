@@ -53,6 +53,32 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	/* HELPER METHODS */
 
+	public boolean compatibleWith(Struct a, Struct b) {
+		if (a.equals(b))
+			return true;
+		if (a == Tab.nullType && b.isRefType())
+			return true;
+		if (b == Tab.nullType && a.isRefType())
+			return true;
+		if ((a == Tab.intType && b.getKind() == Struct.Enum) || (b == Tab.intType && a.getKind() == Struct.Enum))
+			return true;
+		if (a.getKind() == Struct.Enum && b.getKind() == Struct.Enum)
+			return a == b;
+		return false;
+	}
+
+	public boolean assignableTo(Struct src, Struct dest) {
+		if (src.equals(dest))
+			return true;
+		if (src == Tab.nullType && dest.isRefType())
+			return true;
+		if (src.getKind() == Struct.Array && dest.getKind() == Struct.Array && dest.getElemType() == Tab.noType)
+			return true;
+		if (src.getKind() == Struct.Enum && dest == Tab.intType)
+			return true;
+		return false;
+	}
+
 	private boolean isGlobal(Obj o) {
 
 		if (o == null)
@@ -120,8 +146,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		return k + " " + o.getName() + ": " + t + ", adr=" + o.getAdr() + ", level=" + o.getLevel() + fp;
 	}
 
-	private Struct num(Struct s) {
-		return (s != null && s.getKind() == Struct.Enum) ? Tab.intType : s;
+	private boolean isIntOrEnum(Struct t) {
+		return t == Tab.intType || t.getKind() == Struct.Enum;
 	}
 
 	public List<Obj> getFormalParameters(Obj designatorObj) {
@@ -221,7 +247,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Dvostruka definicija konstante: " + constDeclItem.getI1(), constDeclItem);
 			return;
 		}
-		if (!this.currentConstType.assignableTo(this.currentType)) {
+		if (!assignableTo(currentConstType, currentType)) {			
 			report_error("Nekompatibilan tip u deklaraciji konstante: " + constDeclItem.getI1(), constDeclItem);
 			return;
 
@@ -306,7 +332,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		Obj curr = Tab.insert(Obj.Con, field.getI1(), Tab.intType);
+		Obj curr = Tab.insert(Obj.Con, field.getI1(), this.currentEnumStruct);
 		curr.setAdr(field.getN2());
 
 		this.currentEnumValues.add(field.getN2());
@@ -332,7 +358,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		currentEnumValues.add(val);
 
-		Obj curr = Tab.insert(Obj.Con, field.getI1(), Tab.intType);
+		Obj curr = Tab.insert(Obj.Con, field.getI1(), this.currentEnumStruct);
 		curr.setAdr(val);
 
 		this.lastEnumVal = val;
@@ -548,7 +574,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		if (des.getExpr().struct != Tab.intType) {
+		if (!isIntOrEnum(des.getExpr().struct)) {
 			report_error("Indeks niza mora biti tipa int", des);
 			des.obj = Tab.noObj;
 			return;
@@ -616,7 +642,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			Struct actual = actuals.get(i);
 			// log.info("arg " + (i+1) + ": expected=" + ts(expected) + ", actual=" +
 			// ts(actual));
-			if (!actual.assignableTo(expected)) {
+			if (!assignableTo(actual, expected)) {		
 				report_error("argument " + (i + 1) + " nije kompatibilan", factor);
 			}
 		}
@@ -627,7 +653,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(FactorNew factor) {
-		if (!factor.getExpr().struct.equals(Tab.intType)) {
+		if (!isIntOrEnum(factor.getExpr().struct)) {
 			report_error("Velicina niza mora biti tipa int", factor);
 			factor.struct = Tab.noType;
 			return;
@@ -644,18 +670,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(TermBase term) {
-		term.struct = num(term.getFactor().struct);
-	}
+		term.struct = term.getFactor().struct;
 
-	
+	}
 
 	@Override
 	public void visit(TermRec term) {
 
-		Struct leftType  = term.getTerm().struct;
-		Struct rightType = num(term.getFactor().struct);
+		Struct leftType = term.getTerm().struct;
+		Struct rightType = term.getFactor().struct;
 
-		if (!leftType.equals(Tab.intType) || !rightType.equals(Tab.intType)) {
+		if (!(isIntOrEnum(leftType) && isIntOrEnum(rightType))) {
 			report_error("Mulop operacija nije dozvoljena za ne-int tipove ", term);
 			term.struct = Tab.noType;
 			return;
@@ -675,7 +700,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(AddopRec expr) {
 		Struct leftType = expr.getTerm().struct;
 		Struct rightType = expr.getExprRest().struct;
-		if (!leftType.equals(Tab.intType) || !rightType.equals(Tab.intType)) {
+		if (!(isIntOrEnum(leftType) && isIntOrEnum(rightType))) {
 			log.info(ts(leftType) + " " + ts(rightType));
 			report_error("Addop operacija nije dozvoljena za ne-int tipove ", expr);
 			expr.struct = Tab.noType;
@@ -688,7 +713,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(SimpleExprNeg expr) {
 		Struct type = expr.getExprRest().struct;
-		if (!type.equals(Tab.intType)) {
+		if (!isIntOrEnum(type)) {
 			report_error("Negiranje nije dozvoljeno za ne-int tipove ", expr);
 			expr.struct = Tab.noType;
 			return;
@@ -775,7 +800,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(CondFactRelop condFact) {
 		Struct leftType = condFact.getSimpleExpr().struct;
 		Struct rightType = condFact.getSimpleExpr1().struct;
-		if (!leftType.compatibleWith(rightType)) {
+		if (!compatibleWith(leftType, rightType)) {
 			report_error("Poredjenje razlicitih tipova ", condFact);
 			condFact.struct = Tab.noType;
 			return;
@@ -911,7 +936,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 					report_error("return u void metodi ne sme imati izraz", stmt);
 				}
 			} else {
-				if (retExprType == Tab.noType || !retExprType.assignableTo(this.currentReturnType)) {
+				if (retExprType == Tab.noType || !assignableTo(retExprType, this.currentReturnType)) {
 					report_error("tip povratne vrednosti nije validan", stmt);
 				}
 			}
@@ -933,7 +958,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 		Struct t = o.getType();
-		if (!(t.equals(Tab.intType) || t.equals(Tab.charType) || t.equals(this.boolType))) {
+		if (!(isIntOrEnum(t) || t.equals(Tab.charType) || t.equals(this.boolType))) {
 			report_error("READ podržava samo tipove int, char ili bool", stmt);
 			return;
 		}
@@ -942,7 +967,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(StmtPrint stmt) {
 		Struct t = stmt.getExpr().struct;
-		if (!(t.equals(Tab.intType) || t.equals(Tab.charType) || t.equals(this.boolType))) {
+		if (!(isIntOrEnum(t) || t.equals(Tab.charType) || t.equals(this.boolType))) {
 			report_error("Print izraz mora biti tipa int, char ili bool", stmt);
 			return;
 		}
@@ -958,7 +983,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(StmtSwitch stmt) {
 		this.switchDepth--;
-		if (!stmt.getExpr().struct.equals(Tab.intType)) {
+		if (!isIntOrEnum(stmt.getExpr().struct)) {
 			report_error("Switch izraz mora biti tipa int", stmt);
 			return;
 		}
@@ -1005,57 +1030,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Struct left = desObj.getType();
 		Struct right = dst.getExpr().struct;
 
-		if (left.getKind() == Struct.Enum) {
-			Expr e = dst.getExpr();
-			if (e instanceof ExprSimple) {
-				SimpleExpr se = ((ExprSimple) e).getSimpleExpr();
-				if (se instanceof SimpleExprPos) {
-					ExprRest r = ((SimpleExprPos) se).getExprRest();
-					if (r instanceof AddopBase) {
-						Term t = ((AddopBase) r).getTerm();
-						if (t instanceof TermBase) {
-							Factor f = ((TermBase) t).getFactor();
-							if (f instanceof FactorDesignator) {
-								Designator d = ((FactorDesignator) f).getDesignator();
-								if (d instanceof Designator_enum) {
-									Designator_enum den = (Designator_enum) d;
-									String enumName = den.getI1();
-									String memberName = den.getI2();
-
-									Obj enumTypeObj = Tab.find(enumName);
-									if (enumTypeObj == Tab.noObj || enumTypeObj.getKind() != Obj.Type
-											|| enumTypeObj.getType().getKind() != Struct.Enum) {
-										report_error("Identifikator '" + enumName + "' nije enum tip", dst);
-										return;
-									}
-
-									if (enumTypeObj.getType() != left) {
-										report_error("Dodela iz drugog enum tipa (" + enumName + ")", dst);
-										return;
-									}
-
-									boolean memberExists = false;
-									for (Obj o : left.getMembers()) {
-										if (o.getKind() == Obj.Con && o.getName().equals(memberName)) {
-											memberExists = true;
-											break;
-										}
-									}
-									if (!memberExists) {
-										report_error("Enum '" + enumName + "' nema element '" + memberName + "'", dst);
-										return;
-									}
-
-									return;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		if (!right.assignableTo(left)) {
+		if (!assignableTo(right, left)) {
 			report_error("Neuskladjeni tipovi u dodeli", dst);
 			return;
 		}
@@ -1115,7 +1090,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			Struct actual = actuals.get(i);
 			// log.info("arg " + (i+1) + ": expected=" + ts(expected) + ", actual=" +
 			// ts(actual));
-			if (!actual.assignableTo(expected)) {
+			if (!assignableTo(actual, expected)) {
 				report_error("argument " + (i + 1) + " nije kompatibilan", dst);
 				return;
 			}
