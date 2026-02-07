@@ -81,7 +81,7 @@ public class Compiler {
 			
 			
 			if(!p.errorDetected && !analyzer.errorDetected()) {
-				log.info("Parisranje uspesno zavrseno!");
+				log.info("Parsiranje uspesno zavrseno!");
 			}
 			else {
 				log.error("Parsiranje NIJE uspesno zavrseno");

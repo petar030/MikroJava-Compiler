@@ -58,26 +58,23 @@ terminal Character CHARACTER;
 terminal Integer BOOL;
 
 nonterminal Program, DeclList, MethodDeclList, ConstDecl, VarDecl, EnumDecl;
-nonterminal MethodDecl, FormParsOpt, FormPars, FormParsRest, Type, VarDeclList;
+nonterminal MethodDecl, FormParsOpt, FormPars, FormParsRest, VarDeclList;
 nonterminal Statement, StatementList, DesignatorStatement;
-nonterminal FactorCallOpt;
-nonterminal Condition, CondTerm,  CondFact;
-nonterminal ActParsOpt, ActPars, ActParsRest;
+nonterminal ActParsOpt, ActPars;
 nonterminal Assignop, Relop, Addop, Mulop;
-nonterminal ElseOpt, ExprOpt, ConditionOpt, DesignatorStmtOpt, PrintOpt;
-nonterminal CaseList, Case;
+nonterminal ElseOpt, DesignatorStmtOpt, PrintOpt;
+nonterminal CaseList;
 nonterminal ConstRest, ConstValue, VarRest, EnumRest;
-nonterminal IfCond;
 
 nonterminal ConstDeclItem, VarDeclItem, EnumField, EnumOpen, EnumClose;
-nonterminal FormParsItem;
+nonterminal FormParsItem, StartFor, StartSwitch;
 
-nonterminal DesignatorName, FieldName, DesignatorArrayName;
 
-nonterminal ProgName, MethodNameAndType;
+nonterminal ProgName, MethodNameAndType, ActParsList;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, TermRest, Term, SimpleExpr, ExprRest, Expr;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorRest;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type;
 
 precedence left ELSE;
 
@@ -180,9 +177,11 @@ Statement ::= (StmtDesignator) DesignatorStatement SEMI
             | (StmtRead) READ LPAREN Designator RPAREN SEMI
             | (StmtPrint) PRINT LPAREN Expr PrintOpt RPAREN SEMI
             | (StmtBlock) LBRACE StatementList RBRACE
-            | (StmtSwitch) SWITCH LPAREN Expr RPAREN LBRACE CaseList RBRACE
-            | (StmtFor) FOR LPAREN DesignatorStmtOpt SEMI ConditionOpt SEMI DesignatorStmtOpt RPAREN Statement
+            | (StmtSwitch) SWITCH StartSwitch Expr RPAREN LBRACE CaseList RBRACE
+            | (StmtFor) FOR StartFor DesignatorStmtOpt SEMI ConditionOpt SEMI DesignatorStmtOpt RPAREN Statement
             ;
+StartFor ::= (StartFor) LPAREN;
+StartSwitch ::= (StartSwitch) LPAREN;
 
 DesignatorStatement ::= (DstAssign) Designator Assignop Expr
 					  | (DstError) error:e
@@ -217,60 +216,57 @@ PrintOpt ::= (PrintOptYes) COMMA NUMBER
            | (PrintOptNo)
            ;
 
-CaseList ::= (CaseListRec) CaseList Case
-           | (CaseList_e)
+CaseList ::= (CaseListRec) CaseList CASE NUMBER COLON StatementList
+           | (CaseListBase) CASE NUMBER COLON StatementList
            ;
 
-Case ::= (Case) CASE NUMBER COLON StatementList ;
 
 ActParsOpt ::= (ActParsOptYes) ActPars
              | (ActParsOptNo)
              ;
+ActPars ::= (ActPars) ActParsList;
 
-ActPars ::= (ActPars) Expr ActParsRest ;
-
-ActParsRest ::= (ActParsRestComma) COMMA Expr ActParsRest
-              | (ActParsRest_e)
-              ;
+ActParsList ::= (ActParsRec) ActParsList COMMA Expr 
+			|(ActParsBase) Expr;
 
 
 
-Condition ::= Condition OR CondTerm
-            | CondTerm
+Condition ::= (ConditionRec) Condition OR CondTerm
+            | (ConditionBase) CondTerm
             ;
 
-CondTerm ::= CondTerm AND CondFact
-           | CondFact
+CondTerm ::= (CondTermRec) CondTerm AND CondFact
+           | (CondTermBase) CondFact
            ;
 
 
 
 
-CondFact ::= SimpleExpr Relop SimpleExpr
-          | SimpleExpr
+CondFact ::= (CondFactRelop) SimpleExpr Relop SimpleExpr
+          | (CondFactSimple) SimpleExpr
           ;
           
-Expr ::= SimpleExpr
-       | Condition QMARK Expr COLON Expr
+Expr ::= (ExprSimple) SimpleExpr
+       | (ExprTernary) Condition QMARK Expr COLON Expr
        ;
 
-SimpleExpr ::= MINUS Term ExprRest
-             | Term  ExprRest
+SimpleExpr ::= (SimpleExprNeg) MINUS ExprRest
+             | (SimpleExprPos) ExprRest
              ;
 
-ExprRest ::= Addop Term ExprRest
-           | /* epsilon */
+ExprRest ::= (AddopRec) ExprRest Addop Term
+           | (AddopBase) Term
            ;
+           
 	
 
 
 
 
-Term ::= (Term) Factor TermRest ;
 
-TermRest ::= (TermRestMul) Mulop Factor TermRest
-           | (TermRest_e)
-           ;
+Term ::= (TermRec) Term Mulop Factor
+       | (TermBase) Factor 
+	   ;
 
 Factor ::= (FactorDesignator) Designator
 		 | (FactorMeth) Designator LPAREN ActParsOpt RPAREN
@@ -286,22 +282,10 @@ Factor ::= (FactorDesignator) Designator
 
 Designator ::=
       (Designator_var)        IDENT
-    | (Designator_elem)       DesignatorArrayName LBRACK Expr RBRACK
-    | (Designator_rest)       DesignatorName DesignatorRest
-    | (Designator_elem_rest)  DesignatorArrayName LBRACK Expr RBRACK DesignatorRest
+    | (Designator_length)     IDENT DOT LENGTH
+    | (Designator_enum)       IDENT DOT IDENT
+    | (Designator_elem)  IDENT LBRACK Expr RBRACK 
     ;
-
-DesignatorRest ::=
-      (DesignatorRest_dot_ident)        DOT FieldName
-    | (DesignatorRest_dot_length)       DOT LENGTH
-    | (DesignatorRest_more_dot_ident)   DesignatorRest DOT FieldName
-    | (DesignatorRest_more_dot_length)  DesignatorRest DOT LENGTH
-    | (DesignatorRest_more_index)       DesignatorRest LBRACK Expr RBRACK
-    ;
-
-DesignatorName       ::= (DesignatorName)       IDENT ;
-FieldName            ::= (FieldName)            IDENT ;
-DesignatorArrayName  ::= (DesignatorArrayName)  IDENT ;
 
 
 

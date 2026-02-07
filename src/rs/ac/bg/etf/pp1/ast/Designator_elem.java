@@ -1,28 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 20:0:5
+// 7/1/2026 15:58:57
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class Designator_elem extends Designator {
 
-    private DesignatorArrayName DesignatorArrayName;
+    private String I1;
     private Expr Expr;
 
-    public Designator_elem (DesignatorArrayName DesignatorArrayName, Expr Expr) {
-        this.DesignatorArrayName=DesignatorArrayName;
-        if(DesignatorArrayName!=null) DesignatorArrayName.setParent(this);
+    public Designator_elem (String I1, Expr Expr) {
+        this.I1=I1;
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
     }
 
-    public DesignatorArrayName getDesignatorArrayName() {
-        return DesignatorArrayName;
+    public String getI1() {
+        return I1;
     }
 
-    public void setDesignatorArrayName(DesignatorArrayName DesignatorArrayName) {
-        this.DesignatorArrayName=DesignatorArrayName;
+    public void setI1(String I1) {
+        this.I1=I1;
     }
 
     public Expr getExpr() {
@@ -38,18 +37,15 @@ public class Designator_elem extends Designator {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(DesignatorArrayName!=null) DesignatorArrayName.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(DesignatorArrayName!=null) DesignatorArrayName.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(DesignatorArrayName!=null) DesignatorArrayName.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -59,10 +55,7 @@ public class Designator_elem extends Designator {
         buffer.append(tab);
         buffer.append("Designator_elem(\n");
 
-        if(DesignatorArrayName!=null)
-            buffer.append(DesignatorArrayName.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
+        buffer.append(" "+tab+I1);
         buffer.append("\n");
 
         if(Expr!=null)

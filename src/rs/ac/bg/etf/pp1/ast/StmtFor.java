@@ -1,18 +1,21 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 20:0:5
+// 7/1/2026 15:58:57
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StmtFor extends Statement {
 
+    private StartFor StartFor;
     private DesignatorStmtOpt DesignatorStmtOpt;
     private ConditionOpt ConditionOpt;
     private DesignatorStmtOpt DesignatorStmtOpt1;
     private Statement Statement;
 
-    public StmtFor (DesignatorStmtOpt DesignatorStmtOpt, ConditionOpt ConditionOpt, DesignatorStmtOpt DesignatorStmtOpt1, Statement Statement) {
+    public StmtFor (StartFor StartFor, DesignatorStmtOpt DesignatorStmtOpt, ConditionOpt ConditionOpt, DesignatorStmtOpt DesignatorStmtOpt1, Statement Statement) {
+        this.StartFor=StartFor;
+        if(StartFor!=null) StartFor.setParent(this);
         this.DesignatorStmtOpt=DesignatorStmtOpt;
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.setParent(this);
         this.ConditionOpt=ConditionOpt;
@@ -21,6 +24,14 @@ public class StmtFor extends Statement {
         if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
+    }
+
+    public StartFor getStartFor() {
+        return StartFor;
+    }
+
+    public void setStartFor(StartFor StartFor) {
+        this.StartFor=StartFor;
     }
 
     public DesignatorStmtOpt getDesignatorStmtOpt() {
@@ -60,6 +71,7 @@ public class StmtFor extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(StartFor!=null) StartFor.accept(visitor);
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.accept(visitor);
         if(ConditionOpt!=null) ConditionOpt.accept(visitor);
         if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.accept(visitor);
@@ -68,6 +80,7 @@ public class StmtFor extends Statement {
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(StartFor!=null) StartFor.traverseTopDown(visitor);
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.traverseTopDown(visitor);
         if(ConditionOpt!=null) ConditionOpt.traverseTopDown(visitor);
         if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.traverseTopDown(visitor);
@@ -75,6 +88,7 @@ public class StmtFor extends Statement {
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(StartFor!=null) StartFor.traverseBottomUp(visitor);
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.traverseBottomUp(visitor);
         if(ConditionOpt!=null) ConditionOpt.traverseBottomUp(visitor);
         if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.traverseBottomUp(visitor);
@@ -86,6 +100,12 @@ public class StmtFor extends Statement {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("StmtFor(\n");
+
+        if(StartFor!=null)
+            buffer.append(StartFor.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(DesignatorStmtOpt!=null)
             buffer.append(DesignatorStmtOpt.toString("  "+tab));

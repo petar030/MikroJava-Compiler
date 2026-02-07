@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 20:0:5
+// 7/1/2026 15:58:57
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,30 +9,19 @@ public class ActPars implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private Expr Expr;
-    private ActParsRest ActParsRest;
+    private ActParsList ActParsList;
 
-    public ActPars (Expr Expr, ActParsRest ActParsRest) {
-        this.Expr=Expr;
-        if(Expr!=null) Expr.setParent(this);
-        this.ActParsRest=ActParsRest;
-        if(ActParsRest!=null) ActParsRest.setParent(this);
+    public ActPars (ActParsList ActParsList) {
+        this.ActParsList=ActParsList;
+        if(ActParsList!=null) ActParsList.setParent(this);
     }
 
-    public Expr getExpr() {
-        return Expr;
+    public ActParsList getActParsList() {
+        return ActParsList;
     }
 
-    public void setExpr(Expr Expr) {
-        this.Expr=Expr;
-    }
-
-    public ActParsRest getActParsRest() {
-        return ActParsRest;
-    }
-
-    public void setActParsRest(ActParsRest ActParsRest) {
-        this.ActParsRest=ActParsRest;
+    public void setActParsList(ActParsList ActParsList) {
+        this.ActParsList=ActParsList;
     }
 
     public SyntaxNode getParent() {
@@ -56,19 +45,16 @@ public class ActPars implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Expr!=null) Expr.accept(visitor);
-        if(ActParsRest!=null) ActParsRest.accept(visitor);
+        if(ActParsList!=null) ActParsList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Expr!=null) Expr.traverseTopDown(visitor);
-        if(ActParsRest!=null) ActParsRest.traverseTopDown(visitor);
+        if(ActParsList!=null) ActParsList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Expr!=null) Expr.traverseBottomUp(visitor);
-        if(ActParsRest!=null) ActParsRest.traverseBottomUp(visitor);
+        if(ActParsList!=null) ActParsList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -77,14 +63,8 @@ public class ActPars implements SyntaxNode {
         buffer.append(tab);
         buffer.append("ActPars(\n");
 
-        if(Expr!=null)
-            buffer.append(Expr.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(ActParsRest!=null)
-            buffer.append(ActParsRest.toString("  "+tab));
+        if(ActParsList!=null)
+            buffer.append(ActParsList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

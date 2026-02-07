@@ -1,13 +1,12 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 20:0:5
+// 7/1/2026 15:58:57
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public interface Visitor { 
 
-    public void visit(TermRest TermRest);
     public void visit(Mulop Mulop);
     public void visit(FormParsOpt FormParsOpt);
     public void visit(Relop Relop);
@@ -18,24 +17,24 @@ public interface Visitor {
     public void visit(Addop Addop);
     public void visit(ConstRest ConstRest);
     public void visit(PrintOpt PrintOpt);
-    public void visit(Factor Factor);
     public void visit(ExprOpt ExprOpt);
+    public void visit(Factor Factor);
     public void visit(CondTerm CondTerm);
     public void visit(FormParsRest FormParsRest);
     public void visit(DeclList DeclList);
     public void visit(Designator Designator);
-    public void visit(ActParsRest ActParsRest);
-    public void visit(EnumRest EnumRest);
+    public void visit(Term Term);
     public void visit(Condition Condition);
+    public void visit(EnumRest EnumRest);
     public void visit(IfCond IfCond);
     public void visit(ConstValue ConstValue);
     public void visit(CaseList CaseList);
+    public void visit(ActParsList ActParsList);
     public void visit(EnumField EnumField);
     public void visit(ExprRest ExprRest);
     public void visit(SimpleExpr SimpleExpr);
     public void visit(ConditionOpt ConditionOpt);
     public void visit(FormParsItem FormParsItem);
-    public void visit(DesignatorRest DesignatorRest);
     public void visit(DesignatorStmtOpt DesignatorStmtOpt);
     public void visit(VarDeclList VarDeclList);
     public void visit(Expr Expr);
@@ -44,7 +43,6 @@ public interface Visitor {
     public void visit(Statement Statement);
     public void visit(CondFact CondFact);
     public void visit(MethodDeclList MethodDeclList);
-    public void visit(FactorCallOpt FactorCallOpt);
     public void visit(ElseOpt ElseOpt);
     public void visit(MulMod MulMod);
     public void visit(MulDiv MulDiv);
@@ -58,17 +56,9 @@ public interface Visitor {
     public void visit(RelNE RelNE);
     public void visit(RelEQ RelEQ);
     public void visit(Assignop Assignop);
-    public void visit(DesignatorArrayName DesignatorArrayName);
-    public void visit(FieldName FieldName);
-    public void visit(DesignatorName DesignatorName);
-    public void visit(DesignatorRest_more_index DesignatorRest_more_index);
-    public void visit(DesignatorRest_more_dot_length DesignatorRest_more_dot_length);
-    public void visit(DesignatorRest_more_dot_ident DesignatorRest_more_dot_ident);
-    public void visit(DesignatorRest_dot_length DesignatorRest_dot_length);
-    public void visit(DesignatorRest_dot_ident DesignatorRest_dot_ident);
-    public void visit(Designator_elem_rest Designator_elem_rest);
-    public void visit(Designator_rest Designator_rest);
     public void visit(Designator_elem Designator_elem);
+    public void visit(Designator_enum Designator_enum);
+    public void visit(Designator_length Designator_length);
     public void visit(Designator_var Designator_var);
     public void visit(FactorExpr FactorExpr);
     public void visit(FactorNew FactorNew);
@@ -77,28 +67,26 @@ public interface Visitor {
     public void visit(FactorNum FactorNum);
     public void visit(FactorMeth FactorMeth);
     public void visit(FactorDesignator FactorDesignator);
-    public void visit(TermRest_e TermRest_e);
-    public void visit(TermRestMul TermRestMul);
-    public void visit(Term Term);
-    public void visit(ExprRestDerived2 ExprRestDerived2);
-    public void visit(ExprRestDerived1 ExprRestDerived1);
-    public void visit(SimpleExprDerived2 SimpleExprDerived2);
-    public void visit(SimpleExprDerived1 SimpleExprDerived1);
-    public void visit(ExprDerived2 ExprDerived2);
-    public void visit(ExprDerived1 ExprDerived1);
-    public void visit(CondFactDerived2 CondFactDerived2);
-    public void visit(CondFactDerived1 CondFactDerived1);
-    public void visit(CondTermDerived2 CondTermDerived2);
-    public void visit(CondTermDerived1 CondTermDerived1);
-    public void visit(ConditionDerived2 ConditionDerived2);
-    public void visit(ConditionDerived1 ConditionDerived1);
-    public void visit(ActParsRest_e ActParsRest_e);
-    public void visit(ActParsRestComma ActParsRestComma);
+    public void visit(TermBase TermBase);
+    public void visit(TermRec TermRec);
+    public void visit(AddopBase AddopBase);
+    public void visit(AddopRec AddopRec);
+    public void visit(SimpleExprPos SimpleExprPos);
+    public void visit(SimpleExprNeg SimpleExprNeg);
+    public void visit(ExprTernary ExprTernary);
+    public void visit(ExprSimple ExprSimple);
+    public void visit(CondFactSimple CondFactSimple);
+    public void visit(CondFactRelop CondFactRelop);
+    public void visit(CondTermBase CondTermBase);
+    public void visit(CondTermRec CondTermRec);
+    public void visit(ConditionBase ConditionBase);
+    public void visit(ConditionRec ConditionRec);
+    public void visit(ActParsBase ActParsBase);
+    public void visit(ActParsRec ActParsRec);
     public void visit(ActPars ActPars);
     public void visit(ActParsOptNo ActParsOptNo);
     public void visit(ActParsOptYes ActParsOptYes);
-    public void visit(Case Case);
-    public void visit(CaseList_e CaseList_e);
+    public void visit(CaseListBase CaseListBase);
     public void visit(CaseListRec CaseListRec);
     public void visit(PrintOptNo PrintOptNo);
     public void visit(PrintOptYes PrintOptYes);
@@ -118,6 +106,8 @@ public interface Visitor {
     public void visit(DstCall DstCall);
     public void visit(DstError DstError);
     public void visit(DstAssign DstAssign);
+    public void visit(StartSwitch StartSwitch);
+    public void visit(StartFor StartFor);
     public void visit(StmtFor StmtFor);
     public void visit(StmtSwitch StmtSwitch);
     public void visit(StmtBlock StmtBlock);

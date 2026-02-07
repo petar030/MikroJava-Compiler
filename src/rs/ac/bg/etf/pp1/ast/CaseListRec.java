@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/1/2026 20:0:5
+// 7/1/2026 15:58:57
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,13 +8,15 @@ package rs.ac.bg.etf.pp1.ast;
 public class CaseListRec extends CaseList {
 
     private CaseList CaseList;
-    private Case Case;
+    private Integer N2;
+    private StatementList StatementList;
 
-    public CaseListRec (CaseList CaseList, Case Case) {
+    public CaseListRec (CaseList CaseList, Integer N2, StatementList StatementList) {
         this.CaseList=CaseList;
         if(CaseList!=null) CaseList.setParent(this);
-        this.Case=Case;
-        if(Case!=null) Case.setParent(this);
+        this.N2=N2;
+        this.StatementList=StatementList;
+        if(StatementList!=null) StatementList.setParent(this);
     }
 
     public CaseList getCaseList() {
@@ -25,12 +27,20 @@ public class CaseListRec extends CaseList {
         this.CaseList=CaseList;
     }
 
-    public Case getCase() {
-        return Case;
+    public Integer getN2() {
+        return N2;
     }
 
-    public void setCase(Case Case) {
-        this.Case=Case;
+    public void setN2(Integer N2) {
+        this.N2=N2;
+    }
+
+    public StatementList getStatementList() {
+        return StatementList;
+    }
+
+    public void setStatementList(StatementList StatementList) {
+        this.StatementList=StatementList;
     }
 
     public void accept(Visitor visitor) {
@@ -39,18 +49,18 @@ public class CaseListRec extends CaseList {
 
     public void childrenAccept(Visitor visitor) {
         if(CaseList!=null) CaseList.accept(visitor);
-        if(Case!=null) Case.accept(visitor);
+        if(StatementList!=null) StatementList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(CaseList!=null) CaseList.traverseTopDown(visitor);
-        if(Case!=null) Case.traverseTopDown(visitor);
+        if(StatementList!=null) StatementList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(CaseList!=null) CaseList.traverseBottomUp(visitor);
-        if(Case!=null) Case.traverseBottomUp(visitor);
+        if(StatementList!=null) StatementList.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -65,8 +75,11 @@ public class CaseListRec extends CaseList {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(Case!=null)
-            buffer.append(Case.toString("  "+tab));
+        buffer.append(" "+tab+N2);
+        buffer.append("\n");
+
+        if(StatementList!=null)
+            buffer.append(StatementList.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

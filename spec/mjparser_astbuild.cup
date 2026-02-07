@@ -67,34 +67,24 @@ nonterminal MethodDecl MethodDecl;
 nonterminal FormParsOpt FormParsOpt;
 nonterminal FormPars FormPars;
 nonterminal FormParsRest FormParsRest;
-nonterminal Type Type;
 nonterminal VarDeclList VarDeclList;
 nonterminal Statement Statement;
 nonterminal StatementList StatementList;
 nonterminal DesignatorStatement DesignatorStatement;
-nonterminal FactorCallOpt FactorCallOpt;
-nonterminal Condition Condition;
-nonterminal CondTerm CondTerm;
-nonterminal  CondFact CondFact;
 nonterminal ActParsOpt ActParsOpt;
 nonterminal ActPars ActPars;
-nonterminal ActParsRest ActParsRest;
 nonterminal Assignop Assignop;
 nonterminal Relop Relop;
 nonterminal Addop Addop;
 nonterminal Mulop Mulop;
 nonterminal ElseOpt ElseOpt;
-nonterminal ExprOpt ExprOpt;
-nonterminal ConditionOpt ConditionOpt;
 nonterminal DesignatorStmtOpt DesignatorStmtOpt;
 nonterminal PrintOpt PrintOpt;
 nonterminal CaseList CaseList;
-nonterminal Case Case;
 nonterminal ConstRest ConstRest;
 nonterminal ConstValue ConstValue;
 nonterminal VarRest VarRest;
 nonterminal EnumRest EnumRest;
-nonterminal IfCond IfCond;
 
 nonterminal ConstDeclItem ConstDeclItem;
 nonterminal VarDeclItem VarDeclItem;
@@ -102,16 +92,17 @@ nonterminal EnumField EnumField;
 nonterminal EnumOpen EnumOpen;
 nonterminal EnumClose EnumClose;
 nonterminal FormParsItem FormParsItem;
+nonterminal StartFor StartFor;
+nonterminal StartSwitch StartSwitch;
 
-nonterminal DesignatorName DesignatorName;
-nonterminal FieldName FieldName;
-nonterminal DesignatorArrayName DesignatorArrayName;
 
 nonterminal ProgName ProgName;
 nonterminal MethodNameAndType MethodNameAndType;
+nonterminal ActParsList ActParsList;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor, TermRest, Term, SimpleExpr, ExprRest, Expr;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesignatorRest;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type;
 
 precedence left ELSE;
 
@@ -214,9 +205,11 @@ Statement ::= (StmtDesignator) DesignatorStatement:D1 SEMI {: RESULT=new StmtDes
             | (StmtRead) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new StmtRead(D1); RESULT.setLine(D1left); :}
             | (StmtPrint) PRINT LPAREN Expr:E1 PrintOpt:P2 RPAREN SEMI {: RESULT=new StmtPrint(E1, P2); RESULT.setLine(E1left); :}
             | (StmtBlock) LBRACE StatementList:S1 RBRACE {: RESULT=new StmtBlock(S1); RESULT.setLine(S1left); :}
-            | (StmtSwitch) SWITCH LPAREN Expr:E1 RPAREN LBRACE CaseList:C2 RBRACE {: RESULT=new StmtSwitch(E1, C2); RESULT.setLine(E1left); :}
-            | (StmtFor) FOR LPAREN DesignatorStmtOpt:D1 SEMI ConditionOpt:C2 SEMI DesignatorStmtOpt:D3 RPAREN Statement:S4 {: RESULT=new StmtFor(D1, C2, D3, S4); RESULT.setLine(D1left); :}
+            | (StmtSwitch) SWITCH StartSwitch:S1 Expr:E2 RPAREN LBRACE CaseList:C3 RBRACE {: RESULT=new StmtSwitch(S1, E2, C3); RESULT.setLine(S1left); :}
+            | (StmtFor) FOR StartFor:S1 DesignatorStmtOpt:D2 SEMI ConditionOpt:C3 SEMI DesignatorStmtOpt:D4 RPAREN Statement:S5 {: RESULT=new StmtFor(S1, D2, C3, D4, S5); RESULT.setLine(S1left); :}
             ;
+StartFor ::= (StartFor) LPAREN {: RESULT=new StartFor(); :};
+StartSwitch ::= (StartSwitch) LPAREN {: RESULT=new StartSwitch(); :};
 
 DesignatorStatement ::= (DstAssign) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new DstAssign(D1, A2, E3); RESULT.setLine(D1left); :}
 					  | (DstError) error:e
@@ -251,60 +244,57 @@ PrintOpt ::= (PrintOptYes) COMMA NUMBER:N1 {: RESULT=new PrintOptYes(N1); RESULT
            | (PrintOptNo) {: RESULT=new PrintOptNo(); :}
            ;
 
-CaseList ::= (CaseListRec) CaseList:C1 Case:C2 {: RESULT=new CaseListRec(C1, C2); RESULT.setLine(C1left); :}
-           | (CaseList_e) {: RESULT=new CaseList_e(); :}
+CaseList ::= (CaseListRec) CaseList:C1 CASE NUMBER:N2 COLON StatementList:S3 {: RESULT=new CaseListRec(C1, N2, S3); RESULT.setLine(C1left); :}
+           | (CaseListBase) CASE NUMBER:N1 COLON StatementList:S2 {: RESULT=new CaseListBase(N1, S2); RESULT.setLine(N1left); :}
            ;
 
-Case ::= (Case) CASE NUMBER:N1 COLON StatementList:S2 {: RESULT=new Case(N1, S2); RESULT.setLine(N1left); :} ;
 
 ActParsOpt ::= (ActParsOptYes) ActPars:A1 {: RESULT=new ActParsOptYes(A1); RESULT.setLine(A1left); :}
              | (ActParsOptNo) {: RESULT=new ActParsOptNo(); :}
              ;
+ActPars ::= (ActPars) ActParsList:A1 {: RESULT=new ActPars(A1); RESULT.setLine(A1left); :};
 
-ActPars ::= (ActPars) Expr:E1 ActParsRest:A2 {: RESULT=new ActPars(E1, A2); RESULT.setLine(E1left); :} ;
-
-ActParsRest ::= (ActParsRestComma) COMMA Expr:E1 ActParsRest:A2 {: RESULT=new ActParsRestComma(E1, A2); RESULT.setLine(E1left); :}
-              | (ActParsRest_e) {: RESULT=new ActParsRest_e(); :}
-              ;
+ActParsList ::= (ActParsRec) ActParsList:A1 COMMA Expr:E2 {: RESULT=new ActParsRec(A1, E2); RESULT.setLine(A1left); :} 
+			|(ActParsBase) Expr:E1 {: RESULT=new ActParsBase(E1); RESULT.setLine(E1left); :};
 
 
 
-Condition ::= Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionDerived1(C1, C2); RESULT.setLine(C1left); :}
-            | CondTerm:C1 {: RESULT=new ConditionDerived2(C1); RESULT.setLine(C1left); :}
+Condition ::= (ConditionRec) Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionRec(C1, C2); RESULT.setLine(C1left); :}
+            | (ConditionBase) CondTerm:C1 {: RESULT=new ConditionBase(C1); RESULT.setLine(C1left); :}
             ;
 
-CondTerm ::= CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermDerived1(C1, C2); RESULT.setLine(C1left); :}
-           | CondFact:C1 {: RESULT=new CondTermDerived2(C1); RESULT.setLine(C1left); :}
+CondTerm ::= (CondTermRec) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermRec(C1, C2); RESULT.setLine(C1left); :}
+           | (CondTermBase) CondFact:C1 {: RESULT=new CondTermBase(C1); RESULT.setLine(C1left); :}
            ;
 
 
 
 
-CondFact ::= SimpleExpr:S1 Relop:R2 SimpleExpr:S3 {: RESULT=new CondFactDerived1(S1, R2, S3); RESULT.setLine(S1left); :}
-          | SimpleExpr:S1 {: RESULT=new CondFactDerived2(S1); RESULT.setLine(S1left); :}
+CondFact ::= (CondFactRelop) SimpleExpr:S1 Relop:R2 SimpleExpr:S3 {: RESULT=new CondFactRelop(S1, R2, S3); RESULT.setLine(S1left); :}
+          | (CondFactSimple) SimpleExpr:S1 {: RESULT=new CondFactSimple(S1); RESULT.setLine(S1left); :}
           ;
           
-Expr ::= SimpleExpr:S1 {: RESULT=new ExprDerived1(S1); RESULT.setLine(S1left); :}
-       | Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprDerived2(C1, E2, E3); RESULT.setLine(C1left); :}
+Expr ::= (ExprSimple) SimpleExpr:S1 {: RESULT=new ExprSimple(S1); RESULT.setLine(S1left); :}
+       | (ExprTernary) Condition:C1 QMARK Expr:E2 COLON Expr:E3 {: RESULT=new ExprTernary(C1, E2, E3); RESULT.setLine(C1left); :}
        ;
 
-SimpleExpr ::= MINUS Term:T1 ExprRest:E2 {: RESULT=new SimpleExprDerived1(T1, E2); RESULT.setLine(T1left); :}
-             | Term:T1  ExprRest:E2 {: RESULT=new SimpleExprDerived2(T1, E2); RESULT.setLine(T1left); :}
+SimpleExpr ::= (SimpleExprNeg) MINUS ExprRest:E1 {: RESULT=new SimpleExprNeg(E1); RESULT.setLine(E1left); :}
+             | (SimpleExprPos) ExprRest:E1 {: RESULT=new SimpleExprPos(E1); RESULT.setLine(E1left); :}
              ;
 
-ExprRest ::= Addop:A1 Term:T2 ExprRest:E3 {: RESULT=new ExprRestDerived1(A1, T2, E3); RESULT.setLine(A1left); :}
-           | {: RESULT=new ExprRestDerived2(); :} /* epsilon */
+ExprRest ::= (AddopRec) ExprRest:E1 Addop:A2 Term:T3 {: RESULT=new AddopRec(E1, A2, T3); RESULT.setLine(E1left); :}
+           | (AddopBase) Term:T1 {: RESULT=new AddopBase(T1); RESULT.setLine(T1left); :}
            ;
+           
 	
 
 
 
 
-Term ::= (Term) Factor:F1 TermRest:T2 {: RESULT=new Term(F1, T2); RESULT.setLine(F1left); :} ;
 
-TermRest ::= (TermRestMul) Mulop:M1 Factor:F2 TermRest:T3 {: RESULT=new TermRestMul(M1, F2, T3); RESULT.setLine(M1left); :}
-           | (TermRest_e) {: RESULT=new TermRest_e(); :}
-           ;
+Term ::= (TermRec) Term:T1 Mulop:M2 Factor:F3 {: RESULT=new TermRec(T1, M2, F3); RESULT.setLine(T1left); :}
+       | (TermBase) Factor:F1 {: RESULT=new TermBase(F1); RESULT.setLine(F1left); :} 
+	   ;
 
 Factor ::= (FactorDesignator) Designator:D1 {: RESULT=new FactorDesignator(D1); RESULT.setLine(D1left); :}
 		 | (FactorMeth) Designator:D1 LPAREN ActParsOpt:A2 RPAREN {: RESULT=new FactorMeth(D1, A2); RESULT.setLine(D1left); :}
@@ -320,22 +310,10 @@ Factor ::= (FactorDesignator) Designator:D1 {: RESULT=new FactorDesignator(D1); 
 
 Designator ::=
       (Designator_var)        IDENT:I1 {: RESULT=new Designator_var(I1); RESULT.setLine(I1left); :}
-    | (Designator_elem)       DesignatorArrayName:D1 LBRACK Expr:E2 RBRACK {: RESULT=new Designator_elem(D1, E2); RESULT.setLine(D1left); :}
-    | (Designator_rest)       DesignatorName:D1 DesignatorRest:D2 {: RESULT=new Designator_rest(D1, D2); RESULT.setLine(D1left); :}
-    | (Designator_elem_rest)  DesignatorArrayName:D1 LBRACK Expr:E2 RBRACK DesignatorRest:D3 {: RESULT=new Designator_elem_rest(D1, E2, D3); RESULT.setLine(D1left); :}
+    | (Designator_length)     IDENT:I1 DOT LENGTH {: RESULT=new Designator_length(I1); RESULT.setLine(I1left); :}
+    | (Designator_enum)       IDENT:I1 DOT IDENT:I2 {: RESULT=new Designator_enum(I1, I2); RESULT.setLine(I1left); :}
+    | (Designator_elem)  IDENT:I1 LBRACK Expr:E2 RBRACK {: RESULT=new Designator_elem(I1, E2); RESULT.setLine(I1left); :} 
     ;
-
-DesignatorRest ::=
-      (DesignatorRest_dot_ident)        DOT FieldName:F1 {: RESULT=new DesignatorRest_dot_ident(F1); RESULT.setLine(F1left); :}
-    | (DesignatorRest_dot_length)       DOT LENGTH {: RESULT=new DesignatorRest_dot_length(); :}
-    | (DesignatorRest_more_dot_ident)   DesignatorRest:D1 DOT FieldName:F2 {: RESULT=new DesignatorRest_more_dot_ident(D1, F2); RESULT.setLine(D1left); :}
-    | (DesignatorRest_more_dot_length)  DesignatorRest:D1 DOT LENGTH {: RESULT=new DesignatorRest_more_dot_length(D1); RESULT.setLine(D1left); :}
-    | (DesignatorRest_more_index)       DesignatorRest:D1 LBRACK Expr:E2 RBRACK {: RESULT=new DesignatorRest_more_index(D1, E2); RESULT.setLine(D1left); :}
-    ;
-
-DesignatorName       ::= (DesignatorName)       IDENT:I1 {: RESULT=new DesignatorName(I1); RESULT.setLine(I1left); :} ;
-FieldName            ::= (FieldName)            IDENT:I1 {: RESULT=new FieldName(I1); RESULT.setLine(I1left); :} ;
-DesignatorArrayName  ::= (DesignatorArrayName)  IDENT:I1 {: RESULT=new DesignatorArrayName(I1); RESULT.setLine(I1left); :} ;
 
 
 
