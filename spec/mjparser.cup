@@ -70,11 +70,11 @@ nonterminal ConstDeclItem, VarDeclItem, EnumField, EnumOpen, EnumClose;
 nonterminal FormParsItem, StartFor, StartSwitch;
 
 
-nonterminal ProgName, MethodNameAndType, ActParsList;
+nonterminal ProgName, ActParsList;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType;
 
 precedence left ELSE;
 

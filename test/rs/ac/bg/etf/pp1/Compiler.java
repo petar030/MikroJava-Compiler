@@ -93,7 +93,7 @@ public class Compiler {
 			
 			CodeGenerator cg = new CodeGenerator();
 			prog.traverseBottomUp(cg);
-			Code.dataSize = 0;
+			Code.dataSize = analyzer.nVars;
 			Code.mainPc = cg.getMainPc();
 			Code.write(new FileOutputStream(objFile));
 			

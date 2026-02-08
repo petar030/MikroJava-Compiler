@@ -97,12 +97,11 @@ nonterminal StartSwitch StartSwitch;
 
 
 nonterminal ProgName ProgName;
-nonterminal MethodNameAndType MethodNameAndType;
 nonterminal ActParsList ActParsList;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType;
 
 precedence left ELSE;
 

@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 
 import rs.ac.bg.etf.pp1.sym;
 import rs.ac.bg.etf.pp1.ast.*;
+import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
@@ -50,6 +51,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	private Obj currentDesignator = null;
 
 	private Deque<List<Struct>> actParsStack = new ArrayDeque<>();
+
+	int nVars;
+	
+
+	public static final java.util.Map<Obj, Obj> lengthMap = new java.util.IdentityHashMap<>();
+
 
 	/* HELPER METHODS */
 
@@ -210,6 +217,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(Program program) {
+		this.nVars = Tab.currentScope().getnVars();
 		Tab.chainLocalSymbols(currentProgram);
 		Tab.closeScope();
 		currentProgram = null;
@@ -407,6 +415,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		this.currentReturnType = m.getType().obj.getType();
 		this.currentMethod = Tab.insert(Obj.Meth, funcName, this.currentType);
+		m.obj = this.currentMethod;
 		Tab.openScope();
 	}
 
@@ -428,6 +437,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		this.currentReturnType = Tab.noType;
 		this.currentMethod = Tab.insert(Obj.Meth, m.getI1(), Tab.noType);
+		m.obj = this.currentMethod;
 		Tab.openScope();
 	}
 
@@ -521,6 +531,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		// length vraća int
 		des.obj = new Obj(Obj.Con, "length", Tab.intType);
+		this.lengthMap.put(des.obj, obj);
 	}
 
 	@Override
@@ -606,6 +617,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj d = factor.getDesignator().obj;
 		int k = d.getKind();
+		
+		  if (factor.getDesignator() instanceof Designator_length) {
+		        Designator_length x = (Designator_length) factor.getDesignator();
+		        Obj arr = Tab.find(x.getI1());
+		        log.info(os(arr));
+		 
+		    }
 
 		if (k != Obj.Var && k != Obj.Con && k != Obj.Fld && k != Obj.Elem) {
 
