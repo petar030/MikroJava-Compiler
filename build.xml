@@ -6,7 +6,7 @@
 			<fileset dir="src/rs/ac/bg/etf/pp1">
 				<exclude name="util/Log4JUtils.java"></exclude>
 				<exclude name="SemanticAnalyzer.java"></exclude>
-		        <exclude name="CodeGenerator.java"/>
+		        <exclude name="CodeGenerator.java"></exclude>
 
 			</fileset>
 		</delete>
@@ -52,6 +52,9 @@
 	            <pathelement path="lib/symboltable.jar"/>
 	            <pathelement path="lib/mj-runtime.jar"/>
 	        </classpath>
+	    	
+	    	<exclude name="SemanticAnalyzer.java"></exclude>
+	    	<exclude name="CodeGenerator.java"></exclude>
 
 	       
 	    </javac>
@@ -70,7 +73,7 @@
 	
 
 	<target name="debugObj" depends="dissam">
-	    <java classname="rs.etf.pp1.mj.runtime.Run">
+	    <java classname="rs.etf.pp1.mj.runtime.Run" input="test/inputs.txt">
 	        <arg value="test/program.obj"/>
 	        <arg value="-debug"/>
 	        <classpath>
@@ -80,7 +83,7 @@
 	</target>
 	
 	<target name="runObj" depends="debugObj">
-		    <java classname="rs.etf.pp1.mj.runtime.Run">
+		    <java classname="rs.etf.pp1.mj.runtime.Run" input="test/inputs.txt">
 		        <arg value="test/program.obj"/>
 		        <classpath>
 		            <pathelement location="lib/mj-runtime.jar"/>

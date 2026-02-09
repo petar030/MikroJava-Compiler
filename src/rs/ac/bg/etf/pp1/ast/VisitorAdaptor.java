@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/1/2026 0:51:24
+// 9/1/2026 0:21:20
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -35,6 +35,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(SimpleExpr SimpleExpr) { }
     public void visit(ConditionOpt ConditionOpt) { }
     public void visit(FormParsItem FormParsItem) { }
+    public void visit(DesignatorRest DesignatorRest) { }
     public void visit(DesignatorStmtOpt DesignatorStmtOpt) { }
     public void visit(VarDeclList VarDeclList) { }
     public void visit(Expr Expr) { }
@@ -56,9 +57,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(RelNE RelNE) { visit(); }
     public void visit(RelEQ RelEQ) { visit(); }
     public void visit(Assignop Assignop) { visit(); }
+    public void visit(ArrayName ArrayName) { visit(); }
+    public void visit(Name Name) { visit(); }
+    public void visit(DrEnum DrEnum) { visit(); }
+    public void visit(DrLength DrLength) { visit(); }
     public void visit(Designator_elem Designator_elem) { visit(); }
-    public void visit(Designator_enum Designator_enum) { visit(); }
-    public void visit(Designator_length Designator_length) { visit(); }
+    public void visit(Designator_dot Designator_dot) { visit(); }
     public void visit(Designator_var Designator_var) { visit(); }
     public void visit(FactorExpr FactorExpr) { visit(); }
     public void visit(FactorNew FactorNew) { visit(); }
@@ -73,6 +77,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(AddopRec AddopRec) { visit(); }
     public void visit(SimpleExprPos SimpleExprPos) { visit(); }
     public void visit(SimpleExprNeg SimpleExprNeg) { visit(); }
+    public void visit(ColonM ColonM) { visit(); }
+    public void visit(QMarkM QMarkM) { visit(); }
     public void visit(ExprTernary ExprTernary) { visit(); }
     public void visit(ExprSimple ExprSimple) { visit(); }
     public void visit(CondFactSimple CondFactSimple) { visit(); }
@@ -99,6 +105,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(IfCondBase IfCondBase) { visit(); }
     public void visit(ExprOptNo ExprOptNo) { visit(); }
     public void visit(ExprOptYes ExprOptYes) { visit(); }
+    public void visit(ThenStart ThenStart) { visit(); }
+    public void visit(ElseStart ElseStart) { visit(); }
     public void visit(ElseNo ElseNo) { visit(); }
     public void visit(ElseYes ElseYes) { visit(); }
     public void visit(DstDec DstDec) { visit(); }

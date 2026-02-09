@@ -1,78 +1,73 @@
-INFO  17:50:09,080 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
-INFO  17:50:09,096 - #2 program
-INFO  17:50:09,096 - #45 Test
-INFO  17:50:09,096 - #6 const
-INFO  17:50:09,096 - #45 int
-INFO  17:50:09,096 - #45 pi
-INFO  17:50:09,097 - #32 =
-INFO  17:50:09,097 - #46 37
-INFO  17:50:09,097 - #33 ;
-INFO  17:50:09,097 - #4 enum
-INFO  17:50:09,097 - #45 Broj
-INFO  17:50:09,097 - #42 {
-INFO  17:50:09,097 - #45 NULA
-INFO  17:50:09,098 - #35 ,
-INFO  17:50:09,098 - #45 JEDAN
-INFO  17:50:09,098 - #32 =
-INFO  17:50:09,098 - #46 1
-INFO  17:50:09,098 - #35 ,
-INFO  17:50:09,098 - #45 DVA
-INFO  17:50:09,098 - #32 =
-INFO  17:50:09,098 - #46 7
-INFO  17:50:09,098 - #43 }
-INFO  17:50:09,098 - #45 int
-INFO  17:50:09,099 - #45 x
-INFO  17:50:09,099 - #35 ,
-INFO  17:50:09,099 - #45 y
-INFO  17:50:09,099 - #40 [
-INFO  17:50:09,099 - #41 ]
-INFO  17:50:09,099 - #33 ;
-INFO  17:50:09,099 - #42 {
-INFO  17:50:09,099 - #11 void
-INFO  17:50:09,100 - #45 main
-INFO  17:50:09,100 - #38 (
-INFO  17:50:09,100 - #39 )
-INFO  17:50:09,100 - #45 int
-INFO  17:50:09,100 - #45 arr
-INFO  17:50:09,100 - #40 [
-INFO  17:50:09,100 - #41 ]
-INFO  17:50:09,100 - #33 ;
-INFO  17:50:09,100 - #45 int
-INFO  17:50:09,101 - #45 a
-INFO  17:50:09,101 - #35 ,
-INFO  17:50:09,101 - #45 b
-INFO  17:50:09,101 - #33 ;
-INFO  17:50:09,101 - #45 char
-INFO  17:50:09,101 - #45 c
-INFO  17:50:09,101 - #33 ;
-INFO  17:50:09,101 - #42 {
-INFO  17:50:09,101 - #45 arr
-INFO  17:50:09,101 - #32 =
-INFO  17:50:09,101 - #44 new
-INFO  17:50:09,101 - #45 int
-INFO  17:50:09,101 - #40 [
-INFO  17:50:09,101 - #46 7
-INFO  17:50:09,101 - #41 ]
-INFO  17:50:09,102 - #33 ;
-INFO  17:50:09,102 - #45 a
-INFO  17:50:09,102 - #32 =
-INFO  17:50:09,102 - #45 arr
-INFO  17:50:09,102 - #36 .
-INFO  17:50:09,102 - #14 length
-INFO  17:50:09,102 - #33 ;
-INFO  17:50:09,102 - #8 print
-INFO  17:50:09,102 - #38 (
-INFO  17:50:09,102 - #45 a
-INFO  17:50:09,103 - #39 )
-INFO  17:50:09,103 - #33 ;
-INFO  17:50:09,103 - #43 }
-INFO  17:50:09,103 - #43 }
-INFO  17:50:09,104 - Program(
+INFO  03:25:37,282 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  03:25:37,297 - #2 program
+INFO  03:25:37,297 - #45 Test
+INFO  03:25:37,297 - #6 const
+INFO  03:25:37,298 - #45 int
+INFO  03:25:37,298 - #45 PI
+INFO  03:25:37,298 - #32 =
+INFO  03:25:37,298 - #46 3
+INFO  03:25:37,298 - #33 ;
+INFO  03:25:37,298 - #45 int
+INFO  03:25:37,299 - #45 g
+INFO  03:25:37,299 - #35 ,
+INFO  03:25:37,299 - #45 a
+INFO  03:25:37,299 - #40 [
+INFO  03:25:37,299 - #41 ]
+INFO  03:25:37,299 - #35 ,
+INFO  03:25:37,299 - #45 b
+INFO  03:25:37,299 - #40 [
+INFO  03:25:37,299 - #41 ]
+INFO  03:25:37,299 - #33 ;
+INFO  03:25:37,299 - #4 enum
+INFO  03:25:37,299 - #45 Broj
+INFO  03:25:37,299 - #42 {
+INFO  03:25:37,300 - #45 NULA
+INFO  03:25:37,300 - #35 ,
+INFO  03:25:37,300 - #45 JEDAN
+INFO  03:25:37,300 - #43 }
+INFO  03:25:37,300 - #42 {
+INFO  03:25:37,300 - #11 void
+INFO  03:25:37,301 - #45 main
+INFO  03:25:37,301 - #38 (
+INFO  03:25:37,301 - #39 )
+INFO  03:25:37,301 - #45 int
+INFO  03:25:37,301 - #45 x
+INFO  03:25:37,301 - #35 ,
+INFO  03:25:37,301 - #45 y
+INFO  03:25:37,301 - #33 ;
+INFO  03:25:37,301 - #45 Broj
+INFO  03:25:37,301 - #45 br
+INFO  03:25:37,301 - #33 ;
+INFO  03:25:37,301 - #45 int
+INFO  03:25:37,302 - #45 arr
+INFO  03:25:37,302 - #40 [
+INFO  03:25:37,302 - #41 ]
+INFO  03:25:37,302 - #33 ;
+INFO  03:25:37,302 - #42 {
+INFO  03:25:37,302 - #45 arr
+INFO  03:25:37,302 - #32 =
+INFO  03:25:37,302 - #44 new
+INFO  03:25:37,302 - #45 int
+INFO  03:25:37,302 - #40 [
+INFO  03:25:37,302 - #46 10
+INFO  03:25:37,302 - #41 ]
+INFO  03:25:37,302 - #33 ;
+INFO  03:25:37,303 - #8 print
+INFO  03:25:37,303 - #38 (
+INFO  03:25:37,303 - #45 ord
+INFO  03:25:37,303 - #38 (
+INFO  03:25:37,303 - #46 6
+INFO  03:25:37,303 - #39 )
+INFO  03:25:37,303 - #39 )
+INFO  03:25:37,303 - #33 ;
+INFO  03:25:37,303 - #43 }
+INFO  03:25:37,304 - #43 }
+INFO  03:25:37,305 - Program(
   ProgName(
    Test
   ) [ProgName]
-  DeclListVar(
-    DeclListEnum(
+  DeclListEnum(
+    DeclListVar(
       DeclListConst(
         DeclList_e(
         ) [DeclList_e]
@@ -81,56 +76,54 @@ INFO  17:50:09,104 - Program(
            int
           ) [Type]
           ConstDeclItem(
-           pi
+           PI
             ConstNum(
-             37
+             3
             ) [ConstNum]
           ) [ConstDeclItem]
           ConstRest_e(
           ) [ConstRest_e]
         ) [ConstDecl]
       ) [DeclListConst]
-      EnumDecl(
-        EnumOpen(
-         Broj
-        ) [EnumOpen]
+      VarDecl(
+        Type(
+         int
+        ) [Type]
+        VarDeclItem_var(
+         g
+        ) [VarDeclItem_var]
+        VarRestComma(
+          VarDeclItem_arr(
+           a
+          ) [VarDeclItem_arr]
+          VarRestComma(
+            VarDeclItem_arr(
+             b
+            ) [VarDeclItem_arr]
+            VarRest_e(
+            ) [VarRest_e]
+          ) [VarRestComma]
+        ) [VarRestComma]
+      ) [VarDecl]
+    ) [DeclListVar]
+    EnumDecl(
+      EnumOpen(
+       Broj
+      ) [EnumOpen]
+      EnumField_default(
+       NULA
+      ) [EnumField_default]
+      EnumRestComma(
         EnumField_default(
-         NULA
+         JEDAN
         ) [EnumField_default]
-        EnumRestComma(
-          EnumField_assign(
-           JEDAN
-           1
-          ) [EnumField_assign]
-          EnumRestComma(
-            EnumField_assign(
-             DVA
-             7
-            ) [EnumField_assign]
-            EnumRest_e(
-            ) [EnumRest_e]
-          ) [EnumRestComma]
-        ) [EnumRestComma]
-        EnumClose(
-        ) [EnumClose]
-      ) [EnumDecl]
-    ) [DeclListEnum]
-    VarDecl(
-      Type(
-       int
-      ) [Type]
-      VarDeclItem_var(
-       x
-      ) [VarDeclItem_var]
-      VarRestComma(
-        VarDeclItem_arr(
-         y
-        ) [VarDeclItem_arr]
-        VarRest_e(
-        ) [VarRest_e]
-      ) [VarRestComma]
-    ) [VarDecl]
-  ) [DeclListVar]
+        EnumRest_e(
+        ) [EnumRest_e]
+      ) [EnumRestComma]
+      EnumClose(
+      ) [EnumClose]
+    ) [EnumDecl]
+  ) [DeclListEnum]
   MethodDeclListRec(
     MethodDeclList_e(
     ) [MethodDeclList_e]
@@ -149,83 +142,48 @@ INFO  17:50:09,104 - Program(
               Type(
                int
               ) [Type]
-              VarDeclItem_arr(
-               arr
-              ) [VarDeclItem_arr]
-              VarRest_e(
-              ) [VarRest_e]
+              VarDeclItem_var(
+               x
+              ) [VarDeclItem_var]
+              VarRestComma(
+                VarDeclItem_var(
+                 y
+                ) [VarDeclItem_var]
+                VarRest_e(
+                ) [VarRest_e]
+              ) [VarRestComma]
             ) [VarDecl]
           ) [VarDeclListRec]
           VarDecl(
             Type(
-             int
+             Broj
             ) [Type]
             VarDeclItem_var(
-             a
+             br
             ) [VarDeclItem_var]
-            VarRestComma(
-              VarDeclItem_var(
-               b
-              ) [VarDeclItem_var]
-              VarRest_e(
-              ) [VarRest_e]
-            ) [VarRestComma]
+            VarRest_e(
+            ) [VarRest_e]
           ) [VarDecl]
         ) [VarDeclListRec]
         VarDecl(
           Type(
-           char
+           int
           ) [Type]
-          VarDeclItem_var(
-           c
-          ) [VarDeclItem_var]
+          VarDeclItem_arr(
+           arr
+          ) [VarDeclItem_arr]
           VarRest_e(
           ) [VarRest_e]
         ) [VarDecl]
       ) [VarDeclListRec]
       StatementListRec(
         StatementListRec(
-          StatementListRec(
-            StatementList_e(
-            ) [StatementList_e]
-            StmtDesignator(
-              DstAssign(
-                Designator_var(
-                 arr
-                ) [Designator_var]
-                Assignop(
-                ) [Assignop]
-                ExprSimple(
-                  SimpleExprPos(
-                    AddopBase(
-                      TermBase(
-                        FactorNew(
-                          Type(
-                           int
-                          ) [Type]
-                          ExprSimple(
-                            SimpleExprPos(
-                              AddopBase(
-                                TermBase(
-                                  FactorNum(
-                                   7
-                                  ) [FactorNum]
-                                ) [TermBase]
-                              ) [AddopBase]
-                            ) [SimpleExprPos]
-                          ) [ExprSimple]
-                        ) [FactorNew]
-                      ) [TermBase]
-                    ) [AddopBase]
-                  ) [SimpleExprPos]
-                ) [ExprSimple]
-              ) [DstAssign]
-            ) [StmtDesignator]
-          ) [StatementListRec]
+          StatementList_e(
+          ) [StatementList_e]
           StmtDesignator(
             DstAssign(
               Designator_var(
-               a
+               arr
               ) [Designator_var]
               Assignop(
               ) [Assignop]
@@ -233,11 +191,22 @@ INFO  17:50:09,104 - Program(
                 SimpleExprPos(
                   AddopBase(
                     TermBase(
-                      FactorDesignator(
-                        Designator_length(
-                         arr
-                        ) [Designator_length]
-                      ) [FactorDesignator]
+                      FactorNew(
+                        Type(
+                         int
+                        ) [Type]
+                        ExprSimple(
+                          SimpleExprPos(
+                            AddopBase(
+                              TermBase(
+                                FactorNum(
+                                 10
+                                ) [FactorNum]
+                              ) [TermBase]
+                            ) [AddopBase]
+                          ) [SimpleExprPos]
+                        ) [ExprSimple]
+                      ) [FactorNew]
                     ) [TermBase]
                   ) [AddopBase]
                 ) [SimpleExprPos]
@@ -250,11 +219,28 @@ INFO  17:50:09,104 - Program(
             SimpleExprPos(
               AddopBase(
                 TermBase(
-                  FactorDesignator(
+                  FactorMeth(
                     Designator_var(
-                     a
+                     ord
                     ) [Designator_var]
-                  ) [FactorDesignator]
+                    ActParsOptYes(
+                      ActPars(
+                        ActParsBase(
+                          ExprSimple(
+                            SimpleExprPos(
+                              AddopBase(
+                                TermBase(
+                                  FactorNum(
+                                   6
+                                  ) [FactorNum]
+                                ) [TermBase]
+                              ) [AddopBase]
+                            ) [SimpleExprPos]
+                          ) [ExprSimple]
+                        ) [ActParsBase]
+                      ) [ActPars]
+                    ) [ActParsOptYes]
+                  ) [FactorMeth]
                 ) [TermBase]
               ) [AddopBase]
             ) [SimpleExprPos]
@@ -266,9 +252,7 @@ INFO  17:50:09,104 - Program(
     ) [MethodDecl]
   ) [MethodDeclListRec]
 ) [Program]
-INFO  17:50:09,104 - =================================
-INFO  17:50:09,108 - Var arr: int[], adr=0, level=1
-INFO  17:50:09,108 - =================================
-INFO  17:50:09,109 - Parsiranje uspesno zavrseno!
-INFO  17:50:09,110 - Var arr: int[], adr=0, level=1
-INFO  17:50:09,110 - Generisanje koda uspesno zavrseno
+INFO  03:25:37,305 - =================================
+ERROR 03:25:37,309 - argument 1 nije kompatibilan na liniji 18
+INFO  03:25:37,309 - =================================
+ERROR 03:25:37,309 - Parsiranje NIJE uspesno zavrseno

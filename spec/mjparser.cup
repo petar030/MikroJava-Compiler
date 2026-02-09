@@ -67,14 +67,14 @@ nonterminal CaseList;
 nonterminal ConstRest, ConstValue, VarRest, EnumRest;
 
 nonterminal ConstDeclItem, VarDeclItem, EnumField, EnumOpen, EnumClose;
-nonterminal FormParsItem, StartFor, StartSwitch;
+nonterminal FormParsItem, StartFor, StartSwitch, DesignatorRest;
 
 
-nonterminal ProgName, ActParsList;
+nonterminal ProgName, ActParsList, QMarkM, ColonM, ElseStart, ThenStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType, Name, ArrayName;
 
 precedence left ELSE;
 
@@ -170,7 +170,7 @@ StatementList ::= (StatementListRec) StatementList Statement
 
 
 Statement ::= (StmtDesignator) DesignatorStatement SEMI
-            | (StmtIf) IF LPAREN IfCond RPAREN Statement ElseOpt
+            | (StmtIf) IF LPAREN IfCond RPAREN ThenStart Statement ElseOpt
             | (StmtBreak) BREAK SEMI
             | (StmtContinue) CONTINUE SEMI
             | (StmtReturn) RETURN ExprOpt SEMI
@@ -191,20 +191,23 @@ DesignatorStatement ::= (DstAssign) Designator Assignop Expr
                       | (DstDec) Designator DEC
                       ;
 
-ElseOpt ::= (ElseYes) ELSE Statement
+ElseOpt ::= (ElseYes) ElseStart Statement
           | (ElseNo) /* epsilon */
           ;
+          
+ElseStart ::= (ElseStart) ELSE;
+ThenStart ::= (ThenStart) /* epsilon */;
 
 ExprOpt ::= (ExprOptYes) Expr
           | (ExprOptNo)
           ;
           
 IfCond ::= (IfCondBase) Condition
-		|  (IfCondTernary) Condition QMARK Expr COLON Expr
+		|  (IfCondTernary) Condition QMarkM Expr ColonM Expr
 		;
 
 ConditionOpt ::= (CondOptYes) Condition
-			   | (CondTernaryOptYes) Condition QMARK Expr COLON Expr
+			   | (CondTernaryOptYes) Condition QMarkM Expr ColonM Expr
                | (CondOptNo)
                ;
 
@@ -247,8 +250,13 @@ CondFact ::= (CondFactRelop) SimpleExpr Relop SimpleExpr
           ;
           
 Expr ::= (ExprSimple) SimpleExpr
-       | (ExprTernary) Condition QMARK Expr COLON Expr
+       | (ExprTernary) Condition QMarkM Expr ColonM Expr
        ;
+       
+
+QMarkM ::= (QMarkM) QMARK ;
+ColonM ::= (ColonM) COLON ;
+
 
 SimpleExpr ::= (SimpleExprNeg) MINUS ExprRest
              | (SimpleExprPos) ExprRest
@@ -281,11 +289,17 @@ Factor ::= (FactorDesignator) Designator
 
 
 Designator ::=
-      (Designator_var)        IDENT
-    | (Designator_length)     IDENT DOT LENGTH
-    | (Designator_enum)       IDENT DOT IDENT
-    | (Designator_elem)  IDENT LBRACK Expr RBRACK 
+      (Designator_var) IDENT
+    | (Designator_dot) Name DesignatorRest
+    | (Designator_elem) ArrayName LBRACK Expr RBRACK
     ;
+    
+DesignatorRest ::= (DrLength) DOT LENGTH
+				| (DrEnum) DOT IDENT
+				;
+				
+Name ::= (Name) IDENT;
+ArrayName ::= (ArrayName) IDENT;
 
 
 

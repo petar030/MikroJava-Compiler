@@ -1,18 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/1/2026 0:51:24
+// 9/1/2026 0:21:20
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class Designator_enum extends Designator {
+public class ArrayName implements SyntaxNode {
+
+    private SyntaxNode parent;
+    private int line;
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
     private String I1;
-    private String I2;
 
-    public Designator_enum (String I1, String I2) {
+    public ArrayName (String I1) {
         this.I1=I1;
-        this.I2=I2;
     }
 
     public String getI1() {
@@ -23,12 +25,20 @@ public class Designator_enum extends Designator {
         this.I1=I1;
     }
 
-    public String getI2() {
-        return I2;
+    public SyntaxNode getParent() {
+        return parent;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setParent(SyntaxNode parent) {
+        this.parent=parent;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line=line;
     }
 
     public void accept(Visitor visitor) {
@@ -49,16 +59,13 @@ public class Designator_enum extends Designator {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Designator_enum(\n");
+        buffer.append("ArrayName(\n");
 
         buffer.append(" "+tab+I1);
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
-        buffer.append("\n");
-
         buffer.append(tab);
-        buffer.append(") [Designator_enum]");
+        buffer.append(") [ArrayName]");
         return buffer.toString();
     }
 }

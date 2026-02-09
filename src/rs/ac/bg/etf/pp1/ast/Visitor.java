@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/1/2026 0:51:24
+// 9/1/2026 0:21:20
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -35,6 +35,7 @@ public interface Visitor {
     public void visit(SimpleExpr SimpleExpr);
     public void visit(ConditionOpt ConditionOpt);
     public void visit(FormParsItem FormParsItem);
+    public void visit(DesignatorRest DesignatorRest);
     public void visit(DesignatorStmtOpt DesignatorStmtOpt);
     public void visit(VarDeclList VarDeclList);
     public void visit(Expr Expr);
@@ -56,9 +57,12 @@ public interface Visitor {
     public void visit(RelNE RelNE);
     public void visit(RelEQ RelEQ);
     public void visit(Assignop Assignop);
+    public void visit(ArrayName ArrayName);
+    public void visit(Name Name);
+    public void visit(DrEnum DrEnum);
+    public void visit(DrLength DrLength);
     public void visit(Designator_elem Designator_elem);
-    public void visit(Designator_enum Designator_enum);
-    public void visit(Designator_length Designator_length);
+    public void visit(Designator_dot Designator_dot);
     public void visit(Designator_var Designator_var);
     public void visit(FactorExpr FactorExpr);
     public void visit(FactorNew FactorNew);
@@ -73,6 +77,8 @@ public interface Visitor {
     public void visit(AddopRec AddopRec);
     public void visit(SimpleExprPos SimpleExprPos);
     public void visit(SimpleExprNeg SimpleExprNeg);
+    public void visit(ColonM ColonM);
+    public void visit(QMarkM QMarkM);
     public void visit(ExprTernary ExprTernary);
     public void visit(ExprSimple ExprSimple);
     public void visit(CondFactSimple CondFactSimple);
@@ -99,6 +105,8 @@ public interface Visitor {
     public void visit(IfCondBase IfCondBase);
     public void visit(ExprOptNo ExprOptNo);
     public void visit(ExprOptYes ExprOptYes);
+    public void visit(ThenStart ThenStart);
+    public void visit(ElseStart ElseStart);
     public void visit(ElseNo ElseNo);
     public void visit(ElseYes ElseYes);
     public void visit(DstDec DstDec);

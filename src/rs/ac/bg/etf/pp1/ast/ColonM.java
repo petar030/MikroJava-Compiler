@@ -1,24 +1,31 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/1/2026 0:51:24
+// 9/1/2026 0:21:20
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class Designator_length extends Designator {
+public class ColonM implements SyntaxNode {
 
-    private String I1;
-
-    public Designator_length (String I1) {
-        this.I1=I1;
+    private SyntaxNode parent;
+    private int line;
+    public ColonM () {
     }
 
-    public String getI1() {
-        return I1;
+    public SyntaxNode getParent() {
+        return parent;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setParent(SyntaxNode parent) {
+        this.parent=parent;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public void setLine(int line) {
+        this.line=line;
     }
 
     public void accept(Visitor visitor) {
@@ -39,13 +46,10 @@ public class Designator_length extends Designator {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("Designator_length(\n");
-
-        buffer.append(" "+tab+I1);
-        buffer.append("\n");
+        buffer.append("ColonM(\n");
 
         buffer.append(tab);
-        buffer.append(") [Designator_length]");
+        buffer.append(") [ColonM]");
         return buffer.toString();
     }
 }

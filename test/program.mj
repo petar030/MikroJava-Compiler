@@ -1,18 +1,20 @@
+
 program Test
 
-const int pi = 37;
+const int PI = 3;
 
-enum Broj{ NULA, JEDAN=1, DVA=7}
-
-int x, y[];
-
+int g, a[], b[];
+enum Broj {
+	NULA, JEDAN
+}
 
 {
-	void main()int arr[]; int a, b; char c; {
-			arr = new int[7];
-			a = arr.length;
-			print(a);
-			
-	}
+	
 
+
+    void main() int x, y; Broj br; int arr[]; {
+      
+        arr = new int[10];
+  		print(ord(6));
+    }
 }

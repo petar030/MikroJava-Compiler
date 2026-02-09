@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 8/1/2026 0:51:24
+// 9/1/2026 0:21:20
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,12 +8,15 @@ package rs.ac.bg.etf.pp1.ast;
 public class StmtIf extends Statement {
 
     private IfCond IfCond;
+    private ThenStart ThenStart;
     private Statement Statement;
     private ElseOpt ElseOpt;
 
-    public StmtIf (IfCond IfCond, Statement Statement, ElseOpt ElseOpt) {
+    public StmtIf (IfCond IfCond, ThenStart ThenStart, Statement Statement, ElseOpt ElseOpt) {
         this.IfCond=IfCond;
         if(IfCond!=null) IfCond.setParent(this);
+        this.ThenStart=ThenStart;
+        if(ThenStart!=null) ThenStart.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
         this.ElseOpt=ElseOpt;
@@ -26,6 +29,14 @@ public class StmtIf extends Statement {
 
     public void setIfCond(IfCond IfCond) {
         this.IfCond=IfCond;
+    }
+
+    public ThenStart getThenStart() {
+        return ThenStart;
+    }
+
+    public void setThenStart(ThenStart ThenStart) {
+        this.ThenStart=ThenStart;
     }
 
     public Statement getStatement() {
@@ -50,6 +61,7 @@ public class StmtIf extends Statement {
 
     public void childrenAccept(Visitor visitor) {
         if(IfCond!=null) IfCond.accept(visitor);
+        if(ThenStart!=null) ThenStart.accept(visitor);
         if(Statement!=null) Statement.accept(visitor);
         if(ElseOpt!=null) ElseOpt.accept(visitor);
     }
@@ -57,12 +69,14 @@ public class StmtIf extends Statement {
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(IfCond!=null) IfCond.traverseTopDown(visitor);
+        if(ThenStart!=null) ThenStart.traverseTopDown(visitor);
         if(Statement!=null) Statement.traverseTopDown(visitor);
         if(ElseOpt!=null) ElseOpt.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(IfCond!=null) IfCond.traverseBottomUp(visitor);
+        if(ThenStart!=null) ThenStart.traverseBottomUp(visitor);
         if(Statement!=null) Statement.traverseBottomUp(visitor);
         if(ElseOpt!=null) ElseOpt.traverseBottomUp(visitor);
         accept(visitor);
@@ -75,6 +89,12 @@ public class StmtIf extends Statement {
 
         if(IfCond!=null)
             buffer.append(IfCond.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(ThenStart!=null)
+            buffer.append(ThenStart.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -53,10 +53,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	private Deque<List<Struct>> actParsStack = new ArrayDeque<>();
 
 	int nVars;
-	
-
-	public static final java.util.Map<Obj, Obj> lengthMap = new java.util.IdentityHashMap<>();
-
 
 	/* HELPER METHODS */
 
@@ -255,7 +251,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("Dvostruka definicija konstante: " + constDeclItem.getI1(), constDeclItem);
 			return;
 		}
-		if (!assignableTo(currentConstType, currentType)) {			
+		if (!assignableTo(currentConstType, currentType)) {
 			report_error("Nekompatibilan tip u deklaraciji konstante: " + constDeclItem.getI1(), constDeclItem);
 			return;
 
@@ -487,6 +483,33 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	/* Designator */
 
 	@Override
+	public void visit(Name n) {
+		Obj obj = Tab.find(n.getI1());
+		if (obj == Tab.noObj) {
+			report_error("Identifikator '" + n.getI1() + "' nije definisan", n);
+			n.obj = Tab.noObj;
+			return;
+		}
+		n.obj = obj;
+	}
+
+	@Override
+	public void visit(ArrayName an) {
+		Obj obj = Tab.find(an.getI1());
+		if (obj == Tab.noObj) {
+			report_error("Niz '" + an.getI1() + "' nije definisan", an);
+			an.obj = Tab.noObj;
+			return;
+		}
+		if (obj.getType().getKind() != Struct.Array) {
+			report_error("Identifikator '" + an.getI1() + "' ne označava niz", an);
+			an.obj = Tab.noObj;
+			return;
+		}
+		an.obj = obj;
+	}
+
+	@Override
 	public void visit(Designator_var des) {
 		Obj obj = Tab.find(des.getI1());
 		if (obj == Tab.noObj) {
@@ -510,88 +533,70 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				report_info("Korišćenje lokalne promenljive: " + obj.getName(), des);
 			}
 		}
-
 		des.obj = obj;
 	}
 
 	@Override
-	public void visit(Designator_length des) {
-		Obj obj = Tab.find(des.getI1());
-		if (obj == Tab.noObj) {
-			report_error("Promenljiva '" + des.getI1() + "' nije definisana", des);
+	public void visit(Designator_dot des) {
+		Obj base = des.getName().obj;
+		if (base == Tab.noObj) {
 			des.obj = Tab.noObj;
 			return;
 		}
-
-		if (obj.getType().getKind() != Struct.Array) {
-			report_error("Operator '.length' je dozvoljen samo nad nizovima", des);
-			des.obj = Tab.noObj;
-			return;
-		}
-
-		// length vraća int
-		des.obj = new Obj(Obj.Con, "length", Tab.intType);
-		this.lengthMap.put(des.obj, obj);
-	}
-
-	@Override
-	public void visit(Designator_enum des) {
-		Obj enumObj = Tab.find(des.getI1());
-		if (enumObj == Tab.noObj) {
-			report_error("Enum '" + des.getI1() + "' nije definisan", des);
-			des.obj = Tab.noObj;
-			return;
-		}
-
-		Struct t = enumObj.getType();
-		if (enumObj.getKind() != Obj.Type || t.getKind() != Struct.Enum) {
-			report_error("Identifikator '" + des.getI1() + "' nije enum tip", des);
-			des.obj = Tab.noObj;
-			return;
-		}
-
-		String memberName = des.getI2();
-
-		Obj member = Tab.noObj;
-		for (Obj o : t.getMembers()) {
-			if (o.getName().equals(memberName)) {
-				member = o;
-				break;
+		SyntaxNode rest = des.getDesignatorRest();
+		if (rest instanceof DrLength) {
+			if (base.getType().getKind() != Struct.Array) {
+				report_error("Operator '.length' je dozvoljen samo nad nizovima", des);
+				des.obj = Tab.noObj;
+				return;
 			}
+			Obj lengthObj = new Obj(Obj.Con, "length", Tab.intType);
+			des.obj = lengthObj;
+			return;
 		}
-
-		if (member == Tab.noObj) {
-			report_error("Enum '" + des.getI1() + "' nema element '" + memberName + "'", des);
-			des.obj = Tab.noObj;
+		if (rest instanceof DrEnum) {
+			if (base.getKind() != Obj.Type || base.getType().getKind() != Struct.Enum) {
+				report_error("Identifikator '" + base.getName() + "' nije enum tip", des);
+				des.obj = Tab.noObj;
+				return;
+			}
+			String memberName = ((DrEnum) rest).getI1();
+			Obj member = Tab.noObj;
+			for (Obj o : base.getType().getMembers()) {
+				if (o.getName().equals(memberName)) {
+					member = o;
+					break;
+				}
+			}
+			if (member == Tab.noObj) {
+				report_error("Enum '" + base.getName() + "' nema element '" + memberName + "'", des);
+				des.obj = Tab.noObj;
+				return;
+			}
+			des.obj = member;
+			report_info("Upotreba simboličke konstante (enum): " + base.getName() + "." + memberName, des);
 			return;
 		}
 
-		des.obj = member; // enum član je konstanta
-		report_info("Upotreba simboličke konstante (enum): " + des.getI1() + "." + des.getI2(), des);
 	}
 
 	@Override
 	public void visit(Designator_elem des) {
-		Obj arrObj = Tab.find(des.getI1());
+		Obj arrObj = des.getArrayName().obj;
 		if (arrObj == Tab.noObj) {
-			report_error("Niz '" + des.getI1() + "' nije definisan", des);
 			des.obj = Tab.noObj;
 			return;
 		}
-
 		if (arrObj.getType().getKind() != Struct.Array) {
-			report_error("Identifikator '" + des.getI1() + "' ne označava niz", des);
+			report_error("Identifikator '" + arrObj.getName() + "' ne označava niz", des);
 			des.obj = Tab.noObj;
 			return;
 		}
-
 		if (!isIntOrEnum(des.getExpr().struct)) {
 			report_error("Indeks niza mora biti tipa int", des);
 			des.obj = Tab.noObj;
 			return;
 		}
-
-		// element niza je Elem objekat
 		des.obj = new Obj(Obj.Elem, arrObj.getName(), arrObj.getType().getElemType());
 		report_info("Pristup elementu niza: " + arrObj.getName(), des);
 	}
@@ -617,13 +622,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		Obj d = factor.getDesignator().obj;
 		int k = d.getKind();
-		
-		  if (factor.getDesignator() instanceof Designator_length) {
-		        Designator_length x = (Designator_length) factor.getDesignator();
-		        Obj arr = Tab.find(x.getI1());
-		        log.info(os(arr));
-		 
-		    }
 
 		if (k != Obj.Var && k != Obj.Con && k != Obj.Fld && k != Obj.Elem) {
 
@@ -660,7 +658,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			Struct actual = actuals.get(i);
 			// log.info("arg " + (i+1) + ": expected=" + ts(expected) + ", actual=" +
 			// ts(actual));
-			if (!assignableTo(actual, expected)) {		
+			if (!assignableTo(actual, expected)) {
 				report_error("argument " + (i + 1) + " nije kompatibilan", factor);
 			}
 		}
