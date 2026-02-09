@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Deque;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Stack;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -43,7 +44,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	private Obj DesignatorBase;
 
-	private Set<Integer> currentCaseValues = null;
+
+	private Stack<Set<Integer>> switchCaseValues = new Stack<>();
 
 	private int forDepth = 0;
 	private int switchDepth = 0;
@@ -925,10 +927,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 
-	@Override
-	public void visit(StartSwitch s) {
-		this.switchDepth++;
-	}
+	
 
 	@Override
 	public void visit(StmtContinue stmt) {
@@ -996,33 +995,41 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 
+
+	@Override
+	public void visit(StartSwitch s) {
+	    switchCaseValues.push(new HashSet<>());
+	}
+	
 	@Override
 	public void visit(StmtSwitch stmt) {
-		this.switchDepth--;
-		if (!isIntOrEnum(stmt.getExpr().struct)) {
-			report_error("Switch izraz mora biti tipa int", stmt);
-			return;
-		}
+	    switchCaseValues.pop();
+	    if (!isIntOrEnum(stmt.getExpr().struct)) {
+	        report_error("Switch izraz mora biti tipa int", stmt);
+	        return;
+	    }
 	}
-
+	
 	@Override
 	public void visit(CaseListBase n) {
-		currentCaseValues = new HashSet<>();
-		int v = n.getN1();
-		if (!currentCaseValues.add(v)) {
-			report_error("Duplikat case vrednosti: " + v, n);
-			return;
-		}
+	    int v = n.getN1();
+	    Set<Integer> current = switchCaseValues.peek();
+	    if (!current.add(v)) {
+	        report_error("Duplikat case vrednosti: " + v, n);
+	        return;
+	    }
 	}
-
+	
 	@Override
 	public void visit(CaseListRec n) {
-		int v = n.getN2();
-		if (!currentCaseValues.add(v)) {
-			report_error("Duplikat case vrednosti: " + v, n);
-			return;
-		}
+	    int v = n.getN2();
+	    Set<Integer> current = switchCaseValues.peek();
+	    if (!current.add(v)) {
+	        report_error("Duplikat case vrednosti: " + v, n);
+	        return;
+	    }
 	}
+
 
 	@Override
 	public void visit(StmtFor stmt) {

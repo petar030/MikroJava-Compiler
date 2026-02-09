@@ -1,68 +1,88 @@
-INFO  03:25:37,282 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
-INFO  03:25:37,297 - #2 program
-INFO  03:25:37,297 - #45 Test
-INFO  03:25:37,297 - #6 const
-INFO  03:25:37,298 - #45 int
-INFO  03:25:37,298 - #45 PI
-INFO  03:25:37,298 - #32 =
-INFO  03:25:37,298 - #46 3
-INFO  03:25:37,298 - #33 ;
-INFO  03:25:37,298 - #45 int
-INFO  03:25:37,299 - #45 g
-INFO  03:25:37,299 - #35 ,
-INFO  03:25:37,299 - #45 a
-INFO  03:25:37,299 - #40 [
-INFO  03:25:37,299 - #41 ]
-INFO  03:25:37,299 - #35 ,
-INFO  03:25:37,299 - #45 b
-INFO  03:25:37,299 - #40 [
-INFO  03:25:37,299 - #41 ]
-INFO  03:25:37,299 - #33 ;
-INFO  03:25:37,299 - #4 enum
-INFO  03:25:37,299 - #45 Broj
-INFO  03:25:37,299 - #42 {
-INFO  03:25:37,300 - #45 NULA
-INFO  03:25:37,300 - #35 ,
-INFO  03:25:37,300 - #45 JEDAN
-INFO  03:25:37,300 - #43 }
-INFO  03:25:37,300 - #42 {
-INFO  03:25:37,300 - #11 void
-INFO  03:25:37,301 - #45 main
-INFO  03:25:37,301 - #38 (
-INFO  03:25:37,301 - #39 )
-INFO  03:25:37,301 - #45 int
-INFO  03:25:37,301 - #45 x
-INFO  03:25:37,301 - #35 ,
-INFO  03:25:37,301 - #45 y
-INFO  03:25:37,301 - #33 ;
-INFO  03:25:37,301 - #45 Broj
-INFO  03:25:37,301 - #45 br
-INFO  03:25:37,301 - #33 ;
-INFO  03:25:37,301 - #45 int
-INFO  03:25:37,302 - #45 arr
-INFO  03:25:37,302 - #40 [
-INFO  03:25:37,302 - #41 ]
-INFO  03:25:37,302 - #33 ;
-INFO  03:25:37,302 - #42 {
-INFO  03:25:37,302 - #45 arr
-INFO  03:25:37,302 - #32 =
-INFO  03:25:37,302 - #44 new
-INFO  03:25:37,302 - #45 int
-INFO  03:25:37,302 - #40 [
-INFO  03:25:37,302 - #46 10
-INFO  03:25:37,302 - #41 ]
-INFO  03:25:37,302 - #33 ;
-INFO  03:25:37,303 - #8 print
-INFO  03:25:37,303 - #38 (
-INFO  03:25:37,303 - #45 ord
-INFO  03:25:37,303 - #38 (
-INFO  03:25:37,303 - #46 6
-INFO  03:25:37,303 - #39 )
-INFO  03:25:37,303 - #39 )
-INFO  03:25:37,303 - #33 ;
-INFO  03:25:37,303 - #43 }
-INFO  03:25:37,304 - #43 }
-INFO  03:25:37,305 - Program(
+INFO  15:56:58,731 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  15:56:58,746 - #2 program
+INFO  15:56:58,746 - #45 Test
+INFO  15:56:58,746 - #6 const
+INFO  15:56:58,746 - #45 int
+INFO  15:56:58,746 - #45 PI
+INFO  15:56:58,746 - #32 =
+INFO  15:56:58,746 - #46 3
+INFO  15:56:58,746 - #33 ;
+INFO  15:56:58,747 - #45 int
+INFO  15:56:58,747 - #45 g
+INFO  15:56:58,747 - #35 ,
+INFO  15:56:58,747 - #45 a
+INFO  15:56:58,747 - #40 [
+INFO  15:56:58,747 - #41 ]
+INFO  15:56:58,747 - #35 ,
+INFO  15:56:58,747 - #45 b
+INFO  15:56:58,747 - #40 [
+INFO  15:56:58,747 - #41 ]
+INFO  15:56:58,747 - #33 ;
+INFO  15:56:58,748 - #4 enum
+INFO  15:56:58,748 - #45 Broj
+INFO  15:56:58,748 - #42 {
+INFO  15:56:58,748 - #45 NULA
+INFO  15:56:58,748 - #35 ,
+INFO  15:56:58,748 - #45 JEDAN
+INFO  15:56:58,748 - #43 }
+INFO  15:56:58,748 - #42 {
+INFO  15:56:58,749 - #11 void
+INFO  15:56:58,749 - #45 main
+INFO  15:56:58,749 - #38 (
+INFO  15:56:58,749 - #39 )
+INFO  15:56:58,749 - #45 int
+INFO  15:56:58,749 - #45 x
+INFO  15:56:58,749 - #35 ,
+INFO  15:56:58,750 - #45 y
+INFO  15:56:58,750 - #33 ;
+INFO  15:56:58,750 - #45 Broj
+INFO  15:56:58,750 - #45 br
+INFO  15:56:58,750 - #33 ;
+INFO  15:56:58,750 - #45 int
+INFO  15:56:58,750 - #45 arr
+INFO  15:56:58,750 - #40 [
+INFO  15:56:58,750 - #41 ]
+INFO  15:56:58,750 - #33 ;
+INFO  15:56:58,750 - #42 {
+INFO  15:56:58,750 - #15 switch
+INFO  15:56:58,750 - #38 (
+INFO  15:56:58,750 - #46 1
+INFO  15:56:58,750 - #39 )
+INFO  15:56:58,751 - #42 {
+INFO  15:56:58,751 - #16 case
+INFO  15:56:58,751 - #46 1
+INFO  15:56:58,751 - #34 :
+INFO  15:56:58,751 - #15 switch
+INFO  15:56:58,751 - #38 (
+INFO  15:56:58,751 - #46 2
+INFO  15:56:58,751 - #39 )
+INFO  15:56:58,751 - #42 {
+INFO  15:56:58,751 - #16 case
+INFO  15:56:58,751 - #46 1
+INFO  15:56:58,751 - #34 :
+INFO  15:56:58,751 - #16 case
+INFO  15:56:58,751 - #46 7
+INFO  15:56:58,751 - #34 :
+INFO  15:56:58,751 - #43 }
+INFO  15:56:58,751 - #16 case
+INFO  15:56:58,751 - #46 2
+INFO  15:56:58,752 - #34 :
+INFO  15:56:58,752 - #15 switch
+INFO  15:56:58,752 - #38 (
+INFO  15:56:58,752 - #46 3
+INFO  15:56:58,752 - #39 )
+INFO  15:56:58,752 - #42 {
+INFO  15:56:58,752 - #16 case
+INFO  15:56:58,752 - #46 5
+INFO  15:56:58,752 - #34 :
+INFO  15:56:58,752 - #16 case
+INFO  15:56:58,752 - #46 7
+INFO  15:56:58,752 - #34 :
+INFO  15:56:58,752 - #43 }
+INFO  15:56:58,752 - #43 }
+INFO  15:56:58,752 - #43 }
+INFO  15:56:58,752 - #43 }
+INFO  15:56:58,753 - Program(
   ProgName(
    Test
   ) [ProgName]
@@ -177,82 +197,92 @@ INFO  03:25:37,305 - Program(
         ) [VarDecl]
       ) [VarDeclListRec]
       StatementListRec(
-        StatementListRec(
-          StatementList_e(
-          ) [StatementList_e]
-          StmtDesignator(
-            DstAssign(
-              Designator_var(
-               arr
-              ) [Designator_var]
-              Assignop(
-              ) [Assignop]
-              ExprSimple(
-                SimpleExprPos(
-                  AddopBase(
-                    TermBase(
-                      FactorNew(
-                        Type(
-                         int
-                        ) [Type]
-                        ExprSimple(
-                          SimpleExprPos(
-                            AddopBase(
-                              TermBase(
-                                FactorNum(
-                                 10
-                                ) [FactorNum]
-                              ) [TermBase]
-                            ) [AddopBase]
-                          ) [SimpleExprPos]
-                        ) [ExprSimple]
-                      ) [FactorNew]
-                    ) [TermBase]
-                  ) [AddopBase]
-                ) [SimpleExprPos]
-              ) [ExprSimple]
-            ) [DstAssign]
-          ) [StmtDesignator]
-        ) [StatementListRec]
-        StmtPrint(
+        StatementList_e(
+        ) [StatementList_e]
+        StmtSwitch(
+          StartSwitch(
+          ) [StartSwitch]
           ExprSimple(
             SimpleExprPos(
               AddopBase(
                 TermBase(
-                  FactorMeth(
-                    Designator_var(
-                     ord
-                    ) [Designator_var]
-                    ActParsOptYes(
-                      ActPars(
-                        ActParsBase(
-                          ExprSimple(
-                            SimpleExprPos(
-                              AddopBase(
-                                TermBase(
-                                  FactorNum(
-                                   6
-                                  ) [FactorNum]
-                                ) [TermBase]
-                              ) [AddopBase]
-                            ) [SimpleExprPos]
-                          ) [ExprSimple]
-                        ) [ActParsBase]
-                      ) [ActPars]
-                    ) [ActParsOptYes]
-                  ) [FactorMeth]
+                  FactorNum(
+                   1
+                  ) [FactorNum]
                 ) [TermBase]
               ) [AddopBase]
             ) [SimpleExprPos]
           ) [ExprSimple]
-          PrintOptNo(
-          ) [PrintOptNo]
-        ) [StmtPrint]
+          CaseListRec(
+            CaseListBase(
+             1
+              StatementListRec(
+                StatementList_e(
+                ) [StatementList_e]
+                StmtSwitch(
+                  StartSwitch(
+                  ) [StartSwitch]
+                  ExprSimple(
+                    SimpleExprPos(
+                      AddopBase(
+                        TermBase(
+                          FactorNum(
+                           2
+                          ) [FactorNum]
+                        ) [TermBase]
+                      ) [AddopBase]
+                    ) [SimpleExprPos]
+                  ) [ExprSimple]
+                  CaseListRec(
+                    CaseListBase(
+                     1
+                      StatementList_e(
+                      ) [StatementList_e]
+                    ) [CaseListBase]
+                   7
+                    StatementList_e(
+                    ) [StatementList_e]
+                  ) [CaseListRec]
+                ) [StmtSwitch]
+              ) [StatementListRec]
+            ) [CaseListBase]
+           2
+            StatementListRec(
+              StatementList_e(
+              ) [StatementList_e]
+              StmtSwitch(
+                StartSwitch(
+                ) [StartSwitch]
+                ExprSimple(
+                  SimpleExprPos(
+                    AddopBase(
+                      TermBase(
+                        FactorNum(
+                         3
+                        ) [FactorNum]
+                      ) [TermBase]
+                    ) [AddopBase]
+                  ) [SimpleExprPos]
+                ) [ExprSimple]
+                CaseListRec(
+                  CaseListBase(
+                   5
+                    StatementList_e(
+                    ) [StatementList_e]
+                  ) [CaseListBase]
+                 7
+                  StatementList_e(
+                  ) [StatementList_e]
+                ) [CaseListRec]
+              ) [StmtSwitch]
+            ) [StatementListRec]
+          ) [CaseListRec]
+        ) [StmtSwitch]
       ) [StatementListRec]
     ) [MethodDecl]
   ) [MethodDeclListRec]
 ) [Program]
-INFO  03:25:37,305 - =================================
-ERROR 03:25:37,309 - argument 1 nije kompatibilan na liniji 18
-INFO  03:25:37,309 - =================================
-ERROR 03:25:37,309 - Parsiranje NIJE uspesno zavrseno
+INFO  15:56:58,753 - =================================
+INFO  15:56:58,756 - =================================
+INFO  15:56:58,757 - Parsiranje uspesno zavrseno!
+INFO  15:56:58,758 - Generisanje koda uspesno zavrseno
