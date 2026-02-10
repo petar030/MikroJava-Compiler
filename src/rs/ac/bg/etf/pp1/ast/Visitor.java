@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 0:21:20
+// 9/1/2026 21:17:30
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -27,13 +27,13 @@ public interface Visitor {
     public void visit(Condition Condition);
     public void visit(EnumRest EnumRest);
     public void visit(IfCond IfCond);
+    public void visit(CondOpt CondOpt);
     public void visit(ConstValue ConstValue);
     public void visit(CaseList CaseList);
     public void visit(ActParsList ActParsList);
     public void visit(EnumField EnumField);
     public void visit(ExprRest ExprRest);
     public void visit(SimpleExpr SimpleExpr);
-    public void visit(ConditionOpt ConditionOpt);
     public void visit(FormParsItem FormParsItem);
     public void visit(DesignatorRest DesignatorRest);
     public void visit(DesignatorStmtOpt DesignatorStmtOpt);
@@ -92,15 +92,10 @@ public interface Visitor {
     public void visit(ActPars ActPars);
     public void visit(ActParsOptNo ActParsOptNo);
     public void visit(ActParsOptYes ActParsOptYes);
-    public void visit(CaseListBase CaseListBase);
-    public void visit(CaseListRec CaseListRec);
     public void visit(PrintOptNo PrintOptNo);
     public void visit(PrintOptYes PrintOptYes);
     public void visit(DstOptNo DstOptNo);
     public void visit(DstOptYes DstOptYes);
-    public void visit(CondOptNo CondOptNo);
-    public void visit(CondTernaryOptYes CondTernaryOptYes);
-    public void visit(CondOptYes CondOptYes);
     public void visit(IfCondTernary IfCondTernary);
     public void visit(IfCondBase IfCondBase);
     public void visit(ExprOptNo ExprOptNo);
@@ -114,8 +109,22 @@ public interface Visitor {
     public void visit(DstCall DstCall);
     public void visit(DstError DstError);
     public void visit(DstAssign DstAssign);
+    public void visit(CaseEnd CaseEnd);
+    public void visit(CaseVal CaseVal);
+    public void visit(CaseListBase CaseListBase);
+    public void visit(CaseListRec CaseListRec);
+    public void visit(StartCases StartCases);
     public void visit(StartSwitch StartSwitch);
     public void visit(StartFor StartFor);
+    public void visit(CondOptNo CondOptNo);
+    public void visit(CondTernaryOptYes CondTernaryOptYes);
+    public void visit(CondOptYes CondOptYes);
+    public void visit(ConditionOpt ConditionOpt);
+    public void visit(StartForBody StartForBody);
+    public void visit(StartLoop StartLoop);
+    public void visit(DstEnd DstEnd);
+    public void visit(DstStart DstStart);
+    public void visit(ForLoop ForLoop);
     public void visit(StmtFor StmtFor);
     public void visit(StmtSwitch StmtSwitch);
     public void visit(StmtBlock StmtBlock);

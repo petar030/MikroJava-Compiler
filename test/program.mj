@@ -1,32 +1,28 @@
 
 program Test
 
-const int PI = 3;
 
-int g, a[], b[];
-enum Broj {
-	NULA, JEDAN
-}
 
 {
 	
 
 
-    void main() int x, y; Broj br; int arr[]; {
-      
-       
-	switch (1) {
-	    case 1:
-	        switch (2) {
-	            case 1:
-	            case 7:
-	        }
-	    case 2:  
-	    	switch(3){
-	    		case 5:
-	    		case 7:
-	    	} 
-	}
+    void main()int a; int b;{
+      	a = 5;
+        b = 3;
+		for(a = 0;a < 5;a++){
+			for(b = a; b <= 10; b++){
+				if(b % 2 == 0){
+					print(b);
+				
+				}
+			}
+			print(eol);
+		}
+	       
+	
 
+	
+	
     }
 }

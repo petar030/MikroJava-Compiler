@@ -103,9 +103,17 @@ nonterminal QMarkM QMarkM;
 nonterminal ColonM ColonM;
 nonterminal ElseStart ElseStart;
 nonterminal ThenStart ThenStart;
+nonterminal CaseVal CaseVal;
+nonterminal StartCases StartCases;
+nonterminal CaseEnd CaseEnd;
+nonterminal ForLoop ForLoop;
+nonterminal  StartLoop StartLoop;
+nonterminal DstStart DstStart;
+nonterminal DstEnd DstEnd;
+nonterminal StartForBody StartForBody;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond, CondOpt;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType, Name, ArrayName;
 
 precedence left ELSE;
@@ -209,11 +217,35 @@ Statement ::= (StmtDesignator) DesignatorStatement:D1 SEMI {: RESULT=new StmtDes
             | (StmtRead) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new StmtRead(D1); RESULT.setLine(D1left); :}
             | (StmtPrint) PRINT LPAREN Expr:E1 PrintOpt:P2 RPAREN SEMI {: RESULT=new StmtPrint(E1, P2); RESULT.setLine(E1left); :}
             | (StmtBlock) LBRACE StatementList:S1 RBRACE {: RESULT=new StmtBlock(S1); RESULT.setLine(S1left); :}
-            | (StmtSwitch) SWITCH StartSwitch:S1 Expr:E2 RPAREN LBRACE CaseList:C3 RBRACE {: RESULT=new StmtSwitch(S1, E2, C3); RESULT.setLine(S1left); :}
-            | (StmtFor) FOR StartFor:S1 DesignatorStmtOpt:D2 SEMI ConditionOpt:C3 SEMI DesignatorStmtOpt:D4 RPAREN Statement:S5 {: RESULT=new StmtFor(S1, D2, C3, D4, S5); RESULT.setLine(S1left); :}
+            | (StmtSwitch) SWITCH StartSwitch:S1 Expr:E2 RPAREN StartCases:S3 CaseList:C4 RBRACE {: RESULT=new StmtSwitch(S1, E2, S3, C4); RESULT.setLine(S1left); :}
+            | (StmtFor) FOR StartFor:S1 DesignatorStmtOpt:D2 SEMI ForLoop:F3 {: RESULT=new StmtFor(S1, D2, F3); RESULT.setLine(S1left); :}
             ;
+ 
+ForLoop ::= (ForLoop) StartLoop:S1 ConditionOpt:C2 DstStart:D3 DesignatorStmtOpt:D4 DstEnd:D5 StartForBody:S6 Statement:S7 {: RESULT=new ForLoop(S1, C2, D3, D4, D5, S6, S7); RESULT.setLine(S1left); :};         
+DstStart ::= (DstStart) SEMI {: RESULT=new DstStart(); :};
+DstEnd ::= (DstEnd) RPAREN {: RESULT=new DstEnd(); :};
+StartLoop ::= (StartLoop) {: RESULT=new StartLoop(); :} /* epsilon */; 
+StartForBody ::= (StartForBody) {: RESULT=new StartForBody(); :} /*epsilon */;
+
+ 
+ConditionOpt ::= (ConditionOpt) CondOpt:C1 {: RESULT=new ConditionOpt(C1); RESULT.setLine(C1left); :};
+
+CondOpt ::= (CondOptYes) Condition:C1 {: RESULT=new CondOptYes(C1); RESULT.setLine(C1left); :}
+			   | (CondTernaryOptYes) Condition:C1 QMarkM:Q2 Expr:E3 ColonM:C4 Expr:E5 {: RESULT=new CondTernaryOptYes(C1, Q2, E3, C4, E5); RESULT.setLine(C1left); :}
+               | (CondOptNo) {: RESULT=new CondOptNo(); :}
+               ;
+ 
+ 
+ 
 StartFor ::= (StartFor) LPAREN {: RESULT=new StartFor(); :};
 StartSwitch ::= (StartSwitch) LPAREN {: RESULT=new StartSwitch(); :};
+StartCases ::= (StartCases) LBRACE {: RESULT=new StartCases(); :};
+
+CaseList ::= (CaseListRec) CaseList:C1 CASE CaseVal:C2 COLON StatementList:S3 CaseEnd:C4 {: RESULT=new CaseListRec(C1, C2, S3, C4); RESULT.setLine(C1left); :}
+           | (CaseListBase) CASE CaseVal:C1 COLON StatementList:S2 CaseEnd:C3 {: RESULT=new CaseListBase(C1, S2, C3); RESULT.setLine(C1left); :}
+           ;
+CaseVal ::= (CaseVal) NUMBER:N1 {: RESULT=new CaseVal(N1); RESULT.setLine(N1left); :};
+CaseEnd ::= (CaseEnd) {: RESULT=new CaseEnd(); :} /* epsilon */;
 
 DesignatorStatement ::= (DstAssign) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new DstAssign(D1, A2, E3); RESULT.setLine(D1left); :}
 					  | (DstError) error:e
@@ -238,10 +270,6 @@ IfCond ::= (IfCondBase) Condition:C1 {: RESULT=new IfCondBase(C1); RESULT.setLin
 		|  (IfCondTernary) Condition:C1 QMarkM:Q2 Expr:E3 ColonM:C4 Expr:E5 {: RESULT=new IfCondTernary(C1, Q2, E3, C4, E5); RESULT.setLine(C1left); :}
 		;
 
-ConditionOpt ::= (CondOptYes) Condition:C1 {: RESULT=new CondOptYes(C1); RESULT.setLine(C1left); :}
-			   | (CondTernaryOptYes) Condition:C1 QMarkM:Q2 Expr:E3 ColonM:C4 Expr:E5 {: RESULT=new CondTernaryOptYes(C1, Q2, E3, C4, E5); RESULT.setLine(C1left); :}
-               | (CondOptNo) {: RESULT=new CondOptNo(); :}
-               ;
 
 DesignatorStmtOpt ::= (DstOptYes) DesignatorStatement:D1 {: RESULT=new DstOptYes(D1); RESULT.setLine(D1left); :}
                     | (DstOptNo) {: RESULT=new DstOptNo(); :}
@@ -251,9 +279,6 @@ PrintOpt ::= (PrintOptYes) COMMA NUMBER:N1 {: RESULT=new PrintOptYes(N1); RESULT
            | (PrintOptNo) {: RESULT=new PrintOptNo(); :}
            ;
 
-CaseList ::= (CaseListRec) CaseList:C1 CASE NUMBER:N2 COLON StatementList:S3 {: RESULT=new CaseListRec(C1, N2, S3); RESULT.setLine(C1left); :}
-           | (CaseListBase) CASE NUMBER:N1 COLON StatementList:S2 {: RESULT=new CaseListBase(N1, S2); RESULT.setLine(N1left); :}
-           ;
 
 
 ActParsOpt ::= (ActParsOptYes) ActPars:A1 {: RESULT=new ActParsOptYes(A1); RESULT.setLine(A1left); :}

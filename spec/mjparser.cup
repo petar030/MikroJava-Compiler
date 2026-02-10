@@ -70,10 +70,10 @@ nonterminal ConstDeclItem, VarDeclItem, EnumField, EnumOpen, EnumClose;
 nonterminal FormParsItem, StartFor, StartSwitch, DesignatorRest;
 
 
-nonterminal ProgName, ActParsList, QMarkM, ColonM, ElseStart, ThenStart;
+nonterminal ProgName, ActParsList, QMarkM, ColonM, ElseStart, ThenStart, CaseVal, StartCases, CaseEnd, ForLoop,  StartLoop, DstStart, DstEnd, StartForBody;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond, CondOpt;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType, Name, ArrayName;
 
 precedence left ELSE;
@@ -177,11 +177,35 @@ Statement ::= (StmtDesignator) DesignatorStatement SEMI
             | (StmtRead) READ LPAREN Designator RPAREN SEMI
             | (StmtPrint) PRINT LPAREN Expr PrintOpt RPAREN SEMI
             | (StmtBlock) LBRACE StatementList RBRACE
-            | (StmtSwitch) SWITCH StartSwitch Expr RPAREN LBRACE CaseList RBRACE
-            | (StmtFor) FOR StartFor DesignatorStmtOpt SEMI ConditionOpt SEMI DesignatorStmtOpt RPAREN Statement
+            | (StmtSwitch) SWITCH StartSwitch Expr RPAREN StartCases CaseList RBRACE
+            | (StmtFor) FOR StartFor DesignatorStmtOpt SEMI ForLoop
             ;
+ 
+ForLoop ::= (ForLoop) StartLoop ConditionOpt DstStart DesignatorStmtOpt DstEnd StartForBody Statement;         
+DstStart ::= (DstStart) SEMI;
+DstEnd ::= (DstEnd) RPAREN;
+StartLoop ::= (StartLoop) /* epsilon */; 
+StartForBody ::= (StartForBody) /*epsilon */;
+
+ 
+ConditionOpt ::= (ConditionOpt) CondOpt;
+
+CondOpt ::= (CondOptYes) Condition
+			   | (CondTernaryOptYes) Condition QMarkM Expr ColonM Expr
+               | (CondOptNo)
+               ;
+ 
+ 
+ 
 StartFor ::= (StartFor) LPAREN;
 StartSwitch ::= (StartSwitch) LPAREN;
+StartCases ::= (StartCases) LBRACE;
+
+CaseList ::= (CaseListRec) CaseList CASE CaseVal COLON StatementList CaseEnd
+           | (CaseListBase) CASE CaseVal COLON StatementList CaseEnd
+           ;
+CaseVal ::= (CaseVal) NUMBER;
+CaseEnd ::= (CaseEnd) /* epsilon */;
 
 DesignatorStatement ::= (DstAssign) Designator Assignop Expr
 					  | (DstError) error:e
@@ -206,10 +230,6 @@ IfCond ::= (IfCondBase) Condition
 		|  (IfCondTernary) Condition QMarkM Expr ColonM Expr
 		;
 
-ConditionOpt ::= (CondOptYes) Condition
-			   | (CondTernaryOptYes) Condition QMarkM Expr ColonM Expr
-               | (CondOptNo)
-               ;
 
 DesignatorStmtOpt ::= (DstOptYes) DesignatorStatement
                     | (DstOptNo)
@@ -219,9 +239,6 @@ PrintOpt ::= (PrintOptYes) COMMA NUMBER
            | (PrintOptNo)
            ;
 
-CaseList ::= (CaseListRec) CaseList CASE NUMBER COLON StatementList
-           | (CaseListBase) CASE NUMBER COLON StatementList
-           ;
 
 
 ActParsOpt ::= (ActParsOptYes) ActPars

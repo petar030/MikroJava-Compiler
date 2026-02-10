@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 0:21:20
+// 9/1/2026 21:17:30
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -27,13 +27,13 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Condition Condition) { }
     public void visit(EnumRest EnumRest) { }
     public void visit(IfCond IfCond) { }
+    public void visit(CondOpt CondOpt) { }
     public void visit(ConstValue ConstValue) { }
     public void visit(CaseList CaseList) { }
     public void visit(ActParsList ActParsList) { }
     public void visit(EnumField EnumField) { }
     public void visit(ExprRest ExprRest) { }
     public void visit(SimpleExpr SimpleExpr) { }
-    public void visit(ConditionOpt ConditionOpt) { }
     public void visit(FormParsItem FormParsItem) { }
     public void visit(DesignatorRest DesignatorRest) { }
     public void visit(DesignatorStmtOpt DesignatorStmtOpt) { }
@@ -92,15 +92,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ActPars ActPars) { visit(); }
     public void visit(ActParsOptNo ActParsOptNo) { visit(); }
     public void visit(ActParsOptYes ActParsOptYes) { visit(); }
-    public void visit(CaseListBase CaseListBase) { visit(); }
-    public void visit(CaseListRec CaseListRec) { visit(); }
     public void visit(PrintOptNo PrintOptNo) { visit(); }
     public void visit(PrintOptYes PrintOptYes) { visit(); }
     public void visit(DstOptNo DstOptNo) { visit(); }
     public void visit(DstOptYes DstOptYes) { visit(); }
-    public void visit(CondOptNo CondOptNo) { visit(); }
-    public void visit(CondTernaryOptYes CondTernaryOptYes) { visit(); }
-    public void visit(CondOptYes CondOptYes) { visit(); }
     public void visit(IfCondTernary IfCondTernary) { visit(); }
     public void visit(IfCondBase IfCondBase) { visit(); }
     public void visit(ExprOptNo ExprOptNo) { visit(); }
@@ -114,8 +109,22 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DstCall DstCall) { visit(); }
     public void visit(DstError DstError) { visit(); }
     public void visit(DstAssign DstAssign) { visit(); }
+    public void visit(CaseEnd CaseEnd) { visit(); }
+    public void visit(CaseVal CaseVal) { visit(); }
+    public void visit(CaseListBase CaseListBase) { visit(); }
+    public void visit(CaseListRec CaseListRec) { visit(); }
+    public void visit(StartCases StartCases) { visit(); }
     public void visit(StartSwitch StartSwitch) { visit(); }
     public void visit(StartFor StartFor) { visit(); }
+    public void visit(CondOptNo CondOptNo) { visit(); }
+    public void visit(CondTernaryOptYes CondTernaryOptYes) { visit(); }
+    public void visit(CondOptYes CondOptYes) { visit(); }
+    public void visit(ConditionOpt ConditionOpt) { visit(); }
+    public void visit(StartForBody StartForBody) { visit(); }
+    public void visit(StartLoop StartLoop) { visit(); }
+    public void visit(DstEnd DstEnd) { visit(); }
+    public void visit(DstStart DstStart) { visit(); }
+    public void visit(ForLoop ForLoop) { visit(); }
     public void visit(StmtFor StmtFor) { visit(); }
     public void visit(StmtSwitch StmtSwitch) { visit(); }
     public void visit(StmtBlock StmtBlock) { visit(); }

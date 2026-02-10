@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 0:21:20
+// 9/1/2026 21:17:30
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,15 +8,19 @@ package rs.ac.bg.etf.pp1.ast;
 public class CaseListRec extends CaseList {
 
     private CaseList CaseList;
-    private Integer N2;
+    private CaseVal CaseVal;
     private StatementList StatementList;
+    private CaseEnd CaseEnd;
 
-    public CaseListRec (CaseList CaseList, Integer N2, StatementList StatementList) {
+    public CaseListRec (CaseList CaseList, CaseVal CaseVal, StatementList StatementList, CaseEnd CaseEnd) {
         this.CaseList=CaseList;
         if(CaseList!=null) CaseList.setParent(this);
-        this.N2=N2;
+        this.CaseVal=CaseVal;
+        if(CaseVal!=null) CaseVal.setParent(this);
         this.StatementList=StatementList;
         if(StatementList!=null) StatementList.setParent(this);
+        this.CaseEnd=CaseEnd;
+        if(CaseEnd!=null) CaseEnd.setParent(this);
     }
 
     public CaseList getCaseList() {
@@ -27,12 +31,12 @@ public class CaseListRec extends CaseList {
         this.CaseList=CaseList;
     }
 
-    public Integer getN2() {
-        return N2;
+    public CaseVal getCaseVal() {
+        return CaseVal;
     }
 
-    public void setN2(Integer N2) {
-        this.N2=N2;
+    public void setCaseVal(CaseVal CaseVal) {
+        this.CaseVal=CaseVal;
     }
 
     public StatementList getStatementList() {
@@ -43,24 +47,38 @@ public class CaseListRec extends CaseList {
         this.StatementList=StatementList;
     }
 
+    public CaseEnd getCaseEnd() {
+        return CaseEnd;
+    }
+
+    public void setCaseEnd(CaseEnd CaseEnd) {
+        this.CaseEnd=CaseEnd;
+    }
+
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
         if(CaseList!=null) CaseList.accept(visitor);
+        if(CaseVal!=null) CaseVal.accept(visitor);
         if(StatementList!=null) StatementList.accept(visitor);
+        if(CaseEnd!=null) CaseEnd.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(CaseList!=null) CaseList.traverseTopDown(visitor);
+        if(CaseVal!=null) CaseVal.traverseTopDown(visitor);
         if(StatementList!=null) StatementList.traverseTopDown(visitor);
+        if(CaseEnd!=null) CaseEnd.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(CaseList!=null) CaseList.traverseBottomUp(visitor);
+        if(CaseVal!=null) CaseVal.traverseBottomUp(visitor);
         if(StatementList!=null) StatementList.traverseBottomUp(visitor);
+        if(CaseEnd!=null) CaseEnd.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -75,11 +93,20 @@ public class CaseListRec extends CaseList {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+N2);
+        if(CaseVal!=null)
+            buffer.append(CaseVal.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(StatementList!=null)
             buffer.append(StatementList.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(CaseEnd!=null)
+            buffer.append(CaseEnd.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

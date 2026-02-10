@@ -1,11 +1,11 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 0:21:20
+// 9/1/2026 21:17:30
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class CondOptYes extends ConditionOpt {
+public class CondOptYes extends CondOpt {
 
     private Condition Condition;
 

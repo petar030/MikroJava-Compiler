@@ -1,5 +1,10 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 import org.apache.log4j.Logger;
 
 import rs.ac.bg.etf.pp1.ast.*;
@@ -17,11 +22,20 @@ public class CodeGenerator extends VisitorAdaptor {
 	private int printWidth = 0;
 	private Obj designatorArrayTmp = null;
 
-	private java.util.ArrayDeque<Integer> ifFalse = new java.util.ArrayDeque<>();
-	private java.util.ArrayDeque<Integer> ifEnd = new java.util.ArrayDeque<>();
-	private java.util.ArrayDeque<Integer> ternFalse = new java.util.ArrayDeque<>();
-	private java.util.ArrayDeque<Integer> ternEnd = new java.util.ArrayDeque<>();
+	private ArrayDeque<Integer> ifFalse = new java.util.ArrayDeque<>();
+	private ArrayDeque<Integer> ifEnd = new java.util.ArrayDeque<>();
+	private ArrayDeque<Integer> ternFalse = new java.util.ArrayDeque<>();
+	private ArrayDeque<Integer> ternEnd = new java.util.ArrayDeque<>();
+	
+	private Stack<List<Integer>> switchLastCheck = new Stack<>();
+	private Stack<List<Integer>> switchLastBody = new Stack<>();
+	Stack<List<Integer>> breakStack  = new Stack<>();
+	Stack<Integer> forEnd = new Stack<>();
 
+	Stack<Integer> forLoop = new Stack<>();
+	Stack<Integer> dstHelp = new Stack<>();
+	Stack<Integer> dstHelpLoop = new Stack<>();
+	
 	public int getMainPc() {
 		return this.mainPc;
 	}
@@ -122,6 +136,115 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	/* Statement */
+	
+	@Override
+	public void visit(StmtBreak x) {
+		Code.put(Code.jmp);
+	    Code.put2(0);
+
+	    breakStack.peek().add(Code.pc - 2);
+	}
+	
+	@Override
+	public void visit(StartCases x) {
+		this.switchLastCheck.push(new ArrayList<>());
+		this.switchLastBody.push(new ArrayList<>());
+
+	    breakStack.push(new java.util.ArrayList<>());
+
+	}
+	
+	@Override
+	public void visit(StmtSwitch x) {
+	
+
+		List<Integer> bodies = switchLastBody.pop();
+	    for (int adr : bodies) Code.fixup(adr);
+	
+	    List<Integer> checks = switchLastCheck.pop();
+	    for (int adr : checks) Code.fixup(adr);
+	
+	    for (int adr : breakStack.peek()) Code.fixup(adr);
+	    breakStack.pop();
+	
+	    Code.put(Code.pop);
+
+	}
+	
+
+	@Override
+	public void visit(CaseVal caseVal) {
+	    List<Integer> checks = switchLastCheck.peek();
+	    if (!checks.isEmpty()) Code.fixup(checks.remove(checks.size() - 1));
+	    
+	    Code.put(Code.dup);
+	    Code.loadConst(caseVal.getN1());
+	    Code.putFalseJump(Code.eq, 0);
+	
+	    List<Integer> bodies = switchLastBody.peek();
+	    if (!bodies.isEmpty()) Code.fixup(bodies.remove(bodies.size() - 1));
+	    switchLastCheck.peek().add(Code.pc - 2);
+	}
+	
+		
+	
+	@Override
+	public void visit(CaseEnd caseEnd) {
+	    Code.put(Code.jmp);
+	    Code.put2(0);
+	    switchLastBody.peek().add(Code.pc - 2);
+	}
+	
+	@Override
+	public void visit(ForLoop forLoop) {
+		
+		if(!this.forLoop.isEmpty()) {
+			int jmpAdr = this.forLoop.pop();
+			log.info(jmpAdr + " " + Code.pc);
+			Code.putJump(jmpAdr);
+		}
+		if(!forEnd.isEmpty()) {
+			log.info("Kreirana tacka za prekid");
+			Code.fixup(forEnd.pop());
+		}
+	}
+	
+	@Override
+	public void visit(StartLoop startLoop) {
+		log.info("Kreirana loop tacka");
+		this.forLoop.push(Code.pc);
+	}
+	
+	@Override
+	public void visit(ConditionOpt cond) {
+		log.info("Kreirana tacka poredjenja");
+		Code.loadConst(1);
+		Code.putFalseJump(Code.eq, 0);
+		int jf = Code.pc - 2;
+		forEnd.push(jf);
+		
+	}
+	@Override
+	public void visit(DstStart x) {
+		Code.put(Code.jmp);
+		Code.put2(0);
+		this.dstHelp.push(Code.pc-2);
+		this.dstHelpLoop.push(this.forLoop.pop());
+		this.forLoop.push(Code.pc);
+
+		
+	}
+	
+	@Override
+	public void visit(DstEnd x) {
+		Code.putJump(this.dstHelpLoop.pop());
+		Code.fixup(this.dstHelp.pop());
+	}
+	
+	
+	
+	
+
 
 	@Override
 	public void visit(ThenStart n) {
@@ -276,7 +399,11 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.fixup(je);
 
 	}
-
+	
+	@Override
+	public void visit(CondOptNo x ) {
+		Code.loadConst(1);
+	}
 	/* Expr */
 
 	@Override

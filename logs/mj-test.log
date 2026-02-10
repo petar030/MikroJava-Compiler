@@ -1,149 +1,84 @@
-INFO  15:56:58,731 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
-INFO  15:56:58,746 - #2 program
-INFO  15:56:58,746 - #45 Test
-INFO  15:56:58,746 - #6 const
-INFO  15:56:58,746 - #45 int
-INFO  15:56:58,746 - #45 PI
-INFO  15:56:58,746 - #32 =
-INFO  15:56:58,746 - #46 3
-INFO  15:56:58,746 - #33 ;
-INFO  15:56:58,747 - #45 int
-INFO  15:56:58,747 - #45 g
-INFO  15:56:58,747 - #35 ,
-INFO  15:56:58,747 - #45 a
-INFO  15:56:58,747 - #40 [
-INFO  15:56:58,747 - #41 ]
-INFO  15:56:58,747 - #35 ,
-INFO  15:56:58,747 - #45 b
-INFO  15:56:58,747 - #40 [
-INFO  15:56:58,747 - #41 ]
-INFO  15:56:58,747 - #33 ;
-INFO  15:56:58,748 - #4 enum
-INFO  15:56:58,748 - #45 Broj
-INFO  15:56:58,748 - #42 {
-INFO  15:56:58,748 - #45 NULA
-INFO  15:56:58,748 - #35 ,
-INFO  15:56:58,748 - #45 JEDAN
-INFO  15:56:58,748 - #43 }
-INFO  15:56:58,748 - #42 {
-INFO  15:56:58,749 - #11 void
-INFO  15:56:58,749 - #45 main
-INFO  15:56:58,749 - #38 (
-INFO  15:56:58,749 - #39 )
-INFO  15:56:58,749 - #45 int
-INFO  15:56:58,749 - #45 x
-INFO  15:56:58,749 - #35 ,
-INFO  15:56:58,750 - #45 y
-INFO  15:56:58,750 - #33 ;
-INFO  15:56:58,750 - #45 Broj
-INFO  15:56:58,750 - #45 br
-INFO  15:56:58,750 - #33 ;
-INFO  15:56:58,750 - #45 int
-INFO  15:56:58,750 - #45 arr
-INFO  15:56:58,750 - #40 [
-INFO  15:56:58,750 - #41 ]
-INFO  15:56:58,750 - #33 ;
-INFO  15:56:58,750 - #42 {
-INFO  15:56:58,750 - #15 switch
-INFO  15:56:58,750 - #38 (
-INFO  15:56:58,750 - #46 1
-INFO  15:56:58,750 - #39 )
-INFO  15:56:58,751 - #42 {
-INFO  15:56:58,751 - #16 case
-INFO  15:56:58,751 - #46 1
-INFO  15:56:58,751 - #34 :
-INFO  15:56:58,751 - #15 switch
-INFO  15:56:58,751 - #38 (
-INFO  15:56:58,751 - #46 2
-INFO  15:56:58,751 - #39 )
-INFO  15:56:58,751 - #42 {
-INFO  15:56:58,751 - #16 case
-INFO  15:56:58,751 - #46 1
-INFO  15:56:58,751 - #34 :
-INFO  15:56:58,751 - #16 case
-INFO  15:56:58,751 - #46 7
-INFO  15:56:58,751 - #34 :
-INFO  15:56:58,751 - #43 }
-INFO  15:56:58,751 - #16 case
-INFO  15:56:58,751 - #46 2
-INFO  15:56:58,752 - #34 :
-INFO  15:56:58,752 - #15 switch
-INFO  15:56:58,752 - #38 (
-INFO  15:56:58,752 - #46 3
-INFO  15:56:58,752 - #39 )
-INFO  15:56:58,752 - #42 {
-INFO  15:56:58,752 - #16 case
-INFO  15:56:58,752 - #46 5
-INFO  15:56:58,752 - #34 :
-INFO  15:56:58,752 - #16 case
-INFO  15:56:58,752 - #46 7
-INFO  15:56:58,752 - #34 :
-INFO  15:56:58,752 - #43 }
-INFO  15:56:58,752 - #43 }
-INFO  15:56:58,752 - #43 }
-INFO  15:56:58,752 - #43 }
-INFO  15:56:58,753 - Program(
+INFO  22:57:39,489 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  22:57:39,503 - #2 program
+INFO  22:57:39,504 - #45 Test
+INFO  22:57:39,504 - #42 {
+INFO  22:57:39,504 - #11 void
+INFO  22:57:39,504 - #45 main
+INFO  22:57:39,504 - #38 (
+INFO  22:57:39,504 - #39 )
+INFO  22:57:39,504 - #45 int
+INFO  22:57:39,504 - #45 a
+INFO  22:57:39,505 - #33 ;
+INFO  22:57:39,505 - #45 int
+INFO  22:57:39,505 - #45 b
+INFO  22:57:39,505 - #33 ;
+INFO  22:57:39,505 - #42 {
+INFO  22:57:39,505 - #45 a
+INFO  22:57:39,505 - #32 =
+INFO  22:57:39,505 - #46 5
+INFO  22:57:39,506 - #33 ;
+INFO  22:57:39,506 - #45 b
+INFO  22:57:39,506 - #32 =
+INFO  22:57:39,506 - #46 3
+INFO  22:57:39,506 - #33 ;
+INFO  22:57:39,506 - #13 for
+INFO  22:57:39,506 - #38 (
+INFO  22:57:39,506 - #45 a
+INFO  22:57:39,506 - #32 =
+INFO  22:57:39,506 - #46 0
+INFO  22:57:39,506 - #33 ;
+INFO  22:57:39,507 - #45 a
+INFO  22:57:39,507 - #26 <
+INFO  22:57:39,507 - #46 5
+INFO  22:57:39,507 - #33 ;
+INFO  22:57:39,507 - #45 a
+INFO  22:57:39,507 - #23 ++
+INFO  22:57:39,508 - #39 )
+INFO  22:57:39,508 - #42 {
+INFO  22:57:39,508 - #13 for
+INFO  22:57:39,508 - #38 (
+INFO  22:57:39,508 - #45 b
+INFO  22:57:39,508 - #32 =
+INFO  22:57:39,508 - #45 a
+INFO  22:57:39,508 - #33 ;
+INFO  22:57:39,508 - #45 b
+INFO  22:57:39,508 - #20 <=
+INFO  22:57:39,508 - #46 10
+INFO  22:57:39,508 - #33 ;
+INFO  22:57:39,508 - #45 b
+INFO  22:57:39,508 - #23 ++
+INFO  22:57:39,509 - #39 )
+INFO  22:57:39,509 - #42 {
+INFO  22:57:39,509 - #7 if
+INFO  22:57:39,509 - #38 (
+INFO  22:57:39,509 - #45 b
+INFO  22:57:39,509 - #31 %
+INFO  22:57:39,509 - #46 2
+INFO  22:57:39,509 - #17 ==
+INFO  22:57:39,509 - #46 0
+INFO  22:57:39,509 - #39 )
+INFO  22:57:39,509 - #42 {
+INFO  22:57:39,509 - #8 print
+INFO  22:57:39,509 - #38 (
+INFO  22:57:39,510 - #45 b
+INFO  22:57:39,510 - #39 )
+INFO  22:57:39,510 - #33 ;
+INFO  22:57:39,510 - #43 }
+INFO  22:57:39,510 - #43 }
+INFO  22:57:39,510 - #8 print
+INFO  22:57:39,510 - #38 (
+INFO  22:57:39,511 - #45 eol
+INFO  22:57:39,511 - #39 )
+INFO  22:57:39,511 - #33 ;
+INFO  22:57:39,511 - #43 }
+INFO  22:57:39,511 - #43 }
+INFO  22:57:39,511 - #43 }
+INFO  22:57:39,512 - Program(
   ProgName(
    Test
   ) [ProgName]
-  DeclListEnum(
-    DeclListVar(
-      DeclListConst(
-        DeclList_e(
-        ) [DeclList_e]
-        ConstDecl(
-          Type(
-           int
-          ) [Type]
-          ConstDeclItem(
-           PI
-            ConstNum(
-             3
-            ) [ConstNum]
-          ) [ConstDeclItem]
-          ConstRest_e(
-          ) [ConstRest_e]
-        ) [ConstDecl]
-      ) [DeclListConst]
-      VarDecl(
-        Type(
-         int
-        ) [Type]
-        VarDeclItem_var(
-         g
-        ) [VarDeclItem_var]
-        VarRestComma(
-          VarDeclItem_arr(
-           a
-          ) [VarDeclItem_arr]
-          VarRestComma(
-            VarDeclItem_arr(
-             b
-            ) [VarDeclItem_arr]
-            VarRest_e(
-            ) [VarRest_e]
-          ) [VarRestComma]
-        ) [VarRestComma]
-      ) [VarDecl]
-    ) [DeclListVar]
-    EnumDecl(
-      EnumOpen(
-       Broj
-      ) [EnumOpen]
-      EnumField_default(
-       NULA
-      ) [EnumField_default]
-      EnumRestComma(
-        EnumField_default(
-         JEDAN
-        ) [EnumField_default]
-        EnumRest_e(
-        ) [EnumRest_e]
-      ) [EnumRestComma]
-      EnumClose(
-      ) [EnumClose]
-    ) [EnumDecl]
-  ) [DeclListEnum]
+  DeclList_e(
+  ) [DeclList_e]
   MethodDeclListRec(
     MethodDeclList_e(
     ) [MethodDeclList_e]
@@ -155,31 +90,14 @@ INFO  15:56:58,753 - Program(
       ) [FormParsOptNo]
       VarDeclListRec(
         VarDeclListRec(
-          VarDeclListRec(
-            VarDeclList_e(
-            ) [VarDeclList_e]
-            VarDecl(
-              Type(
-               int
-              ) [Type]
-              VarDeclItem_var(
-               x
-              ) [VarDeclItem_var]
-              VarRestComma(
-                VarDeclItem_var(
-                 y
-                ) [VarDeclItem_var]
-                VarRest_e(
-                ) [VarRest_e]
-              ) [VarRestComma]
-            ) [VarDecl]
-          ) [VarDeclListRec]
+          VarDeclList_e(
+          ) [VarDeclList_e]
           VarDecl(
             Type(
-             Broj
+             int
             ) [Type]
             VarDeclItem_var(
-             br
+             a
             ) [VarDeclItem_var]
             VarRest_e(
             ) [VarRest_e]
@@ -189,100 +107,318 @@ INFO  15:56:58,753 - Program(
           Type(
            int
           ) [Type]
-          VarDeclItem_arr(
-           arr
-          ) [VarDeclItem_arr]
+          VarDeclItem_var(
+           b
+          ) [VarDeclItem_var]
           VarRest_e(
           ) [VarRest_e]
         ) [VarDecl]
       ) [VarDeclListRec]
       StatementListRec(
-        StatementList_e(
-        ) [StatementList_e]
-        StmtSwitch(
-          StartSwitch(
-          ) [StartSwitch]
-          ExprSimple(
-            SimpleExprPos(
-              AddopBase(
-                TermBase(
-                  FactorNum(
-                   1
-                  ) [FactorNum]
-                ) [TermBase]
-              ) [AddopBase]
-            ) [SimpleExprPos]
-          ) [ExprSimple]
-          CaseListRec(
-            CaseListBase(
-             1
-              StatementListRec(
-                StatementList_e(
-                ) [StatementList_e]
-                StmtSwitch(
-                  StartSwitch(
-                  ) [StartSwitch]
-                  ExprSimple(
-                    SimpleExprPos(
-                      AddopBase(
-                        TermBase(
-                          FactorNum(
-                           2
-                          ) [FactorNum]
-                        ) [TermBase]
-                      ) [AddopBase]
-                    ) [SimpleExprPos]
-                  ) [ExprSimple]
-                  CaseListRec(
-                    CaseListBase(
-                     1
-                      StatementList_e(
-                      ) [StatementList_e]
-                    ) [CaseListBase]
-                   7
-                    StatementList_e(
-                    ) [StatementList_e]
-                  ) [CaseListRec]
-                ) [StmtSwitch]
-              ) [StatementListRec]
-            ) [CaseListBase]
-           2
-            StatementListRec(
-              StatementList_e(
-              ) [StatementList_e]
-              StmtSwitch(
-                StartSwitch(
-                ) [StartSwitch]
+        StatementListRec(
+          StatementListRec(
+            StatementList_e(
+            ) [StatementList_e]
+            StmtDesignator(
+              DstAssign(
+                Designator_var(
+                 a
+                ) [Designator_var]
+                Assignop(
+                ) [Assignop]
                 ExprSimple(
                   SimpleExprPos(
                     AddopBase(
                       TermBase(
                         FactorNum(
-                         3
+                         5
                         ) [FactorNum]
                       ) [TermBase]
                     ) [AddopBase]
                   ) [SimpleExprPos]
                 ) [ExprSimple]
-                CaseListRec(
-                  CaseListBase(
-                   5
-                    StatementList_e(
-                    ) [StatementList_e]
-                  ) [CaseListBase]
-                 7
+              ) [DstAssign]
+            ) [StmtDesignator]
+          ) [StatementListRec]
+          StmtDesignator(
+            DstAssign(
+              Designator_var(
+               b
+              ) [Designator_var]
+              Assignop(
+              ) [Assignop]
+              ExprSimple(
+                SimpleExprPos(
+                  AddopBase(
+                    TermBase(
+                      FactorNum(
+                       3
+                      ) [FactorNum]
+                    ) [TermBase]
+                  ) [AddopBase]
+                ) [SimpleExprPos]
+              ) [ExprSimple]
+            ) [DstAssign]
+          ) [StmtDesignator]
+        ) [StatementListRec]
+        StmtFor(
+          StartFor(
+          ) [StartFor]
+          DstOptYes(
+            DstAssign(
+              Designator_var(
+               a
+              ) [Designator_var]
+              Assignop(
+              ) [Assignop]
+              ExprSimple(
+                SimpleExprPos(
+                  AddopBase(
+                    TermBase(
+                      FactorNum(
+                       0
+                      ) [FactorNum]
+                    ) [TermBase]
+                  ) [AddopBase]
+                ) [SimpleExprPos]
+              ) [ExprSimple]
+            ) [DstAssign]
+          ) [DstOptYes]
+          ForLoop(
+            StartLoop(
+            ) [StartLoop]
+            ConditionOpt(
+              CondOptYes(
+                ConditionBase(
+                  CondTermBase(
+                    CondFactRelop(
+                      SimpleExprPos(
+                        AddopBase(
+                          TermBase(
+                            FactorDesignator(
+                              Designator_var(
+                               a
+                              ) [Designator_var]
+                            ) [FactorDesignator]
+                          ) [TermBase]
+                        ) [AddopBase]
+                      ) [SimpleExprPos]
+                      RelLT(
+                      ) [RelLT]
+                      SimpleExprPos(
+                        AddopBase(
+                          TermBase(
+                            FactorNum(
+                             5
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [AddopBase]
+                      ) [SimpleExprPos]
+                    ) [CondFactRelop]
+                  ) [CondTermBase]
+                ) [ConditionBase]
+              ) [CondOptYes]
+            ) [ConditionOpt]
+            DstStart(
+            ) [DstStart]
+            DstOptYes(
+              DstInc(
+                Designator_var(
+                 a
+                ) [Designator_var]
+              ) [DstInc]
+            ) [DstOptYes]
+            DstEnd(
+            ) [DstEnd]
+            StartForBody(
+            ) [StartForBody]
+            StmtBlock(
+              StatementListRec(
+                StatementListRec(
                   StatementList_e(
                   ) [StatementList_e]
-                ) [CaseListRec]
-              ) [StmtSwitch]
-            ) [StatementListRec]
-          ) [CaseListRec]
-        ) [StmtSwitch]
+                  StmtFor(
+                    StartFor(
+                    ) [StartFor]
+                    DstOptYes(
+                      DstAssign(
+                        Designator_var(
+                         b
+                        ) [Designator_var]
+                        Assignop(
+                        ) [Assignop]
+                        ExprSimple(
+                          SimpleExprPos(
+                            AddopBase(
+                              TermBase(
+                                FactorDesignator(
+                                  Designator_var(
+                                   a
+                                  ) [Designator_var]
+                                ) [FactorDesignator]
+                              ) [TermBase]
+                            ) [AddopBase]
+                          ) [SimpleExprPos]
+                        ) [ExprSimple]
+                      ) [DstAssign]
+                    ) [DstOptYes]
+                    ForLoop(
+                      StartLoop(
+                      ) [StartLoop]
+                      ConditionOpt(
+                        CondOptYes(
+                          ConditionBase(
+                            CondTermBase(
+                              CondFactRelop(
+                                SimpleExprPos(
+                                  AddopBase(
+                                    TermBase(
+                                      FactorDesignator(
+                                        Designator_var(
+                                         b
+                                        ) [Designator_var]
+                                      ) [FactorDesignator]
+                                    ) [TermBase]
+                                  ) [AddopBase]
+                                ) [SimpleExprPos]
+                                RelLE(
+                                ) [RelLE]
+                                SimpleExprPos(
+                                  AddopBase(
+                                    TermBase(
+                                      FactorNum(
+                                       10
+                                      ) [FactorNum]
+                                    ) [TermBase]
+                                  ) [AddopBase]
+                                ) [SimpleExprPos]
+                              ) [CondFactRelop]
+                            ) [CondTermBase]
+                          ) [ConditionBase]
+                        ) [CondOptYes]
+                      ) [ConditionOpt]
+                      DstStart(
+                      ) [DstStart]
+                      DstOptYes(
+                        DstInc(
+                          Designator_var(
+                           b
+                          ) [Designator_var]
+                        ) [DstInc]
+                      ) [DstOptYes]
+                      DstEnd(
+                      ) [DstEnd]
+                      StartForBody(
+                      ) [StartForBody]
+                      StmtBlock(
+                        StatementListRec(
+                          StatementList_e(
+                          ) [StatementList_e]
+                          StmtIf(
+                            IfCondBase(
+                              ConditionBase(
+                                CondTermBase(
+                                  CondFactRelop(
+                                    SimpleExprPos(
+                                      AddopBase(
+                                        TermRec(
+                                          TermBase(
+                                            FactorDesignator(
+                                              Designator_var(
+                                               b
+                                              ) [Designator_var]
+                                            ) [FactorDesignator]
+                                          ) [TermBase]
+                                          MulMod(
+                                          ) [MulMod]
+                                          FactorNum(
+                                           2
+                                          ) [FactorNum]
+                                        ) [TermRec]
+                                      ) [AddopBase]
+                                    ) [SimpleExprPos]
+                                    RelEQ(
+                                    ) [RelEQ]
+                                    SimpleExprPos(
+                                      AddopBase(
+                                        TermBase(
+                                          FactorNum(
+                                           0
+                                          ) [FactorNum]
+                                        ) [TermBase]
+                                      ) [AddopBase]
+                                    ) [SimpleExprPos]
+                                  ) [CondFactRelop]
+                                ) [CondTermBase]
+                              ) [ConditionBase]
+                            ) [IfCondBase]
+                            ThenStart(
+                            ) [ThenStart]
+                            StmtBlock(
+                              StatementListRec(
+                                StatementList_e(
+                                ) [StatementList_e]
+                                StmtPrint(
+                                  ExprSimple(
+                                    SimpleExprPos(
+                                      AddopBase(
+                                        TermBase(
+                                          FactorDesignator(
+                                            Designator_var(
+                                             b
+                                            ) [Designator_var]
+                                          ) [FactorDesignator]
+                                        ) [TermBase]
+                                      ) [AddopBase]
+                                    ) [SimpleExprPos]
+                                  ) [ExprSimple]
+                                  PrintOptNo(
+                                  ) [PrintOptNo]
+                                ) [StmtPrint]
+                              ) [StatementListRec]
+                            ) [StmtBlock]
+                            ElseNo(
+                            ) [ElseNo]
+                          ) [StmtIf]
+                        ) [StatementListRec]
+                      ) [StmtBlock]
+                    ) [ForLoop]
+                  ) [StmtFor]
+                ) [StatementListRec]
+                StmtPrint(
+                  ExprSimple(
+                    SimpleExprPos(
+                      AddopBase(
+                        TermBase(
+                          FactorDesignator(
+                            Designator_var(
+                             eol
+                            ) [Designator_var]
+                          ) [FactorDesignator]
+                        ) [TermBase]
+                      ) [AddopBase]
+                    ) [SimpleExprPos]
+                  ) [ExprSimple]
+                  PrintOptNo(
+                  ) [PrintOptNo]
+                ) [StmtPrint]
+              ) [StatementListRec]
+            ) [StmtBlock]
+          ) [ForLoop]
+        ) [StmtFor]
       ) [StatementListRec]
     ) [MethodDecl]
   ) [MethodDeclListRec]
 ) [Program]
-INFO  15:56:58,753 - =================================
-INFO  15:56:58,756 - =================================
-INFO  15:56:58,757 - Parsiranje uspesno zavrseno!
-INFO  15:56:58,758 - Generisanje koda uspesno zavrseno
+INFO  22:57:39,512 - =================================
+INFO  22:57:39,516 - =================================
+INFO  22:57:39,516 - Parsiranje uspesno zavrseno!
+INFO  22:57:39,517 - Kreirana loop tacka
+INFO  22:57:39,517 - Kreirana tacka poredjenja
+INFO  22:57:39,517 - Kreirana loop tacka
+INFO  22:57:39,517 - Kreirana tacka poredjenja
+INFO  22:57:39,517 - 56 82
+INFO  22:57:39,517 - Kreirana tacka za prekid
+INFO  22:57:39,517 - 26 92
+INFO  22:57:39,517 - Kreirana tacka za prekid
+INFO  22:57:39,518 - Generisanje koda uspesno zavrseno

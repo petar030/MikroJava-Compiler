@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 0:21:20
+// 9/1/2026 21:17:30
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,13 +9,16 @@ public class StmtSwitch extends Statement {
 
     private StartSwitch StartSwitch;
     private Expr Expr;
+    private StartCases StartCases;
     private CaseList CaseList;
 
-    public StmtSwitch (StartSwitch StartSwitch, Expr Expr, CaseList CaseList) {
+    public StmtSwitch (StartSwitch StartSwitch, Expr Expr, StartCases StartCases, CaseList CaseList) {
         this.StartSwitch=StartSwitch;
         if(StartSwitch!=null) StartSwitch.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
+        this.StartCases=StartCases;
+        if(StartCases!=null) StartCases.setParent(this);
         this.CaseList=CaseList;
         if(CaseList!=null) CaseList.setParent(this);
     }
@@ -36,6 +39,14 @@ public class StmtSwitch extends Statement {
         this.Expr=Expr;
     }
 
+    public StartCases getStartCases() {
+        return StartCases;
+    }
+
+    public void setStartCases(StartCases StartCases) {
+        this.StartCases=StartCases;
+    }
+
     public CaseList getCaseList() {
         return CaseList;
     }
@@ -51,6 +62,7 @@ public class StmtSwitch extends Statement {
     public void childrenAccept(Visitor visitor) {
         if(StartSwitch!=null) StartSwitch.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
+        if(StartCases!=null) StartCases.accept(visitor);
         if(CaseList!=null) CaseList.accept(visitor);
     }
 
@@ -58,12 +70,14 @@ public class StmtSwitch extends Statement {
         accept(visitor);
         if(StartSwitch!=null) StartSwitch.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(StartCases!=null) StartCases.traverseTopDown(visitor);
         if(CaseList!=null) CaseList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(StartSwitch!=null) StartSwitch.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(StartCases!=null) StartCases.traverseBottomUp(visitor);
         if(CaseList!=null) CaseList.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -81,6 +95,12 @@ public class StmtSwitch extends Statement {
 
         if(Expr!=null)
             buffer.append(Expr.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(StartCases!=null)
+            buffer.append(StartCases.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 0:21:20
+// 9/1/2026 21:17:30
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,21 +9,15 @@ public class StmtFor extends Statement {
 
     private StartFor StartFor;
     private DesignatorStmtOpt DesignatorStmtOpt;
-    private ConditionOpt ConditionOpt;
-    private DesignatorStmtOpt DesignatorStmtOpt1;
-    private Statement Statement;
+    private ForLoop ForLoop;
 
-    public StmtFor (StartFor StartFor, DesignatorStmtOpt DesignatorStmtOpt, ConditionOpt ConditionOpt, DesignatorStmtOpt DesignatorStmtOpt1, Statement Statement) {
+    public StmtFor (StartFor StartFor, DesignatorStmtOpt DesignatorStmtOpt, ForLoop ForLoop) {
         this.StartFor=StartFor;
         if(StartFor!=null) StartFor.setParent(this);
         this.DesignatorStmtOpt=DesignatorStmtOpt;
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.setParent(this);
-        this.ConditionOpt=ConditionOpt;
-        if(ConditionOpt!=null) ConditionOpt.setParent(this);
-        this.DesignatorStmtOpt1=DesignatorStmtOpt1;
-        if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.setParent(this);
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+        this.ForLoop=ForLoop;
+        if(ForLoop!=null) ForLoop.setParent(this);
     }
 
     public StartFor getStartFor() {
@@ -42,28 +36,12 @@ public class StmtFor extends Statement {
         this.DesignatorStmtOpt=DesignatorStmtOpt;
     }
 
-    public ConditionOpt getConditionOpt() {
-        return ConditionOpt;
+    public ForLoop getForLoop() {
+        return ForLoop;
     }
 
-    public void setConditionOpt(ConditionOpt ConditionOpt) {
-        this.ConditionOpt=ConditionOpt;
-    }
-
-    public DesignatorStmtOpt getDesignatorStmtOpt1() {
-        return DesignatorStmtOpt1;
-    }
-
-    public void setDesignatorStmtOpt1(DesignatorStmtOpt DesignatorStmtOpt1) {
-        this.DesignatorStmtOpt1=DesignatorStmtOpt1;
-    }
-
-    public Statement getStatement() {
-        return Statement;
-    }
-
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setForLoop(ForLoop ForLoop) {
+        this.ForLoop=ForLoop;
     }
 
     public void accept(Visitor visitor) {
@@ -73,26 +51,20 @@ public class StmtFor extends Statement {
     public void childrenAccept(Visitor visitor) {
         if(StartFor!=null) StartFor.accept(visitor);
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.accept(visitor);
-        if(ConditionOpt!=null) ConditionOpt.accept(visitor);
-        if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.accept(visitor);
-        if(Statement!=null) Statement.accept(visitor);
+        if(ForLoop!=null) ForLoop.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(StartFor!=null) StartFor.traverseTopDown(visitor);
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.traverseTopDown(visitor);
-        if(ConditionOpt!=null) ConditionOpt.traverseTopDown(visitor);
-        if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.traverseTopDown(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(ForLoop!=null) ForLoop.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(StartFor!=null) StartFor.traverseBottomUp(visitor);
         if(DesignatorStmtOpt!=null) DesignatorStmtOpt.traverseBottomUp(visitor);
-        if(ConditionOpt!=null) ConditionOpt.traverseBottomUp(visitor);
-        if(DesignatorStmtOpt1!=null) DesignatorStmtOpt1.traverseBottomUp(visitor);
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(ForLoop!=null) ForLoop.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -113,20 +85,8 @@ public class StmtFor extends Statement {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(ConditionOpt!=null)
-            buffer.append(ConditionOpt.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(DesignatorStmtOpt1!=null)
-            buffer.append(DesignatorStmtOpt1.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(ForLoop!=null)
+            buffer.append(ForLoop.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

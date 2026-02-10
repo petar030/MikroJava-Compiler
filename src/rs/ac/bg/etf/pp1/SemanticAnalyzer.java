@@ -847,6 +847,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		condFact.struct = this.boolType;
 	}
+	
+	@Override
+	public void visit(ConditionOpt x) {
+		x.struct = x.getCondOpt().struct;
+	}
 
 	@Override
 	public void visit(CondOptYes n) {
@@ -998,11 +1003,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(StartSwitch s) {
+		this.switchDepth++;
 	    switchCaseValues.push(new HashSet<>());
 	}
 	
 	@Override
 	public void visit(StmtSwitch stmt) {
+		this.switchDepth--;
 	    switchCaseValues.pop();
 	    if (!isIntOrEnum(stmt.getExpr().struct)) {
 	        report_error("Switch izraz mora biti tipa int", stmt);
@@ -1012,7 +1019,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(CaseListBase n) {
-	    int v = n.getN1();
+	    int v = n.getCaseVal().getN1();
 	    Set<Integer> current = switchCaseValues.peek();
 	    if (!current.add(v)) {
 	        report_error("Duplikat case vrednosti: " + v, n);
@@ -1022,7 +1029,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(CaseListRec n) {
-	    int v = n.getN2();
+	    int v = n.getCaseVal().getN1();
 	    Set<Integer> current = switchCaseValues.peek();
 	    if (!current.add(v)) {
 	        report_error("Duplikat case vrednosti: " + v, n);
@@ -1034,7 +1041,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(StmtFor stmt) {
 		this.forDepth--;
-		if (!stmt.getConditionOpt().struct.equals(boolType)) {
+		if (!stmt.getForLoop().getConditionOpt().struct.equals(boolType)) {
 			report_error("Uslovni izraz u for mora biti tipa bool", stmt);
 			return;
 		}
