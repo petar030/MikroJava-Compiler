@@ -30,11 +30,19 @@ public class CodeGenerator extends VisitorAdaptor {
 	private Stack<List<Integer>> switchLastCheck = new Stack<>();
 	private Stack<List<Integer>> switchLastBody = new Stack<>();
 	Stack<List<Integer>> breakStack  = new Stack<>();
-	Stack<Integer> forEnd = new Stack<>();
+	
 
-	Stack<Integer> forLoop = new Stack<>();
-	Stack<Integer> dstHelp = new Stack<>();
-	Stack<Integer> dstHelpLoop = new Stack<>();
+	private static class ForFrame {
+        int loopStartPc = -1;
+        Integer condFalseFix = null;
+        Integer dstJmpFix = null;
+        Integer updateLabelPc = null;
+    }
+
+    private final Stack<ForFrame> forStack = new Stack<>();
+
+    private ForFrame curFor() { return forStack.peek(); }
+
 	
 	public int getMainPc() {
 		return this.mainPc;
@@ -195,56 +203,67 @@ public class CodeGenerator extends VisitorAdaptor {
 	    switchLastBody.peek().add(Code.pc - 2);
 	}
 	
-	@Override
-	public void visit(ForLoop forLoop) {
-		
-		if(!this.forLoop.isEmpty()) {
-			int jmpAdr = this.forLoop.pop();
-			log.info(jmpAdr + " " + Code.pc);
-			Code.putJump(jmpAdr);
-		}
-		if(!forEnd.isEmpty()) {
-			log.info("Kreirana tacka za prekid");
-			Code.fixup(forEnd.pop());
-		}
-	}
-	
-	@Override
-	public void visit(StartLoop startLoop) {
-		log.info("Kreirana loop tacka");
-		this.forLoop.push(Code.pc);
-	}
-	
-	@Override
-	public void visit(ConditionOpt cond) {
-		log.info("Kreirana tacka poredjenja");
-		Code.loadConst(1);
-		Code.putFalseJump(Code.eq, 0);
-		int jf = Code.pc - 2;
-		forEnd.push(jf);
-		
-	}
-	@Override
-	public void visit(DstStart x) {
-		Code.put(Code.jmp);
-		Code.put2(0);
-		this.dstHelp.push(Code.pc-2);
-		this.dstHelpLoop.push(this.forLoop.pop());
-		this.forLoop.push(Code.pc);
 
-		
-	}
-	
-	@Override
-	public void visit(DstEnd x) {
-		Code.putJump(this.dstHelpLoop.pop());
-		Code.fixup(this.dstHelp.pop());
-	}
-	
-	
-	
-	
+@Override
+    public void visit(StartFor x) {
+		this.breakStack.push(new ArrayList<>());
+        forStack.push(new ForFrame());
+    }
 
+    @Override
+    public void visit(StartLoop startLoop) {
+        curFor().loopStartPc = Code.pc;
+    }
+
+    @Override
+    public void visit(ConditionOpt cond) {
+        //log.info("Kreirana tacka poredjenja");
+        Code.loadConst(1);
+        Code.putFalseJump(Code.eq, 0);
+        curFor().condFalseFix = Code.pc - 2;
+    }
+
+    @Override
+    public void visit(DstStart x) {
+        Code.put(Code.jmp);
+        Code.put2(0);
+        curFor().dstJmpFix = Code.pc - 2;
+        curFor().updateLabelPc = Code.pc;
+    }
+
+    @Override
+    public void visit(DstEnd x) {
+        Code.putJump(curFor().loopStartPc);
+        Code.fixup(curFor().dstJmpFix);
+    }
+
+    @Override
+    public void visit(ForLoop forLoop) {
+        ForFrame f = curFor();
+        if (f.updateLabelPc != null) {
+            //log.info(f.updateLabelPc + " " + Code.pc);
+            Code.putJump(f.updateLabelPc);
+        }
+        if (f.condFalseFix != null) {
+            //log.info("Kreirana tacka za prekid");
+            Code.fixup(f.condFalseFix);
+        }
+        
+        for (int adr : breakStack.peek()) Code.fixup(adr);
+	    breakStack.pop();    }
+
+    @Override
+    public void visit(StmtFor x) {
+        forStack.pop();
+    }
+    
+    @Override
+    public void visit(StmtContinue x) {
+        Code.putJump(curFor().updateLabelPc);
+
+    }
+
+	
 
 	@Override
 	public void visit(ThenStart n) {

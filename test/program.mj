@@ -1,28 +1,28 @@
+program BinarySearch
 
-program Test
 
-
+int x;
 
 {
-	
 
-
-    void main()int a; int b;{
-      	a = 5;
-        b = 3;
-		for(a = 0;a < 5;a++){
-			for(b = a; b <= 10; b++){
-				if(b % 2 == 0){
-					print(b);
-				
-				}
-			}
-			print(eol);
+	void printNums(int num){
+		if(num <= 0){
+			print(num);
+			return;
 		}
-	       
+		x = x-1;
+		printNums(x);
+		print(num);
 	
+	
+	}
 
+	void main(){
+		x = 6;
+		printNums(6);
 	
 	
-    }
+	}
+
+
 }

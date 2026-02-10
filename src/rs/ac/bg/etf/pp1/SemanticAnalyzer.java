@@ -646,6 +646,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		List<Obj> formalPars = getFormalParameters(m);
 		List<Struct> actuals = actParsStack.isEmpty() ? Collections.emptyList() : actParsStack.pop();
+		log.info("FM -- Actuals: " + actuals.size() + " Formals: " + formalPars.size());
 
 		if (actuals.size() != formalPars.size()) {
 			report_error("pogresan broj argumenata", factor);
@@ -1101,6 +1102,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(DstCall dst) {
 		Obj m = dst.getDesignator().obj;
+		log.info("Ime metode " + m.getName());
 		if (m.getKind() != Obj.Meth) {
 			report_error("Simbol nije metoda", dst);
 			return;
@@ -1108,8 +1110,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		List<Obj> formalPars = getFormalParameters(m);
 		List<Struct> actuals = actParsStack.isEmpty() ? Collections.emptyList() : actParsStack.pop();
+		log.info("DST -- Actuals: " + actuals.size() + " Formals: " + formalPars.size());
 
 		if (actuals.size() != formalPars.size()) {
+
 			report_error("pogresan broj argumenata", dst);
 			return;
 		}
