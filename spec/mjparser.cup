@@ -112,6 +112,8 @@ VarDecl ::= (VarDecl) Type VarDeclItem VarRest SEMI ;
 
 VarDeclItem ::= (VarDeclItem_var) IDENT
 			| (VarDeclItem_arr) IDENT LBRACK RBRACK
+			| (VarDeclError) error:e
+			{: parser.report_error("Oporavak od greske u VarDecl. Linija: " + eleft, null);:} 
 			; 
 
 VarRest ::= (VarRestComma) COMMA VarDeclItem VarRest
@@ -159,6 +161,8 @@ FormPars ::= (FormPars) FormParsItem FormParsRest ;
 
 FormParsItem ::= (FormPars_var) Type IDENT
 				| (FormPars_arr) Type IDENT LBRACK RBRACK
+				| (FormParsError) error:e
+					  {: parser.report_error("Oporavak od greske u FormPars. Linija: " + eleft, null);:} 
 				;
 
 FormParsRest ::= (FormParsRestComma) COMMA FormParsItem FormParsRest
@@ -229,6 +233,8 @@ ExprOpt ::= (ExprOptYes) Expr
           
 IfCond ::= (IfCondBase) Condition
 		|  (IfCondTernary) Condition QMarkM Expr ColonM Expr
+		| (IfCondError) error:e
+		{: parser.report_error("Oporavak od greske u IfCond. Linija: " + eleft, null);:} 
 		;
 
 

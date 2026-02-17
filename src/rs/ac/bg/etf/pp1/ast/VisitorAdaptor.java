@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/1/2026 23:39:35
+// 17/1/2026 16:30:30
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -102,6 +102,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PrintOptYes PrintOptYes) { visit(); }
     public void visit(DstOptNo DstOptNo) { visit(); }
     public void visit(DstOptYes DstOptYes) { visit(); }
+    public void visit(IfCondError IfCondError) { visit(); }
     public void visit(IfCondTernary IfCondTernary) { visit(); }
     public void visit(IfCondBase IfCondBase) { visit(); }
     public void visit(ExprOptNo ExprOptNo) { visit(); }
@@ -145,6 +146,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(StatementListRec StatementListRec) { visit(); }
     public void visit(FormParsRest_e FormParsRest_e) { visit(); }
     public void visit(FormParsRestComma FormParsRestComma) { visit(); }
+    public void visit(FormParsError FormParsError) { visit(); }
     public void visit(FormPars_arr FormPars_arr) { visit(); }
     public void visit(FormPars_var FormPars_var) { visit(); }
     public void visit(FormPars FormPars) { visit(); }
@@ -167,6 +169,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(EnumDecl EnumDecl) { visit(); }
     public void visit(VarRest_e VarRest_e) { visit(); }
     public void visit(VarRestComma VarRestComma) { visit(); }
+    public void visit(VarDeclError VarDeclError) { visit(); }
     public void visit(VarDeclItem_arr VarDeclItem_arr) { visit(); }
     public void visit(VarDeclItem_var VarDeclItem_var) { visit(); }
     public void visit(VarDecl VarDecl) { visit(); }

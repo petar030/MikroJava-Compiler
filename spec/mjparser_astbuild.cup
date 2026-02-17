@@ -155,6 +155,8 @@ VarDecl ::= (VarDecl) Type:T1 VarDeclItem:V2 VarRest:V3 SEMI {: RESULT=new VarDe
 
 VarDeclItem ::= (VarDeclItem_var) IDENT:I1 {: RESULT=new VarDeclItem_var(I1); RESULT.setLine(I1left); :}
 			| (VarDeclItem_arr) IDENT:I1 LBRACK RBRACK {: RESULT=new VarDeclItem_arr(I1); RESULT.setLine(I1left); :}
+			| (VarDeclError) error:e
+			{: parser.report_error("Oporavak od greske u VarDecl. Linija: " + eleft, null);:} {: RESULT=new VarDeclError(); :} 
 			; 
 
 VarRest ::= (VarRestComma) COMMA VarDeclItem:V1 VarRest:V2 {: RESULT=new VarRestComma(V1, V2); RESULT.setLine(V1left); :}
@@ -202,6 +204,8 @@ FormPars ::= (FormPars) FormParsItem:F1 FormParsRest:F2 {: RESULT=new FormPars(F
 
 FormParsItem ::= (FormPars_var) Type:T1 IDENT:I2 {: RESULT=new FormPars_var(T1, I2); RESULT.setLine(T1left); :}
 				| (FormPars_arr) Type:T1 IDENT:I2 LBRACK RBRACK {: RESULT=new FormPars_arr(T1, I2); RESULT.setLine(T1left); :}
+				| (FormParsError) error:e
+					  {: parser.report_error("Oporavak od greske u FormPars. Linija: " + eleft, null);:} {: RESULT=new FormParsError(); :} 
 				;
 
 FormParsRest ::= (FormParsRestComma) COMMA FormParsItem:F1 FormParsRest:F2 {: RESULT=new FormParsRestComma(F1, F2); RESULT.setLine(F1left); :}
@@ -272,6 +276,8 @@ ExprOpt ::= (ExprOptYes) Expr:E1 {: RESULT=new ExprOptYes(E1); RESULT.setLine(E1
           
 IfCond ::= (IfCondBase) Condition:C1 {: RESULT=new IfCondBase(C1); RESULT.setLine(C1left); :}
 		|  (IfCondTernary) Condition:C1 QMarkM:Q2 Expr:E3 ColonM:C4 Expr:E5 {: RESULT=new IfCondTernary(C1, Q2, E3, C4, E5); RESULT.setLine(C1left); :}
+		| (IfCondError) error:e
+		{: parser.report_error("Oporavak od greske u IfCond. Linija: " + eleft, null);:} {: RESULT=new IfCondError(); :} 
 		;
 
 
@@ -295,7 +301,6 @@ ActParsList ::= (ActParsRec) ActParsList:A1 COMMA Expr:E2 {: RESULT=new ActParsR
 
 
 Condition ::= (Condition) CondTerm:C1 OrStart:O2 ConditionRest:C3 {: RESULT=new Condition(C1, O2, C3); RESULT.setLine(C1left); :};
-
  
 ConditionRest ::= (ConditionRestYes) OrCond:O1  CondTerm:C2 ConditionRest:C3 {: RESULT=new ConditionRestYes(O1, C2, C3); RESULT.setLine(O1left); :}
 		  		| (ConditionRestNo) {: RESULT=new ConditionRestNo(); :} /*epsilon*/
@@ -307,6 +312,7 @@ CondTerm ::= (CondTerm) CondFact:C1 AndStart:A2 CondTermRest:C3 {: RESULT=new Co
 CondTermRest ::= (CondTermRestYes) AndTerm:A1  CondFact:C2 CondTermRest:C3 {: RESULT=new CondTermRestYes(A1, C2, C3); RESULT.setLine(A1left); :}
 				| (CondTermRestNo) {: RESULT=new CondTermRestNo(); :} /*epsilon */
 				;
+				
 AndTerm ::= (AndTerm) AND {: RESULT=new AndTerm(); :};
 AndStart ::= (AndStart) {: RESULT=new AndStart(); :} /*epsilon*/;
 OrStart ::= (OrStart) {: RESULT=new OrStart(); :} /*epsilon*/;

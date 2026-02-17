@@ -73,10 +73,10 @@
 	    </java>
 	</target>
 
-	<!-- input="test/inputs.txt" -->
+	<!--  -->
 
 	<target name="debugObj" depends="dissam">
-	    <java classname="rs.etf.pp1.mj.runtime.Run" >
+	    <java classname="rs.etf.pp1.mj.runtime.Run" input="test/inputs.txt">
 	        <arg value="test/program.obj"/>
 	        <arg value="-debug"/>
 	        <classpath>
@@ -86,7 +86,7 @@
 	</target>
 	
 	<target name="runDebug" depends="debugObj">
-		    <java classname="rs.etf.pp1.mj.runtime.Run" >
+		    <java classname="rs.etf.pp1.mj.runtime.Run" input="test/inputs.txt" >
 		        <arg value="test/program.obj"/>
 		        <classpath>
 		            <pathelement location="lib/mj-runtime.jar"/>
