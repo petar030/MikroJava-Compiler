@@ -38,8 +38,8 @@ public class Compiler {
 		Reader br = null;
 
 		try {
-
-			File sourceCode = new File("test/program.mj");
+			String progName = "test302";
+			File sourceCode = new File("test/" + progName+".mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 
 			br = new BufferedReader(new FileReader(sourceCode));
@@ -88,7 +88,7 @@ public class Compiler {
 			log.info("Parsiranje uspesno zavrseno!");
 			
 			//CODE GENERATION
-			File objFile = new File("test/program.obj");
+			File objFile = new File("test/" + progName+".obj");
 			if(objFile.exists()) objFile.delete();
 			
 			CodeGenerator cg = new CodeGenerator();

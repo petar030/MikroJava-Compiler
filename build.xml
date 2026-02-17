@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MJCompiler" basedir=".">
+
+	<property name="test.name" value="test302"/>
+
 	
 	<target name="delete">
 		<delete>
@@ -82,7 +85,7 @@
 	    </java>
 	</target>
 	
-	<target name="runObj" depends="debugObj">
+	<target name="runDebug" depends="debugObj">
 		    <java classname="rs.etf.pp1.mj.runtime.Run" >
 		        <arg value="test/program.obj"/>
 		        <classpath>
@@ -90,7 +93,16 @@
 		        </classpath>
 		    </java>
 		</target>
-
+	
+	<target name="run">
+	    <java classname="rs.etf.pp1.mj.runtime.Run" fork="true">
+	        <arg value="test/${test.name}.obj"/>
+	        <classpath>
+	            <pathelement location="lib/mj-runtime.jar"/>
+	        </classpath>
+	        <redirector output="test/${test.name}.out" error="test/${test.name}.err"/>
+	    </java>
+	</target>
 			
 			
 		
