@@ -775,44 +775,73 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	/* Condition */
 
 	@Override
-	public void visit(ConditionRec cond) {
-		if (!cond.getCondition().struct.equals(this.boolType) || !cond.getCondTerm().struct.equals(this.boolType)) {
-
-			cond.struct = Tab.noType;
-			report_error("CondTerm nije tipa bool", cond);
-			return;
-		}
-		cond.struct = this.boolType;
+	public void visit(Condition n) {
+	    if (!n.getCondTerm().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("CondTerm nije tipa bool", n);
+	        return;
+	    }
+	    if (!n.getConditionRest().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("ConditionRest nije tipa bool", n);
+	        return;
+	    }
+	    n.struct = boolType;
 	}
 
 	@Override
-	public void visit(ConditionBase cond) {
-		if (!cond.getCondTerm().struct.equals(this.boolType)) {
-			cond.struct = Tab.noType;
-			report_error("CondTerm nije tipa bool", cond);
-			return;
-		}
-		cond.struct = this.boolType;
+	public void visit(ConditionRestYes n) {
+	    if (!n.getCondTerm().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("CondTerm u '||' nije tipa bool", n);
+	        return;
+	    }
+	    if (!n.getConditionRest().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("ConditionRest posle '||' nije tipa bool", n);
+	        return;
+	    }
+	    n.struct = boolType;
 	}
 
 	@Override
-	public void visit(CondTermRec condTerm) {
-		if (!condTerm.getCondFact().struct.equals(this.boolType)) {
-			condTerm.struct = Tab.noType;
-			report_error("CondFact nije tipa bool ", condTerm);
-			return;
-		}
-		condTerm.struct = this.boolType;
+	public void visit(ConditionRestNo n) {
+	    n.struct = boolType;
+	}
+	
+	@Override
+	public void visit(CondTerm n) {
+	    if (!n.getCondFact().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("CondFact nije tipa bool", n);
+	        return;
+	    }
+	    if (!n.getCondTermRest().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("CondTermRest nije tipa bool", n);
+	        return;
+	    }
+	    n.struct = boolType;
 	}
 
 	@Override
-	public void visit(CondTermBase condTerm) {
-		if (!condTerm.getCondFact().struct.equals(this.boolType)) {
-			condTerm.struct = Tab.noType;
-			report_error("CondFact nije tipa bool ", condTerm);
-			return;
-		}
-		condTerm.struct = this.boolType;
+	public void visit(CondTermRestYes n) {
+	    if (!n.getCondFact().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("CondFact u '&&' nije tipa bool", n);
+	        return;
+	    }
+	    if (!n.getCondTermRest().struct.equals(boolType)) {
+	        n.struct = Tab.noType;
+	        report_error("CondTermRest posle '&&' nije tipa bool", n);
+	        return;
+	    }
+	    n.struct = boolType;
+	}
+
+	@Override
+	public void visit(CondTermRestNo n) {
+	    n.struct = boolType;
 	}
 
 	@Override

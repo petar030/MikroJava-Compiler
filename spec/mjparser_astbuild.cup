@@ -96,6 +96,10 @@ nonterminal StartFor StartFor;
 nonterminal StartSwitch StartSwitch;
 nonterminal DesignatorRest DesignatorRest;
 
+nonterminal AndStart AndStart;
+nonterminal OrStart OrStart;
+nonterminal AndTerm AndTerm;
+nonterminal OrCond OrCond;
 
 nonterminal ProgName ProgName;
 nonterminal ActParsList ActParsList;
@@ -113,7 +117,7 @@ nonterminal DstEnd DstEnd;
 nonterminal StartForBody StartForBody;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond, CondOpt;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond, CondOpt, CondTermRest, ConditionRest;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType, Name, ArrayName;
 
 precedence left ELSE;
@@ -290,17 +294,22 @@ ActParsList ::= (ActParsRec) ActParsList:A1 COMMA Expr:E2 {: RESULT=new ActParsR
 			|(ActParsBase) Expr:E1 {: RESULT=new ActParsBase(E1); RESULT.setLine(E1left); :};
 
 
+Condition ::= (Condition) CondTerm:C1 OrStart:O2 ConditionRest:C3 {: RESULT=new Condition(C1, O2, C3); RESULT.setLine(C1left); :};
 
-Condition ::= (ConditionRec) Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionRec(C1, C2); RESULT.setLine(C1left); :}
-            | (ConditionBase) CondTerm:C1 {: RESULT=new ConditionBase(C1); RESULT.setLine(C1left); :}
-            ;
+ 
+ConditionRest ::= (ConditionRestYes) OrCond:O1  CondTerm:C2 ConditionRest:C3 {: RESULT=new ConditionRestYes(O1, C2, C3); RESULT.setLine(O1left); :}
+		  		| (ConditionRestNo) {: RESULT=new ConditionRestNo(); :} /*epsilon*/
+		  		;
+OrCond ::= (OrCond) OR {: RESULT=new OrCond(); :};
 
-CondTerm ::= (CondTermRec) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermRec(C1, C2); RESULT.setLine(C1left); :}
-           | (CondTermBase) CondFact:C1 {: RESULT=new CondTermBase(C1); RESULT.setLine(C1left); :}
-           ;
+CondTerm ::= (CondTerm) CondFact:C1 AndStart:A2 CondTermRest:C3 {: RESULT=new CondTerm(C1, A2, C3); RESULT.setLine(C1left); :};
 
-
-
+CondTermRest ::= (CondTermRestYes) AndTerm:A1  CondFact:C2 CondTermRest:C3 {: RESULT=new CondTermRestYes(A1, C2, C3); RESULT.setLine(A1left); :}
+				| (CondTermRestNo) {: RESULT=new CondTermRestNo(); :} /*epsilon */
+				;
+AndTerm ::= (AndTerm) AND {: RESULT=new AndTerm(); :};
+AndStart ::= (AndStart) {: RESULT=new AndStart(); :} /*epsilon*/;
+OrStart ::= (OrStart) {: RESULT=new OrStart(); :} /*epsilon*/;
 
 CondFact ::= (CondFactRelop) SimpleExpr:S1 Relop:R2 SimpleExpr:S3 {: RESULT=new CondFactRelop(S1, R2, S3); RESULT.setLine(S1left); :}
           | (CondFactSimple) SimpleExpr:S1 {: RESULT=new CondFactSimple(S1); RESULT.setLine(S1left); :}

@@ -31,6 +31,11 @@ public class CodeGenerator extends VisitorAdaptor {
 	private Stack<List<Integer>> switchLastBody = new Stack<>();
 	Stack<List<Integer>> breakStack  = new Stack<>();
 	
+	
+	private Stack<List<Integer>> andJump = new Stack<>();
+	private Stack<List<Integer>> orJump = new Stack<>();
+
+	
 
 	private static class ForFrame {
         int loopStartPc = -1;
@@ -381,28 +386,67 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	/* Condition */
-
+	
 	@Override
-	public void visit(ConditionRec condition) {
-
-		Code.put(Code.add);
-		Code.loadConst(0);
-		Code.putFalseJump(Code.ne, 0);
-		int jf = Code.pc - 2;
-		Code.loadConst(1);
+	public void visit(Condition x) {
+		//Code.loadConst(0);
 		Code.put(Code.jmp);
 		Code.put2(0);
 		int je = Code.pc - 2;
-		Code.fixup(jf);
+
+		List<Integer> tmp = orJump.pop();
+		for(Integer adr : tmp) {
+			Code.fixup(adr);
+		}
+		Code.loadConst(1);
+		Code.fixup(je);
+	}
+	
+	@Override
+	public void visit(OrCond x) {
+		//Proveri da li je nula
+		Code.loadConst(1);
+		Code.putFalseJump(Code.ne, 0);
+		orJump.peek().add(Code.pc-2);
+	}
+	
+
+	
+	@Override
+	public void visit(OrStart x) {
+		orJump.push(new ArrayList<>());
+	}
+	
+	@Override
+	public void visit(CondTerm x) {
+		//Code.loadConst(1);
+		Code.put(Code.jmp);
+		Code.put2(0);
+		int je = Code.pc - 2;
+		List<Integer> tmp = andJump.pop();
+		for(Integer adr : tmp) {
+			Code.fixup(adr);
+		}
 		Code.loadConst(0);
 		Code.fixup(je);
-
 	}
-
+	
 	@Override
-	public void visit(CondTermRec condTerm) {
-		Code.put(Code.mul);
+	public void visit(AndTerm x) {
+		//Proveri da li je nula
+		Code.loadConst(0);
+		Code.putFalseJump(Code.ne, 0);
+		andJump.peek().add(Code.pc-2);
+
 	}
+	
+	
+	@Override
+	public void visit(AndStart x) {
+		andJump.push(new ArrayList<>());
+	}
+	
+	
 
 	@Override
 	public void visit(CondFactRelop condFact) {

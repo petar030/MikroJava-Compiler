@@ -1,184 +1,609 @@
-INFO  02:20:43,377 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
-INFO  02:20:43,392 - #2 program
-INFO  02:20:43,392 - #45 BinarySearch
-INFO  02:20:43,392 - #45 int
-INFO  02:20:43,392 - #45 x
-INFO  02:20:43,392 - #33 ;
-INFO  02:20:43,392 - #42 {
-INFO  02:20:43,393 - #11 void
-INFO  02:20:43,393 - #45 printNums
-INFO  02:20:43,393 - #38 (
-INFO  02:20:43,393 - #45 int
-INFO  02:20:43,393 - #45 num
-INFO  02:20:43,393 - #39 )
-INFO  02:20:43,393 - #42 {
-INFO  02:20:43,394 - #7 if
-INFO  02:20:43,394 - #38 (
-INFO  02:20:43,394 - #45 num
-INFO  02:20:43,394 - #20 <=
-INFO  02:20:43,394 - #46 0
-INFO  02:20:43,394 - #39 )
-INFO  02:20:43,395 - #42 {
-INFO  02:20:43,395 - #8 print
-INFO  02:20:43,395 - #38 (
-INFO  02:20:43,395 - #45 num
-INFO  02:20:43,395 - #39 )
-INFO  02:20:43,395 - #33 ;
-INFO  02:20:43,395 - #10 return
-INFO  02:20:43,395 - #33 ;
-INFO  02:20:43,395 - #43 }
-INFO  02:20:43,395 - #45 x
-INFO  02:20:43,396 - #32 =
-INFO  02:20:43,396 - #45 x
-INFO  02:20:43,396 - #28 -
-INFO  02:20:43,396 - #46 1
-INFO  02:20:43,396 - #33 ;
-INFO  02:20:43,396 - #45 printNums
-INFO  02:20:43,396 - #38 (
-INFO  02:20:43,396 - #45 x
-INFO  02:20:43,396 - #39 )
-INFO  02:20:43,397 - #33 ;
-INFO  02:20:43,397 - #8 print
-INFO  02:20:43,397 - #38 (
-INFO  02:20:43,397 - #45 num
-INFO  02:20:43,397 - #39 )
-INFO  02:20:43,397 - #33 ;
-INFO  02:20:43,397 - #43 }
-INFO  02:20:43,397 - #11 void
-INFO  02:20:43,397 - #45 main
-INFO  02:20:43,397 - #38 (
-INFO  02:20:43,397 - #39 )
-INFO  02:20:43,398 - #42 {
-INFO  02:20:43,398 - #45 x
-INFO  02:20:43,398 - #32 =
-INFO  02:20:43,398 - #46 6
-INFO  02:20:43,398 - #33 ;
-INFO  02:20:43,398 - #45 printNums
-INFO  02:20:43,398 - #38 (
-INFO  02:20:43,398 - #46 6
-INFO  02:20:43,398 - #39 )
-INFO  02:20:43,398 - #33 ;
-INFO  02:20:43,398 - #43 }
-INFO  02:20:43,398 - #43 }
-INFO  02:20:43,399 - Program(
+INFO  01:15:46,478 - Compiling source file: /home/petar030/Nextcloud/PETAR/FAKS/S7/Programski_prevodioci_1/Projekat/Projekat/workspace/MJCompiler/test/program.mj
+INFO  01:15:46,492 - #2 program
+INFO  01:15:46,492 - #45 test302
+INFO  01:15:46,492 - #6 const
+INFO  01:15:46,492 - #45 int
+INFO  01:15:46,492 - #45 jedan
+INFO  01:15:46,493 - #32 =
+INFO  01:15:46,493 - #46 1
+INFO  01:15:46,493 - #33 ;
+INFO  01:15:46,493 - #45 int
+INFO  01:15:46,494 - #45 i
+INFO  01:15:46,494 - #33 ;
+INFO  01:15:46,494 - #45 bool
+INFO  01:15:46,494 - #45 ibool
+INFO  01:15:46,494 - #33 ;
+INFO  01:15:46,494 - #45 int
+INFO  01:15:46,494 - #45 niz
+INFO  01:15:46,494 - #40 [
+INFO  01:15:46,494 - #41 ]
+INFO  01:15:46,494 - #33 ;
+INFO  01:15:46,494 - #42 {
+INFO  01:15:46,494 - #45 int
+INFO  01:15:46,494 - #45 sum
+INFO  01:15:46,495 - #38 (
+INFO  01:15:46,495 - #45 int
+INFO  01:15:46,495 - #45 z
+INFO  01:15:46,495 - #35 ,
+INFO  01:15:46,495 - #45 int
+INFO  01:15:46,495 - #45 d
+INFO  01:15:46,495 - #39 )
+INFO  01:15:46,495 - #42 {
+INFO  01:15:46,495 - #10 return
+INFO  01:15:46,496 - #45 z
+INFO  01:15:46,496 - #27 +
+INFO  01:15:46,496 - #45 d
+INFO  01:15:46,496 - #33 ;
+INFO  01:15:46,496 - #43 }
+INFO  01:15:46,496 - #45 int
+INFO  01:15:46,497 - #45 inkrement
+INFO  01:15:46,497 - #38 (
+INFO  01:15:46,497 - #45 int
+INFO  01:15:46,497 - #45 a
+INFO  01:15:46,497 - #35 ,
+INFO  01:15:46,497 - #45 int
+INFO  01:15:46,497 - #45 inc
+INFO  01:15:46,497 - #39 )
+INFO  01:15:46,497 - #45 int
+INFO  01:15:46,497 - #45 pom
+INFO  01:15:46,497 - #33 ;
+INFO  01:15:46,497 - #42 {
+INFO  01:15:46,497 - #7 if
+INFO  01:15:46,497 - #38 (
+INFO  01:15:46,497 - #45 inc
+INFO  01:15:46,498 - #17 ==
+INFO  01:15:46,498 - #45 jedan
+INFO  01:15:46,498 - #39 )
+INFO  01:15:46,499 - #45 pom
+INFO  01:15:46,499 - #32 =
+INFO  01:15:46,499 - #46 1
+INFO  01:15:46,499 - #33 ;
+INFO  01:15:46,499 - #5 else
+INFO  01:15:46,499 - #7 if
+INFO  01:15:46,500 - #38 (
+INFO  01:15:46,500 - #45 inc
+INFO  01:15:46,500 - #17 ==
+INFO  01:15:46,500 - #46 2
+INFO  01:15:46,500 - #39 )
+INFO  01:15:46,500 - #45 pom
+INFO  01:15:46,500 - #32 =
+INFO  01:15:46,500 - #45 a
+INFO  01:15:46,500 - #33 ;
+INFO  01:15:46,500 - #10 return
+INFO  01:15:46,500 - #45 sum
+INFO  01:15:46,500 - #38 (
+INFO  01:15:46,500 - #45 a
+INFO  01:15:46,500 - #35 ,
+INFO  01:15:46,500 - #45 pom
+INFO  01:15:46,501 - #39 )
+INFO  01:15:46,501 - #33 ;
+INFO  01:15:46,501 - #43 }
+INFO  01:15:46,501 - #45 bool
+INFO  01:15:46,501 - #45 verify
+INFO  01:15:46,501 - #38 (
+INFO  01:15:46,501 - #39 )
+INFO  01:15:46,501 - #42 {
+INFO  01:15:46,501 - #8 print
+INFO  01:15:46,501 - #38 (
+INFO  01:15:46,501 - #47 v
+INFO  01:15:46,501 - #39 )
+INFO  01:15:46,501 - #33 ;
+INFO  01:15:46,502 - #10 return
+INFO  01:15:46,502 - #48 0
+INFO  01:15:46,502 - #33 ;
+INFO  01:15:46,502 - #43 }
+INFO  01:15:46,502 - #11 void
+INFO  01:15:46,502 - #45 main
+INFO  01:15:46,502 - #38 (
+INFO  01:15:46,502 - #39 )
+INFO  01:15:46,502 - #42 {
+INFO  01:15:46,502 - #7 if
+INFO  01:15:46,502 - #38 (
+INFO  01:15:46,502 - #46 1
+INFO  01:15:46,502 - #18 !=
+INFO  01:15:46,502 - #46 1
+INFO  01:15:46,502 - #39 )
+INFO  01:15:46,502 - #8 print
+INFO  01:15:46,502 - #38 (
+INFO  01:15:46,502 - #28 -
+INFO  01:15:46,502 - #46 6
+INFO  01:15:46,502 - #39 )
+INFO  01:15:46,502 - #33 ;
+INFO  01:15:46,503 - #5 else
+INFO  01:15:46,503 - #8 print
+INFO  01:15:46,503 - #38 (
+INFO  01:15:46,503 - #46 0
+INFO  01:15:46,503 - #39 )
+INFO  01:15:46,503 - #33 ;
+INFO  01:15:46,503 - #45 ibool
+INFO  01:15:46,503 - #32 =
+INFO  01:15:46,503 - #48 0
+INFO  01:15:46,503 - #33 ;
+INFO  01:15:46,503 - #45 i
+INFO  01:15:46,503 - #32 =
+INFO  01:15:46,503 - #46 0
+INFO  01:15:46,503 - #33 ;
+INFO  01:15:46,503 - #13 for
+INFO  01:15:46,503 - #38 (
+INFO  01:15:46,503 - #45 i
+INFO  01:15:46,503 - #32 =
+INFO  01:15:46,503 - #46 0
+INFO  01:15:46,503 - #33 ;
+INFO  01:15:46,503 - #45 i
+INFO  01:15:46,504 - #26 <
+INFO  01:15:46,504 - #46 5
+INFO  01:15:46,504 - #33 ;
+INFO  01:15:46,504 - #45 i
+INFO  01:15:46,504 - #23 ++
+INFO  01:15:46,504 - #39 )
+INFO  01:15:46,504 - #42 {
+INFO  01:15:46,504 - #7 if
+INFO  01:15:46,505 - #38 (
+INFO  01:15:46,505 - #45 i
+INFO  01:15:46,505 - #17 ==
+INFO  01:15:46,505 - #46 2
+INFO  01:15:46,505 - #39 )
+INFO  01:15:46,505 - #45 ibool
+INFO  01:15:46,505 - #32 =
+INFO  01:15:46,505 - #48 1
+INFO  01:15:46,505 - #33 ;
+INFO  01:15:46,505 - #43 }
+INFO  01:15:46,505 - #7 if
+INFO  01:15:46,505 - #38 (
+INFO  01:15:46,505 - #45 ibool
+INFO  01:15:46,505 - #39 )
+INFO  01:15:46,505 - #7 if
+INFO  01:15:46,505 - #38 (
+INFO  01:15:46,505 - #45 i
+INFO  01:15:46,505 - #17 ==
+INFO  01:15:46,505 - #46 5
+INFO  01:15:46,505 - #39 )
+INFO  01:15:46,505 - #8 print
+INFO  01:15:46,505 - #38 (
+INFO  01:15:46,506 - #46 1
+INFO  01:15:46,506 - #39 )
+INFO  01:15:46,506 - #33 ;
+INFO  01:15:46,506 - #5 else
+INFO  01:15:46,506 - #8 print
+INFO  01:15:46,506 - #38 (
+INFO  01:15:46,506 - #28 -
+INFO  01:15:46,506 - #46 1
+INFO  01:15:46,506 - #39 )
+INFO  01:15:46,506 - #33 ;
+INFO  01:15:46,506 - #45 niz
+INFO  01:15:46,506 - #32 =
+INFO  01:15:46,506 - #44 new
+INFO  01:15:46,506 - #45 int
+INFO  01:15:46,506 - #40 [
+INFO  01:15:46,506 - #46 3
+INFO  01:15:46,506 - #41 ]
+INFO  01:15:46,506 - #33 ;
+INFO  01:15:46,506 - #45 niz
+INFO  01:15:46,506 - #40 [
+INFO  01:15:46,506 - #46 0
+INFO  01:15:46,506 - #41 ]
+INFO  01:15:46,506 - #32 =
+INFO  01:15:46,506 - #46 1
+INFO  01:15:46,506 - #33 ;
+INFO  01:15:46,506 - #45 niz
+INFO  01:15:46,507 - #40 [
+INFO  01:15:46,507 - #46 1
+INFO  01:15:46,507 - #41 ]
+INFO  01:15:46,507 - #32 =
+INFO  01:15:46,507 - #46 2
+INFO  01:15:46,507 - #33 ;
+INFO  01:15:46,507 - #45 niz
+INFO  01:15:46,507 - #40 [
+INFO  01:15:46,507 - #46 2
+INFO  01:15:46,507 - #41 ]
+INFO  01:15:46,507 - #32 =
+INFO  01:15:46,507 - #45 sum
+INFO  01:15:46,507 - #38 (
+INFO  01:15:46,507 - #45 niz
+INFO  01:15:46,507 - #40 [
+INFO  01:15:46,507 - #46 1
+INFO  01:15:46,507 - #41 ]
+INFO  01:15:46,507 - #35 ,
+INFO  01:15:46,507 - #45 niz
+INFO  01:15:46,507 - #40 [
+INFO  01:15:46,507 - #46 0
+INFO  01:15:46,507 - #41 ]
+INFO  01:15:46,507 - #39 )
+INFO  01:15:46,507 - #27 +
+INFO  01:15:46,508 - #46 1
+INFO  01:15:46,508 - #33 ;
+INFO  01:15:46,508 - #7 if
+INFO  01:15:46,508 - #38 (
+INFO  01:15:46,508 - #45 niz
+INFO  01:15:46,508 - #40 [
+INFO  01:15:46,508 - #46 2
+INFO  01:15:46,508 - #41 ]
+INFO  01:15:46,508 - #17 ==
+INFO  01:15:46,508 - #46 4
+INFO  01:15:46,508 - #22 ||
+INFO  01:15:46,508 - #45 verify
+INFO  01:15:46,508 - #38 (
+INFO  01:15:46,508 - #39 )
+INFO  01:15:46,508 - #39 )
+INFO  01:15:46,508 - #8 print
+INFO  01:15:46,508 - #38 (
+INFO  01:15:46,508 - #45 ord
+INFO  01:15:46,508 - #38 (
+INFO  01:15:46,509 - #47 A
+INFO  01:15:46,509 - #39 )
+INFO  01:15:46,509 - #39 )
+INFO  01:15:46,509 - #33 ;
+INFO  01:15:46,509 - #5 else
+INFO  01:15:46,509 - #8 print
+INFO  01:15:46,509 - #38 (
+INFO  01:15:46,509 - #45 ord
+INFO  01:15:46,509 - #38 (
+INFO  01:15:46,509 - #47 a
+INFO  01:15:46,509 - #39 )
+INFO  01:15:46,509 - #39 )
+INFO  01:15:46,509 - #33 ;
+INFO  01:15:46,509 - #8 print
+INFO  01:15:46,509 - #38 (
+INFO  01:15:46,509 - #45 eol
+INFO  01:15:46,509 - #39 )
+INFO  01:15:46,509 - #33 ;
+INFO  01:15:46,509 - #45 i
+INFO  01:15:46,509 - #32 =
+INFO  01:15:46,509 - #46 0
+INFO  01:15:46,509 - #33 ;
+INFO  01:15:46,509 - #13 for
+INFO  01:15:46,509 - #38 (
+INFO  01:15:46,509 - #33 ;
+INFO  01:15:46,509 - #45 i
+INFO  01:15:46,510 - #26 <
+INFO  01:15:46,510 - #46 10
+INFO  01:15:46,510 - #33 ;
+INFO  01:15:46,510 - #39 )
+INFO  01:15:46,510 - #42 {
+INFO  01:15:46,510 - #7 if
+INFO  01:15:46,510 - #38 (
+INFO  01:15:46,510 - #45 i
+INFO  01:15:46,510 - #17 ==
+INFO  01:15:46,510 - #46 3
+INFO  01:15:46,510 - #39 )
+INFO  01:15:46,510 - #42 {
+INFO  01:15:46,510 - #45 i
+INFO  01:15:46,510 - #23 ++
+INFO  01:15:46,510 - #33 ;
+INFO  01:15:46,510 - #12 continue
+INFO  01:15:46,510 - #33 ;
+INFO  01:15:46,510 - #43 }
+INFO  01:15:46,510 - #7 if
+INFO  01:15:46,510 - #38 (
+INFO  01:15:46,510 - #45 i
+INFO  01:15:46,510 - #17 ==
+INFO  01:15:46,510 - #46 4
+INFO  01:15:46,510 - #39 )
+INFO  01:15:46,510 - #3 break
+INFO  01:15:46,510 - #33 ;
+INFO  01:15:46,510 - #45 i
+INFO  01:15:46,510 - #32 =
+INFO  01:15:46,510 - #45 inkrement
+INFO  01:15:46,510 - #38 (
+INFO  01:15:46,511 - #45 i
+INFO  01:15:46,511 - #35 ,
+INFO  01:15:46,511 - #46 1
+INFO  01:15:46,511 - #39 )
+INFO  01:15:46,511 - #33 ;
+INFO  01:15:46,511 - #43 }
+INFO  01:15:46,511 - #7 if
+INFO  01:15:46,511 - #38 (
+INFO  01:15:46,511 - #45 i
+INFO  01:15:46,511 - #17 ==
+INFO  01:15:46,511 - #46 3
+INFO  01:15:46,511 - #21 &&
+INFO  01:15:46,511 - #45 verify
+INFO  01:15:46,511 - #38 (
+INFO  01:15:46,511 - #39 )
+INFO  01:15:46,511 - #39 )
+INFO  01:15:46,511 - #8 print
+INFO  01:15:46,511 - #38 (
+INFO  01:15:46,511 - #46 4
+INFO  01:15:46,511 - #39 )
+INFO  01:15:46,511 - #33 ;
+INFO  01:15:46,511 - #5 else
+INFO  01:15:46,511 - #8 print
+INFO  01:15:46,511 - #38 (
+INFO  01:15:46,511 - #28 -
+INFO  01:15:46,511 - #46 4
+INFO  01:15:46,511 - #39 )
+INFO  01:15:46,511 - #33 ;
+INFO  01:15:46,511 - #9 read
+INFO  01:15:46,511 - #38 (
+INFO  01:15:46,511 - #45 niz
+INFO  01:15:46,511 - #40 [
+INFO  01:15:46,512 - #46 0
+INFO  01:15:46,512 - #41 ]
+INFO  01:15:46,512 - #39 )
+INFO  01:15:46,512 - #33 ;
+INFO  01:15:46,512 - #9 read
+INFO  01:15:46,512 - #38 (
+INFO  01:15:46,512 - #45 niz
+INFO  01:15:46,512 - #40 [
+INFO  01:15:46,512 - #46 1
+INFO  01:15:46,512 - #41 ]
+INFO  01:15:46,512 - #39 )
+INFO  01:15:46,512 - #33 ;
+INFO  01:15:46,512 - #9 read
+INFO  01:15:46,512 - #38 (
+INFO  01:15:46,512 - #45 niz
+INFO  01:15:46,512 - #40 [
+INFO  01:15:46,512 - #46 2
+INFO  01:15:46,512 - #41 ]
+INFO  01:15:46,512 - #39 )
+INFO  01:15:46,512 - #33 ;
+INFO  01:15:46,512 - #8 print
+INFO  01:15:46,512 - #38 (
+INFO  01:15:46,512 - #45 eol
+INFO  01:15:46,512 - #39 )
+INFO  01:15:46,512 - #33 ;
+INFO  01:15:46,512 - #8 print
+INFO  01:15:46,512 - #38 (
+INFO  01:15:46,512 - #45 sum
+INFO  01:15:46,512 - #38 (
+INFO  01:15:46,512 - #45 sum
+INFO  01:15:46,512 - #38 (
+INFO  01:15:46,512 - #45 niz
+INFO  01:15:46,512 - #40 [
+INFO  01:15:46,512 - #46 0
+INFO  01:15:46,512 - #41 ]
+INFO  01:15:46,512 - #35 ,
+INFO  01:15:46,512 - #45 niz
+INFO  01:15:46,512 - #40 [
+INFO  01:15:46,512 - #46 1
+INFO  01:15:46,512 - #41 ]
+INFO  01:15:46,512 - #39 )
+INFO  01:15:46,513 - #35 ,
+INFO  01:15:46,513 - #45 niz
+INFO  01:15:46,513 - #40 [
+INFO  01:15:46,513 - #46 2
+INFO  01:15:46,513 - #41 ]
+INFO  01:15:46,513 - #39 )
+INFO  01:15:46,513 - #39 )
+INFO  01:15:46,513 - #33 ;
+INFO  01:15:46,513 - #13 for
+INFO  01:15:46,513 - #38 (
+INFO  01:15:46,513 - #45 i
+INFO  01:15:46,513 - #32 =
+INFO  01:15:46,513 - #46 0
+INFO  01:15:46,513 - #33 ;
+INFO  01:15:46,513 - #45 i
+INFO  01:15:46,513 - #26 <
+INFO  01:15:46,513 - #45 niz
+INFO  01:15:46,513 - #36 .
+INFO  01:15:46,513 - #14 length
+INFO  01:15:46,513 - #33 ;
+INFO  01:15:46,513 - #45 i
+INFO  01:15:46,513 - #23 ++
+INFO  01:15:46,513 - #39 )
+INFO  01:15:46,514 - #42 {
+INFO  01:15:46,514 - #8 print
+INFO  01:15:46,514 - #38 (
+INFO  01:15:46,514 - #45 i
+INFO  01:15:46,514 - #39 )
+INFO  01:15:46,514 - #33 ;
+INFO  01:15:46,514 - #43 }
+INFO  01:15:46,514 - #8 print
+INFO  01:15:46,514 - #38 (
+INFO  01:15:46,514 - #45 eol
+INFO  01:15:46,514 - #39 )
+INFO  01:15:46,514 - #33 ;
+INFO  01:15:46,514 - #8 print
+INFO  01:15:46,514 - #38 (
+INFO  01:15:46,514 - #45 inkrement
+INFO  01:15:46,514 - #38 (
+INFO  01:15:46,514 - #45 niz
+INFO  01:15:46,514 - #40 [
+INFO  01:15:46,514 - #46 2
+INFO  01:15:46,514 - #41 ]
+INFO  01:15:46,514 - #35 ,
+INFO  01:15:46,514 - #46 2
+INFO  01:15:46,514 - #39 )
+INFO  01:15:46,514 - #39 )
+INFO  01:15:46,514 - #33 ;
+INFO  01:15:46,514 - #8 print
+INFO  01:15:46,514 - #38 (
+INFO  01:15:46,514 - #45 verify
+INFO  01:15:46,514 - #38 (
+INFO  01:15:46,514 - #39 )
+INFO  01:15:46,514 - #37 ?
+INFO  01:15:46,514 - #47 t
+INFO  01:15:46,514 - #34 :
+INFO  01:15:46,514 - #47 f
+INFO  01:15:46,514 - #39 )
+INFO  01:15:46,515 - #33 ;
+INFO  01:15:46,515 - #13 for
+INFO  01:15:46,515 - #38 (
+INFO  01:15:46,515 - #45 i
+INFO  01:15:46,515 - #32 =
+INFO  01:15:46,515 - #46 0
+INFO  01:15:46,515 - #33 ;
+INFO  01:15:46,515 - #45 i
+INFO  01:15:46,515 - #26 <
+INFO  01:15:46,515 - #46 10
+INFO  01:15:46,515 - #33 ;
+INFO  01:15:46,515 - #45 i
+INFO  01:15:46,515 - #23 ++
+INFO  01:15:46,515 - #39 )
+INFO  01:15:46,515 - #42 {
+INFO  01:15:46,515 - #15 switch
+INFO  01:15:46,515 - #38 (
+INFO  01:15:46,515 - #45 i
+INFO  01:15:46,515 - #27 +
+INFO  01:15:46,515 - #46 1
+INFO  01:15:46,515 - #39 )
+INFO  01:15:46,515 - #42 {
+INFO  01:15:46,515 - #16 case
+INFO  01:15:46,515 - #46 1
+INFO  01:15:46,515 - #34 :
+INFO  01:15:46,515 - #8 print
+INFO  01:15:46,515 - #38 (
+INFO  01:15:46,515 - #46 1
+INFO  01:15:46,515 - #39 )
+INFO  01:15:46,515 - #33 ;
+INFO  01:15:46,516 - #3 break
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #16 case
+INFO  01:15:46,516 - #46 3
+INFO  01:15:46,516 - #34 :
+INFO  01:15:46,516 - #8 print
+INFO  01:15:46,516 - #38 (
+INFO  01:15:46,516 - #46 3
+INFO  01:15:46,516 - #39 )
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #16 case
+INFO  01:15:46,516 - #46 2
+INFO  01:15:46,516 - #34 :
+INFO  01:15:46,516 - #8 print
+INFO  01:15:46,516 - #38 (
+INFO  01:15:46,516 - #46 2
+INFO  01:15:46,516 - #39 )
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #3 break
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #16 case
+INFO  01:15:46,516 - #46 5
+INFO  01:15:46,516 - #34 :
+INFO  01:15:46,516 - #8 print
+INFO  01:15:46,516 - #38 (
+INFO  01:15:46,516 - #46 5
+INFO  01:15:46,516 - #39 )
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #45 i
+INFO  01:15:46,516 - #32 =
+INFO  01:15:46,516 - #45 i
+INFO  01:15:46,516 - #27 +
+INFO  01:15:46,516 - #46 2
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #12 continue
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #16 case
+INFO  01:15:46,516 - #46 6
+INFO  01:15:46,516 - #34 :
+INFO  01:15:46,516 - #8 print
+INFO  01:15:46,516 - #38 (
+INFO  01:15:46,516 - #46 6
+INFO  01:15:46,516 - #39 )
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #16 case
+INFO  01:15:46,516 - #46 9
+INFO  01:15:46,516 - #34 :
+INFO  01:15:46,516 - #8 print
+INFO  01:15:46,516 - #38 (
+INFO  01:15:46,516 - #46 9
+INFO  01:15:46,516 - #39 )
+INFO  01:15:46,516 - #33 ;
+INFO  01:15:46,516 - #43 }
+INFO  01:15:46,516 - #8 print
+INFO  01:15:46,517 - #38 (
+INFO  01:15:46,517 - #45 eol
+INFO  01:15:46,517 - #39 )
+INFO  01:15:46,517 - #33 ;
+INFO  01:15:46,517 - #43 }
+INFO  01:15:46,517 - #43 }
+INFO  01:15:46,517 - #43 }
+INFO  01:15:46,523 - Program(
   ProgName(
-   BinarySearch
+   test302
   ) [ProgName]
   DeclListVar(
-    DeclList_e(
-    ) [DeclList_e]
+    DeclListVar(
+      DeclListVar(
+        DeclListConst(
+          DeclList_e(
+          ) [DeclList_e]
+          ConstDecl(
+            Type(
+             int
+            ) [Type]
+            ConstDeclItem(
+             jedan
+              ConstNum(
+               1
+              ) [ConstNum]
+            ) [ConstDeclItem]
+            ConstRest_e(
+            ) [ConstRest_e]
+          ) [ConstDecl]
+        ) [DeclListConst]
+        VarDecl(
+          Type(
+           int
+          ) [Type]
+          VarDeclItem_var(
+           i
+          ) [VarDeclItem_var]
+          VarRest_e(
+          ) [VarRest_e]
+        ) [VarDecl]
+      ) [DeclListVar]
+      VarDecl(
+        Type(
+         bool
+        ) [Type]
+        VarDeclItem_var(
+         ibool
+        ) [VarDeclItem_var]
+        VarRest_e(
+        ) [VarRest_e]
+      ) [VarDecl]
+    ) [DeclListVar]
     VarDecl(
       Type(
        int
       ) [Type]
-      VarDeclItem_var(
-       x
-      ) [VarDeclItem_var]
+      VarDeclItem_arr(
+       niz
+      ) [VarDeclItem_arr]
       VarRest_e(
       ) [VarRest_e]
     ) [VarDecl]
   ) [DeclListVar]
   MethodDeclListRec(
     MethodDeclListRec(
-      MethodDeclList_e(
-      ) [MethodDeclList_e]
-      MethodDecl(
-        MethodNameAndType_Void(
-         printNums
-        ) [MethodNameAndType_Void]
-        FormParsOptYes(
-          FormPars(
-            FormPars_var(
+      MethodDeclListRec(
+        MethodDeclListRec(
+          MethodDeclList_e(
+          ) [MethodDeclList_e]
+          MethodDecl(
+            MethodNameAndType_RetVal(
               Type(
                int
               ) [Type]
-             num
-            ) [FormPars_var]
-            FormParsRest_e(
-            ) [FormParsRest_e]
-          ) [FormPars]
-        ) [FormParsOptYes]
-        VarDeclList_e(
-        ) [VarDeclList_e]
-        StatementListRec(
-          StatementListRec(
+             sum
+            ) [MethodNameAndType_RetVal]
+            FormParsOptYes(
+              FormPars(
+                FormPars_var(
+                  Type(
+                   int
+                  ) [Type]
+                 z
+                ) [FormPars_var]
+                FormParsRestComma(
+                  FormPars_var(
+                    Type(
+                     int
+                    ) [Type]
+                   d
+                  ) [FormPars_var]
+                  FormParsRest_e(
+                  ) [FormParsRest_e]
+                ) [FormParsRestComma]
+              ) [FormPars]
+            ) [FormParsOptYes]
+            VarDeclList_e(
+            ) [VarDeclList_e]
             StatementListRec(
-              StatementListRec(
-                StatementList_e(
-                ) [StatementList_e]
-                StmtIf(
-                  IfCondBase(
-                    ConditionBase(
-                      CondTermBase(
-                        CondFactRelop(
-                          SimpleExprPos(
-                            AddopBase(
-                              TermBase(
-                                FactorDesignator(
-                                  Designator_var(
-                                   num
-                                  ) [Designator_var]
-                                ) [FactorDesignator]
-                              ) [TermBase]
-                            ) [AddopBase]
-                          ) [SimpleExprPos]
-                          RelLE(
-                          ) [RelLE]
-                          SimpleExprPos(
-                            AddopBase(
-                              TermBase(
-                                FactorNum(
-                                 0
-                                ) [FactorNum]
-                              ) [TermBase]
-                            ) [AddopBase]
-                          ) [SimpleExprPos]
-                        ) [CondFactRelop]
-                      ) [CondTermBase]
-                    ) [ConditionBase]
-                  ) [IfCondBase]
-                  ThenStart(
-                  ) [ThenStart]
-                  StmtBlock(
-                    StatementListRec(
-                      StatementListRec(
-                        StatementList_e(
-                        ) [StatementList_e]
-                        StmtPrint(
-                          ExprSimple(
-                            SimpleExprPos(
-                              AddopBase(
-                                TermBase(
-                                  FactorDesignator(
-                                    Designator_var(
-                                     num
-                                    ) [Designator_var]
-                                  ) [FactorDesignator]
-                                ) [TermBase]
-                              ) [AddopBase]
-                            ) [SimpleExprPos]
-                          ) [ExprSimple]
-                          PrintOptNo(
-                          ) [PrintOptNo]
-                        ) [StmtPrint]
-                      ) [StatementListRec]
-                      StmtReturn(
-                        ExprOptNo(
-                        ) [ExprOptNo]
-                      ) [StmtReturn]
-                    ) [StatementListRec]
-                  ) [StmtBlock]
-                  ElseNo(
-                  ) [ElseNo]
-                ) [StmtIf]
-              ) [StatementListRec]
-              StmtDesignator(
-                DstAssign(
-                  Designator_var(
-                   x
-                  ) [Designator_var]
-                  Assignop(
-                  ) [Assignop]
+              StatementList_e(
+              ) [StatementList_e]
+              StmtReturn(
+                ExprOptYes(
                   ExprSimple(
                     SimpleExprPos(
                       AddopRec(
@@ -186,68 +611,308 @@ INFO  02:20:43,399 - Program(
                           TermBase(
                             FactorDesignator(
                               Designator_var(
-                               x
+                               z
                               ) [Designator_var]
                             ) [FactorDesignator]
                           ) [TermBase]
                         ) [AddopBase]
-                        AddMinus(
-                        ) [AddMinus]
+                        AddPlus(
+                        ) [AddPlus]
                         TermBase(
-                          FactorNum(
-                           1
-                          ) [FactorNum]
+                          FactorDesignator(
+                            Designator_var(
+                             d
+                            ) [Designator_var]
+                          ) [FactorDesignator]
                         ) [TermBase]
                       ) [AddopRec]
                     ) [SimpleExprPos]
                   ) [ExprSimple]
-                ) [DstAssign]
-              ) [StmtDesignator]
+                ) [ExprOptYes]
+              ) [StmtReturn]
             ) [StatementListRec]
-            StmtDesignator(
-              DstCall(
-                Designator_var(
-                 printNums
-                ) [Designator_var]
-                ActParsOptYes(
-                  ActPars(
-                    ActParsBase(
-                      ExprSimple(
+          ) [MethodDecl]
+        ) [MethodDeclListRec]
+        MethodDecl(
+          MethodNameAndType_RetVal(
+            Type(
+             int
+            ) [Type]
+           inkrement
+          ) [MethodNameAndType_RetVal]
+          FormParsOptYes(
+            FormPars(
+              FormPars_var(
+                Type(
+                 int
+                ) [Type]
+               a
+              ) [FormPars_var]
+              FormParsRestComma(
+                FormPars_var(
+                  Type(
+                   int
+                  ) [Type]
+                 inc
+                ) [FormPars_var]
+                FormParsRest_e(
+                ) [FormParsRest_e]
+              ) [FormParsRestComma]
+            ) [FormPars]
+          ) [FormParsOptYes]
+          VarDeclListRec(
+            VarDeclList_e(
+            ) [VarDeclList_e]
+            VarDecl(
+              Type(
+               int
+              ) [Type]
+              VarDeclItem_var(
+               pom
+              ) [VarDeclItem_var]
+              VarRest_e(
+              ) [VarRest_e]
+            ) [VarDecl]
+          ) [VarDeclListRec]
+          StatementListRec(
+            StatementListRec(
+              StatementList_e(
+              ) [StatementList_e]
+              StmtIf(
+                IfCondBase(
+                  Condition(
+                    CondTerm(
+                      CondFactRelop(
                         SimpleExprPos(
                           AddopBase(
                             TermBase(
                               FactorDesignator(
                                 Designator_var(
-                                 x
+                                 inc
                                 ) [Designator_var]
                               ) [FactorDesignator]
                             ) [TermBase]
                           ) [AddopBase]
                         ) [SimpleExprPos]
-                      ) [ExprSimple]
-                    ) [ActParsBase]
-                  ) [ActPars]
-                ) [ActParsOptYes]
-              ) [DstCall]
-            ) [StmtDesignator]
+                        RelEQ(
+                        ) [RelEQ]
+                        SimpleExprPos(
+                          AddopBase(
+                            TermBase(
+                              FactorDesignator(
+                                Designator_var(
+                                 jedan
+                                ) [Designator_var]
+                              ) [FactorDesignator]
+                            ) [TermBase]
+                          ) [AddopBase]
+                        ) [SimpleExprPos]
+                      ) [CondFactRelop]
+                      AndStart(
+                      ) [AndStart]
+                      CondTermRestNo(
+                      ) [CondTermRestNo]
+                    ) [CondTerm]
+                    OrStart(
+                    ) [OrStart]
+                    ConditionRestNo(
+                    ) [ConditionRestNo]
+                  ) [Condition]
+                ) [IfCondBase]
+                ThenStart(
+                ) [ThenStart]
+                StmtDesignator(
+                  DstAssign(
+                    Designator_var(
+                     pom
+                    ) [Designator_var]
+                    Assignop(
+                    ) [Assignop]
+                    ExprSimple(
+                      SimpleExprPos(
+                        AddopBase(
+                          TermBase(
+                            FactorNum(
+                             1
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [AddopBase]
+                      ) [SimpleExprPos]
+                    ) [ExprSimple]
+                  ) [DstAssign]
+                ) [StmtDesignator]
+                ElseYes(
+                  ElseStart(
+                  ) [ElseStart]
+                  StmtIf(
+                    IfCondBase(
+                      Condition(
+                        CondTerm(
+                          CondFactRelop(
+                            SimpleExprPos(
+                              AddopBase(
+                                TermBase(
+                                  FactorDesignator(
+                                    Designator_var(
+                                     inc
+                                    ) [Designator_var]
+                                  ) [FactorDesignator]
+                                ) [TermBase]
+                              ) [AddopBase]
+                            ) [SimpleExprPos]
+                            RelEQ(
+                            ) [RelEQ]
+                            SimpleExprPos(
+                              AddopBase(
+                                TermBase(
+                                  FactorNum(
+                                   2
+                                  ) [FactorNum]
+                                ) [TermBase]
+                              ) [AddopBase]
+                            ) [SimpleExprPos]
+                          ) [CondFactRelop]
+                          AndStart(
+                          ) [AndStart]
+                          CondTermRestNo(
+                          ) [CondTermRestNo]
+                        ) [CondTerm]
+                        OrStart(
+                        ) [OrStart]
+                        ConditionRestNo(
+                        ) [ConditionRestNo]
+                      ) [Condition]
+                    ) [IfCondBase]
+                    ThenStart(
+                    ) [ThenStart]
+                    StmtDesignator(
+                      DstAssign(
+                        Designator_var(
+                         pom
+                        ) [Designator_var]
+                        Assignop(
+                        ) [Assignop]
+                        ExprSimple(
+                          SimpleExprPos(
+                            AddopBase(
+                              TermBase(
+                                FactorDesignator(
+                                  Designator_var(
+                                   a
+                                  ) [Designator_var]
+                                ) [FactorDesignator]
+                              ) [TermBase]
+                            ) [AddopBase]
+                          ) [SimpleExprPos]
+                        ) [ExprSimple]
+                      ) [DstAssign]
+                    ) [StmtDesignator]
+                    ElseNo(
+                    ) [ElseNo]
+                  ) [StmtIf]
+                ) [ElseYes]
+              ) [StmtIf]
+            ) [StatementListRec]
+            StmtReturn(
+              ExprOptYes(
+                ExprSimple(
+                  SimpleExprPos(
+                    AddopBase(
+                      TermBase(
+                        FactorMeth(
+                          Designator_var(
+                           sum
+                          ) [Designator_var]
+                          ActParsOptYes(
+                            ActPars(
+                              ActParsRec(
+                                ActParsBase(
+                                  ExprSimple(
+                                    SimpleExprPos(
+                                      AddopBase(
+                                        TermBase(
+                                          FactorDesignator(
+                                            Designator_var(
+                                             a
+                                            ) [Designator_var]
+                                          ) [FactorDesignator]
+                                        ) [TermBase]
+                                      ) [AddopBase]
+                                    ) [SimpleExprPos]
+                                  ) [ExprSimple]
+                                ) [ActParsBase]
+                                ExprSimple(
+                                  SimpleExprPos(
+                                    AddopBase(
+                                      TermBase(
+                                        FactorDesignator(
+                                          Designator_var(
+                                           pom
+                                          ) [Designator_var]
+                                        ) [FactorDesignator]
+                                      ) [TermBase]
+                                    ) [AddopBase]
+                                  ) [SimpleExprPos]
+                                ) [ExprSimple]
+                              ) [ActParsRec]
+                            ) [ActPars]
+                          ) [ActParsOptYes]
+                        ) [FactorMeth]
+                      ) [TermBase]
+                    ) [AddopBase]
+                  ) [SimpleExprPos]
+                ) [ExprSimple]
+              ) [ExprOptYes]
+            ) [StmtReturn]
           ) [StatementListRec]
-          StmtPrint(
-            ExprSimple(
-              SimpleExprPos(
-                AddopBase(
-                  TermBase(
-                    FactorDesignator(
-                      Designator_var(
-                       num
-                      ) [Designator_var]
-                    ) [FactorDesignator]
-                  ) [TermBase]
-                ) [AddopBase]
-              ) [SimpleExprPos]
-            ) [ExprSimple]
-            PrintOptNo(
-            ) [PrintOptNo]
-          ) [StmtPrint]
+        ) [MethodDecl]
+      ) [MethodDeclListRec]
+      MethodDecl(
+        MethodNameAndType_RetVal(
+          Type(
+           bool
+          ) [Type]
+         verify
+        ) [MethodNameAndType_RetVal]
+        FormParsOptNo(
+        ) [FormParsOptNo]
+        VarDeclList_e(
+        ) [VarDeclList_e]
+        StatementListRec(
+          StatementListRec(
+            StatementList_e(
+            ) [StatementList_e]
+            StmtPrint(
+              ExprSimple(
+                SimpleExprPos(
+                  AddopBase(
+                    TermBase(
+                      FactorChar(
+                       v
+                      ) [FactorChar]
+                    ) [TermBase]
+                  ) [AddopBase]
+                ) [SimpleExprPos]
+              ) [ExprSimple]
+              PrintOptNo(
+              ) [PrintOptNo]
+            ) [StmtPrint]
+          ) [StatementListRec]
+          StmtReturn(
+            ExprOptYes(
+              ExprSimple(
+                SimpleExprPos(
+                  AddopBase(
+                    TermBase(
+                      FactorBool(
+                       0
+                      ) [FactorBool]
+                    ) [TermBase]
+                  ) [AddopBase]
+                ) [SimpleExprPos]
+              ) [ExprSimple]
+            ) [ExprOptYes]
+          ) [StmtReturn]
         ) [StatementListRec]
       ) [MethodDecl]
     ) [MethodDeclListRec]
@@ -261,12 +926,1593 @@ INFO  02:20:43,399 - Program(
       ) [VarDeclList_e]
       StatementListRec(
         StatementListRec(
-          StatementList_e(
-          ) [StatementList_e]
-          StmtDesignator(
+          StatementListRec(
+            StatementListRec(
+              StatementListRec(
+                StatementListRec(
+                  StatementListRec(
+                    StatementListRec(
+                      StatementListRec(
+                        StatementListRec(
+                          StatementListRec(
+                            StatementListRec(
+                              StatementListRec(
+                                StatementListRec(
+                                  StatementListRec(
+                                    StatementListRec(
+                                      StatementListRec(
+                                        StatementListRec(
+                                          StatementListRec(
+                                            StatementListRec(
+                                              StatementListRec(
+                                                StatementListRec(
+                                                  StatementListRec(
+                                                    StatementListRec(
+                                                      StatementList_e(
+                                                      ) [StatementList_e]
+                                                      StmtIf(
+                                                        IfCondBase(
+                                                          Condition(
+                                                            CondTerm(
+                                                              CondFactRelop(
+                                                                SimpleExprPos(
+                                                                  AddopBase(
+                                                                    TermBase(
+                                                                      FactorNum(
+                                                                       1
+                                                                      ) [FactorNum]
+                                                                    ) [TermBase]
+                                                                  ) [AddopBase]
+                                                                ) [SimpleExprPos]
+                                                                RelNE(
+                                                                ) [RelNE]
+                                                                SimpleExprPos(
+                                                                  AddopBase(
+                                                                    TermBase(
+                                                                      FactorNum(
+                                                                       1
+                                                                      ) [FactorNum]
+                                                                    ) [TermBase]
+                                                                  ) [AddopBase]
+                                                                ) [SimpleExprPos]
+                                                              ) [CondFactRelop]
+                                                              AndStart(
+                                                              ) [AndStart]
+                                                              CondTermRestNo(
+                                                              ) [CondTermRestNo]
+                                                            ) [CondTerm]
+                                                            OrStart(
+                                                            ) [OrStart]
+                                                            ConditionRestNo(
+                                                            ) [ConditionRestNo]
+                                                          ) [Condition]
+                                                        ) [IfCondBase]
+                                                        ThenStart(
+                                                        ) [ThenStart]
+                                                        StmtPrint(
+                                                          ExprSimple(
+                                                            SimpleExprNeg(
+                                                              AddopBase(
+                                                                TermBase(
+                                                                  FactorNum(
+                                                                   6
+                                                                  ) [FactorNum]
+                                                                ) [TermBase]
+                                                              ) [AddopBase]
+                                                            ) [SimpleExprNeg]
+                                                          ) [ExprSimple]
+                                                          PrintOptNo(
+                                                          ) [PrintOptNo]
+                                                        ) [StmtPrint]
+                                                        ElseYes(
+                                                          ElseStart(
+                                                          ) [ElseStart]
+                                                          StmtPrint(
+                                                            ExprSimple(
+                                                              SimpleExprPos(
+                                                                AddopBase(
+                                                                  TermBase(
+                                                                    FactorNum(
+                                                                     0
+                                                                    ) [FactorNum]
+                                                                  ) [TermBase]
+                                                                ) [AddopBase]
+                                                              ) [SimpleExprPos]
+                                                            ) [ExprSimple]
+                                                            PrintOptNo(
+                                                            ) [PrintOptNo]
+                                                          ) [StmtPrint]
+                                                        ) [ElseYes]
+                                                      ) [StmtIf]
+                                                    ) [StatementListRec]
+                                                    StmtDesignator(
+                                                      DstAssign(
+                                                        Designator_var(
+                                                         ibool
+                                                        ) [Designator_var]
+                                                        Assignop(
+                                                        ) [Assignop]
+                                                        ExprSimple(
+                                                          SimpleExprPos(
+                                                            AddopBase(
+                                                              TermBase(
+                                                                FactorBool(
+                                                                 0
+                                                                ) [FactorBool]
+                                                              ) [TermBase]
+                                                            ) [AddopBase]
+                                                          ) [SimpleExprPos]
+                                                        ) [ExprSimple]
+                                                      ) [DstAssign]
+                                                    ) [StmtDesignator]
+                                                  ) [StatementListRec]
+                                                  StmtDesignator(
+                                                    DstAssign(
+                                                      Designator_var(
+                                                       i
+                                                      ) [Designator_var]
+                                                      Assignop(
+                                                      ) [Assignop]
+                                                      ExprSimple(
+                                                        SimpleExprPos(
+                                                          AddopBase(
+                                                            TermBase(
+                                                              FactorNum(
+                                                               0
+                                                              ) [FactorNum]
+                                                            ) [TermBase]
+                                                          ) [AddopBase]
+                                                        ) [SimpleExprPos]
+                                                      ) [ExprSimple]
+                                                    ) [DstAssign]
+                                                  ) [StmtDesignator]
+                                                ) [StatementListRec]
+                                                StmtFor(
+                                                  StartFor(
+                                                  ) [StartFor]
+                                                  DstOptYes(
+                                                    DstAssign(
+                                                      Designator_var(
+                                                       i
+                                                      ) [Designator_var]
+                                                      Assignop(
+                                                      ) [Assignop]
+                                                      ExprSimple(
+                                                        SimpleExprPos(
+                                                          AddopBase(
+                                                            TermBase(
+                                                              FactorNum(
+                                                               0
+                                                              ) [FactorNum]
+                                                            ) [TermBase]
+                                                          ) [AddopBase]
+                                                        ) [SimpleExprPos]
+                                                      ) [ExprSimple]
+                                                    ) [DstAssign]
+                                                  ) [DstOptYes]
+                                                  ForLoop(
+                                                    StartLoop(
+                                                    ) [StartLoop]
+                                                    ConditionOpt(
+                                                      CondOptYes(
+                                                        Condition(
+                                                          CondTerm(
+                                                            CondFactRelop(
+                                                              SimpleExprPos(
+                                                                AddopBase(
+                                                                  TermBase(
+                                                                    FactorDesignator(
+                                                                      Designator_var(
+                                                                       i
+                                                                      ) [Designator_var]
+                                                                    ) [FactorDesignator]
+                                                                  ) [TermBase]
+                                                                ) [AddopBase]
+                                                              ) [SimpleExprPos]
+                                                              RelLT(
+                                                              ) [RelLT]
+                                                              SimpleExprPos(
+                                                                AddopBase(
+                                                                  TermBase(
+                                                                    FactorNum(
+                                                                     5
+                                                                    ) [FactorNum]
+                                                                  ) [TermBase]
+                                                                ) [AddopBase]
+                                                              ) [SimpleExprPos]
+                                                            ) [CondFactRelop]
+                                                            AndStart(
+                                                            ) [AndStart]
+                                                            CondTermRestNo(
+                                                            ) [CondTermRestNo]
+                                                          ) [CondTerm]
+                                                          OrStart(
+                                                          ) [OrStart]
+                                                          ConditionRestNo(
+                                                          ) [ConditionRestNo]
+                                                        ) [Condition]
+                                                      ) [CondOptYes]
+                                                    ) [ConditionOpt]
+                                                    DstStart(
+                                                    ) [DstStart]
+                                                    DstOptYes(
+                                                      DstInc(
+                                                        Designator_var(
+                                                         i
+                                                        ) [Designator_var]
+                                                      ) [DstInc]
+                                                    ) [DstOptYes]
+                                                    DstEnd(
+                                                    ) [DstEnd]
+                                                    StartForBody(
+                                                    ) [StartForBody]
+                                                    StmtBlock(
+                                                      StatementListRec(
+                                                        StatementList_e(
+                                                        ) [StatementList_e]
+                                                        StmtIf(
+                                                          IfCondBase(
+                                                            Condition(
+                                                              CondTerm(
+                                                                CondFactRelop(
+                                                                  SimpleExprPos(
+                                                                    AddopBase(
+                                                                      TermBase(
+                                                                        FactorDesignator(
+                                                                          Designator_var(
+                                                                           i
+                                                                          ) [Designator_var]
+                                                                        ) [FactorDesignator]
+                                                                      ) [TermBase]
+                                                                    ) [AddopBase]
+                                                                  ) [SimpleExprPos]
+                                                                  RelEQ(
+                                                                  ) [RelEQ]
+                                                                  SimpleExprPos(
+                                                                    AddopBase(
+                                                                      TermBase(
+                                                                        FactorNum(
+                                                                         2
+                                                                        ) [FactorNum]
+                                                                      ) [TermBase]
+                                                                    ) [AddopBase]
+                                                                  ) [SimpleExprPos]
+                                                                ) [CondFactRelop]
+                                                                AndStart(
+                                                                ) [AndStart]
+                                                                CondTermRestNo(
+                                                                ) [CondTermRestNo]
+                                                              ) [CondTerm]
+                                                              OrStart(
+                                                              ) [OrStart]
+                                                              ConditionRestNo(
+                                                              ) [ConditionRestNo]
+                                                            ) [Condition]
+                                                          ) [IfCondBase]
+                                                          ThenStart(
+                                                          ) [ThenStart]
+                                                          StmtDesignator(
+                                                            DstAssign(
+                                                              Designator_var(
+                                                               ibool
+                                                              ) [Designator_var]
+                                                              Assignop(
+                                                              ) [Assignop]
+                                                              ExprSimple(
+                                                                SimpleExprPos(
+                                                                  AddopBase(
+                                                                    TermBase(
+                                                                      FactorBool(
+                                                                       1
+                                                                      ) [FactorBool]
+                                                                    ) [TermBase]
+                                                                  ) [AddopBase]
+                                                                ) [SimpleExprPos]
+                                                              ) [ExprSimple]
+                                                            ) [DstAssign]
+                                                          ) [StmtDesignator]
+                                                          ElseNo(
+                                                          ) [ElseNo]
+                                                        ) [StmtIf]
+                                                      ) [StatementListRec]
+                                                    ) [StmtBlock]
+                                                  ) [ForLoop]
+                                                ) [StmtFor]
+                                              ) [StatementListRec]
+                                              StmtIf(
+                                                IfCondBase(
+                                                  Condition(
+                                                    CondTerm(
+                                                      CondFactSimple(
+                                                        SimpleExprPos(
+                                                          AddopBase(
+                                                            TermBase(
+                                                              FactorDesignator(
+                                                                Designator_var(
+                                                                 ibool
+                                                                ) [Designator_var]
+                                                              ) [FactorDesignator]
+                                                            ) [TermBase]
+                                                          ) [AddopBase]
+                                                        ) [SimpleExprPos]
+                                                      ) [CondFactSimple]
+                                                      AndStart(
+                                                      ) [AndStart]
+                                                      CondTermRestNo(
+                                                      ) [CondTermRestNo]
+                                                    ) [CondTerm]
+                                                    OrStart(
+                                                    ) [OrStart]
+                                                    ConditionRestNo(
+                                                    ) [ConditionRestNo]
+                                                  ) [Condition]
+                                                ) [IfCondBase]
+                                                ThenStart(
+                                                ) [ThenStart]
+                                                StmtIf(
+                                                  IfCondBase(
+                                                    Condition(
+                                                      CondTerm(
+                                                        CondFactRelop(
+                                                          SimpleExprPos(
+                                                            AddopBase(
+                                                              TermBase(
+                                                                FactorDesignator(
+                                                                  Designator_var(
+                                                                   i
+                                                                  ) [Designator_var]
+                                                                ) [FactorDesignator]
+                                                              ) [TermBase]
+                                                            ) [AddopBase]
+                                                          ) [SimpleExprPos]
+                                                          RelEQ(
+                                                          ) [RelEQ]
+                                                          SimpleExprPos(
+                                                            AddopBase(
+                                                              TermBase(
+                                                                FactorNum(
+                                                                 5
+                                                                ) [FactorNum]
+                                                              ) [TermBase]
+                                                            ) [AddopBase]
+                                                          ) [SimpleExprPos]
+                                                        ) [CondFactRelop]
+                                                        AndStart(
+                                                        ) [AndStart]
+                                                        CondTermRestNo(
+                                                        ) [CondTermRestNo]
+                                                      ) [CondTerm]
+                                                      OrStart(
+                                                      ) [OrStart]
+                                                      ConditionRestNo(
+                                                      ) [ConditionRestNo]
+                                                    ) [Condition]
+                                                  ) [IfCondBase]
+                                                  ThenStart(
+                                                  ) [ThenStart]
+                                                  StmtPrint(
+                                                    ExprSimple(
+                                                      SimpleExprPos(
+                                                        AddopBase(
+                                                          TermBase(
+                                                            FactorNum(
+                                                             1
+                                                            ) [FactorNum]
+                                                          ) [TermBase]
+                                                        ) [AddopBase]
+                                                      ) [SimpleExprPos]
+                                                    ) [ExprSimple]
+                                                    PrintOptNo(
+                                                    ) [PrintOptNo]
+                                                  ) [StmtPrint]
+                                                  ElseYes(
+                                                    ElseStart(
+                                                    ) [ElseStart]
+                                                    StmtPrint(
+                                                      ExprSimple(
+                                                        SimpleExprNeg(
+                                                          AddopBase(
+                                                            TermBase(
+                                                              FactorNum(
+                                                               1
+                                                              ) [FactorNum]
+                                                            ) [TermBase]
+                                                          ) [AddopBase]
+                                                        ) [SimpleExprNeg]
+                                                      ) [ExprSimple]
+                                                      PrintOptNo(
+                                                      ) [PrintOptNo]
+                                                    ) [StmtPrint]
+                                                  ) [ElseYes]
+                                                ) [StmtIf]
+                                                ElseNo(
+                                                ) [ElseNo]
+                                              ) [StmtIf]
+                                            ) [StatementListRec]
+                                            StmtDesignator(
+                                              DstAssign(
+                                                Designator_var(
+                                                 niz
+                                                ) [Designator_var]
+                                                Assignop(
+                                                ) [Assignop]
+                                                ExprSimple(
+                                                  SimpleExprPos(
+                                                    AddopBase(
+                                                      TermBase(
+                                                        FactorNew(
+                                                          Type(
+                                                           int
+                                                          ) [Type]
+                                                          ExprSimple(
+                                                            SimpleExprPos(
+                                                              AddopBase(
+                                                                TermBase(
+                                                                  FactorNum(
+                                                                   3
+                                                                  ) [FactorNum]
+                                                                ) [TermBase]
+                                                              ) [AddopBase]
+                                                            ) [SimpleExprPos]
+                                                          ) [ExprSimple]
+                                                        ) [FactorNew]
+                                                      ) [TermBase]
+                                                    ) [AddopBase]
+                                                  ) [SimpleExprPos]
+                                                ) [ExprSimple]
+                                              ) [DstAssign]
+                                            ) [StmtDesignator]
+                                          ) [StatementListRec]
+                                          StmtDesignator(
+                                            DstAssign(
+                                              Designator_elem(
+                                                ArrayName(
+                                                 niz
+                                                ) [ArrayName]
+                                                ExprSimple(
+                                                  SimpleExprPos(
+                                                    AddopBase(
+                                                      TermBase(
+                                                        FactorNum(
+                                                         0
+                                                        ) [FactorNum]
+                                                      ) [TermBase]
+                                                    ) [AddopBase]
+                                                  ) [SimpleExprPos]
+                                                ) [ExprSimple]
+                                              ) [Designator_elem]
+                                              Assignop(
+                                              ) [Assignop]
+                                              ExprSimple(
+                                                SimpleExprPos(
+                                                  AddopBase(
+                                                    TermBase(
+                                                      FactorNum(
+                                                       1
+                                                      ) [FactorNum]
+                                                    ) [TermBase]
+                                                  ) [AddopBase]
+                                                ) [SimpleExprPos]
+                                              ) [ExprSimple]
+                                            ) [DstAssign]
+                                          ) [StmtDesignator]
+                                        ) [StatementListRec]
+                                        StmtDesignator(
+                                          DstAssign(
+                                            Designator_elem(
+                                              ArrayName(
+                                               niz
+                                              ) [ArrayName]
+                                              ExprSimple(
+                                                SimpleExprPos(
+                                                  AddopBase(
+                                                    TermBase(
+                                                      FactorNum(
+                                                       1
+                                                      ) [FactorNum]
+                                                    ) [TermBase]
+                                                  ) [AddopBase]
+                                                ) [SimpleExprPos]
+                                              ) [ExprSimple]
+                                            ) [Designator_elem]
+                                            Assignop(
+                                            ) [Assignop]
+                                            ExprSimple(
+                                              SimpleExprPos(
+                                                AddopBase(
+                                                  TermBase(
+                                                    FactorNum(
+                                                     2
+                                                    ) [FactorNum]
+                                                  ) [TermBase]
+                                                ) [AddopBase]
+                                              ) [SimpleExprPos]
+                                            ) [ExprSimple]
+                                          ) [DstAssign]
+                                        ) [StmtDesignator]
+                                      ) [StatementListRec]
+                                      StmtDesignator(
+                                        DstAssign(
+                                          Designator_elem(
+                                            ArrayName(
+                                             niz
+                                            ) [ArrayName]
+                                            ExprSimple(
+                                              SimpleExprPos(
+                                                AddopBase(
+                                                  TermBase(
+                                                    FactorNum(
+                                                     2
+                                                    ) [FactorNum]
+                                                  ) [TermBase]
+                                                ) [AddopBase]
+                                              ) [SimpleExprPos]
+                                            ) [ExprSimple]
+                                          ) [Designator_elem]
+                                          Assignop(
+                                          ) [Assignop]
+                                          ExprSimple(
+                                            SimpleExprPos(
+                                              AddopRec(
+                                                AddopBase(
+                                                  TermBase(
+                                                    FactorMeth(
+                                                      Designator_var(
+                                                       sum
+                                                      ) [Designator_var]
+                                                      ActParsOptYes(
+                                                        ActPars(
+                                                          ActParsRec(
+                                                            ActParsBase(
+                                                              ExprSimple(
+                                                                SimpleExprPos(
+                                                                  AddopBase(
+                                                                    TermBase(
+                                                                      FactorDesignator(
+                                                                        Designator_elem(
+                                                                          ArrayName(
+                                                                           niz
+                                                                          ) [ArrayName]
+                                                                          ExprSimple(
+                                                                            SimpleExprPos(
+                                                                              AddopBase(
+                                                                                TermBase(
+                                                                                  FactorNum(
+                                                                                   1
+                                                                                  ) [FactorNum]
+                                                                                ) [TermBase]
+                                                                              ) [AddopBase]
+                                                                            ) [SimpleExprPos]
+                                                                          ) [ExprSimple]
+                                                                        ) [Designator_elem]
+                                                                      ) [FactorDesignator]
+                                                                    ) [TermBase]
+                                                                  ) [AddopBase]
+                                                                ) [SimpleExprPos]
+                                                              ) [ExprSimple]
+                                                            ) [ActParsBase]
+                                                            ExprSimple(
+                                                              SimpleExprPos(
+                                                                AddopBase(
+                                                                  TermBase(
+                                                                    FactorDesignator(
+                                                                      Designator_elem(
+                                                                        ArrayName(
+                                                                         niz
+                                                                        ) [ArrayName]
+                                                                        ExprSimple(
+                                                                          SimpleExprPos(
+                                                                            AddopBase(
+                                                                              TermBase(
+                                                                                FactorNum(
+                                                                                 0
+                                                                                ) [FactorNum]
+                                                                              ) [TermBase]
+                                                                            ) [AddopBase]
+                                                                          ) [SimpleExprPos]
+                                                                        ) [ExprSimple]
+                                                                      ) [Designator_elem]
+                                                                    ) [FactorDesignator]
+                                                                  ) [TermBase]
+                                                                ) [AddopBase]
+                                                              ) [SimpleExprPos]
+                                                            ) [ExprSimple]
+                                                          ) [ActParsRec]
+                                                        ) [ActPars]
+                                                      ) [ActParsOptYes]
+                                                    ) [FactorMeth]
+                                                  ) [TermBase]
+                                                ) [AddopBase]
+                                                AddPlus(
+                                                ) [AddPlus]
+                                                TermBase(
+                                                  FactorNum(
+                                                   1
+                                                  ) [FactorNum]
+                                                ) [TermBase]
+                                              ) [AddopRec]
+                                            ) [SimpleExprPos]
+                                          ) [ExprSimple]
+                                        ) [DstAssign]
+                                      ) [StmtDesignator]
+                                    ) [StatementListRec]
+                                    StmtIf(
+                                      IfCondBase(
+                                        Condition(
+                                          CondTerm(
+                                            CondFactRelop(
+                                              SimpleExprPos(
+                                                AddopBase(
+                                                  TermBase(
+                                                    FactorDesignator(
+                                                      Designator_elem(
+                                                        ArrayName(
+                                                         niz
+                                                        ) [ArrayName]
+                                                        ExprSimple(
+                                                          SimpleExprPos(
+                                                            AddopBase(
+                                                              TermBase(
+                                                                FactorNum(
+                                                                 2
+                                                                ) [FactorNum]
+                                                              ) [TermBase]
+                                                            ) [AddopBase]
+                                                          ) [SimpleExprPos]
+                                                        ) [ExprSimple]
+                                                      ) [Designator_elem]
+                                                    ) [FactorDesignator]
+                                                  ) [TermBase]
+                                                ) [AddopBase]
+                                              ) [SimpleExprPos]
+                                              RelEQ(
+                                              ) [RelEQ]
+                                              SimpleExprPos(
+                                                AddopBase(
+                                                  TermBase(
+                                                    FactorNum(
+                                                     4
+                                                    ) [FactorNum]
+                                                  ) [TermBase]
+                                                ) [AddopBase]
+                                              ) [SimpleExprPos]
+                                            ) [CondFactRelop]
+                                            AndStart(
+                                            ) [AndStart]
+                                            CondTermRestNo(
+                                            ) [CondTermRestNo]
+                                          ) [CondTerm]
+                                          OrStart(
+                                          ) [OrStart]
+                                          ConditionRestYes(
+                                            OrCond(
+                                            ) [OrCond]
+                                            CondTerm(
+                                              CondFactSimple(
+                                                SimpleExprPos(
+                                                  AddopBase(
+                                                    TermBase(
+                                                      FactorMeth(
+                                                        Designator_var(
+                                                         verify
+                                                        ) [Designator_var]
+                                                        ActParsOptNo(
+                                                        ) [ActParsOptNo]
+                                                      ) [FactorMeth]
+                                                    ) [TermBase]
+                                                  ) [AddopBase]
+                                                ) [SimpleExprPos]
+                                              ) [CondFactSimple]
+                                              AndStart(
+                                              ) [AndStart]
+                                              CondTermRestNo(
+                                              ) [CondTermRestNo]
+                                            ) [CondTerm]
+                                            ConditionRestNo(
+                                            ) [ConditionRestNo]
+                                          ) [ConditionRestYes]
+                                        ) [Condition]
+                                      ) [IfCondBase]
+                                      ThenStart(
+                                      ) [ThenStart]
+                                      StmtPrint(
+                                        ExprSimple(
+                                          SimpleExprPos(
+                                            AddopBase(
+                                              TermBase(
+                                                FactorMeth(
+                                                  Designator_var(
+                                                   ord
+                                                  ) [Designator_var]
+                                                  ActParsOptYes(
+                                                    ActPars(
+                                                      ActParsBase(
+                                                        ExprSimple(
+                                                          SimpleExprPos(
+                                                            AddopBase(
+                                                              TermBase(
+                                                                FactorChar(
+                                                                 A
+                                                                ) [FactorChar]
+                                                              ) [TermBase]
+                                                            ) [AddopBase]
+                                                          ) [SimpleExprPos]
+                                                        ) [ExprSimple]
+                                                      ) [ActParsBase]
+                                                    ) [ActPars]
+                                                  ) [ActParsOptYes]
+                                                ) [FactorMeth]
+                                              ) [TermBase]
+                                            ) [AddopBase]
+                                          ) [SimpleExprPos]
+                                        ) [ExprSimple]
+                                        PrintOptNo(
+                                        ) [PrintOptNo]
+                                      ) [StmtPrint]
+                                      ElseYes(
+                                        ElseStart(
+                                        ) [ElseStart]
+                                        StmtPrint(
+                                          ExprSimple(
+                                            SimpleExprPos(
+                                              AddopBase(
+                                                TermBase(
+                                                  FactorMeth(
+                                                    Designator_var(
+                                                     ord
+                                                    ) [Designator_var]
+                                                    ActParsOptYes(
+                                                      ActPars(
+                                                        ActParsBase(
+                                                          ExprSimple(
+                                                            SimpleExprPos(
+                                                              AddopBase(
+                                                                TermBase(
+                                                                  FactorChar(
+                                                                   a
+                                                                  ) [FactorChar]
+                                                                ) [TermBase]
+                                                              ) [AddopBase]
+                                                            ) [SimpleExprPos]
+                                                          ) [ExprSimple]
+                                                        ) [ActParsBase]
+                                                      ) [ActPars]
+                                                    ) [ActParsOptYes]
+                                                  ) [FactorMeth]
+                                                ) [TermBase]
+                                              ) [AddopBase]
+                                            ) [SimpleExprPos]
+                                          ) [ExprSimple]
+                                          PrintOptNo(
+                                          ) [PrintOptNo]
+                                        ) [StmtPrint]
+                                      ) [ElseYes]
+                                    ) [StmtIf]
+                                  ) [StatementListRec]
+                                  StmtPrint(
+                                    ExprSimple(
+                                      SimpleExprPos(
+                                        AddopBase(
+                                          TermBase(
+                                            FactorDesignator(
+                                              Designator_var(
+                                               eol
+                                              ) [Designator_var]
+                                            ) [FactorDesignator]
+                                          ) [TermBase]
+                                        ) [AddopBase]
+                                      ) [SimpleExprPos]
+                                    ) [ExprSimple]
+                                    PrintOptNo(
+                                    ) [PrintOptNo]
+                                  ) [StmtPrint]
+                                ) [StatementListRec]
+                                StmtDesignator(
+                                  DstAssign(
+                                    Designator_var(
+                                     i
+                                    ) [Designator_var]
+                                    Assignop(
+                                    ) [Assignop]
+                                    ExprSimple(
+                                      SimpleExprPos(
+                                        AddopBase(
+                                          TermBase(
+                                            FactorNum(
+                                             0
+                                            ) [FactorNum]
+                                          ) [TermBase]
+                                        ) [AddopBase]
+                                      ) [SimpleExprPos]
+                                    ) [ExprSimple]
+                                  ) [DstAssign]
+                                ) [StmtDesignator]
+                              ) [StatementListRec]
+                              StmtFor(
+                                StartFor(
+                                ) [StartFor]
+                                DstOptNo(
+                                ) [DstOptNo]
+                                ForLoop(
+                                  StartLoop(
+                                  ) [StartLoop]
+                                  ConditionOpt(
+                                    CondOptYes(
+                                      Condition(
+                                        CondTerm(
+                                          CondFactRelop(
+                                            SimpleExprPos(
+                                              AddopBase(
+                                                TermBase(
+                                                  FactorDesignator(
+                                                    Designator_var(
+                                                     i
+                                                    ) [Designator_var]
+                                                  ) [FactorDesignator]
+                                                ) [TermBase]
+                                              ) [AddopBase]
+                                            ) [SimpleExprPos]
+                                            RelLT(
+                                            ) [RelLT]
+                                            SimpleExprPos(
+                                              AddopBase(
+                                                TermBase(
+                                                  FactorNum(
+                                                   10
+                                                  ) [FactorNum]
+                                                ) [TermBase]
+                                              ) [AddopBase]
+                                            ) [SimpleExprPos]
+                                          ) [CondFactRelop]
+                                          AndStart(
+                                          ) [AndStart]
+                                          CondTermRestNo(
+                                          ) [CondTermRestNo]
+                                        ) [CondTerm]
+                                        OrStart(
+                                        ) [OrStart]
+                                        ConditionRestNo(
+                                        ) [ConditionRestNo]
+                                      ) [Condition]
+                                    ) [CondOptYes]
+                                  ) [ConditionOpt]
+                                  DstStart(
+                                  ) [DstStart]
+                                  DstOptNo(
+                                  ) [DstOptNo]
+                                  DstEnd(
+                                  ) [DstEnd]
+                                  StartForBody(
+                                  ) [StartForBody]
+                                  StmtBlock(
+                                    StatementListRec(
+                                      StatementListRec(
+                                        StatementListRec(
+                                          StatementList_e(
+                                          ) [StatementList_e]
+                                          StmtIf(
+                                            IfCondBase(
+                                              Condition(
+                                                CondTerm(
+                                                  CondFactRelop(
+                                                    SimpleExprPos(
+                                                      AddopBase(
+                                                        TermBase(
+                                                          FactorDesignator(
+                                                            Designator_var(
+                                                             i
+                                                            ) [Designator_var]
+                                                          ) [FactorDesignator]
+                                                        ) [TermBase]
+                                                      ) [AddopBase]
+                                                    ) [SimpleExprPos]
+                                                    RelEQ(
+                                                    ) [RelEQ]
+                                                    SimpleExprPos(
+                                                      AddopBase(
+                                                        TermBase(
+                                                          FactorNum(
+                                                           3
+                                                          ) [FactorNum]
+                                                        ) [TermBase]
+                                                      ) [AddopBase]
+                                                    ) [SimpleExprPos]
+                                                  ) [CondFactRelop]
+                                                  AndStart(
+                                                  ) [AndStart]
+                                                  CondTermRestNo(
+                                                  ) [CondTermRestNo]
+                                                ) [CondTerm]
+                                                OrStart(
+                                                ) [OrStart]
+                                                ConditionRestNo(
+                                                ) [ConditionRestNo]
+                                              ) [Condition]
+                                            ) [IfCondBase]
+                                            ThenStart(
+                                            ) [ThenStart]
+                                            StmtBlock(
+                                              StatementListRec(
+                                                StatementListRec(
+                                                  StatementList_e(
+                                                  ) [StatementList_e]
+                                                  StmtDesignator(
+                                                    DstInc(
+                                                      Designator_var(
+                                                       i
+                                                      ) [Designator_var]
+                                                    ) [DstInc]
+                                                  ) [StmtDesignator]
+                                                ) [StatementListRec]
+                                                StmtContinue(
+                                                ) [StmtContinue]
+                                              ) [StatementListRec]
+                                            ) [StmtBlock]
+                                            ElseNo(
+                                            ) [ElseNo]
+                                          ) [StmtIf]
+                                        ) [StatementListRec]
+                                        StmtIf(
+                                          IfCondBase(
+                                            Condition(
+                                              CondTerm(
+                                                CondFactRelop(
+                                                  SimpleExprPos(
+                                                    AddopBase(
+                                                      TermBase(
+                                                        FactorDesignator(
+                                                          Designator_var(
+                                                           i
+                                                          ) [Designator_var]
+                                                        ) [FactorDesignator]
+                                                      ) [TermBase]
+                                                    ) [AddopBase]
+                                                  ) [SimpleExprPos]
+                                                  RelEQ(
+                                                  ) [RelEQ]
+                                                  SimpleExprPos(
+                                                    AddopBase(
+                                                      TermBase(
+                                                        FactorNum(
+                                                         4
+                                                        ) [FactorNum]
+                                                      ) [TermBase]
+                                                    ) [AddopBase]
+                                                  ) [SimpleExprPos]
+                                                ) [CondFactRelop]
+                                                AndStart(
+                                                ) [AndStart]
+                                                CondTermRestNo(
+                                                ) [CondTermRestNo]
+                                              ) [CondTerm]
+                                              OrStart(
+                                              ) [OrStart]
+                                              ConditionRestNo(
+                                              ) [ConditionRestNo]
+                                            ) [Condition]
+                                          ) [IfCondBase]
+                                          ThenStart(
+                                          ) [ThenStart]
+                                          StmtBreak(
+                                          ) [StmtBreak]
+                                          ElseNo(
+                                          ) [ElseNo]
+                                        ) [StmtIf]
+                                      ) [StatementListRec]
+                                      StmtDesignator(
+                                        DstAssign(
+                                          Designator_var(
+                                           i
+                                          ) [Designator_var]
+                                          Assignop(
+                                          ) [Assignop]
+                                          ExprSimple(
+                                            SimpleExprPos(
+                                              AddopBase(
+                                                TermBase(
+                                                  FactorMeth(
+                                                    Designator_var(
+                                                     inkrement
+                                                    ) [Designator_var]
+                                                    ActParsOptYes(
+                                                      ActPars(
+                                                        ActParsRec(
+                                                          ActParsBase(
+                                                            ExprSimple(
+                                                              SimpleExprPos(
+                                                                AddopBase(
+                                                                  TermBase(
+                                                                    FactorDesignator(
+                                                                      Designator_var(
+                                                                       i
+                                                                      ) [Designator_var]
+                                                                    ) [FactorDesignator]
+                                                                  ) [TermBase]
+                                                                ) [AddopBase]
+                                                              ) [SimpleExprPos]
+                                                            ) [ExprSimple]
+                                                          ) [ActParsBase]
+                                                          ExprSimple(
+                                                            SimpleExprPos(
+                                                              AddopBase(
+                                                                TermBase(
+                                                                  FactorNum(
+                                                                   1
+                                                                  ) [FactorNum]
+                                                                ) [TermBase]
+                                                              ) [AddopBase]
+                                                            ) [SimpleExprPos]
+                                                          ) [ExprSimple]
+                                                        ) [ActParsRec]
+                                                      ) [ActPars]
+                                                    ) [ActParsOptYes]
+                                                  ) [FactorMeth]
+                                                ) [TermBase]
+                                              ) [AddopBase]
+                                            ) [SimpleExprPos]
+                                          ) [ExprSimple]
+                                        ) [DstAssign]
+                                      ) [StmtDesignator]
+                                    ) [StatementListRec]
+                                  ) [StmtBlock]
+                                ) [ForLoop]
+                              ) [StmtFor]
+                            ) [StatementListRec]
+                            StmtIf(
+                              IfCondBase(
+                                Condition(
+                                  CondTerm(
+                                    CondFactRelop(
+                                      SimpleExprPos(
+                                        AddopBase(
+                                          TermBase(
+                                            FactorDesignator(
+                                              Designator_var(
+                                               i
+                                              ) [Designator_var]
+                                            ) [FactorDesignator]
+                                          ) [TermBase]
+                                        ) [AddopBase]
+                                      ) [SimpleExprPos]
+                                      RelEQ(
+                                      ) [RelEQ]
+                                      SimpleExprPos(
+                                        AddopBase(
+                                          TermBase(
+                                            FactorNum(
+                                             3
+                                            ) [FactorNum]
+                                          ) [TermBase]
+                                        ) [AddopBase]
+                                      ) [SimpleExprPos]
+                                    ) [CondFactRelop]
+                                    AndStart(
+                                    ) [AndStart]
+                                    CondTermRestYes(
+                                      AndTerm(
+                                      ) [AndTerm]
+                                      CondFactSimple(
+                                        SimpleExprPos(
+                                          AddopBase(
+                                            TermBase(
+                                              FactorMeth(
+                                                Designator_var(
+                                                 verify
+                                                ) [Designator_var]
+                                                ActParsOptNo(
+                                                ) [ActParsOptNo]
+                                              ) [FactorMeth]
+                                            ) [TermBase]
+                                          ) [AddopBase]
+                                        ) [SimpleExprPos]
+                                      ) [CondFactSimple]
+                                      CondTermRestNo(
+                                      ) [CondTermRestNo]
+                                    ) [CondTermRestYes]
+                                  ) [CondTerm]
+                                  OrStart(
+                                  ) [OrStart]
+                                  ConditionRestNo(
+                                  ) [ConditionRestNo]
+                                ) [Condition]
+                              ) [IfCondBase]
+                              ThenStart(
+                              ) [ThenStart]
+                              StmtPrint(
+                                ExprSimple(
+                                  SimpleExprPos(
+                                    AddopBase(
+                                      TermBase(
+                                        FactorNum(
+                                         4
+                                        ) [FactorNum]
+                                      ) [TermBase]
+                                    ) [AddopBase]
+                                  ) [SimpleExprPos]
+                                ) [ExprSimple]
+                                PrintOptNo(
+                                ) [PrintOptNo]
+                              ) [StmtPrint]
+                              ElseYes(
+                                ElseStart(
+                                ) [ElseStart]
+                                StmtPrint(
+                                  ExprSimple(
+                                    SimpleExprNeg(
+                                      AddopBase(
+                                        TermBase(
+                                          FactorNum(
+                                           4
+                                          ) [FactorNum]
+                                        ) [TermBase]
+                                      ) [AddopBase]
+                                    ) [SimpleExprNeg]
+                                  ) [ExprSimple]
+                                  PrintOptNo(
+                                  ) [PrintOptNo]
+                                ) [StmtPrint]
+                              ) [ElseYes]
+                            ) [StmtIf]
+                          ) [StatementListRec]
+                          StmtRead(
+                            Designator_elem(
+                              ArrayName(
+                               niz
+                              ) [ArrayName]
+                              ExprSimple(
+                                SimpleExprPos(
+                                  AddopBase(
+                                    TermBase(
+                                      FactorNum(
+                                       0
+                                      ) [FactorNum]
+                                    ) [TermBase]
+                                  ) [AddopBase]
+                                ) [SimpleExprPos]
+                              ) [ExprSimple]
+                            ) [Designator_elem]
+                          ) [StmtRead]
+                        ) [StatementListRec]
+                        StmtRead(
+                          Designator_elem(
+                            ArrayName(
+                             niz
+                            ) [ArrayName]
+                            ExprSimple(
+                              SimpleExprPos(
+                                AddopBase(
+                                  TermBase(
+                                    FactorNum(
+                                     1
+                                    ) [FactorNum]
+                                  ) [TermBase]
+                                ) [AddopBase]
+                              ) [SimpleExprPos]
+                            ) [ExprSimple]
+                          ) [Designator_elem]
+                        ) [StmtRead]
+                      ) [StatementListRec]
+                      StmtRead(
+                        Designator_elem(
+                          ArrayName(
+                           niz
+                          ) [ArrayName]
+                          ExprSimple(
+                            SimpleExprPos(
+                              AddopBase(
+                                TermBase(
+                                  FactorNum(
+                                   2
+                                  ) [FactorNum]
+                                ) [TermBase]
+                              ) [AddopBase]
+                            ) [SimpleExprPos]
+                          ) [ExprSimple]
+                        ) [Designator_elem]
+                      ) [StmtRead]
+                    ) [StatementListRec]
+                    StmtPrint(
+                      ExprSimple(
+                        SimpleExprPos(
+                          AddopBase(
+                            TermBase(
+                              FactorDesignator(
+                                Designator_var(
+                                 eol
+                                ) [Designator_var]
+                              ) [FactorDesignator]
+                            ) [TermBase]
+                          ) [AddopBase]
+                        ) [SimpleExprPos]
+                      ) [ExprSimple]
+                      PrintOptNo(
+                      ) [PrintOptNo]
+                    ) [StmtPrint]
+                  ) [StatementListRec]
+                  StmtPrint(
+                    ExprSimple(
+                      SimpleExprPos(
+                        AddopBase(
+                          TermBase(
+                            FactorMeth(
+                              Designator_var(
+                               sum
+                              ) [Designator_var]
+                              ActParsOptYes(
+                                ActPars(
+                                  ActParsRec(
+                                    ActParsBase(
+                                      ExprSimple(
+                                        SimpleExprPos(
+                                          AddopBase(
+                                            TermBase(
+                                              FactorMeth(
+                                                Designator_var(
+                                                 sum
+                                                ) [Designator_var]
+                                                ActParsOptYes(
+                                                  ActPars(
+                                                    ActParsRec(
+                                                      ActParsBase(
+                                                        ExprSimple(
+                                                          SimpleExprPos(
+                                                            AddopBase(
+                                                              TermBase(
+                                                                FactorDesignator(
+                                                                  Designator_elem(
+                                                                    ArrayName(
+                                                                     niz
+                                                                    ) [ArrayName]
+                                                                    ExprSimple(
+                                                                      SimpleExprPos(
+                                                                        AddopBase(
+                                                                          TermBase(
+                                                                            FactorNum(
+                                                                             0
+                                                                            ) [FactorNum]
+                                                                          ) [TermBase]
+                                                                        ) [AddopBase]
+                                                                      ) [SimpleExprPos]
+                                                                    ) [ExprSimple]
+                                                                  ) [Designator_elem]
+                                                                ) [FactorDesignator]
+                                                              ) [TermBase]
+                                                            ) [AddopBase]
+                                                          ) [SimpleExprPos]
+                                                        ) [ExprSimple]
+                                                      ) [ActParsBase]
+                                                      ExprSimple(
+                                                        SimpleExprPos(
+                                                          AddopBase(
+                                                            TermBase(
+                                                              FactorDesignator(
+                                                                Designator_elem(
+                                                                  ArrayName(
+                                                                   niz
+                                                                  ) [ArrayName]
+                                                                  ExprSimple(
+                                                                    SimpleExprPos(
+                                                                      AddopBase(
+                                                                        TermBase(
+                                                                          FactorNum(
+                                                                           1
+                                                                          ) [FactorNum]
+                                                                        ) [TermBase]
+                                                                      ) [AddopBase]
+                                                                    ) [SimpleExprPos]
+                                                                  ) [ExprSimple]
+                                                                ) [Designator_elem]
+                                                              ) [FactorDesignator]
+                                                            ) [TermBase]
+                                                          ) [AddopBase]
+                                                        ) [SimpleExprPos]
+                                                      ) [ExprSimple]
+                                                    ) [ActParsRec]
+                                                  ) [ActPars]
+                                                ) [ActParsOptYes]
+                                              ) [FactorMeth]
+                                            ) [TermBase]
+                                          ) [AddopBase]
+                                        ) [SimpleExprPos]
+                                      ) [ExprSimple]
+                                    ) [ActParsBase]
+                                    ExprSimple(
+                                      SimpleExprPos(
+                                        AddopBase(
+                                          TermBase(
+                                            FactorDesignator(
+                                              Designator_elem(
+                                                ArrayName(
+                                                 niz
+                                                ) [ArrayName]
+                                                ExprSimple(
+                                                  SimpleExprPos(
+                                                    AddopBase(
+                                                      TermBase(
+                                                        FactorNum(
+                                                         2
+                                                        ) [FactorNum]
+                                                      ) [TermBase]
+                                                    ) [AddopBase]
+                                                  ) [SimpleExprPos]
+                                                ) [ExprSimple]
+                                              ) [Designator_elem]
+                                            ) [FactorDesignator]
+                                          ) [TermBase]
+                                        ) [AddopBase]
+                                      ) [SimpleExprPos]
+                                    ) [ExprSimple]
+                                  ) [ActParsRec]
+                                ) [ActPars]
+                              ) [ActParsOptYes]
+                            ) [FactorMeth]
+                          ) [TermBase]
+                        ) [AddopBase]
+                      ) [SimpleExprPos]
+                    ) [ExprSimple]
+                    PrintOptNo(
+                    ) [PrintOptNo]
+                  ) [StmtPrint]
+                ) [StatementListRec]
+                StmtFor(
+                  StartFor(
+                  ) [StartFor]
+                  DstOptYes(
+                    DstAssign(
+                      Designator_var(
+                       i
+                      ) [Designator_var]
+                      Assignop(
+                      ) [Assignop]
+                      ExprSimple(
+                        SimpleExprPos(
+                          AddopBase(
+                            TermBase(
+                              FactorNum(
+                               0
+                              ) [FactorNum]
+                            ) [TermBase]
+                          ) [AddopBase]
+                        ) [SimpleExprPos]
+                      ) [ExprSimple]
+                    ) [DstAssign]
+                  ) [DstOptYes]
+                  ForLoop(
+                    StartLoop(
+                    ) [StartLoop]
+                    ConditionOpt(
+                      CondOptYes(
+                        Condition(
+                          CondTerm(
+                            CondFactRelop(
+                              SimpleExprPos(
+                                AddopBase(
+                                  TermBase(
+                                    FactorDesignator(
+                                      Designator_var(
+                                       i
+                                      ) [Designator_var]
+                                    ) [FactorDesignator]
+                                  ) [TermBase]
+                                ) [AddopBase]
+                              ) [SimpleExprPos]
+                              RelLT(
+                              ) [RelLT]
+                              SimpleExprPos(
+                                AddopBase(
+                                  TermBase(
+                                    FactorDesignator(
+                                      Designator_dot(
+                                        Name(
+                                         niz
+                                        ) [Name]
+                                        DrLength(
+                                        ) [DrLength]
+                                      ) [Designator_dot]
+                                    ) [FactorDesignator]
+                                  ) [TermBase]
+                                ) [AddopBase]
+                              ) [SimpleExprPos]
+                            ) [CondFactRelop]
+                            AndStart(
+                            ) [AndStart]
+                            CondTermRestNo(
+                            ) [CondTermRestNo]
+                          ) [CondTerm]
+                          OrStart(
+                          ) [OrStart]
+                          ConditionRestNo(
+                          ) [ConditionRestNo]
+                        ) [Condition]
+                      ) [CondOptYes]
+                    ) [ConditionOpt]
+                    DstStart(
+                    ) [DstStart]
+                    DstOptYes(
+                      DstInc(
+                        Designator_var(
+                         i
+                        ) [Designator_var]
+                      ) [DstInc]
+                    ) [DstOptYes]
+                    DstEnd(
+                    ) [DstEnd]
+                    StartForBody(
+                    ) [StartForBody]
+                    StmtBlock(
+                      StatementListRec(
+                        StatementList_e(
+                        ) [StatementList_e]
+                        StmtPrint(
+                          ExprSimple(
+                            SimpleExprPos(
+                              AddopBase(
+                                TermBase(
+                                  FactorDesignator(
+                                    Designator_var(
+                                     i
+                                    ) [Designator_var]
+                                  ) [FactorDesignator]
+                                ) [TermBase]
+                              ) [AddopBase]
+                            ) [SimpleExprPos]
+                          ) [ExprSimple]
+                          PrintOptNo(
+                          ) [PrintOptNo]
+                        ) [StmtPrint]
+                      ) [StatementListRec]
+                    ) [StmtBlock]
+                  ) [ForLoop]
+                ) [StmtFor]
+              ) [StatementListRec]
+              StmtPrint(
+                ExprSimple(
+                  SimpleExprPos(
+                    AddopBase(
+                      TermBase(
+                        FactorDesignator(
+                          Designator_var(
+                           eol
+                          ) [Designator_var]
+                        ) [FactorDesignator]
+                      ) [TermBase]
+                    ) [AddopBase]
+                  ) [SimpleExprPos]
+                ) [ExprSimple]
+                PrintOptNo(
+                ) [PrintOptNo]
+              ) [StmtPrint]
+            ) [StatementListRec]
+            StmtPrint(
+              ExprSimple(
+                SimpleExprPos(
+                  AddopBase(
+                    TermBase(
+                      FactorMeth(
+                        Designator_var(
+                         inkrement
+                        ) [Designator_var]
+                        ActParsOptYes(
+                          ActPars(
+                            ActParsRec(
+                              ActParsBase(
+                                ExprSimple(
+                                  SimpleExprPos(
+                                    AddopBase(
+                                      TermBase(
+                                        FactorDesignator(
+                                          Designator_elem(
+                                            ArrayName(
+                                             niz
+                                            ) [ArrayName]
+                                            ExprSimple(
+                                              SimpleExprPos(
+                                                AddopBase(
+                                                  TermBase(
+                                                    FactorNum(
+                                                     2
+                                                    ) [FactorNum]
+                                                  ) [TermBase]
+                                                ) [AddopBase]
+                                              ) [SimpleExprPos]
+                                            ) [ExprSimple]
+                                          ) [Designator_elem]
+                                        ) [FactorDesignator]
+                                      ) [TermBase]
+                                    ) [AddopBase]
+                                  ) [SimpleExprPos]
+                                ) [ExprSimple]
+                              ) [ActParsBase]
+                              ExprSimple(
+                                SimpleExprPos(
+                                  AddopBase(
+                                    TermBase(
+                                      FactorNum(
+                                       2
+                                      ) [FactorNum]
+                                    ) [TermBase]
+                                  ) [AddopBase]
+                                ) [SimpleExprPos]
+                              ) [ExprSimple]
+                            ) [ActParsRec]
+                          ) [ActPars]
+                        ) [ActParsOptYes]
+                      ) [FactorMeth]
+                    ) [TermBase]
+                  ) [AddopBase]
+                ) [SimpleExprPos]
+              ) [ExprSimple]
+              PrintOptNo(
+              ) [PrintOptNo]
+            ) [StmtPrint]
+          ) [StatementListRec]
+          StmtPrint(
+            ExprTernary(
+              Condition(
+                CondTerm(
+                  CondFactSimple(
+                    SimpleExprPos(
+                      AddopBase(
+                        TermBase(
+                          FactorMeth(
+                            Designator_var(
+                             verify
+                            ) [Designator_var]
+                            ActParsOptNo(
+                            ) [ActParsOptNo]
+                          ) [FactorMeth]
+                        ) [TermBase]
+                      ) [AddopBase]
+                    ) [SimpleExprPos]
+                  ) [CondFactSimple]
+                  AndStart(
+                  ) [AndStart]
+                  CondTermRestNo(
+                  ) [CondTermRestNo]
+                ) [CondTerm]
+                OrStart(
+                ) [OrStart]
+                ConditionRestNo(
+                ) [ConditionRestNo]
+              ) [Condition]
+              QMarkM(
+              ) [QMarkM]
+              ExprSimple(
+                SimpleExprPos(
+                  AddopBase(
+                    TermBase(
+                      FactorChar(
+                       t
+                      ) [FactorChar]
+                    ) [TermBase]
+                  ) [AddopBase]
+                ) [SimpleExprPos]
+              ) [ExprSimple]
+              ColonM(
+              ) [ColonM]
+              ExprSimple(
+                SimpleExprPos(
+                  AddopBase(
+                    TermBase(
+                      FactorChar(
+                       f
+                      ) [FactorChar]
+                    ) [TermBase]
+                  ) [AddopBase]
+                ) [SimpleExprPos]
+              ) [ExprSimple]
+            ) [ExprTernary]
+            PrintOptNo(
+            ) [PrintOptNo]
+          ) [StmtPrint]
+        ) [StatementListRec]
+        StmtFor(
+          StartFor(
+          ) [StartFor]
+          DstOptYes(
             DstAssign(
               Designator_var(
-               x
+               i
               ) [Designator_var]
               Assignop(
               ) [Assignop]
@@ -275,49 +2521,342 @@ INFO  02:20:43,399 - Program(
                   AddopBase(
                     TermBase(
                       FactorNum(
-                       6
+                       0
                       ) [FactorNum]
                     ) [TermBase]
                   ) [AddopBase]
                 ) [SimpleExprPos]
               ) [ExprSimple]
             ) [DstAssign]
-          ) [StmtDesignator]
-        ) [StatementListRec]
-        StmtDesignator(
-          DstCall(
-            Designator_var(
-             printNums
-            ) [Designator_var]
-            ActParsOptYes(
-              ActPars(
-                ActParsBase(
+          ) [DstOptYes]
+          ForLoop(
+            StartLoop(
+            ) [StartLoop]
+            ConditionOpt(
+              CondOptYes(
+                Condition(
+                  CondTerm(
+                    CondFactRelop(
+                      SimpleExprPos(
+                        AddopBase(
+                          TermBase(
+                            FactorDesignator(
+                              Designator_var(
+                               i
+                              ) [Designator_var]
+                            ) [FactorDesignator]
+                          ) [TermBase]
+                        ) [AddopBase]
+                      ) [SimpleExprPos]
+                      RelLT(
+                      ) [RelLT]
+                      SimpleExprPos(
+                        AddopBase(
+                          TermBase(
+                            FactorNum(
+                             10
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [AddopBase]
+                      ) [SimpleExprPos]
+                    ) [CondFactRelop]
+                    AndStart(
+                    ) [AndStart]
+                    CondTermRestNo(
+                    ) [CondTermRestNo]
+                  ) [CondTerm]
+                  OrStart(
+                  ) [OrStart]
+                  ConditionRestNo(
+                  ) [ConditionRestNo]
+                ) [Condition]
+              ) [CondOptYes]
+            ) [ConditionOpt]
+            DstStart(
+            ) [DstStart]
+            DstOptYes(
+              DstInc(
+                Designator_var(
+                 i
+                ) [Designator_var]
+              ) [DstInc]
+            ) [DstOptYes]
+            DstEnd(
+            ) [DstEnd]
+            StartForBody(
+            ) [StartForBody]
+            StmtBlock(
+              StatementListRec(
+                StatementListRec(
+                  StatementList_e(
+                  ) [StatementList_e]
+                  StmtSwitch(
+                    StartSwitch(
+                    ) [StartSwitch]
+                    ExprSimple(
+                      SimpleExprPos(
+                        AddopRec(
+                          AddopBase(
+                            TermBase(
+                              FactorDesignator(
+                                Designator_var(
+                                 i
+                                ) [Designator_var]
+                              ) [FactorDesignator]
+                            ) [TermBase]
+                          ) [AddopBase]
+                          AddPlus(
+                          ) [AddPlus]
+                          TermBase(
+                            FactorNum(
+                             1
+                            ) [FactorNum]
+                          ) [TermBase]
+                        ) [AddopRec]
+                      ) [SimpleExprPos]
+                    ) [ExprSimple]
+                    StartCases(
+                    ) [StartCases]
+                    CaseListRec(
+                      CaseListRec(
+                        CaseListRec(
+                          CaseListRec(
+                            CaseListRec(
+                              CaseListBase(
+                                CaseVal(
+                                 1
+                                ) [CaseVal]
+                                StatementListRec(
+                                  StatementListRec(
+                                    StatementList_e(
+                                    ) [StatementList_e]
+                                    StmtPrint(
+                                      ExprSimple(
+                                        SimpleExprPos(
+                                          AddopBase(
+                                            TermBase(
+                                              FactorNum(
+                                               1
+                                              ) [FactorNum]
+                                            ) [TermBase]
+                                          ) [AddopBase]
+                                        ) [SimpleExprPos]
+                                      ) [ExprSimple]
+                                      PrintOptNo(
+                                      ) [PrintOptNo]
+                                    ) [StmtPrint]
+                                  ) [StatementListRec]
+                                  StmtBreak(
+                                  ) [StmtBreak]
+                                ) [StatementListRec]
+                                CaseEnd(
+                                ) [CaseEnd]
+                              ) [CaseListBase]
+                              CaseVal(
+                               3
+                              ) [CaseVal]
+                              StatementListRec(
+                                StatementList_e(
+                                ) [StatementList_e]
+                                StmtPrint(
+                                  ExprSimple(
+                                    SimpleExprPos(
+                                      AddopBase(
+                                        TermBase(
+                                          FactorNum(
+                                           3
+                                          ) [FactorNum]
+                                        ) [TermBase]
+                                      ) [AddopBase]
+                                    ) [SimpleExprPos]
+                                  ) [ExprSimple]
+                                  PrintOptNo(
+                                  ) [PrintOptNo]
+                                ) [StmtPrint]
+                              ) [StatementListRec]
+                              CaseEnd(
+                              ) [CaseEnd]
+                            ) [CaseListRec]
+                            CaseVal(
+                             2
+                            ) [CaseVal]
+                            StatementListRec(
+                              StatementListRec(
+                                StatementList_e(
+                                ) [StatementList_e]
+                                StmtPrint(
+                                  ExprSimple(
+                                    SimpleExprPos(
+                                      AddopBase(
+                                        TermBase(
+                                          FactorNum(
+                                           2
+                                          ) [FactorNum]
+                                        ) [TermBase]
+                                      ) [AddopBase]
+                                    ) [SimpleExprPos]
+                                  ) [ExprSimple]
+                                  PrintOptNo(
+                                  ) [PrintOptNo]
+                                ) [StmtPrint]
+                              ) [StatementListRec]
+                              StmtBreak(
+                              ) [StmtBreak]
+                            ) [StatementListRec]
+                            CaseEnd(
+                            ) [CaseEnd]
+                          ) [CaseListRec]
+                          CaseVal(
+                           5
+                          ) [CaseVal]
+                          StatementListRec(
+                            StatementListRec(
+                              StatementListRec(
+                                StatementList_e(
+                                ) [StatementList_e]
+                                StmtPrint(
+                                  ExprSimple(
+                                    SimpleExprPos(
+                                      AddopBase(
+                                        TermBase(
+                                          FactorNum(
+                                           5
+                                          ) [FactorNum]
+                                        ) [TermBase]
+                                      ) [AddopBase]
+                                    ) [SimpleExprPos]
+                                  ) [ExprSimple]
+                                  PrintOptNo(
+                                  ) [PrintOptNo]
+                                ) [StmtPrint]
+                              ) [StatementListRec]
+                              StmtDesignator(
+                                DstAssign(
+                                  Designator_var(
+                                   i
+                                  ) [Designator_var]
+                                  Assignop(
+                                  ) [Assignop]
+                                  ExprSimple(
+                                    SimpleExprPos(
+                                      AddopRec(
+                                        AddopBase(
+                                          TermBase(
+                                            FactorDesignator(
+                                              Designator_var(
+                                               i
+                                              ) [Designator_var]
+                                            ) [FactorDesignator]
+                                          ) [TermBase]
+                                        ) [AddopBase]
+                                        AddPlus(
+                                        ) [AddPlus]
+                                        TermBase(
+                                          FactorNum(
+                                           2
+                                          ) [FactorNum]
+                                        ) [TermBase]
+                                      ) [AddopRec]
+                                    ) [SimpleExprPos]
+                                  ) [ExprSimple]
+                                ) [DstAssign]
+                              ) [StmtDesignator]
+                            ) [StatementListRec]
+                            StmtContinue(
+                            ) [StmtContinue]
+                          ) [StatementListRec]
+                          CaseEnd(
+                          ) [CaseEnd]
+                        ) [CaseListRec]
+                        CaseVal(
+                         6
+                        ) [CaseVal]
+                        StatementListRec(
+                          StatementList_e(
+                          ) [StatementList_e]
+                          StmtPrint(
+                            ExprSimple(
+                              SimpleExprPos(
+                                AddopBase(
+                                  TermBase(
+                                    FactorNum(
+                                     6
+                                    ) [FactorNum]
+                                  ) [TermBase]
+                                ) [AddopBase]
+                              ) [SimpleExprPos]
+                            ) [ExprSimple]
+                            PrintOptNo(
+                            ) [PrintOptNo]
+                          ) [StmtPrint]
+                        ) [StatementListRec]
+                        CaseEnd(
+                        ) [CaseEnd]
+                      ) [CaseListRec]
+                      CaseVal(
+                       9
+                      ) [CaseVal]
+                      StatementListRec(
+                        StatementList_e(
+                        ) [StatementList_e]
+                        StmtPrint(
+                          ExprSimple(
+                            SimpleExprPos(
+                              AddopBase(
+                                TermBase(
+                                  FactorNum(
+                                   9
+                                  ) [FactorNum]
+                                ) [TermBase]
+                              ) [AddopBase]
+                            ) [SimpleExprPos]
+                          ) [ExprSimple]
+                          PrintOptNo(
+                          ) [PrintOptNo]
+                        ) [StmtPrint]
+                      ) [StatementListRec]
+                      CaseEnd(
+                      ) [CaseEnd]
+                    ) [CaseListRec]
+                  ) [StmtSwitch]
+                ) [StatementListRec]
+                StmtPrint(
                   ExprSimple(
                     SimpleExprPos(
                       AddopBase(
                         TermBase(
-                          FactorNum(
-                           6
-                          ) [FactorNum]
+                          FactorDesignator(
+                            Designator_var(
+                             eol
+                            ) [Designator_var]
+                          ) [FactorDesignator]
                         ) [TermBase]
                       ) [AddopBase]
                     ) [SimpleExprPos]
                   ) [ExprSimple]
-                ) [ActParsBase]
-              ) [ActPars]
-            ) [ActParsOptYes]
-          ) [DstCall]
-        ) [StmtDesignator]
+                  PrintOptNo(
+                  ) [PrintOptNo]
+                ) [StmtPrint]
+              ) [StatementListRec]
+            ) [StmtBlock]
+          ) [ForLoop]
+        ) [StmtFor]
       ) [StatementListRec]
     ) [MethodDecl]
   ) [MethodDeclListRec]
 ) [Program]
-INFO  02:20:43,399 - =================================
-INFO  02:20:43,403 - Ime metode printNums
-INFO  02:20:43,403 - DST -- Actuals: 1 Formals: 0
-ERROR 02:20:43,403 - pogresan broj argumenata na liniji 14
-INFO  02:20:43,403 - Ime metode printNums
-INFO  02:20:43,403 - FormPar 0: num
-INFO  02:20:43,403 - DST -- Actuals: 1 Formals: 1
-INFO  02:20:43,403 - =================================
-ERROR 02:20:43,404 - Parsiranje NIJE uspesno zavrseno
+INFO  01:15:46,524 - =================================
+INFO  01:15:46,528 - FM -- Actuals: 2 Formals: 2
+INFO  01:15:46,529 - FM -- Actuals: 2 Formals: 2
+INFO  01:15:46,529 - FM -- Actuals: 0 Formals: 0
+INFO  01:15:46,529 - FM -- Actuals: 1 Formals: 1
+INFO  01:15:46,529 - FM -- Actuals: 1 Formals: 1
+INFO  01:15:46,529 - FM -- Actuals: 2 Formals: 2
+INFO  01:15:46,529 - FM -- Actuals: 0 Formals: 0
+INFO  01:15:46,529 - FM -- Actuals: 2 Formals: 2
+INFO  01:15:46,529 - FM -- Actuals: 2 Formals: 2
+INFO  01:15:46,529 - FM -- Actuals: 2 Formals: 2
+INFO  01:15:46,529 - FM -- Actuals: 0 Formals: 0
+INFO  01:15:46,529 - =================================
+INFO  01:15:46,530 - Parsiranje uspesno zavrseno!
+INFO  01:15:46,532 - Generisanje koda uspesno zavrseno

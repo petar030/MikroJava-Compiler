@@ -69,11 +69,12 @@ nonterminal ConstRest, ConstValue, VarRest, EnumRest;
 nonterminal ConstDeclItem, VarDeclItem, EnumField, EnumOpen, EnumClose;
 nonterminal FormParsItem, StartFor, StartSwitch, DesignatorRest;
 
+nonterminal AndStart, OrStart, AndTerm, OrCond;
 
 nonterminal ProgName, ActParsList, QMarkM, ColonM, ElseStart, ThenStart, CaseVal, StartCases, CaseEnd, ForLoop,  StartLoop, DstStart, DstEnd, StartForBody;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Factor,  Term, SimpleExpr, ExprRest, Expr, ExprOpt;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond, CondOpt;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm,  CondFact, ConditionOpt, IfCond, CondOpt, CondTermRest, ConditionRest;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, Type, MethodNameAndType, Name, ArrayName;
 
 precedence left ELSE;
@@ -250,17 +251,22 @@ ActParsList ::= (ActParsRec) ActParsList COMMA Expr
 			|(ActParsBase) Expr;
 
 
+Condition ::= (Condition) CondTerm OrStart ConditionRest;
+ 
+ConditionRest ::= (ConditionRestYes) OrCond  CondTerm ConditionRest
+		  		| (ConditionRestNo) /*epsilon*/
+		  		;
+OrCond ::= (OrCond) OR;
 
-Condition ::= (ConditionRec) Condition OR CondTerm
-            | (ConditionBase) CondTerm
-            ;
+CondTerm ::= (CondTerm) CondFact AndStart CondTermRest;
 
-CondTerm ::= (CondTermRec) CondTerm AND CondFact
-           | (CondTermBase) CondFact
-           ;
-
-
-
+CondTermRest ::= (CondTermRestYes) AndTerm  CondFact CondTermRest
+				| (CondTermRestNo) /*epsilon */
+				;
+				
+AndTerm ::= (AndTerm) AND;
+AndStart ::= (AndStart) /*epsilon*/;
+OrStart ::= (OrStart) /*epsilon*/;
 
 CondFact ::= (CondFactRelop) SimpleExpr Relop SimpleExpr
           | (CondFactSimple) SimpleExpr

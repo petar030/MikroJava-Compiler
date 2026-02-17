@@ -1,50 +1,50 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/1/2026 21:17:30
+// 16/1/2026 23:39:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public interface Visitor { 
 
-    public void visit(Mulop Mulop);
-    public void visit(FormParsOpt FormParsOpt);
-    public void visit(Relop Relop);
     public void visit(ActParsOpt ActParsOpt);
-    public void visit(MethodNameAndType MethodNameAndType);
-    public void visit(StatementList StatementList);
-    public void visit(VarRest VarRest);
-    public void visit(Addop Addop);
-    public void visit(ConstRest ConstRest);
-    public void visit(PrintOpt PrintOpt);
-    public void visit(ExprOpt ExprOpt);
-    public void visit(Factor Factor);
-    public void visit(CondTerm CondTerm);
-    public void visit(FormParsRest FormParsRest);
-    public void visit(DeclList DeclList);
-    public void visit(Designator Designator);
-    public void visit(Term Term);
-    public void visit(Condition Condition);
-    public void visit(EnumRest EnumRest);
-    public void visit(IfCond IfCond);
-    public void visit(CondOpt CondOpt);
-    public void visit(ConstValue ConstValue);
-    public void visit(CaseList CaseList);
-    public void visit(ActParsList ActParsList);
-    public void visit(EnumField EnumField);
-    public void visit(ExprRest ExprRest);
-    public void visit(SimpleExpr SimpleExpr);
-    public void visit(FormParsItem FormParsItem);
-    public void visit(DesignatorRest DesignatorRest);
     public void visit(DesignatorStmtOpt DesignatorStmtOpt);
-    public void visit(VarDeclList VarDeclList);
-    public void visit(Expr Expr);
-    public void visit(DesignatorStatement DesignatorStatement);
-    public void visit(VarDeclItem VarDeclItem);
+    public void visit(IfCond IfCond);
+    public void visit(SimpleExpr SimpleExpr);
+    public void visit(Factor Factor);
+    public void visit(VarRest VarRest);
     public void visit(Statement Statement);
-    public void visit(CondFact CondFact);
-    public void visit(MethodDeclList MethodDeclList);
+    public void visit(EnumField EnumField);
     public void visit(ElseOpt ElseOpt);
+    public void visit(Relop Relop);
+    public void visit(DeclList DeclList);
+    public void visit(CaseList CaseList);
+    public void visit(Expr Expr);
+    public void visit(ConstRest ConstRest);
+    public void visit(FormParsItem FormParsItem);
+    public void visit(PrintOpt PrintOpt);
+    public void visit(ConditionRest ConditionRest);
+    public void visit(ExprRest ExprRest);
+    public void visit(Mulop Mulop);
+    public void visit(DesignatorStatement DesignatorStatement);
+    public void visit(MethodNameAndType MethodNameAndType);
+    public void visit(Addop Addop);
+    public void visit(StatementList StatementList);
+    public void visit(FormParsOpt FormParsOpt);
+    public void visit(VarDeclItem VarDeclItem);
+    public void visit(MethodDeclList MethodDeclList);
+    public void visit(FormParsRest FormParsRest);
+    public void visit(DesignatorRest DesignatorRest);
+    public void visit(ConstValue ConstValue);
+    public void visit(Designator Designator);
+    public void visit(VarDeclList VarDeclList);
+    public void visit(CondFact CondFact);
+    public void visit(EnumRest EnumRest);
+    public void visit(ActParsList ActParsList);
+    public void visit(CondOpt CondOpt);
+    public void visit(Term Term);
+    public void visit(ExprOpt ExprOpt);
+    public void visit(CondTermRest CondTermRest);
     public void visit(MulMod MulMod);
     public void visit(MulDiv MulDiv);
     public void visit(MulMul MulMul);
@@ -83,10 +83,16 @@ public interface Visitor {
     public void visit(ExprSimple ExprSimple);
     public void visit(CondFactSimple CondFactSimple);
     public void visit(CondFactRelop CondFactRelop);
-    public void visit(CondTermBase CondTermBase);
-    public void visit(CondTermRec CondTermRec);
-    public void visit(ConditionBase ConditionBase);
-    public void visit(ConditionRec ConditionRec);
+    public void visit(OrStart OrStart);
+    public void visit(AndStart AndStart);
+    public void visit(AndTerm AndTerm);
+    public void visit(CondTermRestNo CondTermRestNo);
+    public void visit(CondTermRestYes CondTermRestYes);
+    public void visit(CondTerm CondTerm);
+    public void visit(OrCond OrCond);
+    public void visit(ConditionRestNo ConditionRestNo);
+    public void visit(ConditionRestYes ConditionRestYes);
+    public void visit(Condition Condition);
     public void visit(ActParsBase ActParsBase);
     public void visit(ActParsRec ActParsRec);
     public void visit(ActPars ActPars);
