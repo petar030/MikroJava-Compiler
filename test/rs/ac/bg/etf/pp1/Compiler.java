@@ -38,7 +38,7 @@ public class Compiler {
 		Reader br = null;
 
 		try {
-			String progName = "test302";
+			String progName = "program";
 			File sourceCode = new File("test/" + progName+".mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 

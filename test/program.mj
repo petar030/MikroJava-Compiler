@@ -1,11 +1,56 @@
-program test
+program ShortCircuit
 {
   bool t(char c) { print(c); return true; }
   bool f(char c) { print(c); return false; }
 
   void main()
   {
-    if(f('A') || t('B') || f('C')) print('t');
-    else print('f');
+    if (t('A') && t('B') && t('C')) print('1'); else print('0');
+    print(eol);
+
+    if (f('D') && t('E') && t('F')) print('1'); else print('0');
+    print(eol);
+
+    if (t('E') || t('F') || t('G')) print('1'); else print('0');
+    print(eol);
+
+    if (f('H') || t('I') || t('J')) print('1'); else print('0');
+    print(eol);
+
+    if (t('K') || f('L') && t('M')) print('1'); else print('0');
+    print(eol);
+
+    if (f('N') && t('O') || t('P') && f('Q')) print('1'); else print('0');
+    print(eol);
+
+    if (t('R') && f('S') || f('T') && t('U')) print('1'); else print('0');
+    print(eol);
+
+    if (f('V') || f('W') && t('X') || t('Y')) print('1'); else print('0');
+    print(eol);
+
+    if (16 == 16 || t('Z')) print('1'); else print('0');
+    print(eol);
+
+    if (0 == 1 && t('a')) print('1'); else print('0');
+    print(eol);
+
+    if (t('b') || 3 == 4 && t('c')) print('1'); else print('0');
+    print(eol);
+
+    if (f('d') && 5 == 5 || f('e')) print('1'); else print('0');
+    print(eol);
+
+    if (t('f') && 7 == 7 || f('g') && t('h')) print('1'); else print('0');
+    print(eol);
+
+    if (f('i') || 8 == 9 || t('j') && t('k')) print('1'); else print('0');
+    print(eol);
+
+    if (t('l') && f('m') && t('n') || t('o')) print('1'); else print('0');
+    print(eol);
+
+    if (f('p') || t('q') && f('r') || f('s') && t('t') || t('u')) print('1'); else print('0');
+    print(eol);
   }
 }

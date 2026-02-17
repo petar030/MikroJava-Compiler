@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="MJCompiler" basedir=".">
 
-	<property name="test.name" value="test302"/>
+	<property name="test.name" value="program"/>
 
 	
 	<target name="delete">
