@@ -602,6 +602,25 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		des.obj = new Obj(Obj.Elem, arrObj.getName(), arrObj.getType().getElemType());
 		report_info("Pristup elementu niza: " + arrObj.getName(), des);
 	}
+	
+	@Override
+	public void visit(Designator_max des) {
+		Obj arrObj = des.getArrayName().obj;
+		if (arrObj == Tab.noObj) {
+			des.obj = Tab.noObj;
+			return;
+		}
+		if (arrObj.getType().getKind() != Struct.Array) {
+			report_error("Identifikator '" + arrObj.getName() + "' ne označava niz", des);
+			des.obj = Tab.noObj;
+			return;
+		}
+		des.obj = arrObj;
+
+		
+	}
+	
+	
 
 	/* Factor */
 	@Override
@@ -623,6 +642,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(FactorDesignator factor) {
 
 		Obj d = factor.getDesignator().obj;
+		if(factor.getDesignator() instanceof Designator_max) {
+			factor.struct = Tab.intType;
+			return;
+		}
 		int k = d.getKind();
 
 		if (k != Obj.Var && k != Obj.Con && k != Obj.Fld && k != Obj.Elem) {

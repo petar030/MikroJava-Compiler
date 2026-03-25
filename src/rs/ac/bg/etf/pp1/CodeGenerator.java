@@ -526,9 +526,68 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	/* Factor */
 
+	private void leaveLargerOnStack() {
+		Code.put(Code.dup2);
+		Code.putFalseJump(Code.ge, 0);
+		int jumpFalse = Code.pc-2;
+		Code.put(Code.pop);
+		Code.putJump(0);
+		int jumpEnd = Code.pc-2;
+		Code.fixup(jumpFalse);
+		Code.put(Code.dup_x1);
+		Code.put(Code.pop);
+		Code.put(Code.pop);
+		Code.fixup(jumpEnd);
+	}
+	
 	@Override
 	public void visit(FactorDesignator factor) {
 		Designator d = factor.getDesignator();
+
+		if(d instanceof Designator_max) {
+			//Priprema (arr adr je vec na stek-u)
+			Code.put(Code.dup);
+			Code.put(Code.arraylength);
+			Code.loadConst(1);
+			Code.put(Code.sub);
+			Code.put(Code.dup2);
+			Code.put(Code.aload);
+			Code.put(Code.dup_x2);
+			Code.put(Code.pop);
+			//Loop start
+			Code.loadConst(1);
+			int jumpBack = Code.pc - 1;
+			Code.put(Code.sub);
+			Code.put(Code.dup2);
+			Code.put(Code.dup);
+			Code.loadConst(0);
+			Code.putFalseJump(Code.ge, 0);
+			int jumpEnd = Code.pc-2;
+			Code.put(Code.aload);
+			Code.put(Code.dup_x2);
+			Code.put(Code.pop);
+			Code.put(Code.dup_x1);
+			Code.put(Code.pop);
+			Code.put(Code.pop);
+			Code.put(Code.dup_x2);
+			Code.put(Code.pop);
+			leaveLargerOnStack();
+			Code.put(Code.dup_x1);
+			Code.put(Code.pop);
+			Code.load(d.obj);
+			Code.put(Code.dup_x1);
+			Code.put(Code.pop);
+			Code.putJump(jumpBack);
+			
+			//Loop End
+			Code.fixup(jumpEnd);
+			Code.put(Code.pop);
+			Code.put(Code.pop);
+			Code.put(Code.pop);
+			Code.put(Code.pop);
+			
+			return;
+		}
 		if (d instanceof Designator_dot) {
 			Designator_dot m = (Designator_dot) d;
 			DesignatorRest r = m.getDesignatorRest();
@@ -539,6 +598,7 @@ public class CodeGenerator extends VisitorAdaptor {
 				return;
 			}
 		}
+		
 		Code.load(d.obj);
 	}
 

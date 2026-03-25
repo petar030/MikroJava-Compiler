@@ -49,7 +49,7 @@ terminal CONTINUE, FOR, LENGTH, SWITCH, CASE;
 terminal EQEQ, NE, GE, LE, AND, OR, INC, DEC;
 terminal GT, LT, PLUS, MINUS, MUL, DIV, MOD, EQUAL;
 terminal SEMI, COLON, COMMA, DOT, QMARK;
-terminal LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE;
+terminal LPAREN, RPAREN, LBRACK, RBRACK, LBRACE, RBRACE, HASH;
 terminal NEW;
 
 terminal String IDENT;
@@ -364,6 +364,7 @@ Designator ::=
       (Designator_var) IDENT:I1 {: RESULT=new Designator_var(I1); RESULT.setLine(I1left); :}
     | (Designator_dot) Name:N1 DesignatorRest:D2 {: RESULT=new Designator_dot(N1, D2); RESULT.setLine(N1left); :}
     | (Designator_elem) ArrayName:A1 LBRACK Expr:E2 RBRACK {: RESULT=new Designator_elem(A1, E2); RESULT.setLine(A1left); :}
+    | (Designator_max) HASH ArrayName:A1 {: RESULT=new Designator_max(A1); RESULT.setLine(A1left); :}
     ;
     
 DesignatorRest ::= (DrLength) DOT LENGTH {: RESULT=new DrLength(); :}

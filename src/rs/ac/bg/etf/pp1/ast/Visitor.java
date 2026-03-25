@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2026 16:30:30
+// 17/1/2026 19:20:6
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -61,6 +61,7 @@ public interface Visitor {
     public void visit(Name Name);
     public void visit(DrEnum DrEnum);
     public void visit(DrLength DrLength);
+    public void visit(Designator_max Designator_max);
     public void visit(Designator_elem Designator_elem);
     public void visit(Designator_dot Designator_dot);
     public void visit(Designator_var Designator_var);
