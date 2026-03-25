@@ -132,18 +132,6 @@ ant runDebug
 - `debugObj` disassembles `test/program.obj` and runs it in VM debug mode
 - `runDebug` runs it after the debug/disassembly step
 
-## Included Test Programs
-
-- `test/test301.mj`:
-  - Basic types, enum declarations, arrays
-  - Arithmetic and increment operations
-  - Array indexing and output printing
-
-- `test/test302.mj`:
-  - More complex control flow
-  - Methods with parameters/return values
-  - `if-else`, `for`, `break`, `continue`
-  - Logical operators and short-circuit evaluation
 
 ## Logging
 
@@ -152,6 +140,4 @@ Log configuration is provided via Log4j files in `config/` (and related runtime 
 ## Author
 
 - **Petar Rančić**
-- Index: **2022/0418**
 - School of Electrical Engineering, University of Belgrade
-- Course: **Programming Languages Translators 1**
